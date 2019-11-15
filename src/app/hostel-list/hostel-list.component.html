@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Hostel List</h2>
+    <div> 
+        <a routerLink="add"  routerLinkActive="active">Add Hostel</a>
+     </div>
+  </div> 
+    <br>
+    <div class="row aln-center">
+        <div *ngFor="let hostel of hostels | async" class="col-4 col-6-medium col-12-small">
+            <section class="box style1">
+                <span class="icon solid featured fa-comments"></span>
+                <h3>{{hostel.firstName}}</h3>
+                <p>{{hostel.lastName}}</p>
+                <p>{{hostel.emailId}}</p>
+                <p>
+                    <button (click)="deleteHostel(hostel.id)" class="btn btn-danger">Delete</button>
+                    <button (click)="updateHostel(hostel.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                    <button (click)="hostelDetails(hostel.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+
+                </p>
+            </section>
+        </div>
+    </div>
+     
+</div>
+
