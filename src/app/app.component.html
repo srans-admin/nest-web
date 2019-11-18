@@ -1,6 +1,11 @@
-<nav class="navbar navbar-expand-sm navbar-dark"> 
+<div class="container"> 
+        <h1 style="text-align: center;">{{title}}</h1>
+    
+         <router-outlet></router-outlet>
+
+<nav class="navbar navbar-expand-sm bg-light navbar-dark"> 
     <!-- Nav -->
-    <nav id="nav">
+    <!-- <nav id="nav">
         <ul >
             <li class="nav-item"><a routerLink="hostels" class="nav-link" routerLinkActive="active">Hostels</a></li>
             <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Tenants</a></li>
@@ -8,17 +13,29 @@
             <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Expences</a></li>
 
         </ul>
-    </nav> 
+    </nav>  -->
+
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <button class="m-1 btn-dark btn-outline-primary" Button 
+            label = "userListScreen"
+            (click) = "userListScreen=true; userAdmissionScreen=flase">    
+            User List
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="m-1 btn-dark btn-outline-primary" Button 
+            label = "userAdmissionScreen"
+                (click) = "userListScreen=flase; userAdmissionScreen=true">
+                User Admission
+            </button>
+        </li>
+    </ul>
 
 </nav>
-
-
-<div class="container"> 
-    <h2 style="text-align: center;">{{title}}</h2>
-
-    <router-outlet></router-outlet>
-    
-     
+  
+   <app-list-user *ngIf="userListScreen"></app-list-user>
+   <app-add-user *ngIf="userAdmissionScreen"></app-add-user>   
 
 </div>
 

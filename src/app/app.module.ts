@@ -8,6 +8,12 @@ import { HostelDetailsComponent } from './hostel-details/hostel-details.componen
 import { HostelListComponent } from './hostel-list/hostel-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
+import { AddUserComponent } from './User/add-user/add-user.component';
+import { ListUserComponent } from './User/list-user/list-user.component';
+import { EditUserComponent } from './User/edit-user/edit-user.component';
+import { DeleteUserComponent } from './User/delete-user/delete-user.component';
+
+// import { UserlistService } from 'src/app/services/userlist.service':
  
 @NgModule({
   declarations: [
@@ -15,7 +21,12 @@ import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
     CreateHostelComponent,
     HostelDetailsComponent,
     HostelListComponent,
-    UpdateHostelComponent 
+    UpdateHostelComponent,
+    AddUserComponent,
+    ListUserComponent,
+    EditUserComponent,
+    DeleteUserComponent,
+    // UserlistService
   ],
   imports: [
     BrowserModule,
