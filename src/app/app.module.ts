@@ -8,6 +8,10 @@ import { HostelDetailsComponent } from './hostel-details/hostel-details.componen
 import { HostelListComponent } from './hostel-list/hostel-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
+import { CreateRoleComponent } from './role/create-role/create-role.component';
+import { RoleDetailsComponent } from './role/role-details/role-details.component';
+import { RoleListComponent } from './role/role-list/role-list.component';
+import { UpdateRoleComponent } from './role/update-role/update-role.component';
  
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
     CreateHostelComponent,
     HostelDetailsComponent,
     HostelListComponent,
-    UpdateHostelComponent 
+    UpdateHostelComponent,
+    CreateRoleComponent,
+    RoleDetailsComponent,
+    RoleListComponent,
+    UpdateRoleComponent 
   ],
   imports: [
     BrowserModule,
