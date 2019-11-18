@@ -9,12 +9,18 @@ import { HostelDetailsComponent } from './hostel-details/hostel-details.componen
 import { HostelListComponent } from './hostel-list/hostel-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
+
 import { AddUserComponent } from './User/add-user/add-user.component';
 import { ListUserComponent } from './User/list-user/list-user.component';
 import { EditUserComponent } from './User/edit-user/edit-user.component';
 import { DeleteUserComponent } from './User/delete-user/delete-user.component';
 
 
+
+import { CreateRoleComponent } from './role/create-role/create-role.component';
+import { RoleDetailsComponent } from './role/role-details/role-details.component';
+import { RoleListComponent } from './role/role-list/role-list.component';
+import { UpdateRoleComponent } from './role/update-role/update-role.component';
 import { AddHostelComponent } from './hostel/add-hostel/add-hostel.component';
 import { ListHostelComponent } from './hostel/list-hostel/list-hostel.component';
 import { EditHostelComponent } from './hostel/edit-hostel/edit-hostel.component';
@@ -42,10 +48,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HostelDetailsComponent,
     HostelListComponent,
     UpdateHostelComponent,
+
     AddUserComponent,
     ListUserComponent,
     EditUserComponent,
     DeleteUserComponent,
+
+    CreateRoleComponent,
+    RoleDetailsComponent,
+    RoleListComponent,
+    UpdateRoleComponent,
     AddHostelComponent,
     ListHostelComponent,
     EditHostelComponent,

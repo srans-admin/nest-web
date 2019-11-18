@@ -1,0 +1,30 @@
+<div class="col-md-6 user-container">
+  <h2 style="margin: auto"> Role Details</h2>
+  <div>
+  <a class="btn btn-primary" style="width:100px" routerLink="add"  routerLinkActive="active">Add Role</a>
+</div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let role of roles">
+      <td class="hidden"></td>
+      <td>{{role.firstName}}</td>
+      <td>{{role.lastName}}</td>
+      <td>{{role.mobile}}</td>
+      <td>{{role.email}}</td>
+      <td>{{role.role}}</td>
+      <td><button class="btn btn-danger" (click)="deleteRole(role.id)"> Delete</button>
+        <button class="btn btn-success" (click)="updateRole(role.id)" style="margin-left: 20px;"> Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
