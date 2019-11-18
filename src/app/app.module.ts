@@ -9,6 +9,12 @@ import { HostelDetailsComponent } from './hostel-details/hostel-details.componen
 import { HostelListComponent } from './hostel-list/hostel-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
+<<<<<<< HEAD
+import { CreateRoleComponent } from './role/create-role/create-role.component';
+import { RoleDetailsComponent } from './role/role-details/role-details.component';
+import { RoleListComponent } from './role/role-list/role-list.component';
+import { UpdateRoleComponent } from './role/update-role/update-role.component';
+=======
 import { AddHostelComponent } from './hostel/add-hostel/add-hostel.component';
 import { ListHostelComponent } from './hostel/list-hostel/list-hostel.component';
 import { EditHostelComponent } from './hostel/edit-hostel/edit-hostel.component';
@@ -27,6 +33,7 @@ import { EditFacilityComponent } from './facility/edit-facility/edit-facility.co
 import { DeleteFacilityComponent } from './facility/delete-facility/delete-facility.component';
 import { ViewComponent } from './hostel/view/view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+>>>>>>> 693473fee03549b77075a75488df95d62bb44de8
  
 @NgModule({
   declarations: [
@@ -35,6 +42,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HostelDetailsComponent,
     HostelListComponent,
     UpdateHostelComponent,
+<<<<<<< HEAD
+    CreateRoleComponent,
+    RoleDetailsComponent,
+    RoleListComponent,
+    UpdateRoleComponent 
+=======
     AddHostelComponent,
     ListHostelComponent,
     EditHostelComponent,
@@ -52,6 +65,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditFacilityComponent,
     DeleteFacilityComponent,
     ViewComponent 
+>>>>>>> 693473fee03549b77075a75488df95d62bb44de8
   ],
   imports: [
     BrowserModule,
