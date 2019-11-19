@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Role } from '../../role';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RoleService } from '../../role.service';
+=======
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6
 
 @Component({
   selector: 'app-update-role',
@@ -10,6 +13,7 @@ import { RoleService } from '../../role.service';
 })
 export class UpdateRoleComponent implements OnInit {
 
+<<<<<<< HEAD
   id: number;
   role: Role;
 
@@ -44,3 +48,11 @@ export class UpdateRoleComponent implements OnInit {
   }
 }
 
+=======
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6

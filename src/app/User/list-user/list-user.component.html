@@ -1,0 +1,58 @@
+<mat-form-field>
+
+  <input matInput (keyup)="applySearch($event.target.value)" 
+  placeholder="Search..">  
+</mat-form-field>
+
+<button class="mt-2" mat-raised-button (click)="onAdd()" color="primary">Add User</button>
+
+<div style="overflow:auto;">
+<div class="mat-elevation-z8">
+
+  <mat-table [dataSource] = "listData" matSort>
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+
+<ng-container matColumnDef="options">
+  <mat-header-cell *matHeaderCellDef>options</mat-header-cell>
+  <mat-cell *matCellDef="let row">
+    <button mat-icon-button (click)="onEdit(row)">
+      <mat-icon color="primary">launch</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onDelete(row.UserID)">
+        <mat-icon color="warn">delete_outline</mat-icon>
+      </button>
+  </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="UserID" >
+  <mat-header-cell *matHeaderCellDef mat-sort-header>UserID</mat-header-cell>
+  <mat-header-cell *matCellDef="let element">{{element.UserID}}</mat-header-cell>
+</ng-container>
+
+<ng-container matColumnDef="Name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+    <mat-header-cell *matCellDef="let element">{{element.Name}}</mat-header-cell>
+  </ng-container>
+
+  
+<ng-container matColumnDef="emailID">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>emailID</mat-header-cell>
+    <mat-header-cell *matCellDef="let element">{{element.emailID}}</mat-header-cell>
+  </ng-container>
+
+
+<ng-container matColumnDef="DOB">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>DOB</mat-header-cell>
+    <mat-header-cell *matCellDef="let element">{{element.DOB}}</mat-header-cell>
+  </ng-container>
+
+
+<ng-container matColumnDef="PhoneNumber">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>PhoneNumber</mat-header-cell>
+    <mat-header-cell *matCellDef="let element">{{element.PhoneNumber}}</mat-header-cell>
+  </ng-container>
+        
+  </mat-table>
+</div>  
+</div>

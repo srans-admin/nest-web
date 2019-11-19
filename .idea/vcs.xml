@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+<<<<<<< HEAD
     <mapping directory="$PROJECT_DIR$/../nest-web" vcs="Git" />
+=======
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>

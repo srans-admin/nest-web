@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 import { Role } from '../../role';
 import { Component, OnInit, Input } from '@angular/core';
 import { RoleService } from '../../role.service';
 import { RoleListComponent } from '../role-list/role-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6
 
 @Component({
   selector: 'app-role-details',
@@ -11,6 +15,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RoleDetailsComponent implements OnInit {
 
+<<<<<<< HEAD
   id: number;
   role: Role;
 
@@ -32,4 +37,11 @@ export class RoleDetailsComponent implements OnInit {
   list(){
     this.router.navigate(['roles']);
   }
+=======
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6
 }

@@ -7,8 +7,11 @@ import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
 import { RoleListComponent } from './role/role-list/role-list.component';
 import { UpdateRoleComponent } from './role/update-role/update-role.component';
 import { CreateRoleComponent } from './role/create-role/create-role.component';
+<<<<<<< HEAD
 import { RoleDetailsComponent } from './role/role-details/role-details.component';
 
+=======
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6
 
 
 const routes: Routes = [
@@ -17,10 +20,16 @@ const routes: Routes = [
   { path: 'hostels/add', component: CreateHostelComponent },
   { path: 'update/:id', component: UpdateHostelComponent },
   { path: 'details/:id', component: HostelDetailsComponent },
+<<<<<<< HEAD
    { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
   { path: 'update/:id', component: UpdateRoleComponent },
   { path: 'details/:id', component: RoleDetailsComponent },
+=======
+  { path: 'roles', component: RoleListComponent },
+  { path: 'roles/add', component: CreateRoleComponent },
+  { path: 'update/:id', component: UpdateRoleComponent },
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6
 ];
 
 @NgModule({
