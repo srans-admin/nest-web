@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 export class RoleListComponent implements OnInit {
   roles: Observable<Role[]>;
 
-  constructor(private roleService: RoleService,
+
+constructor(private roleService: RoleService,
     private router: Router) {}
 
   ngOnInit() {

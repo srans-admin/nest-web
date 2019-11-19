@@ -20,7 +20,7 @@ export class CreateRoleComponent implements OnInit {
   ngOnInit() {
   }
 
-  newHostel(): void {
+  newRole(): void {
     this.submitted = false;
     this.role = new Role();
   }
