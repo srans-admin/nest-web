@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import {
-    MatTabsModule
-} from '@angular/material/tabs';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
