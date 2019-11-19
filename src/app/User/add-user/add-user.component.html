@@ -1,3 +1,78 @@
-<p>
-  add-user works!
-</p>
+
+<div class="d-flax justify-content-between">
+  <h4>Add New User</h4>
+
+  <button mat-button (click)="onClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div style="overflow: auto; height: 500px;">
+  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <div class="mt-4 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Name</span>
+      </div>
+      <input required minlength="2" type="text"
+      class="form-control"
+      name="Name"
+      #Name="ngModel"
+      [(ngModel)]="service.formData.Name">      
+    </div>
+    <div class="text-left text-danger"
+    *ngIf="Name.invalid && Name.touched">
+    please enter Name
+  </div>
+
+      <div class="mt-4 input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">emailID</span>
+        </div>
+        <input required minlength="2" type="text"
+        class="form-control"
+        name="emailID"
+        #emailID="ngModel"
+        [(ngModel)]="service.formData.emailID">      
+      </div>
+      <div class="text-left text-danger"
+      *ngIf="emailID.invalid && emailID.touched">
+      please enter emailID.
+      </div>
+
+      <div class="mt-4 input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">DOB</span>
+          </div>
+          <input required minlength="2" type="text"
+          class="form-control"
+          name="DOB"
+          #DOB="ngModel"
+          [(ngModel)]="service.formData.DOB">      
+        </div>
+        <div class="text-left text-danger"
+        *ngIf="DOB.invalid && DOB.touched">
+        please enter date of birth.
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">PhoneNumber</span>
+            </div>
+            <input required minlength="2" type="text"
+            class="form-control"
+            name="PhoneNumber"
+            #PhoneNumber="ngModel"
+            [(ngModel)]="service.formData.PhoneNumber">      
+          </div>
+          <div class="text-left text-danger"
+          *ngIf="PhoneNumber.invalid && PhoneNumber.touched">
+          please give valid phone number.
+          </div>
+    
+  
+
+
+  <button class="mt-4" mat-raised-button-color="primary" type="submit"
+  [disabled] = "form.invalid">Add User</button>
+  </form>
+</div>

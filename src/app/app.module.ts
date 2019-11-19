@@ -3,20 +3,20 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {MatTableModule, MatIconModule, MatButtonModule} from '@angular/material';
+import {MatSortModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material';
 import { AngularMaterialModule } from './angular-material.module';
+import {MatInputModule} from '@angular/material/input';
 import { CreateHostelComponent } from './create-hostel/create-hostel.component';
 import { HostelDetailsComponent } from './hostel-details/hostel-details.component';
 import { HostelListComponent } from './hostel-list/hostel-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
-
 import { AddUserComponent } from './User/add-user/add-user.component';
 import { ListUserComponent } from './User/list-user/list-user.component';
 import { EditUserComponent } from './User/edit-user/edit-user.component';
 import { DeleteUserComponent } from './User/delete-user/delete-user.component';
-
-
-
 import { CreateRoleComponent } from './role/create-role/create-role.component';
 import { RoleDetailsComponent } from './role/role-details/role-details.component';
 import { RoleListComponent } from './role/role-list/role-list.component';
@@ -39,6 +39,7 @@ import { EditFacilityComponent } from './facility/edit-facility/edit-facility.co
 import { DeleteFacilityComponent } from './facility/delete-facility/delete-facility.component';
 import { ViewComponent } from './hostel/view/view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {UserService} from 'src/app/services/user.service';
 
  
 @NgModule({
@@ -48,12 +49,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HostelDetailsComponent,
     HostelListComponent,
     UpdateHostelComponent,
-
     AddUserComponent,
     ListUserComponent,
     EditUserComponent,
     DeleteUserComponent,
-
     CreateRoleComponent,
     RoleDetailsComponent,
     RoleListComponent,
@@ -82,9 +81,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    MatInputModule,
+    MatTableModule, MatIconModule, MatButtonModule,
+    MatSortModule,
+    MatDialogModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [UserService],
+  bootstrap: [AppComponent],
+  entryComponents:[AddUserComponent]
 })
 export class AppModule { }
