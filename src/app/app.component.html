@@ -5,7 +5,10 @@
             <li class="nav-item"><a routerLink="hostels" class="nav-link" routerLinkActive="active">Hostels</a></li>
             <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Tenants</a></li>
             <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Invoices</a></li>
-            <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Expences</a></li>
+            <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Expenses</a></li>
+            <li class="nav-item"><a  routerLink="roles" class="nav-link" routerLinkActive="active">Roles</a></li>
+            <li class="nav-item"><a  routerLink="managements" class="nav-link" routerLinkActive="active">Management</a></li>
+
 
         </ul>
     </nav> 
@@ -16,8 +19,12 @@
 <div class="container"> 
     <h2 style="text-align: center;">{{title}}</h2>
 
-    <router-outlet></router-outlet>
-    
+  <hr>
+  <div class="card">
+    <div class="card-body">
+       <router-outlet></router-outlet>
+    </div>
+  </div>
      
 
 </div>

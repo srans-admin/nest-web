@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+    <div class ="panel-heading">
+      <h2>Management List</h2>
+    </div>
+    <div>
+      <a routerLink="add" href=""  routerLinkActive="active">Add Management</a>
+    </div>
+  <br>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="hidden">Id</th>
+          <th>Hostel Name</th>
+          <th>Name</th>
+          <th>Role Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let management of managements | async">
+          <td class="hidden"></td>
+          <td>{{ management.hostelName }}</td>
+          <td>{{ management.name }}</td>
+          <td>{{ management.roleName}}</td>
+          <td>
+            <button  (click)="deleteManagement(management.id)" class="btn btn-danger"> Delete</button>
+            <button  (click)="updateManagement(management.id)" style="margin-left: 10px;"> Update</button>
+            <button (click)="managementDetails(management.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
