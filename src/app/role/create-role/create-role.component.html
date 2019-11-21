@@ -3,8 +3,23 @@
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Role Name</label>
-      <input type="text" class="form-control" id=" roleName" required [(ngModel)]="role.roleName" name=" roleName">
+      <select id="roleName" class="form-control" [(ngModel)]="role.roleName" name=" roleName">
+          <option value="1">Super Admin</option>
+          <option value="2">Admin</option>
+          <option value="3">Tenant</option>
+      </select>
     </div>
+
+     <!--<div class="form-group" [class.has-error]="name.invalid && name.touched"-->
+                              <!--[class.has-success]="name.valid">-->
+      <!--<label for="name" class="control-label">Name</label>-->
+      <!--<input type="text" class="form-control" id="name" required  [(ngModel)]="role.name"-->
+             <!--name="name" class="form-control" #name="ngModel">-->
+            <!--<span class="help-block"-->
+                  <!--*ngIf="name.invalid && name.touched">-->
+              <!--Name is required-->
+            <!--</span>-->
+     <!--</div>-->
 
      <div class="form-group">
       <label for="name">Name</label>

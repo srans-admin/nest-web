@@ -18,8 +18,8 @@ import { ManagementDetailsComponent } from './management/management-details/mana
 import { ManagementListComponent } from './management/management-list/management-list.component';
 import { UpdateManagementComponent } from './management/update-management/update-management.component';
 
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -41,10 +41,12 @@ import { UpdateManagementComponent } from './management/update-management/update
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

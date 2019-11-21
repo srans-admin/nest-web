@@ -5,6 +5,7 @@ import { Role } from "../../role";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: "app-role-list",
   templateUrl: "./role-list.component.html",
@@ -42,5 +43,7 @@ export class RoleListComponent implements OnInit {
   updateRole(id: number){
     this.router.navigate(['update', id]);
   }
+
+
 }
 
