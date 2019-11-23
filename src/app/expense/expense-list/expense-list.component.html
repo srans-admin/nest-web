@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="row">
-    <div class="col-sm-8"><h2>Role List</h2></div>
+    <div class="col-sm-8"><h2>Expense List</h2></div>
     <div>
       <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus"></i>Add</a>
     </div>
@@ -14,22 +14,20 @@
       <thead>
         <tr>
           <th class="hidden">Id</th>
-          <th>Role Name</th>
-          <th>Name</th>
-          <th>Email</th>
+          <th>Type of Expense</th>
+          <th>Cost</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let role of roles |  async">
+        <tr *ngFor="let expense of expenses |  async">
           <td class="hidden"></td>
-          <td>{{ role.roleName }}</td>
-          <td>{{ role.name }}</td>
-          <td>{{ role.emailId }}</td>
+          <td>{{ expense.typeOfExpenses }}</td>
+          <td>{{ expense.cost }}</td>
           <td>
-            <button  (click)="deleteRole(role.id)" class="btn btn-danger"> Delete</button>
-            <button  (click)="updateRole(role.id)" class="btn btn-primary" style="margin-left: 10px"> Update</button>
-            <button (click)="roleDetails(role.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            <button  (click)="deleteExpense(expense.id)" class="btn btn-danger"> Delete</button>
+            <button  (click)="updateExpense(expense.id)" style="margin-left: 10px;"> Update</button>
+            <button (click)="expenseDetails(expense.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
           </td>
         </tr>
       </tbody>

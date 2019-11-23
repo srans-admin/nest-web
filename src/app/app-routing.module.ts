@@ -14,7 +14,10 @@ import { UpdateManagementComponent } from './management/update-management/update
 import { CreateManagementComponent } from './management/create-management/create-management.component';
 import { ManagementDetailsComponent } from './management/management-details/management-details.component';
 
-
+import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
+import { UpdateExpenseComponent } from './expense/update-expense/update-expense.component';
+import { CreateExpenseComponent } from './expense/create-expense/create-expense.component';
+import { ExpenseDetailsComponent } from './expense/expense-details/expense-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'hostel', pathMatch: 'full' },
@@ -27,10 +30,15 @@ const routes: Routes = [
   { path: 'update/:id', component: UpdateRoleComponent },
   { path: 'details/:id', component: RoleDetailsComponent },
 
- { path: 'managements', component: ManagementListComponent },
+  { path: 'managements', component: ManagementListComponent },
   { path: 'managements/add', component: CreateManagementComponent },
   { path: 'update/:id', component: UpdateManagementComponent },
   { path: 'details/:id', component: ManagementDetailsComponent },
+
+  { path: 'expenses', component: ExpenseListComponent },
+  { path: 'expenses/add', component: CreateExpenseComponent },
+  { path: 'update/:id', component: UpdateExpenseComponent },
+  { path: 'details/:id', component: ExpenseDetailsComponent },
 
 ];
 

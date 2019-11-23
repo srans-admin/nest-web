@@ -3,17 +3,12 @@
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Role Name</label>
-      <input type="text" class="form-control" id="roleName" required [(ngModel)]="employee.roleName" name="roleName">
+      <input type="text" class="form-control" id="roleName" required [(ngModel)]="role.roleName" name="roleName">
     </div>
 
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="employee.name" name="name">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Email</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+      <input type="text" class="form-control" id="name" required [(ngModel)]="role.name" name="name">
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>

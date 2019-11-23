@@ -18,6 +18,12 @@ import { ManagementDetailsComponent } from './management/management-details/mana
 import { ManagementListComponent } from './management/management-list/management-list.component';
 import { UpdateManagementComponent } from './management/update-management/update-management.component';
 
+import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
+import { UpdateExpenseComponent } from './expense/update-expense/update-expense.component';
+import { CreateExpenseComponent } from './expense/create-expense/create-expense.component';
+import { ExpenseDetailsComponent } from './expense/expense-details/expense-details.component';
+
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -36,6 +42,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ManagementDetailsComponent,
     ManagementListComponent,
     UpdateManagementComponent,
+    ExpenseListComponent,
+    UpdateExpenseComponent,
+    CreateExpenseComponent,
+    ExpenseDetailsComponent,
 
   ],
   imports: [

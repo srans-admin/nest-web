@@ -1,0 +1,22 @@
+<h5>Create Expense</h5>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+     <div class="form-group">
+      <label for="name">Type of Expense</label>
+      <input type="text" class="form-control" id="typeOfExpenses" required [(ngModel)]="expense.typeOfExpenses" name="typeOfExpenses">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Cost</label>
+      <input type="text" class="form-control" id="cost" required [(ngModel)]="expense.cost" name="cost">
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newHostel()">Add</button> -->
+</div>
