@@ -13,11 +13,13 @@ import { DeleteHostelComponent } from './hostel/delete-hostel/delete-hostel.comp
 import { EditHostelComponent } from './hostel/edit-hostel/edit-hostel.component';
 import { ViewComponent } from './hostel/view/view.component';
 import { AddFloorComponent } from './floor/add-floor/add-floor.component';
+import { AddRoomComponent } from './room/add-room/add-room.component';
+import { ListFloorComponent } from './floor/list-floor/list-floor.component';
+import { ListRoomComponent } from './room/list-room/list-room.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'hostel', pathMatch: 'full' },
-  // { path: 'hostels', component: HostelListComponent },
   { path: 'hostels/add', component: CreateHostelComponent },
   { path: 'update/:id', component: UpdateHostelComponent },
   { path: 'details/:id', component: HostelDetailsComponent },
@@ -30,7 +32,8 @@ const routes: Routes = [
   // { path: 'details/:id', component: HostelDetailsComponent },
   { path: 'hostels', component: ListHostelComponent},
   { path: 'hostels/viewtabs', component: AddHostelComponent},
-  { path: 'hostels/addFloor', component: AddFloorComponent}
+  { path: 'hostels/addFloor', component: AddFloorComponent},
+  { path: 'hostels/addFloor/rooms', component: AddRoomComponent},
 ];
 
 @NgModule({

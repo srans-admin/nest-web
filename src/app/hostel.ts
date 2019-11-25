@@ -1,7 +1,7 @@
 export class Hostel {
   id: number;
-  firstName: string;
-  lastName: string;
-  emailId: string;
+  hostel_name: string;
+  hostel_address: string;
+  hostel_type: string;
   active: boolean;
 }

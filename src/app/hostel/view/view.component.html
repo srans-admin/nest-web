@@ -1,8 +1,18 @@
-<!-- <nav id="nav">
-    <a routerLink="basic" class="nav-link" routerLinkActive="active">Basic</a>
-    <a routerLink="details" class="nav-link" routerLinkActive="active">Details</a>
-</nav>
+<h2>Hostel Details</h2> 
 
-<div class="container">
-  <router-outlet></router-outlet>
-</div> -->
+<hr/>
+<div *ngIf="hostel">
+  <div>
+    <label><b>Hostel Name: </b></label> {{hostel.hostel_name}}
+  </div>
+  <div>
+    <label><b>Hostel Address: </b></label> {{hostel.hostel_address}}
+  </div>
+  <div>
+    <label><b>Hostel Type: </b></label> {{hostel.hostel_type}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Hostel List</button><br>

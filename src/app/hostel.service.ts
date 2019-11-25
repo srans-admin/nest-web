@@ -15,7 +15,11 @@ export class HostelService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createHostel(hostel: Object): Observable<Object> {
+  createHostel(hostel: Object): Observable<Object>{
+    return this.http.post(`${this.baseUrl}`, hostel);
+  }
+
+  addHostel(hostel: Object): Observable<Object>{
     return this.http.post(`${this.baseUrl}`, hostel);
   }
 

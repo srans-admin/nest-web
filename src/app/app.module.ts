@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularMaterialModule } from './angular-material.module';
@@ -32,6 +34,8 @@ import { DeleteFacilityComponent } from './facility/delete-facility/delete-facil
 import { ViewComponent } from './hostel/view/view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HostelComponent } from './details/hostel/hostel.component';
+import { DetailsComponent } from './hostel/details/details.component';
  
 @NgModule({
   declarations: [
@@ -60,7 +64,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     ListFacilityComponent,
     EditFacilityComponent,
     DeleteFacilityComponent,
-    ViewComponent 
+    ViewComponent,
+    HostelComponent,
+    DetailsComponent 
   ],
   imports: [
     BrowserModule,
@@ -69,7 +75,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
