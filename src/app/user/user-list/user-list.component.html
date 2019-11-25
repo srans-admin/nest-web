@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+    <div class="row">
+      <div class="col-sm-8"><h2>User List</h2></div>
+      <div>
+        <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus"></i>Add</a>
+      </div>
+          <!-- <div class="form-group pull-right">
+                                  <input type="text" [(ngModel)]="searchText" placeholder="search">
+        </div> -->
+        <form class="form-inline waves-light" mdbWavesEffect>
+          <div class="md-form mt-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          </div>
+        </form>
+    </div>
+    <br>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>userId</th>
+            <th>name</th>
+            <th>emailId</th>
+            <th>dob</th>
+            <th>phoneNumber</th>
+            <th>options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users |  async">
+            <td>{{ user.userId }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.emailId }}</td>
+            <td>{{ user.dob }}</td>
+            <td>{{user.phoneNumber}}</td>
+            <td>
+              <button  (click)="deleteUser(user.userId)" class="btn btn-danger"> Delete</button>
+              <button  (click)="updateUser(user.userId)" class="btn btn-primary" style="margin-left: 10px"> Update</button>
+              <button (click)="userDetails(user.userId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+  

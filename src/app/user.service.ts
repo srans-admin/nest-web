@@ -5,28 +5,29 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ExpenseService {
+export class UserService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v4/expenses';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v3/user';
+
   constructor(private http: HttpClient) { }
 
-  getExpense(id: number): Observable<any> {
+  getUser(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createExpense(expense: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, expense);
+  createUser(user: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, user);
   }
 
-  updateExpense(id: number, value: any): Observable<Object> {
+  updateUser(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteExpense(id: number): Observable<any> {
+  deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getExpensesList(): Observable<any> {
+  getUsersList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 }

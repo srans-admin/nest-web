@@ -19,6 +19,14 @@ import { UpdateExpenseComponent } from './expense/update-expense/update-expense.
 import { CreateExpenseComponent } from './expense/create-expense/create-expense.component';
 import { ExpenseDetailsComponent } from './expense/expense-details/expense-details.component';
 
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { CreateUserComponent } from './user/create-user/create-user.component';
+import { UserDetailsComponent } from './user/user-details/user-details.component';
+
+import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
+import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'hostels', component: HostelListComponent },
@@ -27,18 +35,26 @@ const routes: Routes = [
   { path: 'details/:id', component: HostelDetailsComponent },
   { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
-  { path: 'update/:id', component: UpdateRoleComponent },
-  { path: 'details/:id', component: RoleDetailsComponent },
+  { path: 'rupdate/:id', component: UpdateRoleComponent },
+  { path: 'rdetails/:id', component: RoleDetailsComponent },
 
   { path: 'managements', component: ManagementListComponent },
   { path: 'managements/add', component: CreateManagementComponent },
-  { path: 'update/:id', component: UpdateManagementComponent },
-  { path: 'details/:id', component: ManagementDetailsComponent },
+  { path: 'mupdate/:id', component: UpdateManagementComponent },
+  { path: 'mdetails/:id', component: ManagementDetailsComponent },
 
   { path: 'expenses', component: ExpenseListComponent },
   { path: 'expenses/add', component: CreateExpenseComponent },
-  { path: 'update/:id', component: UpdateExpenseComponent },
-  { path: 'details/:id', component: ExpenseDetailsComponent },
+  { path: 'eupdate/:id', component: UpdateExpenseComponent },
+  { path: 'edetails/:id', component: ExpenseDetailsComponent },
+
+  { path: 'user', component: UserListComponent },
+  { path: 'user/add', component: CreateUserComponent },
+  { path: 'userupdate/:id', component: UpdateUserComponent },
+  { path: 'userdetails/:id', component: UserDetailsComponent },
+
+  { path: 'invoice', component: InvoiceListComponent },
+  { path: 'invoice/add', component: CreateInvoiceComponent},
 
 ];
 

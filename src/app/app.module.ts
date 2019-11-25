@@ -26,6 +26,12 @@ import { ExpenseDetailsComponent } from './expense/expense-details/expense-detai
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CreateUserComponent } from './user/create-user/create-user.component';
+import { UserDetailsComponent } from './user/user-details/user-details.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
+import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +52,12 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     UpdateExpenseComponent,
     CreateExpenseComponent,
     ExpenseDetailsComponent,
+    CreateUserComponent,
+    UserDetailsComponent,
+    UserListComponent,
+    UpdateUserComponent,
+    CreateInvoiceComponent,
+    InvoiceListComponent,
 
   ],
   imports: [
