@@ -7,6 +7,7 @@ import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
 import { RoleListComponent } from './role/role-list/role-list.component';
 import { UpdateRoleComponent } from './role/update-role/update-role.component';
 import { CreateRoleComponent } from './role/create-role/create-role.component';
+<<<<<<< HEAD
 import { RoleDetailsComponent } from './role/role-details/role-details.component';
 
 import { ManagementListComponent } from './management/management-list/management-list.component';
@@ -26,6 +27,14 @@ import { UserDetailsComponent } from './user/user-details/user-details.component
 
 import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
+=======
+<<<<<<< HEAD
+import { RoleDetailsComponent } from './role/role-details/role-details.component';
+
+=======
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6
+
+>>>>>>> b852c9545424fbe22a6e2aa60d2499587224cb64
 
 const routes: Routes = [
   { path: '', redirectTo: 'hostel', pathMatch: 'full' },
@@ -33,6 +42,7 @@ const routes: Routes = [
   { path: 'hostels/add', component: CreateHostelComponent },
   { path: 'update/:id', component: UpdateHostelComponent },
   { path: 'details/:id', component: HostelDetailsComponent },
+<<<<<<< HEAD
   { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
   { path: 'rupdate/:id', component: UpdateRoleComponent },
@@ -56,6 +66,18 @@ const routes: Routes = [
   { path: 'invoice', component: InvoiceListComponent },
   { path: 'invoice/add', component: CreateInvoiceComponent},
 
+=======
+<<<<<<< HEAD
+   { path: 'roles', component: RoleListComponent },
+  { path: 'roles/add', component: CreateRoleComponent },
+  { path: 'update/:id', component: UpdateRoleComponent },
+  { path: 'details/:id', component: RoleDetailsComponent },
+=======
+  { path: 'roles', component: RoleListComponent },
+  { path: 'roles/add', component: CreateRoleComponent },
+  { path: 'update/:id', component: UpdateRoleComponent },
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6
+>>>>>>> b852c9545424fbe22a6e2aa60d2499587224cb64
 ];
 
 @NgModule({

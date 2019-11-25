@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
+=======
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+>>>>>>> b852c9545424fbe22a6e2aa60d2499587224cb64
 @import '~bootstrap/dist/css/bootstrap.min.css';
+/* "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 
 .footer {
     position: absolute;
@@ -10,3 +15,11 @@
     text-align: center;
     color: white;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+>>>>>>> 8318f1ead8305178fd001ae6267372eccec7c4a6
+>>>>>>> b852c9545424fbe22a6e2aa60d2499587224cb64
