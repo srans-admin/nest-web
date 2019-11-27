@@ -13,7 +13,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th class="hidden">Id</th>
+            <th class="hidden">id</th>
             <th>name</th>
             <th>paymentType</th>
             <th>amount</th>
@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let invoice of invoices |  async">
-            <td>{{ invoice.Id }}</td>
+            <td>{{ invoice.id }}</td>
             <td>{{ invoice.name }}</td>
             <td>{{ invoice.paymentType }}</td>
             <td>{{ invoice.amount }}</td>

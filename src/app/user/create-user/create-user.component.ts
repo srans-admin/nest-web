@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import { User } from '../../user';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -9,8 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
+  imageUrl: string = "/assets/img/showimage.jpg";
+  fileToUpload: File = null;
 
-  constructor(private userService: UserService,
+  constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router) { }
 
     user: User = new User();
@@ -18,6 +20,14 @@ export class CreateUserComponent implements OnInit {
 
 
   ngOnInit() {
+  }
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+      this.imageUrl = event.target.result;
+    } 
+    reader.readAsDataURL(this.fileToUpload);
   }
 
   newRole(): void {

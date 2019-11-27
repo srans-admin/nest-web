@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,7 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v3/user';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/sransuser';
+
+  // getCategories(): Observable<any> {
+  //   const httpOptions = {
+  //        headers: new HttpHeaders({
+  //        'Content-Type': 'application/json',
+  //        'Access-Control-Allow-Origin' : '*',
+  //        'Access-Control-Allow-Methods' : 'GET, POST, PUT, DELETE'
+  //        })
+  //    };
+  //   return this.http.post<any>(this.baseUrl+'api', JSON.stringify({"type":"get_categories"}), httpOptions )
+  //    .pipe((result) => console.log('result-->',result))       
+  //  }
+
 
   constructor(private http: HttpClient) { }
 
