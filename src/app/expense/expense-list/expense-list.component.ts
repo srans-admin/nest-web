@@ -36,11 +36,11 @@ export class ExpenseListComponent implements OnInit {
         error => console.log(error));
   }
 
-  roleDetails(id: number){
-    this.router.navigate(['details', id]);
+  expenseDetails(id: number){
+    this.router.navigate(['edetails', id]);
   }
 
   updateExpense(id: number){
-    this.router.navigate(['update', id]);
+    this.router.navigate(['eupdate', id]);
   }
 }

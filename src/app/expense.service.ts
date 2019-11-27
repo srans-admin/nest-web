@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ExpenseService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/restservices/roles';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/expenses';
+
   constructor(private http: HttpClient) { }
 
   getExpense(id: number): Observable<any> {

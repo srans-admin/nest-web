@@ -1,3 +1,40 @@
+<!--<div class="panel panel-primary">-->
+  <!--<div class="row">-->
+    <!--<div class="col-sm-8"><h2>Expense List</h2></div>-->
+    <!--<div>-->
+      <!--<a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus"></i>Add</a>-->
+    <!--</div>-->
+    	<!--<div class="form-group pull-right">-->
+								<!--<input type="text" [(ngModel)]="searchText" placeholder="search">-->
+      <!--</div>-->
+  <!--</div>-->
+  <!--<br>-->
+  <!--<div class="panel-body">-->
+    <!--<table class="table table-striped">-->
+      <!--<thead>-->
+        <!--<tr>-->
+          <!--<th class="hidden">Id</th>-->
+          <!--<th>Type of Expense</th>-->
+          <!--<th>Cost</th>-->
+          <!--<th>Actions</th>-->
+        <!--</tr>-->
+      <!--</thead>-->
+      <!--<tbody>-->
+        <!--<tr *ngFor="let expense of expenses |  async">-->
+          <!--<td class="hidden"></td>-->
+          <!--<td>{{ expense.typeOfExpenses }}</td>-->
+          <!--<td>{{ expense.cost }}</td>-->
+          <!--<td>-->
+            <!--<button  (click)="deleteExpense(expense.id)" class="btn btn-danger"> Delete</button>-->
+            <!--<button  (click)="updateExpense(expense.id)" class="btn btn-primary" style="margin-left: 10px"> Update</button>-->
+            <!--<button (click)="expenseDetails(expense.id)" class="btn btn-info" style="margin-left: 10px">Details</button>-->
+          <!--</td>-->
+        <!--</tr>-->
+      <!--</tbody>-->
+    <!--</table>-->
+  <!--</div>-->
+<!--</div>-->
+
 <div class="panel panel-primary">
   <div class="row">
     <div class="col-sm-8"><h2>Expense List</h2></div>
@@ -13,20 +50,18 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th class="hidden">Id</th>
-          <th>Type of Expense</th>
+           <th>Type of Expense</th>
           <th>Cost</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let expense of expenses |  async">
-          <td class="hidden"></td>
           <td>{{ expense.typeOfExpenses }}</td>
           <td>{{ expense.cost }}</td>
           <td>
             <button  (click)="deleteExpense(expense.id)" class="btn btn-danger"> Delete</button>
-            <button  (click)="updateExpense(expense.id)" style="margin-left: 10px;"> Update</button>
+            <button  (click)="updateExpense(expense.id)" class="btn btn-primary" style="margin-left: 10px"> Update</button>
             <button (click)="expenseDetails(expense.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
           </td>
         </tr>
@@ -34,5 +69,6 @@
     </table>
   </div>
 </div>
+
 
 

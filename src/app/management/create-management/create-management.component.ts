@@ -38,7 +38,7 @@ export class CreateManagementComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/managements']);
+    this.router.navigate(['/management']);
   }
 }
 

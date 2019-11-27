@@ -7,15 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class ManagementService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/roles';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/management';
+
   constructor(private http: HttpClient) { }
 
   getManagement(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createManagement(role: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, role);
+  createManagement(management: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, management);
   }
 
   updateManagement(id: number, value: any): Observable<Object> {

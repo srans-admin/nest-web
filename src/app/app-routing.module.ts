@@ -27,18 +27,18 @@ const routes: Routes = [
   { path: 'details/:id', component: HostelDetailsComponent },
   { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
-  { path: 'update/:id', component: UpdateRoleComponent },
-  { path: 'details/:id', component: RoleDetailsComponent },
+  { path: 'rupdate/:id', component: UpdateRoleComponent },
+  { path: 'rdetails/:id', component: RoleDetailsComponent },
 
-  { path: 'managements', component: ManagementListComponent },
-  { path: 'managements/add', component: CreateManagementComponent },
-  { path: 'update/:id', component: UpdateManagementComponent },
-  { path: 'details/:id', component: ManagementDetailsComponent },
+  { path: 'management', component: ManagementListComponent },
+  { path: 'management/add', component: CreateManagementComponent },
+  { path: 'mupdate/:id', component: UpdateManagementComponent },
+  { path: 'mdetails/:id', component: ManagementDetailsComponent },
 
   { path: 'expenses', component: ExpenseListComponent },
   { path: 'expenses/add', component: CreateExpenseComponent },
-  { path: 'update/:id', component: UpdateExpenseComponent },
-  { path: 'details/:id', component: ExpenseDetailsComponent },
+  { path: 'eupdate/:id', component: UpdateExpenseComponent },
+  { path: 'edetails/:id', component: ExpenseDetailsComponent },
 
 ];
 

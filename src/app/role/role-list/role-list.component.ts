@@ -37,13 +37,11 @@ export class RoleListComponent implements OnInit {
   }
 
   roleDetails(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['rdetails', id]);
   }
 
   updateRole(id: number){
-    this.router.navigate(['update', id]);
+    this.router.navigate(['rupdate', id]);
   }
-
-
 }
 
