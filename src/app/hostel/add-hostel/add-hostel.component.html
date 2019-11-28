@@ -1,26 +1,25 @@
-<h3>Create Hostel</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Hostel Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="hostel.firstName" name="firstName">
-    </div>
+<mat-tab-group>
+    <mat-tab label="Add Hostel">
+        <br/>
+        <form (ngSubmit)="onSubmit()">
+            <label for="name">Hostel Name</label>
+            <input type="text" class="form-control col col-sm-3" id="firstName" (ngModel)="hostel.firstName" requiredname="firstName"><br/>
 
-    <div class="form-group">
-      <label for="name">Hostel Desc</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="hostel.lastName" name="lastName">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Comments</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="hostel.emailId" name="emailId">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-</div>
-
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newHostel()">Add</button> -->
-</div>
+            <label for="name">Hostel Description</label>
+            <input type="text" class="form-control col col-sm-3" id="lastName" (ngModel)="hostel.lastName" required name="lastName"><br/>
+            
+            <label for="name">Comments</label>
+            <input type="text" class="form-control col col-sm-3" id="emailId" (ngModel)="hostel.emailId" requiredname="emailId"><br/>
+            
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </mat-tab>
+    <mat-tab label="Details"><br/>
+      <div style="text-align: center;">
+        <a routerLink="addFloor"  routerLinkActive="active">
+          <button type="button" class="btn btn-primary" style="position: relative;" data-toggle="modal" data-target="#floorModal" (click)="onCreate()">Floor</button>
+        </a>
+      </div>
+      <br/>
+    </mat-tab>
+</mat-tab-group>

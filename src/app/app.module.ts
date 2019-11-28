@@ -13,13 +13,17 @@ import { HostelDetailsComponent } from './hostel-details/hostel-details.componen
 import { HostelListComponent } from './hostel-list/hostel-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
 import { CreateRoleComponent } from './role/create-role/create-role.component';
 import { RoleDetailsComponent } from './role/role-details/role-details.component';
 import { RoleListComponent } from './role/role-list/role-list.component';
 import { UpdateRoleComponent } from './role/update-role/update-role.component';
+<<<<<<< HEAD
 
 
 import { CreateManagementComponent } from './management/create-management/create-management.component';
@@ -46,6 +50,8 @@ import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.compon
 
 
 
+=======
+>>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
 import { AddHostelComponent } from './hostel/add-hostel/add-hostel.component';
 import { ListHostelComponent } from './hostel/list-hostel/list-hostel.component';
 import { EditHostelComponent } from './hostel/edit-hostel/edit-hostel.component';
@@ -63,10 +69,15 @@ import { ListFacilityComponent } from './facility/list-facility/list-facility.co
 import { EditFacilityComponent } from './facility/edit-facility/edit-facility.component';
 import { DeleteFacilityComponent } from './facility/delete-facility/delete-facility.component';
 import { ViewComponent } from './hostel/view/view.component';
+<<<<<<< HEAD
 
 import {UserService} from 'src/app/services/user.service';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 
+=======
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+>>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
  
 
 @NgModule({
@@ -79,6 +90,7 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     CreateRoleComponent,
     RoleDetailsComponent,
     RoleListComponent,
+<<<<<<< HEAD
     UpdateRoleComponent,    
     CreateRoleComponent,
     RoleDetailsComponent,
@@ -98,6 +110,9 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     UpdateUserComponent,
     CreateInvoiceComponent,
     InvoiceListComponent,
+=======
+    UpdateRoleComponent,
+>>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
     AddHostelComponent,
     ListHostelComponent,
     EditHostelComponent,
@@ -114,9 +129,13 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     ListFacilityComponent,
     EditFacilityComponent,
     DeleteFacilityComponent,
+<<<<<<< HEAD
     ViewComponent,
     UploadImageComponent 
 
+=======
+    ViewComponent 
+>>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
   ],
   imports: [
     BrowserAnimationsModule,
@@ -124,6 +143,7 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     Ng2SearchPipeModule,
     FormsModule,
     HttpClientModule,
+<<<<<<< HEAD
     AngularMaterialModule,
     MatInputModule,
     MatTableModule, MatIconModule, MatButtonModule,
@@ -135,5 +155,14 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
   bootstrap: [AppComponent],  
   entryComponents:[]
 
+=======
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    MatDialogModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  entryComponents: [AddFloorComponent]
+>>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
 })
 export class AppModule { }
