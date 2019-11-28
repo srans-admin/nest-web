@@ -1,7 +1,19 @@
 export class User{
     userId:number;
+    userphoto:File;
       name:string;
-      emailId:string;
+      contactNumber:number;
+      fatherName:string;
+      fatherphoneNumber:number;
+      motherName:string;
+      motherphoneNumber:number;      
       dob:string;
-      phoneNumber:number;
+      bloodGroup:string;
+      emergencyContactNumber:number;
+      nameOfTheEmployer:string;
+      officeAddress:string;
+      telephoneNumber:number;
+      emailId:string;
+      permanentAddress:string;
+      idProof:string;
  }
