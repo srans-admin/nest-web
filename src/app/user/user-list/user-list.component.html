@@ -1,0 +1,72 @@
+<div class="panel panel-primary">
+    <div class="row">
+      <div class="col-sm-8"><h2>User List</h2></div>
+      <div>
+        <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus"></i>Add</a>
+      </div>
+          <!-- <div class="form-group pull-right">
+                                  <input type="text" [(ngModel)]="searchText" placeholder="search">
+        </div> -->
+        <form class="form-inline waves-light" mdbWavesEffect>
+          <div class="md-form mt-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          </div>
+        </form>
+    </div>
+    <br>
+    <div class="panel-body" style="width:600px">
+      <table class="table table-striped" >
+        <thead>
+          <tr>
+            <th>userId</th>
+            <th>userphoto</th>
+            <th>name</th>
+            <th>contactNumber</th>
+            <th>fatherName</th>
+            <th>fatherphoneNumber</th>
+            <th>motherName</th>
+            <th>motherphoneNumber</th>
+            <th>dob</th>
+            <th>bloodGroup</th>
+            <th>emergencyContactNumber</th>
+            <th>nameOfTheEmployer</th>
+            <th>officeAddress</th>
+            <th>telephoneNumber</th>
+            <th>emailId</th>
+            <th>permanentAddress</th>
+            <th>idProof</th>
+            <th>options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users |  async">
+            <td>{{ user.userId }}</td>
+            <td>{{ user.userphoto }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.contactNumber }}</td>
+            <td>{{ user.fatherName }}</td>
+            <td>{{ user.fatherphoneNumber }}</td>
+            <td>{{ user.motherName }}</td>
+            <td>{{ user.motherphoneNumber }}</td>
+            <td>{{ user.dob }}</td>
+            <td>{{ user.bloodGroup }}</td>
+            <td>{{ user.emergencyContactNumber }}</td>
+            <td>{{ user.nameOfTheEmployer }}</td>
+            <td>{{ user.officeAddress }}</td>
+            <td>{{ user.telephoneNumber }}</td>            
+            <td>{{ user.emailId }}</td>
+            <td>{{ user.permanentAddress }}</td>
+            <td>{{user.idProof}}</td>
+            <td>
+              <button  (click)="deleteUser(user.userId)" class="btn btn-danger"> Delete</button>
+              <button  (click)="updateUser(user.userId)" class="btn btn-primary" style="margin-left: 10px"> Update</button>
+              <button (click)="userDetails(user.userId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+  

@@ -1,0 +1,25 @@
+<mat-tab-group>
+    <mat-tab label="Add Hostel">
+        <br/>
+        <form (ngSubmit)="onSubmit()">
+            <label for="name">Hostel Name</label>
+            <input type="text" class="form-control col col-sm-3" id="firstName" (ngModel)="hostel.firstName" requiredname="firstName"><br/>
+
+            <label for="name">Hostel Description</label>
+            <input type="text" class="form-control col col-sm-3" id="lastName" (ngModel)="hostel.lastName" required name="lastName"><br/>
+            
+            <label for="name">Comments</label>
+            <input type="text" class="form-control col col-sm-3" id="emailId" (ngModel)="hostel.emailId" requiredname="emailId"><br/>
+            
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </mat-tab>
+    <mat-tab label="Details"><br/>
+      <div style="text-align: center;">
+        <a routerLink="addFloor"  routerLinkActive="active">
+          <button type="button" class="btn btn-primary" style="position: relative;" data-toggle="modal" data-target="#floorModal" (click)="onCreate()">Floor</button>
+        </a>
+      </div>
+      <br/>
+    </mat-tab>
+</mat-tab-group>

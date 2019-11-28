@@ -1,4 +1,4 @@
-import { HostelDetailsComponent } from './../hostel-details/hostel-details.component';
+ import { HostelDetailsComponent } from './../hostel-details/hostel-details.component';
 import { Observable } from "rxjs";
 import { HostelService } from "./../hostel.service";
 import { Hostel } from "./../hostel";

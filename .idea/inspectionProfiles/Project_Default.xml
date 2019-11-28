@@ -2,6 +2,7 @@
   <profile version="1.0">
     <option name="myName" value="Project Default" />
     <inspection_tool class="BuyFluidPluginNoteInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+<<<<<<< HEAD
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
@@ -13,6 +14,20 @@
             <item index="4" class="java.lang.String" itemvalue="embed" />
             <item index="5" class="java.lang.String" itemvalue="script" />
             <item index="6" class="java.lang.String" itemvalue="app-root" />
+=======
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="8">
+            <item index="0" class="java.lang.String" itemvalue="*ngfor" />
+            <item index="1" class="java.lang.String" itemvalue="(click)" />
+            <item index="2" class="java.lang.String" itemvalue="[hidden]" />
+            <item index="3" class="java.lang.String" itemvalue="(ngsubmit)" />
+            <item index="4" class="java.lang.String" itemvalue="[(ngmodel)]" />
+            <item index="5" class="java.lang.String" itemvalue="routerlink" />
+            <item index="6" class="java.lang.String" itemvalue="routerlinkactive" />
+            <item index="7" class="java.lang.String" itemvalue="stylesheet" />
+>>>>>>> c8ce2ea46b9a6b67d715ab2f81d6290626d7d673
           </list>
         </value>
       </option>

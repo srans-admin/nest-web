@@ -1,15 +1,30 @@
+
 <h2>Role Details</h2>
 
 <hr/>
 <div *ngIf="role">
   <div>
+
     <label><b>Role Name: </b></label> {{role.roleName}}
   </div>
   <div>
     <label><b>Last Name: </b></label> {{role.name}}
+
+    <label><b>First Name: </b></label> {{role.firstName}}
+  </div>
+  <div>
+    <label><b>Last Name: </b></label> {{role.lastName}}
+  </div>
+  <div>
+    <label><b>Mobile: </b></label> {{role.mobile}}
+
   </div>
   <div>
     <label><b>Email : </b></label> {{role.emailId}}
+  </div>
+
+  <div>
+    <label><b>Role : </b></label> {{role.role}}
   </div>
 
 </div>
@@ -17,3 +32,8 @@
 <br>
 <br>
 <button (click)="list()" class="btn btn-primary">Back to Role List</button><br>
+
+<p>
+  role-details works!
+</p>
+
