@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class InvoiceService {
+  
 
   private baseUrl = 'http://localhost:8080/nest-server/api/v1/invoice';
   constructor(private http: HttpClient) { }
@@ -26,7 +27,7 @@ export class InvoiceService {
   //   return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   // }
 
-  // getInvoicesList(): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}`);
+  getInvoicesList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
   }
-
+}

@@ -20,7 +20,7 @@ export class CreateInvoiceComponent implements OnInit {
   ngOnInit() {
   }
 
-  newExpense(): void {
+  newInvoice(): void {
     this.submitted = false;
     this.invoice = new Invoice();
   }

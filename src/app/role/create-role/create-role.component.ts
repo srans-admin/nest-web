@@ -25,8 +25,6 @@ export class CreateRoleComponent implements OnInit {
 
 
   newRole(): void {
-
-
     this.submitted = false;
     this.role = new Role();
   }

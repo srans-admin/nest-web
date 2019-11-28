@@ -7,15 +7,14 @@ import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
 import { RoleListComponent } from './role/role-list/role-list.component';
 import { UpdateRoleComponent } from './role/update-role/update-role.component';
 import { CreateRoleComponent } from './role/create-role/create-role.component';
-<<<<<<< HEAD
-=======
+
 import { AddHostelComponent } from './hostel/add-hostel/add-hostel.component';
 import { ListHostelComponent } from './hostel/list-hostel/list-hostel.component';
 import { DeleteHostelComponent } from './hostel/delete-hostel/delete-hostel.component';
 import { EditHostelComponent } from './hostel/edit-hostel/edit-hostel.component';
 import { ViewComponent } from './hostel/view/view.component';
 import { AddFloorComponent } from './floor/add-floor/add-floor.component';
->>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
+
 
 import { RoleDetailsComponent } from './role/role-details/role-details.component';
 
@@ -39,11 +38,11 @@ import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.
 
 const routes: Routes = [
   { path: '', redirectTo: 'hostel', pathMatch: 'full' },
-<<<<<<< HEAD
+
   { path: 'hostels', component: HostelListComponent },
-=======
+
   // { path: 'hostels', component: HostelListComponent },
->>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
+
   { path: 'hostels/add', component: CreateHostelComponent },
   { path: 'update/:id', component: UpdateHostelComponent },
   { path: 'details/:id', component: HostelDetailsComponent },
@@ -70,6 +69,8 @@ const routes: Routes = [
 
   { path: 'invoice', component: InvoiceListComponent },
   { path: 'invoice/add', component: CreateInvoiceComponent},
+  // { path: 'invoiceupdate/:id', component: UpdateInvoiceComponent},
+  // { path: 'invoicedetails/:id', component: InvoiceDetailsComponent},
 
   { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
@@ -79,9 +80,7 @@ const routes: Routes = [
   { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
   { path: 'update/:id', component: UpdateRoleComponent },
-<<<<<<< HEAD
 
-=======
   // { path: 'hostels', component: HostelListComponent },
   // { path: 'hostels/add', component: CreateHostelComponent },
   // { path: 'update/:id', component: UpdateHostelComponent },
@@ -89,7 +88,7 @@ const routes: Routes = [
   { path: 'hostels', component: ListHostelComponent},
   { path: 'hostels/viewtabs', component: AddHostelComponent},
   { path: 'hostels/addFloor', component: AddFloorComponent}
->>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
+
 ];
 
 @NgModule({

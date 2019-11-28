@@ -1,6 +1,6 @@
 export class User{
     userId:number;
-    userphoto:File;
+    // userphoto:File;
       name:string;
       contactNumber:number;
       fatherName:string;

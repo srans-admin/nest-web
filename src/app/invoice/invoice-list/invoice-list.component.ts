@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./invoice-list.component.css']
 })
 export class InvoiceListComponent implements OnInit {
-  expenses: Observable<Invoice[]>;
+  invoices: Observable<Invoice[]>;
 
   constructor(private invoiceService: InvoiceService,
     private router: Router) {}
@@ -23,8 +23,9 @@ export class InvoiceListComponent implements OnInit {
   }
 
   reloadData() {
-    // this.invoice = this.invoiceService.getInvoiceList();
+    this.invoices = this.invoiceService.getInvoicesList();
   }
+  
 
   // deleteInvoice(id: number) {
   //   this.invoiceService.deleteInvoice(id)
@@ -37,11 +38,11 @@ export class InvoiceListComponent implements OnInit {
   // }
 
   // invoiceDetails(id: number){
-  //   this.router.navigate(['edetails', id]);
+  //   this.router.navigate(['invoicedetails', id]);
   // }
 
-  // updateExpense(id: number){
-  //   this.router.navigate(['eupdate', id]);
+  // updateInvoice(id: number){
+  //   this.router.navigate(['invoiceupdate', id]);
   // }
 
 }
