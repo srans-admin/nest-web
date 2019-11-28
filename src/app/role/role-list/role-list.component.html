@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let role of roles |  async">
+        <tr *ngFor="let role of roles |filter:searchText|  async">
           <td class="hidden"></td>
           <td>{{ role.roleName }}</td>
           <td>{{ role.name }}</td>

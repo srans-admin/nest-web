@@ -52,8 +52,13 @@ const routes: Routes = [
   { path: 'rupdate/:id', component: UpdateRoleComponent },
   { path: 'rdetails/:id', component: RoleDetailsComponent },
 
+<<<<<<< HEAD
+  { path: 'management', component: ManagementListComponent },
+  { path: 'management/add', component: CreateManagementComponent },
+=======
   { path: 'managements', component: ManagementListComponent },
   { path: 'managements/add', component: CreateManagementComponent },
+>>>>>>> f931fb3d30454cbf510d86baf9c17e93f26f1d78
   { path: 'mupdate/:id', component: UpdateManagementComponent },
   { path: 'mdetails/:id', component: ManagementDetailsComponent },
 
@@ -61,6 +66,8 @@ const routes: Routes = [
   { path: 'expenses/add', component: CreateExpenseComponent },
   { path: 'eupdate/:id', component: UpdateExpenseComponent },
   { path: 'edetails/:id', component: ExpenseDetailsComponent },
+<<<<<<< HEAD
+=======
 
   { path: 'user', component: UserListComponent },
   { path: 'user/add', component: CreateUserComponent },
@@ -80,6 +87,11 @@ const routes: Routes = [
   { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
   { path: 'update/:id', component: UpdateRoleComponent },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f931fb3d30454cbf510d86baf9c17e93f26f1d78
+>>>>>>> c8ce2ea46b9a6b67d715ab2f81d6290626d7d673
 
   // { path: 'hostels', component: HostelListComponent },
   // { path: 'hostels/add', component: CreateHostelComponent },

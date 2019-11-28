@@ -36,11 +36,11 @@ export class ManagementListComponent implements OnInit {
   }
 
   managementDetails(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['mdetails', id]);
   }
 
   updateManagement(id: number){
-    this.router.navigate(['update', id]);
+    this.router.navigate(['mupdate', id]);
   }
 }
 

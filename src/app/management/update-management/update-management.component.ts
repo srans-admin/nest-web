@@ -41,7 +41,7 @@ export class UpdateManagementComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/managements']);
+    this.router.navigate(['/management']);
   }
 }
 

@@ -42,15 +42,22 @@ export class RoleListComponent implements OnInit {
   }
 
   roleDetails(id: number){
+<<<<<<< HEAD
+=======
 
+>>>>>>> f931fb3d30454cbf510d86baf9c17e93f26f1d78
     this.router.navigate(['rdetails', id]);
   }
 
   updateRole(id: number){
     this.router.navigate(['rupdate', id]);
   }
+<<<<<<< HEAD
+}
+=======
   }
 
 
 
+>>>>>>> f931fb3d30454cbf510d86baf9c17e93f26f1d78
 
