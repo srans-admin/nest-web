@@ -1,29 +1,49 @@
+
 <nav class="navbar navbar-expand-sm navbar-dark"> 
     <!-- Nav -->
     <nav id="nav">
         <ul >
             <li class="nav-item"><a routerLink="hostels" class="nav-link" routerLinkActive="active">Hostels</a></li>
             <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Tenants</a></li>
-            <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Invoices</a></li>
+<<<<<<< HEAD
+
+            <li class="nav-item"><a  routerLink="invoice" class="nav-link" routerLinkActive="active">Invoice</a></li>
             <li class="nav-item"><a  routerLink="expenses" class="nav-link" routerLinkActive="active">Expenses</a></li>
             <li class="nav-item"><a  routerLink="roles" class="nav-link" routerLinkActive="active">Roles</a></li>
+<<<<<<< HEAD
             <li class="nav-item"><a  routerLink="management" class="nav-link" routerLinkActive="active">Management</a></li>
+=======
+            <li class="nav-item"><a  routerLink="managements" class="nav-link" routerLinkActive="active">Management</a></li>
+            <li class="nav-item"><a  routerLink="user" class="nav-link" routerLinkActive="active">User</a></li>
+            
+=======
+            <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Invoices</a></li>
+            <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Expences</a></li>
+            <li class="nav-item"><a  routerLink="roles" class="nav-link" routerLinkActive="active">Roles</a></li>
+
+
+>>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
+>>>>>>> f931fb3d30454cbf510d86baf9c17e93f26f1d78
         </ul>
     </nav> 
 
 </nav>
 
 
-<div class="container"> 
-    <h2 style="text-align: center;">{{title}}</h2>
+<div class = "container">
+    <h1 style = "text-align:center;">{{title}}</h1>
+    <router-outlet></router-outlet>
+
+
 
   <hr>
   <div class="card">
     <div class="card-body">
        <router-outlet></router-outlet>
     </div>
-  </div>
-     
+  </div>    
+
 
 </div>
+  
 

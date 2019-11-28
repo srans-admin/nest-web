@@ -3,12 +3,14 @@ import { Role } from '../../role';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RoleService } from '../../role.service';
 
+
 @Component({
   selector: 'app-update-role',
   templateUrl: './update-role.component.html',
   styleUrls: ['./update-role.component.css']
 })
 export class UpdateRoleComponent implements OnInit {
+
 
   id: number;
   role: Role;
@@ -43,4 +45,3 @@ export class UpdateRoleComponent implements OnInit {
     this.router.navigate(['/roles']);
   }
 }
-

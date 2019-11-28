@@ -8,19 +8,25 @@ import { Router } from '@angular/router';
   templateUrl: './create-role.component.html',
   styleUrls: ['./create-role.component.css']
 })
+
 export class CreateRoleComponent implements OnInit {
+
 
   constructor(private roleService: RoleService,
     private router: Router) { }
 
+
       role: Role = new Role();
     submitted = false;
 
-
+  
   ngOnInit() {
   }
 
+
   newRole(): void {
+
+
     this.submitted = false;
     this.role = new Role();
   }
@@ -34,7 +40,11 @@ export class CreateRoleComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
     this.save();
+
+
+
   }
 
   gotoList() {
