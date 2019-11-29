@@ -15,11 +15,11 @@ export class HostelService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createHostel(hostel: Object): Observable<Object> {
+  createHostel(hostel: Object): Observable<Object>{
     return this.http.post(`${this.baseUrl}`, hostel);
-  }
+  }  
 
-  updateHostel(id: number, value: any): Observable<Object> {
+  putHostel(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 

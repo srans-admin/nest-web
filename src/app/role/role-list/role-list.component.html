@@ -4,9 +4,9 @@
     <div>
       <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus"></i>Add</a>
     </div>
-    	<div class="form-group pull-right">
-								<input type="text" [(ngModel)]="searchText" placeholder="search">
-      </div>
+    	<!--<div class="form-group pull-right">-->
+								<!--<input type="text" [(ngModel)]="searchText" placeholder="search">-->
+      <!--</div>-->
   </div>
   <br>
   <div class="panel-body">
@@ -21,8 +21,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let role of roles |filter:searchText|  async">
-          <td class="hidden"></td>
+        <tr *ngFor="let role of roles |  async">
+          <!--<td class="hidden"></td>-->
+          <td>{{ role.id }}</td>
           <td>{{ role.roleName }}</td>
           <td>{{ role.name }}</td>
           <td>{{ role.emailId }}</td>

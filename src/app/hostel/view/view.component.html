@@ -1,0 +1,18 @@
+<h2>Hostel Details</h2> 
+
+<hr/>
+<div *ngIf="hostel">
+  <div>
+    <label><b>Hostel Name: </b></label> {{hostel.hostelName}}
+  </div>
+  <div>
+    <label><b>Hostel Address: </b></label> {{hostel.hostelAddress}}
+  </div>
+  <div>
+    <label><b>Hostel Type: </b></label> {{hostel.hostelType}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Hostel List</button><br>
