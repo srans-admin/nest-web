@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hostel } from '../../hostel';
 import { HostelService } from '../../hostel.service';
+=======
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
 
 @Component({
   selector: 'app-edit-hostel',
@@ -9,6 +12,7 @@ import { HostelService } from '../../hostel.service';
   styleUrls: ['./edit-hostel.component.css']
 })
 export class EditHostelComponent implements OnInit {
+<<<<<<< HEAD
   id : number;
   hostel : Hostel;
 
@@ -40,6 +44,12 @@ export class EditHostelComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/hostels']);
+=======
+
+  constructor() { }
+
+  ngOnInit() {
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
   }
 
 }

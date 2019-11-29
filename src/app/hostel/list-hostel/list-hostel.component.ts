@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from "rxjs";
 import { HostelService } from "../../hostel.service";
 import { Hostel } from "../../hostel";
 import { Router, ActivatedRoute } from '@angular/router';
+=======
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
 
 @Component({
   selector: 'app-list-hostel',
@@ -10,6 +15,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./list-hostel.component.css']
 })
 export class ListHostelComponent implements OnInit {
+<<<<<<< HEAD
   hostels: Observable<Hostel[]>;
   
   constructor(private hostelService: HostelService,
@@ -42,3 +48,12 @@ export class ListHostelComponent implements OnInit {
       this.router.navigate(['update', id]);
     }
   }
+=======
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb

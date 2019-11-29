@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { ActivatedRoute, Router } from '@angular/router';
 import { Floor } from '../../floor';
 import { FloorService } from '../../floor.service';
+=======
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
 
 @Component({
   selector: 'app-edit-floor',
@@ -9,6 +12,7 @@ import { FloorService } from '../../floor.service';
   styleUrls: ['./edit-floor.component.css']
 })
 export class EditFloorComponent implements OnInit {
+<<<<<<< HEAD
   id : number;
   floor : Floor;
 
@@ -41,6 +45,12 @@ export class EditFloorComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/floors']);
+=======
+
+  constructor() { }
+
+  ngOnInit() {
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
   }
 
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FloorService } from '../../floor.service'
@@ -5,6 +6,9 @@ import { Floor } from '../../floor';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Hostel } from '../../hostel';
 import { HostelService } from '../../hostel.service';
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
 
 @Component({
   selector: 'app-list-floor',
@@ -12,6 +16,7 @@ import { HostelService } from '../../hostel.service';
   styleUrls: ['./list-floor.component.css']
 })
 export class ListFloorComponent implements OnInit {
+<<<<<<< HEAD
   floors: Observable<Floor[]>;
   hostels: Observable<Hostel[]>;
 
@@ -49,6 +54,12 @@ export class ListFloorComponent implements OnInit {
 
   getHostelId(id: number){
     this.router.navigate(['hostelId', id]);
+=======
+
+  constructor() { }
+
+  ngOnInit() {
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
   }
 
 }

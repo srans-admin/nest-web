@@ -1,3 +1,4 @@
+
 import { Role } from '../../role';
 import { Component, OnInit, Input } from '@angular/core';
 import { RoleService } from '../../role.service';
@@ -10,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./role-details.component.css']
 })
 export class RoleDetailsComponent implements OnInit {
+
 
   id: number;
   role: Role;
@@ -32,4 +34,5 @@ export class RoleDetailsComponent implements OnInit {
   list(){
     this.router.navigate(['roles']);
   }
+
 }

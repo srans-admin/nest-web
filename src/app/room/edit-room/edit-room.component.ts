@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { RoomService } from '../../room.service';
 import { Room } from '../../room';
 import { Router, ActivatedRoute } from '@angular/router';
+=======
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
 
 @Component({
   selector: 'app-edit-room',
@@ -9,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit-room.component.css']
 })
 export class EditRoomComponent implements OnInit {
+<<<<<<< HEAD
   id : number;
   room : Room;
 
@@ -41,6 +45,12 @@ export class EditRoomComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/roms']);
+=======
+
+  constructor() { }
+
+  ngOnInit() {
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
   }
 
 }

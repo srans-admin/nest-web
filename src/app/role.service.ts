@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class RoleService {
 
+
   private baseUrl = 'http://localhost:8080/nest-server/api/v1/roles';
+
 
   constructor(private http: HttpClient) { }
 
