@@ -14,19 +14,7 @@ import { HostelListComponent } from './hostel-list/hostel-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateHostelComponent } from './update-hostel/update-hostel.component';
 
-=======
-<<<<<<< HEAD
 
-
-
-<<<<<<< HEAD
-
-
-=======
-=======
->>>>>>> 14c1655fcf61b5b9c5ca421f5c625e87069cbf63
->>>>>>> f931fb3d30454cbf510d86baf9c17e93f26f1d78
->>>>>>> c8ce2ea46b9a6b67d715ab2f81d6290626d7d673
 import { CreateRoleComponent } from './role/create-role/create-role.component';
 import { RoleDetailsComponent } from './role/role-details/role-details.component';
 import { RoleListComponent } from './role/role-list/role-list.component';
