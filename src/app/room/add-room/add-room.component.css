@@ -1,0 +1,17 @@
+.add-room-select{
+    padding: 21px;
+    width: 28rem;
+}
+#cdk-overlay-0{
+    max-width: 80vw;
+    pointer-events: auto;
+    width: 50% !important;
+    position: static;
+}
+
+.cdk-overlay-pane{
+    max-width: 80vw;
+    pointer-events: auto;
+    width: 50% !important;
+    position: static;
+}

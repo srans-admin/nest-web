@@ -1,6 +1,20 @@
-export class Floor{
+import { Room } from './room';
+
+// export class Floor{
+//     id: number;
+//     description:string;
+//     floor_name:string;
+//     active: boolean;
+// }
+
+
+export class Floor {
     id: number;
-    floor_number:number;
-    number_of_rooms:number;
-    active: boolean;
-}
+    floorName: string = "First"; 
+    rooms : Array<Room> = []; 
+  
+    constructor(floorName: string){
+      this.floorName = floorName;
+    }
+  } 
+  

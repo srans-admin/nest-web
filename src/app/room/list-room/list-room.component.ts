@@ -23,7 +23,7 @@ export class ListRoomComponent implements OnInit {
     this.rooms = this.roomService.getRoomsList();
   }
 
-  deleteRole(id: number) {
+  deleteRoom(id: number) {
     this.roomService.deleteRoom(id)
       .subscribe(
         data => {
@@ -33,11 +33,11 @@ export class ListRoomComponent implements OnInit {
         error => console.log(error));
   }
 
-  roleDetails(id: number){
+  roomDetails(id: number){
     this.router.navigate(['details', id]);
   }
 
-  updateRole(id: number){
+  putRoom(id: number){
     this.router.navigate(['update', id]);
   }
 }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FloorService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/floors';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/hostels/id/floor';
 
   constructor(private http: HttpClient) { }
 
@@ -15,11 +15,11 @@ export class FloorService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  addFloor(floor: Object): Observable<Object>{
-    return this.http.post(`${this.baseUrl}`, floor);
+  createFloor(floor: Object, id: number): Observable<Object>{
+    return this.http.post(`${this.baseUrl}/${id}`, floor);
   }
 
-  updateFloor(id: number, value: any): Observable<Object> {
+  putFloor(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 

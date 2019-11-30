@@ -1,77 +1,21 @@
-<!-- <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
-    <div class="card m-3" style="width: 600px;">
-        <div class="card-body">
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Select Number of Floors</label>
-                    <select formControlName="numberOfFloors" class="form-control col-9" (change)="onChangeFloors($event)">
-                        <option value="">--Select--</option>
-                        <option *ngFor="let i of [1,2,3,4]" routerLink="floorList" routerLinkActive="active">{{i}}</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div *ngFor="let ticket of t.controls; let i = index" class="list-group list-group-flush">
-            <div class="list-group-item">
-                <h5 class="card-title">Floor {{i + 1}}</h5>
-                <div [formGroup]="ticket" class="form-row">
-                    <div class="form-group col-4">
-                        <label>Number of Rooms</label>
-                        <input type="text" id="numberOfRooms" class="form-control" [(ngModel)]="floor.numberOfRooms"/>                            
-                    </div>
-                    <div class="form-group col-4">
-                    </div>
-                </div>
-            </div>
-        </div>  
-        <div class="card-footer text-center">
-            <button class="btn btn-primary mr-1">Save</button>
-            <button class="btn btn-secondary mr-1" type="reset" (click)="onReset()">Reset</button>
-            <button class="btn btn-secondary" type="button" (click)="onClear()">Clear</button>
-        </div>
-    </div>
-</form> -->
+<h4>Add Floor</h4><hr><br/>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()" class="form-group">
+            <label for="name">Hostel Id</label>   
+            <!-- <p>{{hostel.id}}</p>          -->
+            <input type="text" class="form-control col col-sm-6" id="hostel.id" [(ngModel)]="hostel.id" [(value)]="id" name="id" readonly><br/>
 
-<tr>Hostel 1</tr><hr>
-<div style="text-align: right;">
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
-        <i class="fa fa-plus">Add Floor</i>
-    </button>
+            <label for="name">Floor Name</label>
+            <input type="text" class="form-control col col-sm-6" id="floor_name" [(ngModel)]="floor.floor_name" name="floor_name"><br/>
+
+            <label for="name">Description</label>
+            <input type="text" class="form-control col col-sm-6" id="description" [(ngModel)]="floor.description" name="description"><br/>                
+            
+            <button type="submit" class="btn btn-success">Submit</button>
+    </form>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Floor</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div [hidden]="submitted">
-                <form (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                        <label for="name" class="col-form-label pull-left">Floor Number</label>
-                        <input type="text" class="form-control col-sm-6" id="floor_number" 
-                        (ngModel)="floor.floor_number" required name="floor_number">
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-form-label">Number of Rooms</label>
-                        <input type="text" class="form-control col-sm-6" id="number_of_rooms" 
-                        (ngModel)="floor.number_of_rooms" required name="number_of_rooms">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-        </div>
-    </div>
-</div>
-<!-- Begin D Floor-->
-<div class="row aln-center">
-    <button routerLink="rooms" class="btn btn-info" routerLinkActive="active">Floor 1</button>
-</div>
-<!-- End D Floor-->
+
+<!-- <div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newHostel()">Add</button>
+</div> -->

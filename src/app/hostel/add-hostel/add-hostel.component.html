@@ -1,15 +1,86 @@
 <h4>Add Hostel</h4><hr><br/>
-<div [hidden]="submitted" style="width: 400px;">
-    <form (ngSubmit)="onSubmit()">
-        <label for="name">Hostel Name</label>
-        <input type="text" class="form-control col col-sm-6" id="hostel_name" (ngModel)="hostel.hostel_name" required name="hostel_name"><br/>
+<form (ngSubmit)="onSubmit()">
+<mat-tab-group>
+    <mat-tab label="Hostel">
+        <div [hidden]="submitted" style="width: 400px;">
+           
+                <label for="name">Hostel Name</label>
+                <input type="text" class="form-control col col-sm-6" id="hostelName" [(ngModel)]="hostel.hostelName" name="hostelName"><br/>
+        
+                <label for="name">Hostel Address</label>
+                <input type="text" class="form-control col col-sm-6" id="hostelAddress" [(ngModel)]="hostel.hostelAddress" name="hostelAddress"><br/>
+                
+                <label for="name">Hostel Type</label>
+                <input type="text" class="form-control col col-sm-6" id="hostelType" [(ngModel)]="hostel.hostelType" name="hostelType"><br/>                
 
-        <label for="name">Hostel Address</label>
-        <input type="text" class="form-control col col-sm-6" id="hostel_address" (ngModel)="hostel.hostel_address" required name="hostel_address"><br/>
-        
-        <label for="name">Hostel Type</label>
-        <input type="text" class="form-control col col-sm-6" id="hostel_type" (ngModel)="hostel.hostel_type" required name="hostel_type"><br/>                
-        
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+                <label for="name">Number of Floors</label>
+                <input type="number" class="form-control col col-sm-6" id="numOfFloors" [(ngModel)]="hostel.numOfFloors"  (ngModelChange)="populateFloors($event)" name="numOfFloors"><br/>
+                
+                <!-- <button type="submit" class="btn btn-success">Submit</button> -->
+           
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Rooms"  >
+        <div name="fieldName" ngDefaultControl>  <!--class="form-group"data-toggle="modal" data-target="#exampleModal"-->
+           
+        <div class="add-room-button">
+            <button type="button" class="btn btn-info"   (click)="addRoomDailog()">Add Room</button>
+        </div>     
+
+            <label for="name">Choose Floor</label>
+            <select class=" col col-sm-6" name="select"  (change)="onChangeFloors($event)" >
+                 
+                <option *ngFor="let i of tempFloors" value="{{i}}">Floor-{{i}}</option>
+            </select>
+        </div><br/>
+
+
+        <div class="floor-select" *ngFor="let floor of hostel.floors">Floor-{{floor.floorName}}
+
+            <ul  *ngFor="let room of floor.rooms"> 
+                <li class="room-select"> Room-{{room.roomName}}</li>
+
+            </ul> 
+        </div>
+
+
+
+        <!-- <button type="button" class="btn btn-info">Add Room</button> -->
+
+         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    sdsds
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
+            
+   </mat-tab>
+  <mat-tab label="Additional"> Content 3 </mat-tab>
+
+
+
+</mat-tab-group>
+</form>
+
+
+<!--
+<div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>(click)="openRoomPopup()"
+    <button class="btn btn-success" (click)="newHostel()">Add</button>
 </div>
+
+-->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from "rxjs";
 import { HostelService } from "../../hostel.service";
 import { Hostel } from "../../hostel";
@@ -13,7 +13,8 @@ export class ListHostelComponent implements OnInit {
   hostels: Observable<Hostel[]>;
   
   constructor(private hostelService: HostelService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
     ngOnInit() {
       this.reloadData();
@@ -40,4 +41,12 @@ export class ListHostelComponent implements OnInit {
     updateHostel(id: number){
       this.router.navigate(['update', id]);
     }
+
+    listHostel(id: number){
+      this.router.navigate(['floor', id]);
+    }
+
   }
+  
+
+  

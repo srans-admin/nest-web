@@ -2,3 +2,26 @@
 {
     display: block;
 }
+.add-room{
+    width: 10rem;
+    height: 40px;
+    /* border: 1px solid black; */
+    text-align: right;
+    position: fixed;
+    right: 10%;
+}
+
+.add-room-button{
+    width: 10rem;
+    height: 40px;
+    /* border: 1px solid black; */
+    text-align: right;
+    position: fixed;
+    right: 10%;
+}
+.floor-select{
+    color:blue ;
+}
+.room-select{
+    color: cornflowerblue ;
+}

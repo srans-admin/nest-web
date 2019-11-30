@@ -15,8 +15,8 @@
   </form>
 </div> -->
 
-<tr>Hostel 1</tr><hr>
-<tr>Room 1</tr><hr>
+<!-- <tr>Hostel 1</tr><hr>
+<tr>Floor 1</tr><hr>
 <div style="text-align: right;">
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
         <i class="fa fa-plus">Add Room</i>
@@ -33,11 +33,11 @@
         </div>
         <div class="modal-body">
             <div [hidden]="submitted">
-                <form (ngSubmit)="onSubmit()">
+                <form>
                     <div class="form-group">
-                        <label for="name" class="col-form-label pull-left">Room Number</label>
-                        <input type="text" class="form-control col-sm-6" id="room_number" 
-                        (ngModel)="room.room_number" required name="room_number">
+                        <label for="name" class="col-form-label pull-left" aria-placeholder="AC/Non-AC">Room Facility Type</label>
+                        <input type="text" class="form-control col-sm-6" id="room_facility_type" 
+                        (ngModel)="room.room_facility_type" required name="room_facility_type">
                     </div>
                     <div class="form-group">
                         <label for="name" class="col-form-label">Sharing Type</label>
@@ -49,13 +49,41 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" (click)="onSubmit()">Save changes</button>
         </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Begin D Floor-->
-<div class="row aln-center">
-    <button class="btn btn-info" >Room 1</button>
+
+
+<div class="add-room-select">
+
+    <h2> ADD ROOM </h2>
+  
+    <label for="name">Hostel Name</label>
+    <input type="text" readonly class="form-control" [(ngModel)]="hostel.hostelName"><br/>                
+
+    <label for="name">Floor </label>
+    <input type="text" readonly class="form-control" [(ngModel)]="hostel.floors.floorName" ><br/>                
+
+    <label for="name">Room Number</label>
+    <input type="text" class="form-control" [(ngModel)]="tmpRoom.roomName" ><br/>                
+
+    <label for="name">Room Type</label>
+    <select>
+        <option>Single</option>
+        <option>Double</option>
+        <option>Triple</option>
+    </select>
+
+    <label for="name">Comments</label>
+    <input type="text" class="form-control col col-sm-6" id="hostelType" [(ngModel)]="hostel.hostelType" name="hostelType"><br/>                
+
+    <button type="submit" (click)="addRoomToHostel()"> ADD ROOM</button>
+
 </div>
+
+
+
 <!-- End D Floor-->

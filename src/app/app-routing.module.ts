@@ -21,19 +21,17 @@ import { ListRoomComponent } from './room/list-room/list-room.component';
 const routes: Routes = [
   { path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'hostels/add', component: CreateHostelComponent },
-  { path: 'update/:id', component: UpdateHostelComponent },
-  { path: 'details/:id', component: HostelDetailsComponent },
+  { path: 'update/:id', component: EditHostelComponent },
+  { path: 'details/:id', component: ViewComponent },
+  { path: 'createFloor/:id', component: AddFloorComponent},
   { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
-  { path: 'update/:id', component: UpdateRoleComponent },
-  // { path: 'hostels', component: HostelListComponent },
-  // { path: 'hostels/add', component: CreateHostelComponent },
-  // { path: 'update/:id', component: UpdateHostelComponent },
-  // { path: 'details/:id', component: HostelDetailsComponent },
   { path: 'hostels', component: ListHostelComponent},
   { path: 'hostels/viewtabs', component: AddHostelComponent},
-  { path: 'hostels/addFloor', component: AddFloorComponent},
+  { path: 'floor/:id', component: ListFloorComponent},
+  // { path: 'addFloor/:id', component: AddFloorComponent},
   { path: 'hostels/addFloor/rooms', component: AddRoomComponent},
+  { path: 'roms', component: ListRoomComponent}
 ];
 
 @NgModule({

@@ -11,11 +11,12 @@
       <tbody>
       <tr *ngFor="let room of rooms">
         <td class="hidden"></td>
-        <td>{{room.room_number}}</td>
+        <td>{{room.room_facility_type}}</td>
         <td>{{room.room_share_type}}</td>
         <td>
-          <button class="btn btn-danger" (click)="deleteRoom(room.id)">Delete</button>
-          <button class="btn btn-success" (click)="updateRoom(room.id)" style="margin-left: 20px;">Edit</button>
+          <button class="btn btn-danger" (click)="deleteRoom(room.hostel_floor_room_id)">Delete</button>
+          <button class="btn btn-success" (click)="updateRoom(room.hostel_floor_room_id)" style="margin-left: 20px;">Edit</button>
+          <button (click)="roomDetails(room.hostel_floor_room_id)" class="btn btn-info" style="margin-left: 10px">Details</button>
         </td>
       </tr>
       </tbody>

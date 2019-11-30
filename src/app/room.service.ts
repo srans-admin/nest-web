@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RoomService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/rooms';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/roms';
 
   constructor(private http: HttpClient) { }
 
@@ -15,11 +15,11 @@ export class RoomService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  addRoom(room: Object): Observable<Object> {
+  postRoom(room: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, room);
   }
 
-  updateRoom(id: number, value: any): Observable<Object> {
+  putRoom(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 

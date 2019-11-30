@@ -17,13 +17,9 @@ export class HostelService {
 
   createHostel(hostel: Object): Observable<Object>{
     return this.http.post(`${this.baseUrl}`, hostel);
-  }
+  }  
 
-  addHostel(hostel: Object): Observable<Object>{
-    return this.http.post(`${this.baseUrl}`, hostel);
-  }
-
-  updateHostel(id: number, value: any): Observable<Object> {
+  putHostel(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
