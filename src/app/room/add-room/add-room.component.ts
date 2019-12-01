@@ -12,31 +12,31 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class AddRoomComponent implements OnInit {
 
-  tmpRoom : Room = new Room();
-  hostel : Hostel;
+  tmpRoom: Room = new Room();
+  hostel: Hostel;
+  room: Room = new Room();
+  floorName: string;
+  submitted = false;
+  rooms: Array<Room> = [];
+  numOfRooms: number = 1; 
+  roomNumbers : string = "";
+  roomType: string = "Single";
 
-  rooms: Array<Room>=[];
+  //Errors
+  errorMsg:String="";
 
-  // constructor(private roomService: RoomService,
-  //   private router: Router 
-  //    ) { }
-
-    constructor(private roomService: RoomService,
+  constructor(private roomService: RoomService,
     private router: Router,
     public dialogRef: MatDialogRef<AddRoomComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Hostel) {
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.hostel = data.hostel;
+    this.floorName = data.floorName;
+  }
 
-      console.log('Ram : '+data);
-      this.hostel = data;
-    }
-  
-    onNoClick(): void {
-      this.dialogRef.close();
-    }
-  
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
-    room : Room = new Room();
-    submitted = false;
 
   ngOnInit() {
   }
@@ -55,19 +55,38 @@ export class AddRoomComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.save();
   }
 
-  addRoom(){
+  addRoom() {
 
     this.rooms.push(this.tmpRoom);
- 
+
   }
 
-  addRoomToHostel(){
+  addRoomToHostel() {
 
-    this.hostel.addRoom(this.tmpRoom);
- 
+    let currRoomNumbers = this.roomNumbers.split(",");
+    if (this.numOfRooms != currRoomNumbers.length) {
+      this.errorMsg = "Room Numbers count not mached";
+      return;
+    }
+
+    for (let i = 0; i < currRoomNumbers.length; i++) {
+
+      this.tmpRoom = new Room();
+      this.tmpRoom.roomName = currRoomNumbers[i];
+      this.tmpRoom.roomType = this.roomType;
+      this.hostel.addRoom(this.floorName, this.tmpRoom);
+      console.log(' Room : ' + this.tmpRoom + ' added.');
+    }
+
+    this.dialogRef.close(); 
+
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
   gotoList() {

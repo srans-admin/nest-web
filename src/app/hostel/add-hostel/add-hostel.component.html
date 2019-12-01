@@ -1,79 +1,183 @@
-<h4>Add Hostel</h4><hr><br/>
+<h4>Add Hostel</h4>
 <form (ngSubmit)="onSubmit()">
-<mat-tab-group>
-    <mat-tab label="Hostel">
-        <div [hidden]="submitted" style="width: 400px;">
-           
-                <label for="name">Hostel Name</label>
-                <input type="text" class="form-control col col-sm-6" id="hostelName" [(ngModel)]="hostel.hostelName" name="hostelName"><br/>
-        
-                <label for="name">Hostel Address</label>
-                <input type="text" class="form-control col col-sm-6" id="hostelAddress" [(ngModel)]="hostel.hostelAddress" name="hostelAddress"><br/>
-                
-                <label for="name">Hostel Type</label>
-                <input type="text" class="form-control col col-sm-6" id="hostelType" [(ngModel)]="hostel.hostelType" name="hostelType"><br/>                
+    <mat-tab-group>
+        <mat-tab label="Hostel">
+            <div class="add-hostel-details" [hidden]="submitted" style="width: 400px;">
 
-                <label for="name">Number of Floors</label>
-                <input type="number" class="form-control col col-sm-6" id="numOfFloors" [(ngModel)]="hostel.numOfFloors"  (ngModelChange)="populateFloors($event)" name="numOfFloors"><br/>
-                
+                <label for="name"> <span class="glyphicon glyphicon-envelope"></span> Hostel Name</label>
+                <input type="text" class="form-control col col-sm-6" id="hostelName" [(ngModel)]="hostel.hostelName"
+                    name="hostelName">
+
+                <label>Hostel Address</label>
+                <input type="text" class="form-control col col-sm-6" id="hostelAddress"
+                    [(ngModel)]="hostel.hostelAddress" name="hostelAddress">
+
+                <label>Hostel Type</label>
+                <input type="text" class="form-control col col-sm-6" id="hostelType" [(ngModel)]="hostel.hostelType"
+                    name="hostelType">
+
+                <label>Number of Floors</label>
+                <input type="number" class="form-control col col-sm-6" id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
+                    (ngModelChange)="populateFloors($event)" name="numOfFloors">
+
+                <h6> Picture Uploadings</h6>
+
+                <label>Facade Uploads</label>
+                <input type="file"  [(ngModel)]="hostel.facade" />
+
+                <label>Reception Uploads</label>
+                <input type="file" [(ngModel)]="hostel.rec" />
+
+                <label>1 Bed Room Uploads</label>
+                <input type="file" [(ngModel)]="hostel.b1" />
+
+                <label>2 Bed Room Uploads</label>
+                <input type="file" [(ngModel)]="hostel.b2" />
+
+                <label>3 Bed Room Uploads</label>
+                <input type="file" [(ngModel)]="hostel.b3" />
+
+                <label>Misc Uploads</label>
+                <input type="file" [(ngModel)]="hostel.misc" />
+
+
+
+                <label>Description</label>
+                <textarea class="form-control" [(ngModel)]="hostel.misc"></textarea>
+
                 <!-- <button type="submit" class="btn btn-success">Submit</button> -->
-           
-        </div>
-    </mat-tab>
 
-    <mat-tab label="Rooms"  >
-        <div name="fieldName" ngDefaultControl>  <!--class="form-group"data-toggle="modal" data-target="#exampleModal"-->
-           
-        <div class="add-room-button">
-            <button type="button" class="btn btn-info"   (click)="addRoomDailog()">Add Room</button>
-        </div>     
+            </div>
+        </mat-tab>
 
-            <label for="name">Choose Floor</label>
-            <select class=" col col-sm-6" name="select"  (change)="onChangeFloors($event)" >
-                 
-                <option *ngFor="let i of tempFloors" value="{{i}}">Floor-{{i}}</option>
-            </select>
-        </div><br/>
+        <mat-tab label="Rooms">
 
+            <!-- <div class="add-room-button">
+                <button type="button" class="btn btn-info" (click)="addRoomDailog()">Add Room</button>
+            </div>  -->
 
-        <div class="floor-select" *ngFor="let floor of hostel.floors">Floor-{{floor.floorName}}
-
-            <ul  *ngFor="let room of floor.rooms"> 
-                <li class="room-select"> Room-{{room.roomName}}</li>
-
-            </ul> 
-        </div>
-
-
-
-        <!-- <button type="button" class="btn btn-info">Add Room</button> -->
-
-         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="floor-select " *ngFor="let floor of hostel.floors">
+                
+                <div class="floor-header">
+                    <span class="floor-name"> Floor-{{floor.floorName}} </span>
+                    <div class="add-room-button">
+                        <button type="button" class="btn btn-info" (click)="addRoomDailog(floor.floorName)">Add
+                            Room</button>
+                    </div>
+                    <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
                 </div>
-                <div class="modal-body">
-                    sdsds
+
+                <div class="room-box">
+                    <div class="room-box-header"> Single Rooms </div> 
+                    <span *ngFor="let room of getRoomsWithType(floor,'Single')"> 
+                        <span class="sub-room-box"> 
+                           <span class="room-name"> Room-{{room.roomName}}  </span>
+                           <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                           <button class="sub-room-box-delete"(click)="deleteRoom(room)"> Remove </button>
+                        
+                        </span> 
+                    </span> 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+
+                <div class="room-box">
+                        <div class="room-box-header"> Double Rooms </div> 
+                        <span *ngFor="let room of getRoomsWithType(floor,'Double')"> 
+                            <span class="sub-room-box"> 
+                               <span class="room-name"> Room-{{room.roomName}}  </span>
+                               <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                               <button class="sub-room-box-delete"(click)="deleteRoom(room)"> Remove </button>
+                            
+                            </span> 
+                        </span> 
                 </div>
+
+                <div class="room-box">
+                        <div class="room-box-header"> Triple Rooms </div> 
+                        <span *ngFor="let room of getRoomsWithType(floor,'Triple')"> 
+                            <span class="sub-room-box"> 
+                                <span class="room-name"> Room-{{room.roomName}}  </span>
+                                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                                <button class="sub-room-box-delete"(click)="deleteRoom(room)"> Remove </button>
+                            
+                            </span> 
+                        </span> 
+                    </div>
+
+                    <div class="room-box">
+                            <div class="room-box-header"> Misc </div> 
+                            <span *ngFor="let room of getRoomsWithType(floor,'Misc')"> 
+                                <span class="sub-room-box"> 
+                                   <span class="room-name"> Room-{{room.roomName}}  </span>
+                                   <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                                   <button class="sub-room-box-delete"(click)="deleteRoom(room)"> Remove </button>
+                                
+                                </span> 
+                            </span> 
+                        </div>
+
+                <!-- <ul *ngFor="let room of floor.rooms">
+                    <li class="room-select"> 
+                        Room-{{room.roomName}} 
+                    
+                    </li>
+
+                </ul> -->
+            </div>
+
+
+
+            <!-- <button type="button" class="btn btn-info">Add Room</button> -->
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            sdsds
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-            
-   </mat-tab>
-  <mat-tab label="Additional"> Content 3 </mat-tab>
+
+        </mat-tab>
+        <mat-tab label="Additional">
+
+            <h2> Amenities</h2>
+
+            <div class="room-form-lable">
+                <label>TV</label>
+                <input type="checkbox" name="TV" checked>
+
+                <label>Fridge</label>
+                <input type="checkbox" name="Fr" checked>
+
+                <label>AC</label>
+                <input type="checkbox" name="AC" checked>
+
+                <label>Mineral Water</label>
+                <input type="checkbox" name="MW" checked>
+
+            </div>
+
+        </mat-tab>
 
 
 
-</mat-tab-group>
+    </mat-tab-group>
+
+    <div class="add-hostel-submit"> 
+        <button type="submit" *ngIf="enableSubmit"> ADD HOSTEL </button> 
+    </div>
 </form>
 
 

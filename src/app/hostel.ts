@@ -10,11 +10,11 @@ export class Hostel {
   numOfFloors: number = 1;
   floors : Array<Floor> = [];
 
-  addRoom(room: Room){
+  addRoom(floorName, room: Room){
     
     for(let i=0; i<this.floors.length; i++ ){
 
-        if(this.floors[i].floorName == room.roomName ){
+        if(this.floors[i].floorName == floorName ){
           this.floors[i].rooms.push(room);
         }  
     } 
@@ -22,8 +22,9 @@ export class Hostel {
 
   addFloors( numOfFloors: number){
 
+    this.floors = [];
     for(let i = 0 ; i < numOfFloors; i++){
-      this.floors.push(new Floor(""+i));
+      this.floors.push(new Floor(""+(i+1)));
     }
   }
 

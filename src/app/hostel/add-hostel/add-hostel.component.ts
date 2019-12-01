@@ -4,6 +4,9 @@ import { HostelService } from '../../hostel.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddRoomComponent } from 'src/app/room/add-room/add-room.component';
+import { Room } from 'src/app/room';
+import { RoomService } from 'src/app/room.service';
+import { Floor } from 'src/app/floor';
 
 @Component({
   selector: 'app-add-hostel',
@@ -19,9 +22,12 @@ export class AddHostelComponent implements OnInit {
   hostel: Hostel = new Hostel();
   submitted = false;
   tempFloors: Array<any>;
+  totalRooms: Number=1;
+  enableSubmit: Boolean =  false;
 
   ngOnInit() {
     this.tempFloors = [1];
+    this.populateFloors();
   }  
 
   newHostel(): void {
@@ -45,8 +51,7 @@ export class AddHostelComponent implements OnInit {
     this.router.navigate(['/hostels']);
   }
 
-  openRoomPopup(){
- 
+  openRoomPopup(){ 
 
   }
 
@@ -61,18 +66,45 @@ export class AddHostelComponent implements OnInit {
 
   }
 
-  addRoomDailog(): void {
+  addRoomDailog(floorName: any): void {
+
     const dialogRef = this.dialog.open(AddRoomComponent, {
-      width: '250px',
-      data: this.hostel
+      width: '50%',
+      data: {
+       hostel :  this.hostel,
+       floorName : floorName
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
      // this.animal = result;
-    });
-
+    }); 
     
+  }
+
+
+  getRoomsWithType(floor: Floor, type: String): Array<Room>{
+    let rooms : Array<Room> = [];
+
+    this.totalRooms = floor.rooms.length;
+
+    //TODO : Need to use map method here
+    for( let i=0; i < floor.rooms.length ; i++){ 
+      if(floor.rooms[i].roomType == type){
+        rooms.push(floor.rooms[i]);
+      } 
+    } 
+
+   this.isSubmitEnable(); 
+    return rooms;
+
+  }
+
+  isSubmitEnable(){
+    if(this.hostel.floors.length >= 1 && this.hostel.floors[0].rooms.length >= 1){
+      this.enableSubmit = true;
+    }
   }
 
  

@@ -5,6 +5,7 @@
 // }
 export class Room {
     id: number;
-    roomName: string;  
+    roomName: string; 
+    roomType: string = "Single"; 
   }
   

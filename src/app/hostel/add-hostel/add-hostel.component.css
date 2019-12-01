@@ -12,16 +12,61 @@
 }
 
 .add-room-button{
-    width: 10rem;
-    height: 40px;
-    /* border: 1px solid black; */
-    text-align: right;
-    position: fixed;
-    right: 10%;
+    position: absolute;
+    right: 13px;
+    margin-top: -29px;
 }
 .floor-select{
-    color:blue ;
+    padding: 11px;
+    border: solid 1px #ddd;
+    background: #fff;
+    color: #bbb;
+    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025)
+    
 }
 .room-select{
-    color: cornflowerblue ;
+    width: 103px;
+    height: 58px;
+    border: 1px solid;
+    list-style: none;
+}
+.add-hostel-details{
+    padding-left: 20px;
+    padding-top: 10px;
+}
+label{
+    padding: 0px;
+    margin-bottom: 9px;
+    margin-top: 13px;
+}
+.floor-header{
+    width: 100%;
+    background-color: black;
+    display: inline-block;
+    color: white;
+    padding: 6px 7px 7px 14px;
+}
+.floor-name{  
+    margin-right: 20px; 
+}
+.room-box, .sub-room-box{
+    padding: 12px;
+    border: solid 1px #ddd;
+    background: #fff;
+    color: #bbb;
+    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
+}
+.sub-room-box{
+    display: inline-grid;
+    margin-top: 5px;
+}
+.sub-room-box-edit, .sub-room-box-delete{
+    width: 55px;
+    height: 22px;
+    font-size: small;
+    padding: 3px;
+    margin: 2px;
+}
+.add-hostel-submit{
+    margin: 10px;
 }

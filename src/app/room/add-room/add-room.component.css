@@ -2,16 +2,27 @@
     padding: 21px;
     width: 28rem;
 }
-#cdk-overlay-0{
-    max-width: 80vw;
-    pointer-events: auto;
-    width: 50% !important;
-    position: static;
-}
 
 .cdk-overlay-pane{
     max-width: 80vw;
     pointer-events: auto;
     width: 50% !important;
     position: static;
+}
+.notes, .error-msg{
+    color: red;
+    font-size: smaller;
+}
+.room-body{
+    /* height: 300px;
+    overflow: scroll; */
+}
+label{
+    padding: 0px;
+    margin-bottom: 9px;
+    margin-top: 13px;
+    font-weight: bold;
+}
+button{
+    margin: 10px;
 }

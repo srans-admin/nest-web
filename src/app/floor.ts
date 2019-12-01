@@ -13,8 +13,8 @@ export class Floor {
     floorName: string = "First"; 
     rooms : Array<Room> = []; 
   
-    constructor(floorName: string){
-      this.floorName = floorName;
+    constructor(name: string = "First"){ 
+      this.floorName = name;
     }
   } 
   

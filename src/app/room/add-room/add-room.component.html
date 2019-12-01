@@ -59,28 +59,47 @@
 
 <div class="add-room-select">
 
-    <h2> ADD ROOM </h2>
+    <h2> Add Room(s) </h2>
+
+    <div class="error-msg">{{errorMsg}}</div>
+
+    <div class="room-body">
   
     <label for="name">Hostel Name</label>
-    <input type="text" readonly class="form-control" [(ngModel)]="hostel.hostelName"><br/>                
+    <input type="text" readonly class="form-control" [(ngModel)]="hostel.hostelName">          
 
     <label for="name">Floor </label>
-    <input type="text" readonly class="form-control" [(ngModel)]="hostel.floors.floorName" ><br/>                
-
-    <label for="name">Room Number</label>
-    <input type="text" class="form-control" [(ngModel)]="tmpRoom.roomName" ><br/>                
+    <input type="text" readonly class="form-control" [(ngModel)]="floorName" >             
+            
 
     <label for="name">Room Type</label>
-    <select>
-        <option>Single</option>
-        <option>Double</option>
+    <select class="browser-default custom-select"  [(ngModel)]="roomType">
+        <option >Single</option>
+        <option >Double</option>
         <option>Triple</option>
+        <option>Misc</option>
     </select>
+ 
+    
+    <label for="name">Number of Rooms</label>
+    <input type="number" class="form-control" [(ngModel)]="numOfRooms" >  
+
+
+    <label for="name">Room Numbers</label> 
+    <p class="notes"> Note: Please provide valid room numbers with comma seperated</p>
+    <textarea class="form-control" [(ngModel)]="roomNumbers" ></textarea>
+      
 
     <label for="name">Comments</label>
-    <input type="text" class="form-control col col-sm-6" id="hostelType" [(ngModel)]="hostel.hostelType" name="hostelType"><br/>                
+    <input type="text" class="form-control " id="hostelType" [(ngModel)]="comments" >              
 
-    <button type="submit" (click)="addRoomToHostel()"> ADD ROOM</button>
+    
+    </div>
+
+    <div class="add-room-popup-buttons">
+        <button  (click)="close()"> CLOSE </button>
+        <button   type="submit" (click)="addRoomToHostel()"> ADD ROOMS</button>
+    </div>
 
 </div>
 
