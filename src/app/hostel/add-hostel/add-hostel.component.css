@@ -14,7 +14,7 @@
 .add-room-button{
     position: absolute;
     right: 13px;
-    margin-top: -29px;
+    margin-top: -26px;
 }
 .floor-select{
     padding: 11px;
@@ -41,10 +41,11 @@ label{
 }
 .floor-header{
     width: 100%;
-    background-color: black;
+    background-color: #ddd;
     display: inline-block;
-    color: white;
+    color: black;
     padding: 6px 7px 7px 14px;
+    border-radius: 5px;
 }
 .floor-name{  
     margin-right: 20px; 

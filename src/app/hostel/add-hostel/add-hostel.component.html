@@ -1,53 +1,61 @@
-<h4>Add Hostel</h4>
+<h4><span class="glyphicon glyphicon-home"></span> Add Hostel</h4>
 <form (ngSubmit)="onSubmit()">
     <mat-tab-group>
-        <mat-tab label="Hostel">
+        <mat-tab label="Info" class="test">
+            
             <div class="add-hostel-details" [hidden]="submitted" style="width: 400px;">
 
                 <label for="name"> <span class="glyphicon glyphicon-envelope"></span> Hostel Name</label>
-                <input type="text" class="form-control col col-sm-6" id="hostelName" [(ngModel)]="hostel.hostelName"
+                <input type="text" class="form-control " id="hostelName" [(ngModel)]="hostel.hostelName"
                     name="hostelName">
 
-                <label>Hostel Address</label>
-                <input type="text" class="form-control col col-sm-6" id="hostelAddress"
-                    [(ngModel)]="hostel.hostelAddress" name="hostelAddress">
+                <label><span class="glyphicon glyphicon-user"></span> Hostel Address</label>
+                <input type="text" class="form-control " id="hostelAddress" [(ngModel)]="hostel.hostelAddress"
+                    name="hostelAddress">
 
-                <label>Hostel Type</label>
-                <input type="text" class="form-control col col-sm-6" id="hostelType" [(ngModel)]="hostel.hostelType"
+                <label><span class="glyphicon glyphicon-ok"></span> Hostel Type</label>
+                <input type="text" class="form-control " id="hostelType" [(ngModel)]="hostel.hostelType"
                     name="hostelType">
 
-                <label>Number of Floors</label>
-                <input type="number" class="form-control col col-sm-6" id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
+                <label><span class="glyphicon glyphicon-cog"></span> Number of Floors</label>
+                <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
                     (ngModelChange)="populateFloors($event)" name="numOfFloors">
 
-                <h6> Picture Uploadings</h6>
 
-                <label>Facade Uploads</label>
-                <input type="file"  [(ngModel)]="hostel.facade" />
-
-                <label>Reception Uploads</label>
-                <input type="file" [(ngModel)]="hostel.rec" />
-
-                <label>1 Bed Room Uploads</label>
-                <input type="file" [(ngModel)]="hostel.b1" />
-
-                <label>2 Bed Room Uploads</label>
-                <input type="file" [(ngModel)]="hostel.b2" />
-
-                <label>3 Bed Room Uploads</label>
-                <input type="file" [(ngModel)]="hostel.b3" />
-
-                <label>Misc Uploads</label>
-                <input type="file" [(ngModel)]="hostel.misc" />
-
-
-
-                <label>Description</label>
+                <label><span class="glyphicon glyphicon-file"></span> Description</label>
                 <textarea class="form-control" [(ngModel)]="hostel.misc"></textarea>
 
                 <!-- <button type="submit" class="btn btn-success">Submit</button> -->
 
             </div>
+        </mat-tab>
+
+
+        <mat-tab label="Pics">
+
+            <label><span class="glyphicon glyphicon-download"></span> Facade Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.facade" />
+
+
+
+            <label><span class="glyphicon glyphicon-repeat"></span> Reception Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.rec" />
+
+            <label><span class="glyphicon glyphicon-lock"></span> 1 Bed Room Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.b1" />
+
+            <label><span class="glyphicon glyphicon-headphones"></span> 2 Bed Room Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.b2" />
+
+            <label><span class="glyphicon glyphicon-qrcode"></span> 3 Bed Room Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.b3" />
+
+            <label><span class="glyphicon glyphicon-envelope"></span> Misc Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.misc" />
+
+
+
+
         </mat-tab>
 
         <mat-tab label="Rooms">
@@ -57,63 +65,62 @@
             </div>  -->
 
             <div class="floor-select " *ngFor="let floor of hostel.floors">
-                
+
                 <div class="floor-header">
-                    <span class="floor-name"> Floor-{{floor.floorName}} </span>
+                    <span class="floor-name"> <span class="glyphicon glyphicon-home"></span>  Floor-{{floor.floorName}} </span>
                     <div class="add-room-button">
-                        <button type="button" class="btn btn-info" (click)="addRoomDailog(floor.floorName)">Add
-                            Room</button>
+                        <button title="Add Room" type="button" class="btn background-black" (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span> </button>
                     </div>
                     <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
                 </div>
 
                 <div class="room-box">
-                    <div class="room-box-header"> Single Rooms </div> 
-                    <span *ngFor="let room of getRoomsWithType(floor,'Single')"> 
-                        <span class="sub-room-box"> 
-                           <span class="room-name"> Room-{{room.roomName}}  </span>
-                           <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                           <button class="sub-room-box-delete"(click)="deleteRoom(room)"> Remove </button>
-                        
-                        </span> 
-                    </span> 
+                    <div class="room-box-header"> <span class="glyphicon glyphicon-tags"></span> Single Rooms </div>
+                    <span *ngFor="let room of getRoomsWithType(floor,'Single')">
+                        <span class="sub-room-box">
+                            <span class="room-name"> Room-{{room.roomName}} </span>
+                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                        </span>
+                    </span>
                 </div>
 
                 <div class="room-box">
-                        <div class="room-box-header"> Double Rooms </div> 
-                        <span *ngFor="let room of getRoomsWithType(floor,'Double')"> 
-                            <span class="sub-room-box"> 
-                               <span class="room-name"> Room-{{room.roomName}}  </span>
-                               <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                               <button class="sub-room-box-delete"(click)="deleteRoom(room)"> Remove </button>
-                            
-                            </span> 
-                        </span> 
+                    <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> Double Rooms </div>
+                    <span *ngFor="let room of getRoomsWithType(floor,'Double')">
+                        <span class="sub-room-box">
+                            <span class="room-name"> Room-{{room.roomName}} </span>
+                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                        </span>
+                    </span>
                 </div>
 
                 <div class="room-box">
-                        <div class="room-box-header"> Triple Rooms </div> 
-                        <span *ngFor="let room of getRoomsWithType(floor,'Triple')"> 
-                            <span class="sub-room-box"> 
-                                <span class="room-name"> Room-{{room.roomName}}  </span>
-                                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                                <button class="sub-room-box-delete"(click)="deleteRoom(room)"> Remove </button>
-                            
-                            </span> 
-                        </span> 
-                    </div>
+                    <div class="room-box-header"><span class="glyphicon glyphicon-center"></span>  Triple Rooms </div>
+                    <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
+                        <span class="sub-room-box">
+                            <span class="room-name"> Room-{{room.roomName}} </span>
+                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
 
-                    <div class="room-box">
-                            <div class="room-box-header"> Misc </div> 
-                            <span *ngFor="let room of getRoomsWithType(floor,'Misc')"> 
-                                <span class="sub-room-box"> 
-                                   <span class="room-name"> Room-{{room.roomName}}  </span>
-                                   <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                                   <button class="sub-room-box-delete"(click)="deleteRoom(room)"> Remove </button>
-                                
-                                </span> 
-                            </span> 
-                        </div>
+                        </span>
+                    </span>
+                </div>
+
+                <div class="room-box">
+                    <div class="room-box-header"><span class="glyphicon glyphicon-home"></span> Misc </div>
+                    <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
+                        <span class="sub-room-box">
+                            <span class="room-name"> Room-{{room.roomName}} </span>
+                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                        </span>
+                    </span>
+                </div>
 
                 <!-- <ul *ngFor="let room of floor.rooms">
                     <li class="room-select"> 
@@ -127,47 +134,42 @@
 
 
             <!-- <button type="button" class="btn btn-info">Add Room</button> -->
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            sdsds
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+ 
 
         </mat-tab>
-        <mat-tab label="Additional">
+        <mat-tab label="Amenities">
 
-            <h2> Amenities</h2>
 
-            <div class="room-form-lable">
-                <label>TV</label>
-                <input type="checkbox" name="TV" checked>
-
-                <label>Fridge</label>
-                <input type="checkbox" name="Fr" checked>
-
-                <label>AC</label>
-                <input type="checkbox" name="AC" checked>
-
-                <label>Mineral Water</label>
-                <input type="checkbox" name="MW" checked>
-
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch1">
+                <label class="custom-control-label" for="switch1"><span class="glyphicon glyphicon-asterisk"></span> TV</label>
             </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch2">
+                <label class="custom-control-label" for="switch2"><span class="glyphicon glyphicon-lock"></span> Fridge</label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch3">
+                <label class="custom-control-label" for="switch3"><span class="glyphicon glyphicon-star"></span> AC</label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch4">
+                <label class="custom-control-label" for="switch4"><span class="glyphicon glyphicon-off"></span> Mineral Water</label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch5">
+                <label class="custom-control-label" for="switch5"><span class="glyphicon glyphicon-home"></span> Parking</label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch6">
+                <label class="custom-control-label" for="switch6"><span class="glyphicon glyphicon-flag"></span>  Gym</label>
+            </div>
+ 
 
         </mat-tab>
 
@@ -175,16 +177,8 @@
 
     </mat-tab-group>
 
-    <div class="add-hostel-submit"> 
-        <button type="submit" *ngIf="enableSubmit"> ADD HOSTEL </button> 
+    <div class="add-hostel-submit">
+        <button type="submit" *ngIf="enableSubmit"> ADD HOSTEL </button>
     </div>
 </form>
-
-
-<!--
-<div [hidden]="!submitted">
-    <h4>You submitted successfully!</h4>(click)="openRoomPopup()"
-    <button class="btn btn-success" (click)="newHostel()">Add</button>
-</div>
-
--->
+ 

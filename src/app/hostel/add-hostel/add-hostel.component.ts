@@ -69,7 +69,7 @@ export class AddHostelComponent implements OnInit {
   addRoomDailog(floorName: any): void {
 
     const dialogRef = this.dialog.open(AddRoomComponent, {
-      width: '50%',
+      width: '30%',
       data: {
        hostel :  this.hostel,
        floorName : floorName
