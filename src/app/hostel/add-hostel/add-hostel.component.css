@@ -41,9 +41,9 @@ label{
 }
 .floor-header{
     width: 100%;
-    background-color: #ddd;
+    background-color: #001f3f;
     display: inline-block;
-    color: black;
+    color: white;
     padding: 6px 7px 7px 14px;
     border-radius: 5px;
 }
@@ -70,4 +70,7 @@ label{
 }
 .add-hostel-submit{
     margin: 10px;
+}
+.room-box-header:hover{
+    color: black;
 }

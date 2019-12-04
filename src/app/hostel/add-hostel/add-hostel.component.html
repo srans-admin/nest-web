@@ -2,7 +2,7 @@
 <form (ngSubmit)="onSubmit()">
     <mat-tab-group>
         <mat-tab label="Info" class="test">
-            
+
             <div class="add-hostel-details" [hidden]="submitted" style="width: 400px;">
 
                 <label for="name"> <span class="glyphicon glyphicon-envelope"></span> Hostel Name</label>
@@ -31,33 +31,6 @@
         </mat-tab>
 
 
-        <mat-tab label="Pics">
-
-            <label><span class="glyphicon glyphicon-download"></span> Facade Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.facade" />
-
-
-
-            <label><span class="glyphicon glyphicon-repeat"></span> Reception Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.rec" />
-
-            <label><span class="glyphicon glyphicon-lock"></span> 1 Bed Room Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.b1" />
-
-            <label><span class="glyphicon glyphicon-headphones"></span> 2 Bed Room Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.b2" />
-
-            <label><span class="glyphicon glyphicon-qrcode"></span> 3 Bed Room Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.b3" />
-
-            <label><span class="glyphicon glyphicon-envelope"></span> Misc Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.misc" />
-
-
-
-
-        </mat-tab>
-
         <mat-tab label="Rooms">
 
             <!-- <div class="add-room-button">
@@ -67,9 +40,12 @@
             <div class="floor-select " *ngFor="let floor of hostel.floors">
 
                 <div class="floor-header">
-                    <span class="floor-name"> <span class="glyphicon glyphicon-home"></span>  Floor-{{floor.floorName}} </span>
+                    <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor.floorName}}
+                    </span>
                     <div class="add-room-button">
-                        <button title="Add Room" type="button" class="btn background-black" (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span> </button>
+                        <button title="Add Room" type="button" class="btn background-black"
+                            (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
+                        </button>
                     </div>
                     <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
                 </div>
@@ -99,7 +75,7 @@
                 </div>
 
                 <div class="room-box">
-                    <div class="room-box-header"><span class="glyphicon glyphicon-center"></span>  Triple Rooms </div>
+                    <div class="room-box-header"><span class="glyphicon glyphicon-center"></span> Triple Rooms </div>
                     <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
                         <span class="sub-room-box">
                             <span class="room-name"> Room-{{room.roomName}} </span>
@@ -134,7 +110,7 @@
 
 
             <!-- <button type="button" class="btn btn-info">Add Room</button> -->
- 
+
 
         </mat-tab>
         <mat-tab label="Amenities">
@@ -142,34 +118,68 @@
 
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch1">
-                <label class="custom-control-label" for="switch1"><span class="glyphicon glyphicon-asterisk"></span> TV</label>
+                <label class="custom-control-label" for="switch1"><span class="glyphicon glyphicon-asterisk"></span>
+                    TV</label>
             </div>
 
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch2">
-                <label class="custom-control-label" for="switch2"><span class="glyphicon glyphicon-lock"></span> Fridge</label>
+                <label class="custom-control-label" for="switch2"><span class="glyphicon glyphicon-lock"></span>
+                    Fridge</label>
             </div>
 
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch3">
-                <label class="custom-control-label" for="switch3"><span class="glyphicon glyphicon-star"></span> AC</label>
+                <label class="custom-control-label" for="switch3"><span class="glyphicon glyphicon-star"></span>
+                    AC</label>
             </div>
 
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch4">
-                <label class="custom-control-label" for="switch4"><span class="glyphicon glyphicon-off"></span> Mineral Water</label>
+                <label class="custom-control-label" for="switch4"><span class="glyphicon glyphicon-off"></span> Mineral
+                    Water</label>
             </div>
 
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch5">
-                <label class="custom-control-label" for="switch5"><span class="glyphicon glyphicon-home"></span> Parking</label>
+                <label class="custom-control-label" for="switch5"><span class="glyphicon glyphicon-home"></span>
+                    Parking</label>
             </div>
 
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch6">
-                <label class="custom-control-label" for="switch6"><span class="glyphicon glyphicon-flag"></span>  Gym</label>
+                <label class="custom-control-label" for="switch6"><span class="glyphicon glyphicon-flag"></span>
+                    Gym</label>
             </div>
- 
+
+
+        </mat-tab>
+
+
+        <mat-tab label="Pics">
+
+            <label><span class="glyphicon glyphicon-download"></span> Facade Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.facade" />
+
+
+
+            <label><span class="glyphicon glyphicon-repeat"></span> Reception Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.rec" />
+
+            <label><span class="glyphicon glyphicon-lock"></span> 1 Bed Room Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.b1" />
+
+            <label><span class="glyphicon glyphicon-headphones"></span> 2 Bed Room Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.b2" />
+
+            <label><span class="glyphicon glyphicon-qrcode"></span> 3 Bed Room Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.b3" />
+
+            <label><span class="glyphicon glyphicon-envelope"></span> Misc Uploads</label>
+            <input type="file" class="form-control " [(ngModel)]="hostel.misc" />
+
+
+
 
         </mat-tab>
 
@@ -181,4 +191,3 @@
         <button type="submit" *ngIf="enableSubmit"> ADD HOSTEL </button>
     </div>
 </form>
- 
