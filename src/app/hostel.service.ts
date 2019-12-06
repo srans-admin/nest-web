@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HostelService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/hostels';
+  private baseUrl = 'http://localhost:9090/nest-server/api/v1/hostels';
 
   constructor(private http: HttpClient) { }
 
