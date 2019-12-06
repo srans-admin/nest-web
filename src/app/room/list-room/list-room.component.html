@@ -1,0 +1,25 @@
+<div class="col col-md-6">
+    <h2>Room Details</h2><br/>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Room Number</th>
+        <th>Share Type</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let room of rooms">
+        <td class="hidden"></td>
+        <td>{{room.room_facility_type}}</td>
+        <td>{{room.room_share_type}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteRoom(room.hostel_floor_room_id)">Delete</button>
+          <button class="btn btn-success" (click)="updateRoom(room.hostel_floor_room_id)" style="margin-left: 20px;">Edit</button>
+          <button (click)="roomDetails(room.hostel_floor_room_id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+

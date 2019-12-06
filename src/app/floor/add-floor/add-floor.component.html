@@ -1,0 +1,21 @@
+<h4>Add Floor</h4><hr><br/>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()" class="form-group">
+            <label for="name">Hostel Id</label>   
+            <!-- <p>{{hostel.id}}</p>          -->
+            <input type="text" class="form-control col col-sm-6" id="hostel.id" [(ngModel)]="hostel.id" [(value)]="id" name="id" readonly><br/>
+
+            <label for="name">Floor Name</label>
+            <input type="text" class="form-control col col-sm-6" id="floor_name" [(ngModel)]="floor.floor_name" name="floor_name"><br/>
+
+            <label for="name">Description</label>
+            <input type="text" class="form-control col col-sm-6" id="description" [(ngModel)]="floor.description" name="description"><br/>                
+            
+            <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+<!-- <div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newHostel()">Add</button>
+</div> -->

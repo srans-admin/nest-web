@@ -29,7 +29,7 @@ export class UpdateHostelComponent implements OnInit {
   }
 
   updateHostel() {
-    this.hostelService.updateHostel(this.id, this.hostel)
+    this.hostelService.putHostel(this.id, this.hostel)
       .subscribe(data => console.log(data), error => console.log(error));
     this.hostel = new Hostel();
     this.gotoList();

@@ -1,0 +1,15 @@
+<h4>Update Room</h4><hr><br/>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+        <label for="name">Room Name</label>
+        <input type="text" class="form-control col col-sm-6" (ngModel)="room.roomName" ><br/>
+
+        <label for="name">Room Facility Type</label>
+        <input type="text" class="form-control col col-sm-6" (ngModel)="room.roomType" ><br/>
+
+        <label for="name">Room Rent</label>
+        <input type="text" class="form-control col col-sm-6"  (ngModel)="room.roomRent" name="room_share_type"><br/>     
+        
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>

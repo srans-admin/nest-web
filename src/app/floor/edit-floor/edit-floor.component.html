@@ -1,0 +1,12 @@
+<h4>Update Floor</h4><hr><br/>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+        <label for="name">Floor Number</label>
+        <input type="text" class="form-control col col-sm-6" id="floor_number" (ngModel)="floor.floor_number" name="floor_number"><br/>
+
+        <label for="name">Number of Rooms</label>
+        <input type="text" class="form-control col col-sm-6" id="number_of_rooms" (ngModel)="floor.number_of_rooms" name="number_of_rooms"><br/>     
+        
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>
