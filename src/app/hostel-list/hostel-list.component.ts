@@ -1,9 +1,9 @@
-import { HostelDetailsComponent } from './../hostel-details/hostel-details.component';
+ import { HostelDetailsComponent } from './../hostel-details/hostel-details.component';
 import { Observable } from "rxjs";
 import { HostelService } from "./../hostel.service";
 import { Hostel } from "./../hostel";
 import { Component, OnInit } from "@angular/core";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: "app-hostel-list",

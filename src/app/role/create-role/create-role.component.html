@@ -1,0 +1,36 @@
+<h3>Create Role</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" class="form-control" id="firstName" required [(ngModel)]="hostel.firstName" name="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="hostel.lastName" name="lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Mobile</label>
+      <input type="text" class="form-control" id="Mobile" required [(ngModel)]="hostel.mobile" name="mobile">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="hostel.emailId" name="emailId">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Role</label>
+      <input type="text" class="form-control" id="role" required [(ngModel)]="hostel.role" name="role">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newHostel()">Add</button> -->
+</div>
