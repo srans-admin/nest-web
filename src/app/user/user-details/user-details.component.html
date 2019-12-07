@@ -2,21 +2,10 @@
 
 <hr/>
 <div *ngIf="user">
-<<<<<<< HEAD
-  <!--<div>-->
-    <!--<label><b>userphoto: </b></label> {{user.userphoto}}-->
-  <!--</div>-->
-=======
-<<<<<<< HEAD
-  <!--<div>-->
-    <!--<label><b>userphoto: </b></label> {{user.userphoto}}-->
-  <!--</div>-->
-=======
   <div>
-    <label><b>userphoto: </b></label> {{user.userphoto}}
+    <label><b>userpic: </b></label> {{user.userpic}}
+    <img class="imgClass" [src]="user.userphoto">
   </div>
->>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
->>>>>>> 6365bc6d137360d7957e1d781a67b12825b63c88
   <div>
     <label><b>name: </b></label> {{user.name}}
   </div>
@@ -60,7 +49,8 @@
     <label><b>permanentAddress : </b></label> {{user.permanentAddress}}
   </div>
   <div>
-    <label><b>idProof : </b></label> {{user.idProof}}
+    <label><b>idProofpic : </b></label> {{user.idProofpic}}
+    <img class="imgClass" [src]="user.idProofpic">
   </div>
   <div>
       <label><b>hostelName : </b></label> {{hostel.hostelName}}
@@ -69,8 +59,27 @@
       <label><b>floor : </b></label> {{floor.floorName}}
   </div>
   <div>
-      <label><b>roomName : </b></label> {{room.roomName}}
+      <label><b>RoomName : </b></label> {{room.roomName}}
   </div>
+  <div>
+      <label><b>Sharing : </b></label> {{room.roomType}}
+  </div>
+  <div>
+      <label><b>Date : </b></label> {{invoice.date}}
+  </div>
+  <!-- <div>
+      <label><b>Name : </b></label> {{invoice.name}}
+  </div> -->
+  <div>
+      <label><b>Deposit Amount : </b></label> {{invoice.depositAmount}}
+  </div>
+  <div>
+      <label><b>Amount : </b></label> {{invoice.amount}}
+  </div>
+  <div>
+      <label><b>Payment Type : </b></label> {{invoice.paymentType}}
+  </div>
+  
 
 </div>
 

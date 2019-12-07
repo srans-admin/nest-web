@@ -6,6 +6,7 @@ import { Floor } from '../../floor';
 import { Room } from '../../room';
 import { Invoice } from '../../invoice';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-user',
@@ -21,13 +22,17 @@ export class CreateUserComponent implements OnInit {
 
     user: User = new User();    
     hostel: Hostel = new Hostel();
-    floor: Floor = new Floor();
-    room : Room = new Room();
+    tempfloor: Array<any>;
+    totalRooms: Number=1;
     invoice: Invoice = new Invoice();
     submitted = false;
+    floor: Floor = new Floor();
+    room: Room = new Room();
 
 
   ngOnInit() {
+    // this.tempFloors = [1];
+    // this.populateFloors();
   }
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
@@ -58,6 +63,7 @@ export class CreateUserComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/add']);
+    // this.router.navigate(['/hostels']);
   }
 
 }
