@@ -1,4 +1,5 @@
 <h4><span class="glyphicon glyphicon-home"></span> Add Hostel</h4>
+<p> {{acknoldgmentMsg}}</p>
 <form (ngSubmit)="onSubmit()">
     <mat-tab-group>
         <mat-tab label="Info" class="test">
@@ -159,24 +160,24 @@
         <mat-tab label="Pics">
 
             <label><span class="glyphicon glyphicon-download"></span> Facade Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.facade" />
+            <input type="file" class="form-control " (change)="prepareUpload('facade',$event)" multiple  />
 
 
-
+            <!-- [(ngModel)]="hostel.receptionUIImage" -->
             <label><span class="glyphicon glyphicon-repeat"></span> Reception Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.rec" />
+            <input type="file" class="form-control "  (change)="prepareUpload('reception',$event)" multiple  />
 
             <label><span class="glyphicon glyphicon-lock"></span> 1 Bed Room Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.b1" />
+            <input type="file" class="form-control " (change)="prepareUpload('b1',$event)" multiple />
 
             <label><span class="glyphicon glyphicon-headphones"></span> 2 Bed Room Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.b2" />
+            <input type="file" class="form-control " (change)="prepareUpload('b2',$event)" multiple />
 
             <label><span class="glyphicon glyphicon-qrcode"></span> 3 Bed Room Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.b3" />
+            <input type="file" class="form-control "(change)="prepareUpload('b3',$event)" multiple />
 
             <label><span class="glyphicon glyphicon-envelope"></span> Misc Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.misc" />
+            <input type="file" class="form-control " (change)="prepareUpload('misc',$event)" multiple/>
 
 
 

@@ -45,7 +45,7 @@ import { ViewComponent } from './hostel/view/view.component';
 import { FloorViewComponent } from './floor/floor-view/floor-view.component';
 import { RoomViewComponent } from './room/room-view/room-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
