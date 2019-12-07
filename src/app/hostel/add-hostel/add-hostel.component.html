@@ -1,6 +1,7 @@
+<div class="add-hostel">
 <h4><span class="glyphicon glyphicon-home"></span> Add Hostel</h4>
 <p> {{acknoldgmentMsg}}</p>
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" name="hostel-form">
     <mat-tab-group>
         <mat-tab label="Info" class="test">
 
@@ -20,11 +21,11 @@
 
                 <label><span class="glyphicon glyphicon-cog"></span> Number of Floors</label>
                 <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
-                    (ngModelChange)="populateFloors($event)" name="numOfFloors">
+                    (ngModelChange)="populateFloors($event)" name="numOfFloors" >
 
 
                 <label><span class="glyphicon glyphicon-file"></span> Description</label>
-                <textarea class="form-control" [(ngModel)]="hostel.misc"></textarea>
+                <textarea class="form-control" [(ngModel)]="hostel.misc" name="misc"></textarea>
 
                 <!-- <button type="submit" class="btn btn-success">Submit</button> -->
 
@@ -44,7 +45,7 @@
                     <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor.floorName}}
                     </span>
                     <div class="add-room-button">
-                        <button title="Add Room" type="button" class="btn background-black"
+                        <button title="Add Room" type="button" class="btn btn-background"
                             (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
                         </button>
                     </div>
@@ -189,6 +190,7 @@
     </mat-tab-group>
 
     <div class="add-hostel-submit">
-        <button type="submit" *ngIf="enableSubmit"> ADD HOSTEL </button>
+        <button type="submit" *ngIf="enableSubmit" class="add-hostel-button"> ADD HOSTEL </button>
     </div>
 </form>
+</div>

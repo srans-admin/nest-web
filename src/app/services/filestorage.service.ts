@@ -6,7 +6,7 @@ import { ServerConfig } from '../config/server.config';
 @Injectable({
   providedIn: 'root'
 })
-export class FileUploadService {
+export class FileStorageService {
 
   serverConfig: ServerConfig = new ServerConfig();
   private baseUrl = this.serverConfig.getServerURL() +'/api/v1/hostels';
@@ -18,5 +18,9 @@ export class FileUploadService {
     const formdata: FormData = new FormData();  
     formdata.append('file', file);  
     return this.http.post(url , formdata);  
+  } 
+
+  retriveFile(url: string ) : Observable<Blob>{  
+    return this.http.get(url, { responseType: 'blob' });  
   }
 }
