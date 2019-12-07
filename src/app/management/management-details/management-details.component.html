@@ -1,0 +1,19 @@
+<h2>Management Details</h2>
+
+<hr/>
+<div *ngIf="management">
+  <div>
+    <label><b> Name: </b></label> {{management.hostelName}}
+  </div>
+  <div>
+    <label><b>Name: </b></label> {{management.name}}
+  </div>
+  <div>
+    <label><b>Role Name : </b></label> {{management.roleName}}
+  </div>
+
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Management List</button><br>
