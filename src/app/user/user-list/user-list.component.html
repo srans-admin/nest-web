@@ -1,0 +1,94 @@
+<div class="panel panel-primary">
+    <div class="row">
+      <div class="col-sm-8"><h2>User List</h2></div>
+      <div>
+        <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus">Add Tenant</i></a>
+      </div>
+      <div class="md-form mt-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      </div>
+          
+        <form class="form-inline waves-light" mdbWavesEffect>
+          
+          <div>
+            <table class="table table-striped id=#dtDynamicVerticalScrollExample">
+              <thead>
+                <tr>
+                  <th>userId</th>
+<<<<<<< HEAD
+                 <!--<th>userphoto</th>-->
+=======
+<<<<<<< HEAD
+                 <!--<th>userphoto</th>-->
+=======
+                 <!-- <th>userphoto</th> -->
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
+>>>>>>> 6365bc6d137360d7957e1d781a67b12825b63c88
+                  <th>name</th>
+                  <th>contactNumber</th>
+                  <th>fatherName</th>
+                  <th>fatherphoneNumber</th>
+                  <th>motherName</th>
+                  <!-- <th>motherphoneNumber</th> -->
+                  <th>dob</th>
+                  <!-- <th>bloodGroup</th>
+                  <th>emergencyContactNumber</th>
+                  <th>nameOfTheEmployer</th>
+                  <th>officeAddress</th>
+                  <th>telephoneNumber</th> -->
+                  <th>emailId</th>
+                  <!-- <th>permanentAddress</th>
+                  <th>idProof</th> -->
+                  <th>options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users |  async">
+                  <td>{{ user.userId }}</td>
+<<<<<<< HEAD
+                  <!--<td>{{ user.userphoto }}</td>-->
+=======
+<<<<<<< HEAD
+                  <!--<td>{{ user.userphoto }}</td>-->
+=======
+                  <!-- <td>{{ user.userphoto }}</td> -->
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
+>>>>>>> 6365bc6d137360d7957e1d781a67b12825b63c88
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.contactNumber }}</td>
+                  <td>{{ user.fatherName }}</td>
+                  <td>{{ user.fatherphoneNumber }}</td>
+                  <td>{{ user.motherName }}</td>
+                  <!-- <td>{{ user.motherphoneNumber }}</td> -->
+                  <td>{{ user.dob }}</td>
+                  <!-- <td>{{ user.bloodGroup }}</td>
+                  <td>{{ user.emergencyContactNumber }}</td>
+                  <td>{{ user.nameOfTheEmployer }}</td>
+                  <td>{{ user.officeAddress }}</td>
+                  <td>{{ user.telephoneNumber }}</td>       -->
+                  <td>{{ user.emailId }}</td>
+                  <!-- <td>{{ user.permanentAddress }}</td>
+                  <td>{{user.idProof}}</td> -->
+                  <td>                    
+                      <button (click)="deleteUser(user.userId)" class="btn btn-danger"><i class="fa fa-trash" style="width: 10px"></i></button>
+                      <button  (click)="updateUser(user.userId)" class="btn btn-primary"><i class="fa fa-edit" style="width: 10px"></i></button>
+                      <button (click)="userDetails(user.userId)" class="btn btn-info"><i class="fa fa-eye" style="width: 10px"></i></button>
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+    </div>
+    <br>
+</div>
+  
+  
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
+>>>>>>> 6365bc6d137360d7957e1d781a67b12825b63c88

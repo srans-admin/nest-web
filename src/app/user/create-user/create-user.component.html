@@ -1,0 +1,179 @@
+<h3>Create Tenant</h3>
+  <form (ngSubmit)="onSubmit()">
+    <mat-tab-group>
+      <mat-tab label="Tenant">
+      <div [hidden]="submitted" style="width: 400px;">
+
+      <div class="row">
+          <div class="input-fiela col s12"></div>          
+      </div>
+    
+<<<<<<< HEAD
+      <!--<div class="form-group">-->
+          <!--<label for="name">userphoto</label>-->
+          <!--<input type="file" name="fileupload" value="fileupload" id="fileupload">                  -->
+        <!--<br/><img src="src/images" />-->
+      <!--</div>-->
+=======
+      <!-- <div class="form-group">
+          <label for="name">userphoto</label>
+          <input type="file" name="fileupload" value="fileupload" id="fileupload">
+        <br/><img src="src/images">
+      </div> -->
+>>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
+
+      <div class="form-group">
+          <label for="name">name</label>
+          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+        </div>
+
+      <div class="form-group">
+          <label for="name">contactNumber</label>
+          <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber">
+        </div>
+
+      <div class="form-group">
+          <label for="name">fatherName</label>
+          <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName">
+        </div>
+
+      <div class="form-group">
+          <label for="name">fatherphoneNumber</label>
+          <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber">
+        </div>
+    
+      <div class="form-group">
+          <label for="name">motherName</label>
+          <input type="text" class="form-control" id="motherName" required [(ngModel)]="user.motherName" name="motherName">
+        </div>
+
+      <div class="form-group">
+          <label for="name">motherphoneNumber</label>
+          <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
+        </div>
+
+      <div class="form-group">
+          <label for="name">dob</label>
+          <input type="text" class="form-control" id="dob" required [(ngModel)]="user.dob" name="dob">
+        </div>
+                  
+      <div class="form-group">
+          <label for="name">bloodGroup</label>
+          <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">
+        </div>
+
+      <div class="form-group">
+          <label for="name">emergencyContactNumber</label>
+          <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
+        </div>
+
+      <div class="form-group">
+          <label for="name">nameOfTheEmployer</label>
+          <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
+        </div>
+
+      <div class="form-group">
+          <label for="name">officeAddress</label>
+          <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
+        </div>
+
+      <div class="form-group">
+          <label for="name">telephoneNumber</label>
+          <input type="text" class="form-control" id="telephoneNumber" required [(ngModel)]="user.telephoneNumber" name="telephoneNumber">
+        </div>               
+                      
+     <div class="form-group">
+      <label for="name">emailId</label>
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
+    </div>
+
+    <div class="form-group">
+      <label for="name">permanentAddress</label>
+      <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
+    </div>
+
+    <div class="form-group">
+        <label for="name">idProof</label>
+        <input type="text" class="form-control" id="idProof" required [(ngModel)]="user.idProof" name="idProof">
+      </div>    
+  
+</div>
+</mat-tab>
+    
+    <mat-tab label="Hostel">
+
+    <div class="form-group">
+        <label for="name">hostelName</label>
+        <input type="text" class="form-control" id="hostelName" required [(ngModel)]="hostel.hostelName" name="hostelName">
+    </div>
+
+    <div class="form-group">
+        <label for="name">floor</label>
+        <input type="text" class="form-control" id="floorName" required [(ngModel)]="floor.floorName" name="floorName">
+    </div>
+
+    <div class="form-group">
+        <label for="name">roomName</label>
+        <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName">
+    </div>
+
+    <div class="form-group">
+        <label for="name">roomType</label>
+        <input type="text" class="form-control" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
+    </div>
+
+    </mat-tab>
+
+
+    <mat-tab label="payment">
+
+      <div class="form-group">
+          <label for="name">date</label>
+          <input type="text" class="form-control" id="date" required [(ngModel)]="invoice.date" name="date">
+      </div>
+
+      <div class="form-group">
+          <label for="name">name</label>
+          <input type="text" class="form-control" id="name" required [(ngModel)]="invoice.name" name="name">
+      </div>
+
+      <div class="form-group">
+          <label for="name">roomName</label>
+          <input type="text" class="form-control" id="roomName" required [(ngModel)]="invoice.roomName" name="roomName">
+      </div>
+
+      <div class="form-group">
+          <label for="name">sharing</label>
+          <input type="text" class="form-control" id="sharing" required [(ngModel)]="invoice.sharing" name="sharing">
+      </div>
+
+      <div class="form-group">
+          <label for="name">amount</label>
+          <input type="text" class="form-control" id="amount" required [(ngModel)]="invoice.amount" name="amount">
+      </div>
+
+      <div class="form-group">
+          <label for="name">depositAmount</label>
+          <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="invoice.depositAmount" name="depositAmount">
+      </div>      
+
+      <div class="form-group">
+          <label for="name">paymentType</label>
+          <select id="paymentType" class="form-control" [(ngModel)]="invoice.paymentType" name=" paymentType">
+            <option >!--select--! </option>
+            <option >Cash</option>
+            <option >Bank Transfer</option>
+          </select>      
+      </div> 
+      <button type="submit" class="btn btn-success">Join Tenant</button>       
+    </mat-tab>    
+</mat-tab-group>
+ </form>
+ 
+
+<!-- <div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+</div> -->
+
+
+
