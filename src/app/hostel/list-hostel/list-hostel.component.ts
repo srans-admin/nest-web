@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ListHostelComponent implements OnInit {
   hostels: Observable<Hostel[]>;
   
+  
   constructor(private hostelService: HostelService,
     private router: Router,
     private route: ActivatedRoute) { }
@@ -25,6 +26,7 @@ export class ListHostelComponent implements OnInit {
     }
   
     deleteHostel(id: number) {
+      if(window.confirm("Are you to remove the hostel : "+id)){
       this.hostelService.deleteHostel(id)
         .subscribe(
           data => {
@@ -32,6 +34,7 @@ export class ListHostelComponent implements OnInit {
             this.reloadData();
           },
           error => console.log(error));
+        }
     }
   
     hostelDetails(id: number){
