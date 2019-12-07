@@ -1,0 +1,43 @@
+<h3>Payment </h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Date</label>
+      <input type="text" class="form-control" id="date" required [(ngModel)]="invoice.date" name="date">
+
+      <label for="name">name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="invoice.name" name="name">
+
+      <label for="name">Room Name</label>
+      <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName">
+
+      <label for="name">sharing</label>
+      <select class="browser-default custom-select" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
+        <option></option>
+        <option>Single</option>
+        <option>Double</option>
+        <option>Triple</option>
+        <option>Four</option>
+      </select>
+    
+
+      <label for="name">paymentType</label>
+      <select id="paymentType" class="browser-default custom-select" [(ngModel)]="invoice.paymentType" name=" paymentType">
+        <option > </option>
+        <option >Cash</option>
+        <option >Bank Transfer</option>
+    </select>      
+    
+      <label for="name">amount</label>
+      <input type="text" class="form-control" id="amount" required [(ngModel)]="invoice.amount" name="amount">
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  
+</div>

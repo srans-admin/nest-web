@@ -1,34 +1,72 @@
+    
+   
+
+
+    <!-- three dot menu -->
+    <div class="dropdown">
+        <!-- three dots -->
+        <ul class="dropbtn icons btn-right showLeft" (click)="showDropdown()">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <!-- menu -->
+        <div id="myDropdown" class="dropdown-content">
+            <a href="#home">Home</a>
+            <a href="#invoice generate">invoice generate</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+        
+
+
 <div class="panel panel-primary">
     <div class="row">
       <div class="col-sm-8"><h2>User List</h2></div>
       <div>
         <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus">Add Tenant</i></a>
       </div>
-      <div class="md-form mt-0">
+      <!-- <div class="md-form mt-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      </div>
+      </div> -->
+
+      <div ng-app="appModule" ng-controller="appCtrl">
+
+        <div class="search-box">
+        
+        <input class="search-box" type="text" placeholder="Search...">
+        
+        <span class="icons"></span>
+        
+        </div>
+        
+        <label class="options-title"> </label>
+        
+        <!-- <iui-grid name="{{gridName}}" columns="columns" rows="rows" allow-filter="true" show-footer="false" allow-cell-focus="false"></iui-grid> -->
+        
+        </div>
+        <!-- <div class="dot"></div> -->
           
         <form class="form-inline waves-light" mdbWavesEffect>
-          
+            <!-- <div class="md-form active-pink active-pink-2 mb-3">
+                <input class="form-control" type="search">
+                <label >Search</label>
+              </div> -->
+              
           <div>
-            <table class="table table-striped id=#dtDynamicVerticalScrollExample">
+            <table class="table table-striped">
+                
               <thead>
                 <tr>
+                  <th></th>
                   <th>userId</th>
-<<<<<<< HEAD
-                 <!--<th>userphoto</th>-->
-=======
-<<<<<<< HEAD
-                 <!--<th>userphoto</th>-->
-=======
-                 <!-- <th>userphoto</th> -->
->>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
->>>>>>> 6365bc6d137360d7957e1d781a67b12825b63c88
+                  <th>userpic</th>                 
                   <th>name</th>
                   <th>contactNumber</th>
                   <th>fatherName</th>
                   <th>fatherphoneNumber</th>
-                  <th>motherName</th>
+                  <!-- <th>motherName</th> -->
                   <!-- <th>motherphoneNumber</th> -->
                   <th>dob</th>
                   <!-- <th>bloodGroup</th>
@@ -37,28 +75,25 @@
                   <th>officeAddress</th>
                   <th>telephoneNumber</th> -->
                   <th>emailId</th>
-                  <!-- <th>permanentAddress</th>
-                  <th>idProof</th> -->
+                  <th>permanentAddress</th>
+                  <!-- <th>idProof</th> -->
                   <th>options</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let user of users |  async">
-                  <td>{{ user.userId }}</td>
-<<<<<<< HEAD
-                  <!--<td>{{ user.userphoto }}</td>-->
-=======
-<<<<<<< HEAD
-                  <!--<td>{{ user.userphoto }}</td>-->
-=======
-                  <!-- <td>{{ user.userphoto }}</td> -->
->>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
->>>>>>> 6365bc6d137360d7957e1d781a67b12825b63c88
+                  
+                    
+                <tr *ngFor="let user of users |  async">              
+                    <mat-checkbox color="primary"></mat-checkbox>
+                  <td>{{ user.userId }}</td>                  
+                  <td>{{ user.userpic }}
+                      <img class="imgClass" [src]="user.userphoto">
+                  </td>                         
                   <td>{{ user.name }}</td>
                   <td>{{ user.contactNumber }}</td>
                   <td>{{ user.fatherName }}</td>
                   <td>{{ user.fatherphoneNumber }}</td>
-                  <td>{{ user.motherName }}</td>
+                  <!-- <td>{{ user.motherName }}</td> -->
                   <!-- <td>{{ user.motherphoneNumber }}</td> -->
                   <td>{{ user.dob }}</td>
                   <!-- <td>{{ user.bloodGroup }}</td>
@@ -67,17 +102,20 @@
                   <td>{{ user.officeAddress }}</td>
                   <td>{{ user.telephoneNumber }}</td>       -->
                   <td>{{ user.emailId }}</td>
-                  <!-- <td>{{ user.permanentAddress }}</td>
-                  <td>{{user.idProof}}</td> -->
+                  <td>{{ user.permanentAddress }}</td>
+                  <!-- <td>{{user.idProof}}</td> -->
                   <td>                    
-                      <button (click)="deleteUser(user.userId)" class="btn btn-danger"><i class="fa fa-trash" style="width: 10px"></i></button>
-                      <button  (click)="updateUser(user.userId)" class="btn btn-primary"><i class="fa fa-edit" style="width: 10px"></i></button>
-                      <button (click)="userDetails(user.userId)" class="btn btn-info"><i class="fa fa-eye" style="width: 10px"></i></button>
+                      <button (click)="deleteUser(user.userId)" class="btn btn-danger"><i class="fa fa-trash" style="width: 20px"></i></button>
+                      <button  (click)="updateUser(user.userId)" class="btn btn-primary"><i class="fa fa-edit" style="width: 20px"></i></button>
+                      <button (click)="userDetails(user.userId)" class="btn btn-info"><i class="fa fa-eye" style="width: 20px"></i></button>
                     
                   </td>
+                  
+                <!-- </div> -->
                 </tr>
               </tbody>
             </table>
+          
           </div>
         </form>
     </div>
@@ -85,10 +123,3 @@
 </div>
   
   
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-  
->>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
->>>>>>> 6365bc6d137360d7957e1d781a67b12825b63c88

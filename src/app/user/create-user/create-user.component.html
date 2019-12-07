@@ -2,99 +2,90 @@
   <form (ngSubmit)="onSubmit()">
     <mat-tab-group>
       <mat-tab label="Tenant">
-      <div [hidden]="submitted" style="width: 400px;">
+      <div [hidden]="submitted" style="width: 300px;">
 
       <div class="row">
-          <div class="input-fiela col s12"></div>          
+          <div class="input-field col s12"></div>          
       </div>
     
-<<<<<<< HEAD
-      <!--<div class="form-group">-->
-          <!--<label for="name">userphoto</label>-->
-          <!--<input type="file" name="fileupload" value="fileupload" id="fileupload">                  -->
-        <!--<br/><img src="src/images" />-->
-      <!--</div>-->
-=======
-      <!-- <div class="form-group">
-          <label for="name">userphoto</label>
-          <input type="file" name="fileupload" value="fileupload" id="fileupload">
-        <br/><img src="src/images">
-      </div> -->
->>>>>>> 2adc0a65623cb148215a4dc58a58e7bd634da3fb
+      <div class="form-group">
+          <label for="name">userpic</label>
+          <input type="file" required [(ngModel)]=user.userpic name="userpic" >
+      </div>
 
       <div class="form-group">
-          <label for="name">name</label>
+          <label for="name">Name:</label>
           <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
         </div>
 
       <div class="form-group">
-          <label for="name">contactNumber</label>
+          <label for="name">ContactNumber:</label>
           <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber">
         </div>
 
       <div class="form-group">
-          <label for="name">fatherName</label>
+          <label for="name">FatherName:</label>
           <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName">
         </div>
 
       <div class="form-group">
-          <label for="name">fatherphoneNumber</label>
+          <label for="name">Father PhoneNumber:</label>
           <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber">
         </div>
     
       <div class="form-group">
-          <label for="name">motherName</label>
+          <label for="name">MotherName:</label>
           <input type="text" class="form-control" id="motherName" required [(ngModel)]="user.motherName" name="motherName">
         </div>
 
       <div class="form-group">
-          <label for="name">motherphoneNumber</label>
+          <label for="name">Mother PhoneNumber:</label>
           <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
         </div>
 
       <div class="form-group">
-          <label for="name">dob</label>
+          <label for="name">DoB:</label>
           <input type="text" class="form-control" id="dob" required [(ngModel)]="user.dob" name="dob">
         </div>
                   
       <div class="form-group">
-          <label for="name">bloodGroup</label>
+          <label for="name">BloodGroup:</label>
           <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">
         </div>
 
       <div class="form-group">
-          <label for="name">emergencyContactNumber</label>
+          <label for="name">EmergencyContactNumber:</label>
           <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
         </div>
 
       <div class="form-group">
-          <label for="name">nameOfTheEmployer</label>
+          <label for="name">NameOfTheEmployer:</label>
           <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
         </div>
 
       <div class="form-group">
-          <label for="name">officeAddress</label>
+          <label for="name">OfficeAddress:</label>
           <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
         </div>
 
       <div class="form-group">
-          <label for="name">telephoneNumber</label>
+          <label for="name">TelephoneNumber:</label>
           <input type="text" class="form-control" id="telephoneNumber" required [(ngModel)]="user.telephoneNumber" name="telephoneNumber">
         </div>               
                       
      <div class="form-group">
-      <label for="name">emailId</label>
+      <label for="name">EmailId:</label>
       <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
     </div>
 
     <div class="form-group">
-      <label for="name">permanentAddress</label>
+      <label for="name">PermanentAddress:</label>
       <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
     </div>
 
     <div class="form-group">
-        <label for="name">idProof</label>
-        <input type="text" class="form-control" id="idProof" required [(ngModel)]="user.idProof" name="idProof">
+        <label for="name">idProofpic</label>
+          <input type="file" required [(ngModel)]=user.idProofpic name="idProofpic" >
       </div>    
   
 </div>
@@ -102,78 +93,112 @@
     
     <mat-tab label="Hostel">
 
-    <div class="form-group">
-        <label for="name">hostelName</label>
-        <input type="text" class="form-control" id="hostelName" required [(ngModel)]="hostel.hostelName" name="hostelName">
-    </div>
+    <!-- <div class="add-room-select">
+        <label for="name">HostelName:</label>
+        <select class="browser-default custom-selector" id="hostelName" required [(ngModel)]="hostel.hostelName" name="hostelName"></select> -->
+    <!-- </div> -->
 
-    <div class="form-group">
-        <label for="name">floor</label>
-        <input type="text" class="form-control" id="floorName" required [(ngModel)]="floor.floorName" name="floorName">
-    </div>
+    <!-- <div class="form-group"> -->
+        <!-- <label for="name">Floor:</label>
+        <input type="text" class="form-control" id="floorName" required [(ngModel)]="floor.floorName" name="floorName"> -->
+    <!-- </div> -->
 
-    <div class="form-group">
-        <label for="name">roomName</label>
-        <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName">
-    </div>
+    <!-- <div class="form-group"> -->
+        <!-- <label for="name">RoomName:</label>
+        <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName"> -->
+    <!-- </div> -->
 
-    <div class="form-group">
-        <label for="name">roomType</label>
-        <input type="text" class="form-control" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
+    <!-- <div class="form-group"> -->
+        <!-- <label for="name">Sharing:</label>
+        <select class="browser-default custom-select" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
+          <option> </option>
+          <option>single</option>
+          <option>Double</option>
+          <option>Triple</option>
+          <option>Four</option>
+        </select>
+    </div> -->
+
+
+    <div class="hostel-select" *ngFor="let hostel of hostel.floors">
+
+        <div class="hostel-header">
+          <span class="hostel-name">Hostel-{{hostel.hostelName}}</span>
+          <span class="total-rooms"> Rooms Available: <strong>{{roomsavailable}}</strong></span>          
+        </div>
+
+        <div class="room-box">
+          <div class="room-box-header"> Floor-{{floor.floorName}}</div>
+          <span *ngFor="let room of getRoomsWithType(floor,'room')">
+            <span class="sub-room-box">
+              <span class="room-type">{{room.roomType}}</span>
+              <span class="floor-name">Room-{{room.roomName}}</span>
+              <button class="sub-room-box-ok" (click)="okRoom(room)">Ok</button>
+            </span>
+          </span>
+        </div>
     </div>
 
     </mat-tab>
 
 
     <mat-tab label="payment">
+        <div [hidden]="submitted" style="width: 200px;">
 
       <div class="form-group">
-          <label for="name">date</label>
+          <label for="name">Date:</label>
           <input type="text" class="form-control" id="date" required [(ngModel)]="invoice.date" name="date">
-      </div>
+      <!-- </div> -->
 
-      <div class="form-group">
-          <label for="name">name</label>
-          <input type="text" class="form-control" id="name" required [(ngModel)]="invoice.name" name="name">
-      </div>
+      <!-- <div class="form-group"> -->
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+      <!-- </div> -->
 
-      <div class="form-group">
-          <label for="name">roomName</label>
-          <input type="text" class="form-control" id="roomName" required [(ngModel)]="invoice.roomName" name="roomName">
-      </div>
+      <!-- <div class="form-group"> -->
+          <label for="name">RoomName:</label>
+          <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName">
+      <!-- </div> -->
 
-      <div class="form-group">
-          <label for="name">sharing</label>
-          <input type="text" class="form-control" id="sharing" required [(ngModel)]="invoice.sharing" name="sharing">
-      </div>
+      <!-- <div class="form-group"> -->
+          <label for="name">Sharing:</label>
+          <select class="browser-default custom-select" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
+            <option></option>
+            <option>Single</option>
+            <option>Double</option>
+            <option>Triple</option>
+            <option>Four</option>
+          </select>
+      <!-- </div> -->
 
-      <div class="form-group">
-          <label for="name">amount</label>
-          <input type="text" class="form-control" id="amount" required [(ngModel)]="invoice.amount" name="amount">
-      </div>
-
-      <div class="form-group">
-          <label for="name">depositAmount</label>
+      <!-- <div class="form-group"> -->
+          <label for="name">Deposit Amount:</label>
           <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="invoice.depositAmount" name="depositAmount">
-      </div>      
+      <!-- </div> -->
 
-      <div class="form-group">
-          <label for="name">paymentType</label>
-          <select id="paymentType" class="form-control" [(ngModel)]="invoice.paymentType" name=" paymentType">
-            <option >!--select--! </option>
+      <!-- <div class="form-group"> -->
+          <label for="name">Amount:</label>
+          <input type="text" class="form-control" id="amount" required [(ngModel)]="invoice.amount" name="amount">
+      <!-- </div>       -->
+
+      <!-- <div class="form-group"> -->
+          <label for="name">Payment Type:</label>
+          <select id="paymentType" class="browser-default custom-select" [(ngModel)]="invoice.paymentType" name=" paymentType">
+            <option > </option>
             <option >Cash</option>
             <option >Bank Transfer</option>
-          </select>      
-      </div> 
-      <button type="submit" class="btn btn-success">Join Tenant</button>       
+          </select>
+          <button type="submit" class="btn btn-success">Join Tenant</button>             
+      </div>
+      </div>
     </mat-tab>    
 </mat-tab-group>
  </form>
  
 
-<!-- <div [hidden]="!submitted">
+<div [hidden]="!submitted">
   <h4>You submitted successfully!</h4>
-</div> -->
+</div>
 
 
 
