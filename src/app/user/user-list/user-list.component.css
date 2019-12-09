@@ -1,6 +1,8 @@
-.imgClass{
-    height: 100px;
-    width: 90px;
+.user-init-img{
+    height: 5rem;
+    width: 5rem;
+    border: 1px solid;
+    border-radius: 5rem;
 }
 
 .checkbox{

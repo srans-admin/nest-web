@@ -1,11 +1,13 @@
 <h2>User Details</h2>
 
+
 <hr/>
 <div *ngIf="user">
-  <div>
+  <!-- <div>
     <label><b>userpic: </b></label> {{user.userpic}}
     <img class="imgClass" [src]="user.userphoto">
-  </div>
+  </div> -->
+  <img src="{{userpicImage}}" alt=" NO IMAGE"  class="user-init-img"/>  
   <div>
     <label><b>name: </b></label> {{user.name}}
   </div>

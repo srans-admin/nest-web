@@ -13,6 +13,7 @@ export class UserDetailsComponent implements OnInit {
 
   id: number;
   user: User;
+  userpicImage: any;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private userService: UserService) { }
@@ -27,7 +28,27 @@ export class UserDetailsComponent implements OnInit {
         console.log(data)
         this.user = data;
       }, error => console.log(error));
+
+      this.userService.retriveFile('userpic',this.id)
+        .subscribe(data => { 
+          this.createImageFromBlob(data);
+          //this.isImageLoading = false;
+          this.userpicImage = data;
+        }, error => { 
+          //this.isImageLoading = false; 
+          console.log(error);
+        });
   }
+
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+       this.userpicImage = reader.result;
+    }, false); 
+    if (image) {
+       reader.readAsDataURL(image);
+    }
+ }
 
   list(){
     this.router.navigate(['user']);
