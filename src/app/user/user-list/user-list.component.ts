@@ -1,9 +1,10 @@
 import { UserDetailsComponent } from './../user-details/user-details.component';
 import { Observable } from "rxjs";
 import { UserService } from '../../user.service';
-import { User } from "../../user";
+import { User, TmpUsr } from "../../user";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 // import {  MatFormField } from '@angular/material';
 // import {MatSnackBar} from '@angular/material';
 
@@ -14,10 +15,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users: Observable<User[]>;
+  users:  any;
+  //userImages = new Map(); 
+  userImages: Array<TmpUsr> = [];
+  acknoldgmentMsg : string = null;
 
   constructor(private userService: UserService,
-    private router: Router,
+    private router: Router,private matcheckbox: MatCheckboxModule
     // private formfield: MatFormField,
     // private snackBar:MatSnackBar
     ) { }
@@ -28,7 +32,49 @@ export class UserListComponent implements OnInit {
 
   reloadData() {
     this.users = this.userService.getUsersList();
+   
+    this.users.forEach(elements => { 
+    for( let element of elements){
+    this.userService.retriveFile('userpic',  element.userId) 
+      .subscribe(data => {
+       
+          this.createImageFromBlob(element.userId, data);
+         
+        },  
+        err => {  
+          this.acknoldgmentMsg = "Tenant addition failed ."+err;
+          console.log(this.acknoldgmentMsg );  
+        });
+      }
+      }); 
+
+      console.log('this.userImages: '+this.userImages);
+  } 
+
+  createImageFromBlob(userId: any, image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => { 
+      // this.userImages.set(userId,  reader.result);
+      let usr = new TmpUsr();
+      usr.userId = userId;
+      usr.pic = reader.result;
+      this.userImages.push(usr);
+    }, false); 
+    if (image) {
+       reader.readAsDataURL(image);
+    }
+ }
+
+ bringMyImage(userId){
+  for(let user of this.userImages){
+  
+    if(user.userId == userId){
+      return user.pic;
+    }
+
   }
+
+ }
 
   deleteUser(id: number) {
     this.userService.deleteUser(id)
