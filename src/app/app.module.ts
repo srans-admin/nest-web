@@ -54,6 +54,7 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
+import { HostelFilterPipe } from './hostel/hostel-filter.pipe';
 // import { LoginComponent } from './login/login.component';
 
 // import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
@@ -104,6 +105,7 @@ import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.compon
     UpdateUserComponent,
     CreateInvoiceComponent,
     InvoiceListComponent,
+    HostelFilterPipe
     // LoginComponent,
     // DetailsUploadComponent,
     // FormUploadComponent,

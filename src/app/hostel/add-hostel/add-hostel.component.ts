@@ -32,6 +32,12 @@ export class AddHostelComponent implements OnInit {
   b2UploadFiles: Array<File>;
   b3UploadFiles: Array<File>;
   miscUploadFiles: Array<File>;
+  switch1: boolean;
+  switch2: boolean;
+  switch3: boolean;
+  switch4: boolean;
+  switch5: boolean;
+  switch6: boolean;
 
   ngOnInit() {
     this.tempFloors = [1];
@@ -58,10 +64,30 @@ export class AddHostelComponent implements OnInit {
               this.uploadImage(recFile, 'reception', obj.id );
             } 
 
-            //Upload Reception Images
-            for (let recFile of this.facadeUploadFiles) {
-              this.uploadImage(recFile, 'facade', obj.id );
+            //Upload Facade Images
+            for (let facFile of this.facadeUploadFiles) {
+              this.uploadImage(facFile, 'facade', obj.id );
             }   
+
+            //Upload Bed 1 Images
+            for(let b1File of this.b1UploadFiles){
+              this.uploadImage(b1File, 'b1', obj.id);
+            }
+
+            //Upload Bed 2 Images
+            for(let b2File of this.b2UploadFiles){
+              this.uploadImage(b2File, 'b2', obj.id);
+            }
+
+            //Upload Bed 3 Images
+            for(let b3File of this.b3UploadFiles){
+              this.uploadImage(b3File, 'b3', obj.id);
+            }
+
+            //Upload Misc Images
+            for(let miscFile of this.miscUploadFiles){
+              this.uploadImage(miscFile, 'misc', obj.id);
+            }
 
             this.acknoldgmentMsg = "Hostel added successfully."+obj.id;
               
@@ -70,6 +96,10 @@ export class AddHostelComponent implements OnInit {
             this.acknoldgmentMsg = "Hostel addition failed ."+err;
             alert(this.acknoldgmentMsg );  
           });
+    
+    // this.hostel.array.forEach(e => {
+    //   console.log();
+    // });
 
     this.hostel = new Hostel();
     this.gotoList();

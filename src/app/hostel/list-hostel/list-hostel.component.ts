@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListHostelComponent implements OnInit {
   hostels: Observable<Hostel[]>;
-  
+  searchTerm: string;
   
   constructor(private hostelService: HostelService,
     private router: Router,

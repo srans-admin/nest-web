@@ -6,9 +6,11 @@
     
 </div>  
  
-<div class="hostel-search"> <input type="text" class="form-control" placeholder="Search here" [(ngModel)]="search"></div>
+<div class="hostel-search"> 
+    <input type="text" class="form-control" placeholder="Search here" [(ngModel)]="searchTerm" >
+</div><br/>
 <div class="hostels-list">
-    <div *ngFor="let hostel of hostels | async " >
+    <div *ngFor="let hostel of hostels | async | hostelFilter:searchTerm " >
         <div class="hostel">
             <div class="hostel-image"> {{hostel.id}}</div>
             <div class="hostel-name"> {{hostel.hostelName}} </div>
@@ -16,7 +18,7 @@
             <div class="hostel-address">{{hostel.hostelAddress}} </div>
             <div class="hostel-actions">
                 <a (click)="deleteHostel(hostel.id)"  title="delete"><span class="glyphicon glyphicon-trash"></span></a>
-                <a (click)="updateHostel(hostel.id)"  title="update" style="margin-left: 10px"><span class="glyphicon glyphicon-home"></span></a>
+                <!-- <a (click)="updateHostel(hostel.id)"  title="update" style="margin-left: 10px"><span class="glyphicon glyphicon-home"></span></a> -->
                 <a (click)="hostelDetails(hostel.id)"  title="extended view" style="margin-left: 10px"><span class="glyphicon glyphicon-tag"></span></a>
 
             </div>

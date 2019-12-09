@@ -10,6 +10,7 @@ export class Hostel {
   numOfFloors: number = 1;
   receptionUIImage: File ;
   floors : Array<Floor> = [];
+  array: any;
 
   addRoom(floorName, room: Room){
     
