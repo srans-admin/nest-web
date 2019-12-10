@@ -58,7 +58,7 @@
       <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
     
         <label for="name"><span class="glyphicon glyphicon-user"></span>idProofpic</label>
-          <input type="file" required [(ngModel)]=user.idProofpic name="idProofpic" >
+        <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" />
       </div>    
   
 </div>

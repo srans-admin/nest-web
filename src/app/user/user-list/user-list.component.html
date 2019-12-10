@@ -104,6 +104,9 @@
                   <td>{{ user.emailId }}</td>
                   <td>{{ user.permanentAddress }}</td>
                   <!-- <td>{{user.idProof}}</td> -->
+                  <!-- <td>
+                    <img class="user-init-img" src="{{ bringMyImage(user.userId)}}" alt="NA"/>
+                  </td> -->
                   <td>                    
                       <a (click)="deleteUser(user.userId)" title="delete"><span class="glyphicon glyphicon-trash"></span></a>
                       <a  (click)="updateUser(user.userId)" title="update"><span class="glyphicon glyphicon-edit" style="margin-left: 10px"></span></a>

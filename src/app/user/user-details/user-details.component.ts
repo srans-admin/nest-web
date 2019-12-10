@@ -12,8 +12,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UserDetailsComponent implements OnInit {
 
   id: number;
-  user: User;
+  user: User = new User();
   userpicImage: any;
+  idproofpicImage: any;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private userService: UserService) { }
@@ -29,26 +30,46 @@ export class UserDetailsComponent implements OnInit {
         this.user = data;
       }, error => console.log(error));
 
+      //RetriveFile from tenantpic 
       this.userService.retriveFile('userpic',this.id)
         .subscribe(data => { 
-          this.createImageFromBlob(data);
-          //this.isImageLoading = false;
+          this.createImageFromBlob(data);          
           this.userpicImage = data;
-        }, error => { 
-          //this.isImageLoading = false; 
+        }, error => {  
           console.log(error);
         });
+
+       //RetriveFile from Idproofpic
+       this.userService.retriveFile('idproofpic', this.user.userId)
+        .subscribe(data => { 
+          this.createImageFromBlobidproofpic(data);
+          this.idproofpicImage = data;
+        }, error => {  
+          console.log(error);
+        }); 
   }
 
-  createImageFromBlob(image: Blob) {
-    let reader = new FileReader();
-    reader.addEventListener("load", () => {
-       this.userpicImage = reader.result;
-    }, false); 
-    if (image) {
-       reader.readAsDataURL(image);
+      //Userpic Image
+      createImageFromBlob(image: Blob) {
+        let reader = new FileReader();
+        reader.addEventListener("load", () => {
+          this.userpicImage = reader.result;
+        }, false); 
+        if (image) {
+          reader.readAsDataURL(image);
+        }
     }
- }
+
+      //Idproofpic Image
+      createImageFromBlobidproofpic(image: Blob) {
+        let reader = new FileReader();
+        reader.addEventListener("load", () => {
+          this.idproofpicImage = reader.result;
+        }, false); 
+        if (image) {
+          reader.readAsDataURL(image);
+        }
+    }
 
   list(){
     this.router.navigate(['user']);

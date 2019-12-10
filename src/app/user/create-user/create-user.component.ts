@@ -17,6 +17,7 @@ export class CreateUserComponent implements OnInit {
   imageUrl: string = "/assets/img/showimage.jpg";
   userImage: File = null; 
   idImage: File = null;
+  idproofImage: File = null;
   user: User = new User();    
   hostel: Hostel = new Hostel();
   tempfloor: Array<any>;
@@ -55,13 +56,13 @@ export class CreateUserComponent implements OnInit {
 
         var obj : any =  res; 
 
-            //Upload Reception Images 
+            //Upload user Images 
             this.uploadImage(this.userImage, 'userpic', obj.userId );
              
 
-            //Upload Reception Images
+            //Upload Idproof Images
             // for (let recFile of this.facadeUploadFiles) {
-            //   this.uploadImage(recFile, 'facade', obj.id );
+              this.uploadImage(this.idproofImage, 'idproofpic', obj.userid );
             // }   
 
             this.acknoldgmentMsg = "Tenant added successfully."+obj.userId;
@@ -106,7 +107,11 @@ export class CreateUserComponent implements OnInit {
       case "userImage": { 
         this.userImage = fileInput.target.files[0];
         break; 
-      } 
+      }
+      case "idproofImage": { 
+        this.idproofImage = fileInput.target.files[0];
+        break; 
+      }  
       case "id": { 
         this.idImage = fileInput.target.files[0];
         break; 
