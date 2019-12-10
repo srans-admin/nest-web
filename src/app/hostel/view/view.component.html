@@ -1,18 +1,41 @@
-<h2>Hostel Details</h2> 
-
-<hr/>
-<div *ngIf="hostel">
-  <div>
-    <label><b>Hostel Name: </b></label> {{hostel.hostelName}}
-  </div>
-  <div>
-    <label><b>Hostel Address: </b></label> {{hostel.hostelAddress}}
-  </div>
-  <div>
-    <label><b>Hostel Type: </b></label> {{hostel.hostelType}}
-  </div>  
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-3">
+            <h2><img src="{{receptionImage}}"   alt="No Image" class="hostel-init-img"/></h2>       
+        </div>
+        <div class="col col-sm-5">
+            <div>                
+                <h3>
+                    <i class="fas fa-fw fa-building"></i>Hostel Name:{{hostel.hostelName}}
+                </h3>
+            </div>
+            <div>
+                <h3>
+                    <i class="fas fa-fw fa-user"></i>Hostel Type:{{hostel.hostelType}}
+                </h3>
+            </div>
+            <div>
+                <h3>
+                        <i class="fa fa-map-marker"></i>Hostel Address:{{hostel.hostelAddress}}
+                </h3>
+            </div>
+            <div>
+                <h3>
+                    <span class="glyphicon glyphicon-book"></span>Floors:{{hostel.numOfFloors}}
+                </h3>
+            </div>
+        </div>
+    </div>      
 </div>
 
-<br>
+  
+
+<hr>
+<!-- <div><img src="{{facadeImage}}"   alt="No Image" class="hostel-init-img"/></div><hr>
+<div><img src="{{b1Image}}"   alt="No Image" class="hostel-init-img"/></div><hr>
+<div><img src="{{b2Image}}"   alt="No Image" class="hostel-init-img"/></div><hr>
+<div><img src="{{b3Image}}"   alt="No Image" class="hostel-init-img"/></div><hr>
+<div><img src="{{miscImage}}"   alt="No Image" class="hostel-init-img"/></div><hr> -->
+ 
 <br>
 <button (click)="list()" class="btn btn-primary">Back to Hostel List</button><br>

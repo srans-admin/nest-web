@@ -64,42 +64,37 @@
     <div class="error-msg">{{errorMsg}}</div>
 
     <div class="room-body">
-<!--   
-    <label for="name"><span class="glyphicon glyphicon-tags"></span> Hostel Name</label>
-    <input type="text" readonly class="form-control" [(ngModel)]="hostel.hostelName">          
 
-    <label for="name">Floor </label>
-    <input type="text" readonly class="form-control" [(ngModel)]="floorName" >             
-              -->
-
-    <label > <span class="glyphicon glyphicon-tags"></span> Room Type</label>
-    <select   class="browser-default custom-select form-control "  [(ngModel)]="roomType">
-        <option >Single</option>
-        <option >Double</option>
-        <option>Triple</option>
-        <option>Misc</option>
-    </select>
- 
-    
-    <label for="name"><span class="glyphicon glyphicon-tag"></span>  Number of Rooms</label>
-    <input type="number" class="form-control" [(ngModel)]="numOfRooms" >  
+        <label> <span class="glyphicon glyphicon-tags"></span> Room Type</label>
+        <select class="browser-default custom-select form-control "  [(ngModel)]="roomType">
+            <option >Single</option>
+            <option >Double</option>
+            <option>Triple</option>
+            <option>Misc</option>
+        </select>
+        
+        <label for="name"><span class="glyphicon glyphicon-tag"></span>  Number of Rooms</label>
+        <input type="number" class="form-control" [(ngModel)]="numOfRooms" >  
 
 
-    <label for="RoomNumbers"><span class="glyphicon glyphicon-list"> </span> Room Numbers  <p class="notes"> Note: Please provide valid room numbers with comma seperated</p></label> 
-   
-    <textarea class="form-control" [(ngModel)]="roomNumbers" ></textarea>
-      
+        <label for="RoomNumbers"><span class="glyphicon glyphicon-list"></span> Room Numbers 
+            <p class="notes"> Note: Please provide valid room numbers with comma seperated</p>
+        </label>    
+        <textarea class="form-control" [(ngModel)]="roomNumbers" ></textarea>
+        
+        <label for="rent"><span class="glyphicon glyphicon-list"></span>Room Rent</label>
+        <!-- <input type="number" class="form-control" [(ngModel)]="roomRent"> -->
+        <p>{{room.roomRent}}</p>
 
-    <label for="Comments">Comments</label>
-    <input type="text" class="form-control " id="hostelType" [(ngModel)]="comments" >              
+        <label for="Comments">Comments</label>
+        <input type="text" class="form-control " id="hostelType" [(ngModel)]="comments" >
+        
+        </div>
 
-    
-    </div>
-
-    <div class="add-room-popup-buttons">
-        <button   class="sub-room-box-edit" (click)="close()"> CLOSE </button>
-        <button   class="sub-room-box-edit"  type="submit" (click)="addRoomToHostel()"> ADD ROOMS</button>
-    </div>
+        <div class="add-room-popup-buttons">
+            <button   class="sub-room-box-edit" (click)="close()"> CLOSE </button>
+            <button   class="sub-room-box-edit"  type="submit" (click)="addRoomToHostel()"> ADD ROOMS</button>
+        </div>
 
 </div>
 

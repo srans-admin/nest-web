@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListHostelComponent implements OnInit {
   hostels: Observable<Hostel[]>;
+  searchTerm: string;
   
   constructor(private hostelService: HostelService,
     private router: Router,
@@ -25,6 +26,7 @@ export class ListHostelComponent implements OnInit {
     }
   
     deleteHostel(id: number) {
+      if(window.confirm("Are you to remove the hostel : "+id)){
       this.hostelService.deleteHostel(id)
         .subscribe(
           data => {
@@ -32,6 +34,7 @@ export class ListHostelComponent implements OnInit {
             this.reloadData();
           },
           error => console.log(error));
+        }
     }
   
     hostelDetails(id: number){
@@ -45,30 +48,6 @@ export class ListHostelComponent implements OnInit {
     listHostel(id: number){
       this.router.navigate(['floor', id]);
     }
-
-    // changeLanguage(language: any) {
-    //   var element = document.getElementById("url");
-    //   element.value = language;
-    //   element.innerHTML = language;
-    // }
-
-    // showDropdown() {
-    //     document.getElementById("myDropdown").classList.toggle("show");
-    // }
-
-  // Close the dropdown if the user clicks outside of it
-  // onclick = function(event) {
-  //     if (!event.target.matches('.dropbtn')) {
-  //         var dropdowns = document.getElementsByClassName("dropdown-content");
-  //         var i;
-  //         for (i = 0; i < dropdowns.length; i++) {
-  //             var openDropdown = dropdowns[i];
-  //             if (openDropdown.classList.contains('show')) {
-  //                 openDropdown.classList.remove('show');
-  //             }
-  //         }
-  //     }
-  // }
 
   }
   

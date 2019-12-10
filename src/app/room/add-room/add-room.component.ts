@@ -21,7 +21,7 @@ export class AddRoomComponent implements OnInit {
   numOfRooms: number = 1; 
   roomNumbers : string = "";
   roomType: string = "Single";
-
+  roomRent: number;
   //Errors
   errorMsg:String="";
 
@@ -79,6 +79,19 @@ export class AddRoomComponent implements OnInit {
       this.tmpRoom.roomType = this.roomType;
       this.hostel.addRoom(this.floorName, this.tmpRoom);
       console.log(' Room : ' + this.tmpRoom + ' added.');
+    }
+    
+    if(this.roomType == 'single'){
+      this.roomRent = 10000;      
+    }
+    else if(this.roomType == 'double'){
+      this.roomRent = 8000;
+    }
+    else if(this.roomType == 'triple'){
+      this.roomRent = 7500
+    }
+    else{
+      this.roomRent = 5000;
     }
 
     this.dialogRef.close(); 
