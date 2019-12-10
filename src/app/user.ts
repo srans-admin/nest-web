@@ -1,4 +1,4 @@
-// import { Hostel } from './hostel';
+//  import { Hostel } from './hostel';
 
 export class User{
     userId:number;
@@ -19,6 +19,11 @@ export class User{
       permanentAddress:string;
       idProofpic:string;
       
+ }
+
+ export class TmpUsr{
+   userId;
+   pic:any;
  }
 
  export class Hostel {  
