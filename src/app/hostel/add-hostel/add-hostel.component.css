@@ -1,3 +1,6 @@
+.add-hostel{
+    width: 100%;
+}
 .modal.show
 {
     display: block;
@@ -60,17 +63,45 @@ label{
 .sub-room-box{
     display: inline-grid;
     margin-top: 5px;
+    background-color: beige;
 }
 .sub-room-box-edit, .sub-room-box-delete{
-    width: 55px;
-    height: 22px;
+    /*width: 33px; */
+    /* height: 22px; */
     font-size: small;
     padding: 3px;
     margin: 2px;
+   
+}
+.sub-room-box-edit{
+    background-color: green;
+}
+.sub-room-box-delete{
+    background-color: orangered;
+    color: white;
 }
 .add-hostel-submit{
     margin: 10px;
 }
 .room-box-header:hover{
     color: black;
+}
+.btn-background
+{
+    background-color: white;
+    width: 31px;
+    height: 33px;
+    padding: 5px;
+    border-radius: 18px;
+}
+.btn-background:hover{
+    background-color: green;
+    color: white;
+}
+.add-hostel-button{
+    cursor: pointer;
+    background-color: #001f3f;
+    color: white;
+    padding: 15px;
+    width: 100%;
 }

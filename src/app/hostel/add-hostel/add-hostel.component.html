@@ -1,5 +1,7 @@
+<div class="add-hostel">
 <h4><span class="glyphicon glyphicon-home"></span> Add Hostel</h4>
-<form (ngSubmit)="onSubmit()">
+<p> {{acknoldgmentMsg}}</p>
+<form (ngSubmit)="onSubmit()" name="hostel-form">
     <mat-tab-group>
         <mat-tab label="Info" class="test">
 
@@ -19,11 +21,11 @@
 
                 <label><span class="glyphicon glyphicon-cog"></span> Number of Floors</label>
                 <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
-                    (ngModelChange)="populateFloors($event)" name="numOfFloors">
+                    (ngModelChange)="populateFloors($event)" name="numOfFloors" >
 
 
                 <label><span class="glyphicon glyphicon-file"></span> Description</label>
-                <textarea class="form-control" [(ngModel)]="hostel.misc"></textarea>
+                <textarea class="form-control" [(ngModel)]="hostel.misc" name="misc"></textarea>
 
                 <!-- <button type="submit" class="btn btn-success">Submit</button> -->
 
@@ -43,7 +45,7 @@
                     <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor.floorName}}
                     </span>
                     <div class="add-room-button">
-                        <button title="Add Room" type="button" class="btn background-black"
+                        <button title="Add Room" type="button" class="btn btn-background"
                             (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
                         </button>
                     </div>
@@ -117,37 +119,37 @@
 
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch1" [(ngModel)]="hostel.tv">
+                <input type="checkbox" class="custom-control-input" id="switch1" >
                 <label class="custom-control-label" for="switch1"><span class="glyphicon glyphicon-asterisk"></span>
                     TV</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch2" [(ngModel)]="hostel.fridge">
+                <input type="checkbox" class="custom-control-input" id="switch2" >
                 <label class="custom-control-label" for="switch2"><span class="glyphicon glyphicon-lock"></span>
                     Fridge</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch3" [(ngModel)]="hostel.ac">
+                <input type="checkbox" class="custom-control-input" id="switch3" >
                 <label class="custom-control-label" for="switch3"><span class="glyphicon glyphicon-star"></span>
                     AC</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch4" [(ngModel)]="hostel.mineralWater">
+                <input type="checkbox" class="custom-control-input" id="switch4" >
                 <label class="custom-control-label" for="switch4"><span class="glyphicon glyphicon-off"></span> Mineral
                     Water</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch5" [(ngModel)]="hostel.parking">
+                <input type="checkbox" class="custom-control-input" id="switch5" >
                 <label class="custom-control-label" for="switch5"><span class="glyphicon glyphicon-home"></span>
                     Parking</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch6" [(ngModel)]="hostel.gym">
+                <input type="checkbox" class="custom-control-input" id="switch6" >
                 <label class="custom-control-label" for="switch6"><span class="glyphicon glyphicon-flag"></span>
                     Gym</label>
             </div>
@@ -159,24 +161,24 @@
         <mat-tab label="Pics">
 
             <label><span class="glyphicon glyphicon-download"></span> Facade Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.facade" accept="image/*" />
+            <input type="file" class="form-control " (change)="prepareUpload('facade',$event)" multiple  />
 
 
-
+            <!-- [(ngModel)]="hostel.receptionUIImage" -->
             <label><span class="glyphicon glyphicon-repeat"></span> Reception Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.reception"accept="image/*"  />
+            <input type="file" class="form-control "  (change)="prepareUpload('reception',$event)" multiple  />
 
             <label><span class="glyphicon glyphicon-lock"></span> 1 Bed Room Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.bed1" accept="image/*"  />
+            <input type="file" class="form-control " (change)="prepareUpload('b1',$event)" multiple />
 
             <label><span class="glyphicon glyphicon-headphones"></span> 2 Bed Room Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.bed2" accept="image/*"  />
+            <input type="file" class="form-control " (change)="prepareUpload('b2',$event)" multiple />
 
             <label><span class="glyphicon glyphicon-qrcode"></span> 3 Bed Room Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.bed3" accept="image/*"  />
+            <input type="file" class="form-control "(change)="prepareUpload('b3',$event)" multiple />
 
-            <label><span class="glyphicon glyphicon-envelope"></span> Miscellaneous Uploads</label>
-            <input type="file" class="form-control " [(ngModel)]="hostel.miscellaneous" accept="image/*" />
+            <label><span class="glyphicon glyphicon-envelope"></span> Misc Uploads</label>
+            <input type="file" class="form-control " (change)="prepareUpload('misc',$event)" multiple/>
 
 
 
@@ -188,6 +190,7 @@
     </mat-tab-group>
 
     <div class="add-hostel-submit">
-        <button type="submit" *ngIf="enableSubmit"> ADD HOSTEL </button>
+        <button type="submit" *ngIf="enableSubmit" class="add-hostel-button"> ADD HOSTEL </button>
     </div>
 </form>
+</div>
