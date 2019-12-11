@@ -7,6 +7,9 @@ import { Room } from '../../room';
 import { Invoice } from '../../invoice';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { HostelService } from '../../hostel.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-user',
@@ -14,12 +17,15 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
+  hostels: Observable<Hostel[]>; 
+  
+  //variable declaration
   imageUrl: string = "/assets/img/showimage.jpg";
   userImage: File = null; 
   idImage: File = null;
   idproofImage: File = null;
   user: User = new User();    
-  hostel: Hostel = new Hostel();
+  hostel: string = "0";
   tempfloor: Array<any>;
   totalRooms: Number=1;
   invoice: Invoice = new Invoice();
@@ -29,11 +35,13 @@ export class CreateUserComponent implements OnInit {
   acknoldgmentMsg: string = "";
  
   constructor(private route: ActivatedRoute,private userService: UserService,
-    private router: Router) { }
+    private router: Router,
+    private hostelService: HostelService,private httpClient: HttpClient) { }
 
   ngOnInit() {
     // this.tempFloors = [1];
     // this.populateFloors();
+    // this.filterForeCasts();
   }
   // handleFileInput(file: FileList) {
   //   this.fileToUpload = file.item(0);
@@ -87,6 +95,11 @@ export class CreateUserComponent implements OnInit {
       });
   }
 
+  filterForeCasts()
+  {
+    // debugger;
+    this.hostels = this.hostelService.getHostelsList();
+  }
   onSubmit() {
     this.submitted = true;
     this.save();
@@ -96,6 +109,23 @@ export class CreateUserComponent implements OnInit {
     this.router.navigate(['/add']);
     // this.router.navigate(['/hostels']);
   }
+
+  // getRoomsWithType(floor: Floor, type: String): Array<Room>{
+  //   let rooms : Array<Room> = [];
+
+  //   this.totalRooms = floor.rooms.length;
+
+  //   //TODO : Need to use map method here
+  //   for( let i=0; i < floor.rooms.length ; i++){ 
+  //     if(floor.rooms[i].roomType == type){
+  //       rooms.push(floor.rooms[i]);
+  //     } 
+  //   } 
+
+  //  this.isSubmitEnable(); 
+  //   return rooms;
+
+  // }
 
 
   
@@ -112,10 +142,10 @@ export class CreateUserComponent implements OnInit {
         this.idproofImage = fileInput.target.files[0];
         break; 
       }  
-      case "id": { 
-        this.idImage = fileInput.target.files[0];
-        break; 
-      } 
+      // case "id": { 
+      //   this.idImage = fileInput.target.files[0];
+      //   break; 
+      // } 
       default: { 
         console.log("Invalid File uploading "); 
         break;              
@@ -124,5 +154,11 @@ export class CreateUserComponent implements OnInit {
     //this.selectedFile = <File>fileInput.target.files[0];
      
 }
+
+// isSubmitEnable(){
+//   if(this.hostel.floors.length >= 1 && this.hostel.floors[0].rooms.length >= 1){
+//     this.enableSubmit = true;
+//   }
+// } 
 
 }

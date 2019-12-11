@@ -93,7 +93,7 @@
     </div> -->
 
 
-    <div class="hostel-select" *ngFor="let hostel of hostel.floors">
+    <!-- <div class="hostel-select" *ngFor="let hostel of hostel.floors">
 
         <div class="hostel-header">
           <span class="hostel-name">Hostel-{{hostel.hostelName}}</span>
@@ -110,21 +110,37 @@
             </span>
           </span>
         </div>
+    </div> -->
+
+    <div  style="width: 400px;">
+      <label>Hostel: </label>
+      <select class="browser-default custom-select"  (click)="filterForeCasts()" [(ngModel)]="hostels" >
+        <option value="">--select--</option>
+        <option *ngFor="let hostel of hostels | async" value={{hostel.hostelName}}>
+          {{hostel.hostelName}}
+        </option>
+      </select>
     </div>
+    <!-- <p *ngIf="!forecasts"><em>Loading...</em></p> -->
 
 
     <div _ngcontent-dmg-c8="" class="floor-select ng-star-inserted">
       <div _ngcontent-dmg-c8="" class="floor-header"><span _ngcontent-dmg-c8="" class="floor-name">
-        <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Hostel</span>
-        <div _ngcontent-dmg-c8="" class="add-room-button">
-          
-          </div>
+        <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Hostel:{{hostel.hostelName}}</span>
+        
             <span _ngcontent-dmg-c8="" class="total-rooms">Vacancy Rooms : <strong _ngcontent-dmg-c8="">0</strong></span>
           </div>
           <div _ngcontent-dmg-c8="" class="room-box">
             <div _ngcontent-dmg-c8="" class="room-box-header">
               <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -1 
             </div>
+            <!-- <span *ngFor="let bed of getBedsWithType(roomName, roomType)"> -->
+            <!-- <span class="sub-room-box">
+              <span class="room-type">Room-{{room.roomType}}</span>
+              <span class="room-name">Room-{{room.roomName}}</span>
+              <button class="sub-room-box-ok" (click)="okRoom(room)">Ok</button>
+            </span>
+            </span> -->
       <!-- "ng-reflect-ng-for-of": "" -->
     </div>
     <div _ngcontent-dmg-c8="" class="room-box">

@@ -23,40 +23,17 @@
 
 <div class="panel">
     <div class="row">
-      <div class="col-sm-8"><h2>User List</h2></div>
+      <div class="col-sm-6"><h2>User List</h2></div>
       <div>
         <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus">Add Tenant</i></a>
       </div>
-      <!-- <div class="md-form mt-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      </div> -->
-
-      <div ng-app="appModule" ng-controller="appCtrl">
-
-        <div class="search-box">
-        
-        <input class="search-box" type="text" placeholder="Search...">
-        
-        <span class="icons"></span>
-        
-        </div>
-        
-        <label class="options-title"> </label>
-        
-        <!-- <iui-grid name="{{gridName}}" columns="columns" rows="rows" allow-filter="true" show-footer="false" allow-cell-focus="false"></iui-grid> -->
-        
-        </div>
-        <!-- <div class="dot"></div> -->
-          
-        <form class="form-inline waves-light" mdbWavesEffect>
-            <!-- <div class="md-form active-pink active-pink-2 mb-3">
-                <input class="form-control" type="search">
-                <label >Search</label>
-              </div> -->
+      <div class="user-search"> 
+        <input type="text" class="form-control" placeholder="Search.." [(ngModel)]="searchTerm" >
+    </div><br/>
+    </div>
               
           <div>
             <table class="table table-striped">
-                
               <thead>
                 <tr>
                   <th></th>
@@ -64,8 +41,8 @@
                   <th>Tenantpic</th>                 
                   <th>Name</th>
                   <th>ContactNumber</th>
-                  <th>FatherName</th>
-                  <th>FatherphoneNumber</th>
+                  <!-- <th>FatherName</th>
+                  <th>FatherphoneNumber</th> -->
                   <!-- <th>motherName</th> -->
                   <!-- <th>motherphoneNumber</th> -->
                   <th>DOB</th>
@@ -75,15 +52,14 @@
                   <th>officeAddress</th>
                   <th>telephoneNumber</th> -->
                   <th>EmailId</th>
-                  <th>PermanentAddress</th>
+                  <!-- <th>PermanentAddress</th> -->
                   <!-- <th>idProof</th> -->
                   <th>Options</th>
                 </tr>
               </thead>
               <tbody>
-                  
                     
-                <tr *ngFor="let user of users |  async">              
+                <tr *ngFor="let user of users |  async ">              
                    <td> <mat-checkbox ></mat-checkbox></td>
                   <td>{{ user.userId }}</td>                  
                   <td>
@@ -91,8 +67,8 @@
                   </td>                         
                   <td>{{ user.name }}</td>
                   <td>{{ user.contactNumber }}</td>
-                  <td>{{ user.fatherName }}</td>
-                  <td>{{ user.fatherphoneNumber }}</td>
+                  <!-- <td>{{ user.fatherName }}</td>
+                  <td>{{ user.fatherphoneNumber }}</td> -->
                   <!-- <td>{{ user.motherName }}</td> -->
                   <!-- <td>{{ user.motherphoneNumber }}</td> -->
                   <td>{{ user.dob }}</td>
@@ -102,7 +78,7 @@
                   <td>{{ user.officeAddress }}</td>
                   <td>{{ user.telephoneNumber }}</td>       -->
                   <td>{{ user.emailId }}</td>
-                  <td>{{ user.permanentAddress }}</td>
+                  <!-- <td>{{ user.permanentAddress }}</td> -->
                   <!-- <td>{{user.idProof}}</td> -->
                   <!-- <td>
                     <img class="user-init-img" src="{{ bringMyImage(user.userId)}}" alt="NA"/>
@@ -118,10 +94,7 @@
                 </tr>
               </tbody>
             </table>
-          
           </div>
-        </form>
-    </div>
     <br>
 </div>
   
