@@ -1,0 +1,42 @@
+.add-room-select{
+    /* padding: 21px;
+    width: 28rem; */
+}
+
+.add-room-header{
+    background-color: #001f3f;
+    color: white;
+    padding: 16px;
+}
+.cdk-overlay-pane{
+    max-width: 80vw;
+    pointer-events: auto;
+    width: 50% !important;
+    position: static;
+}
+.notes, .error-msg{
+    color: red;
+    font-size: smaller;
+}
+.room-body{
+    /* height: 300px;
+    overflow: scroll; */
+}
+label{
+    padding: 0px;
+    margin-bottom: 9px;
+    margin-top: 13px;
+    font-weight: bold;
+}
+button{
+    margin-top: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.add-room-popup-buttons{
+    display: inline-flex;
+}
+

@@ -1,0 +1,36 @@
+<div class="add-room-select">
+
+    <h2 class="add-room-header"> <span class="glyphicon glyphicon-map-marker"></span>  Add Bed(s) </h2>
+
+    <div class="error-msg">{{errorMsg}}</div>
+
+    <div class="room-body">
+
+    <label > <span class="glyphicon glyphicon-tags"></span> Room Type</label>
+    <select class="browser-default custom-select form-control"  [(ngModel)]="roomType">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+ 
+    
+    <label for="name"><span class="glyphicon glyphicon-tag"></span>  Number of Beds</label>
+    <input type="number" class="form-control" [(ngModel)]="numOfBeds" >  
+
+
+    <label for="BedNumbers"><span class="glyphicon glyphicon-list"> </span> Bed Numbers  <p class="notes"> Note: Please provide valid room numbers with comma seperated</p></label>    
+    <textarea class="form-control" [(ngModel)]="bedNumbers" ></textarea>
+
+    <label for="Comments">Comments</label>
+    <input type="text" class="form-control " id="hostelType" [(ngModel)]="comments" >              
+
+    
+    </div>
+
+    <div class="add-room-popup-buttons">
+        <button   class="sub-room-box-edit" (click)="close()"> CLOSE </button>
+        <button   class="sub-room-box-edit"  type="submit" (click)="addBedToRoom()"> ADD BEDS</button>
+    </div>
+
+</div>
