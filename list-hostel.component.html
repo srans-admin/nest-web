@@ -1,0 +1,48 @@
+<div  > 
+      <h3><span class="glyphicon glyphicon-home"></span> Hostels</h3> 
+      <div style="text-align: right;" class="add-hostel-btn"> 
+          <a routerLink="viewtabs" class="btn btn-info" routerLinkActive="active"><i class="fa fa-plus"></i> Add Hostel</a>
+       </div>
+    
+</div>  
+ 
+<div class="hostel-search"> 
+    <input type="text" class="form-control" placeholder="Search here" [(ngModel)]="searchTerm" >
+</div><br/>
+<div class="hostels-list">
+    <div *ngFor="let hostel of hostels | async | hostelFilter:searchTerm " >
+        <div class="hostel" (click)="hostelDetails(hostel.id)">
+            <div class="hostel-image"> {{hostel.id}}</div>
+            <div class="hostel-name"> {{hostel.hostelName}} </div>
+            <div class="hostel-type"> {{hostel.hostelType}} </div>
+            <div class="hostel-address">{{hostel.hostelAddress}} </div>
+            <div class="hostel-floors">{{hostel.numOfFloors}}</div>
+            <div class="hostel-rooms">{{rooms}}</div>
+            <div class="hostel-actions">
+                <a (click)="deleteHostel(hostel.id)"  title="delete"><span class="glyphicon glyphicon-trash"></span></a>
+                <!-- <a (click)="updateHostel(hostel.id)"  title="update" style="margin-left: 10px"><span class="glyphicon glyphicon-home"></span></a> -->
+                <a (click)="hostelDetails(hostel.id)"  title="extended view" style="margin-left: 10px"><span class="glyphicon glyphicon-tag"></span></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- 
+<div class="row aln-center">
+    <div *ngFor="let hostel of hostels | async"  class="col-4 col-6-medium col-12-small" >
+        <section class="box style1">
+            <span class="icon solid featured fa-comments"></span>
+            <p>{{hostel.id}}</p>
+            <button (click)="listHostel(hostel.id)" class="btn btn-info" style="margin-left: 10px">{{hostel.hostelName}}</button>
+            <p>{{hostel.hostelAddress}}</p>
+            <p>{{hostel.hostelType}}</p>
+            <p>
+                <button (click)="deleteHostel(hostel.id)" class="btn btn-danger">Delete</button>
+                <button (click)="updateHostel(hostel.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button (click)="hostelDetails(hostel.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </p>
+        </section>
+    </div>
+</div> -->
