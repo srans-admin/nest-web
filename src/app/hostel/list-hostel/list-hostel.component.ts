@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { HostelService } from "../../hostel.service";
 import { Hostel } from "../../hostel";
 import { Router, ActivatedRoute } from '@angular/router';
+import { Floor } from '../../floor';
 
 @Component({
   selector: 'app-list-hostel',
@@ -12,6 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ListHostelComponent implements OnInit {
   hostels: Observable<Hostel[]>;
   searchTerm: string;
+  floor: Floor;
   
   constructor(private hostelService: HostelService,
     private router: Router,

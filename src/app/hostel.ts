@@ -19,6 +19,7 @@ export class Hostel {
 
         if(this.floors[i].floorName == floorName ){
           this.floors[i].rooms.push(room);
+          console.log(room);
         }  
     } 
   }

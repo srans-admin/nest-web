@@ -22,8 +22,13 @@ export class AddRoomComponent implements OnInit {
   roomNumbers : string = "";
   roomType: string = "Single";
   roomRent: number;
+  bedNo: string;
+  position: string = "Left";
+  bedAlloted: string = "Alloted";
+
   //Errors
   errorMsg:String="";
+  roomshareType : any;
 
   constructor(private roomService: RoomService,
     private router: Router,
@@ -72,6 +77,24 @@ export class AddRoomComponent implements OnInit {
       return;
     }
 
+    for(var i = 1; i <= this.roomType.length; i++){
+      for(var j = i; j <= this.bedNo.length; j++){
+        this.bedNo = this.roomType[i];
+      }
+    }
+
+    // Map Object
+    this.roomshareType = new Map();     
+    this.roomshareType.set("Single", 1);
+    this.roomshareType.set("Double", 2);
+    this.roomshareType.set("Triple", 3);
+
+    // for (let key of this.roomshareType.keys()) {
+    //   console.log(key);  
+    //   this.roomType[key];
+    // }
+
+
     for (let i = 0; i < currRoomNumbers.length; i++) {
 
       this.tmpRoom = new Room();
@@ -79,19 +102,6 @@ export class AddRoomComponent implements OnInit {
       this.tmpRoom.roomType = this.roomType;
       this.hostel.addRoom(this.floorName, this.tmpRoom);
       console.log(' Room : ' + this.tmpRoom + ' added.');
-    }
-    
-    if(this.roomType == 'single'){
-      this.roomRent = 10000;      
-    }
-    else if(this.roomType == 'double'){
-      this.roomRent = 8000;
-    }
-    else if(this.roomType == 'triple'){
-      this.roomRent = 7500
-    }
-    else{
-      this.roomRent = 5000;
     }
 
     this.dialogRef.close(); 

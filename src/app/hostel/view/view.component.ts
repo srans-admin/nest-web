@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Hostel } from '../../hostel';
 import { HostelService } from '../../hostel.service';
+import { Room } from 'src/app/room';
 
 @Component({
   selector: 'app-view',
@@ -9,9 +10,11 @@ import { HostelService } from '../../hostel.service';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
+
+  // variables declaration
   id : number;
-  hostel : Hostel; 
-  
+  hostel : Hostel;
+  room : Room = new Room(); 
   receptionImage: any;
   facadeImage: any;
   b1Image: any;
@@ -38,8 +41,10 @@ export class ViewComponent implements OnInit {
       this.hostelService.retriveFile('reception',this.id)
         .subscribe(data => { 
           this.createImageFromBlob(data);
+          //this.isImageLoading = false;
           this.receptionImage = data;
-        }, error => {  
+        }, error => { 
+          //this.isImageLoading = false; 
           console.log(error);
         });
 
@@ -74,7 +79,7 @@ export class ViewComponent implements OnInit {
       this.hostelService.retriveFile('b3', this.id)
         .subscribe(data => {
         this.createImageFromBlobB3(data);
-        this.b3Image = data;
+        this.facadeImage = data;
         }, error => {
           console.log(error);
       })
@@ -160,6 +165,29 @@ createImageFromBlobMisc(image: Blob) {
 
   list(){
     this.router.navigate(['/hostels']);
+  }
+
+  changeLanguage(language) {
+    var element = document.getElementById("url");
+    element.innerHTML = language;
+  }
+
+  showDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  click = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+    }
   }
 
 }

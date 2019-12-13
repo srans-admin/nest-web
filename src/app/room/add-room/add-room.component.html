@@ -65,6 +65,7 @@
 
     <div class="room-body">
 
+        <!-- Room Type -->
         <label> <span class="glyphicon glyphicon-tags"></span> Room Type</label>
         <select class="browser-default custom-select form-control "  [(ngModel)]="roomType">
             <option >Single</option>
@@ -72,19 +73,56 @@
             <option>Triple</option>
             <option>Misc</option>
         </select>
+
+        <!-- Binding with Map Object data -->
         
+        <!-- <label> <span class="glyphicon glyphicon-tags"></span> Room Type</label>
+        <select *ngFor="let key of roomshareType.keys()" class="browser-default custom-select form-control "  [(ngModel)]="roomshareType">
+            <option >{{key}}</option>
+        </select> -->
+        
+
+        <!-- Number of Rooms -->
         <label for="name"><span class="glyphicon glyphicon-tag"></span>  Number of Rooms</label>
         <input type="number" class="form-control" [(ngModel)]="numOfRooms" >  
 
-
+        <!-- Room Numbers -->
         <label for="RoomNumbers"><span class="glyphicon glyphicon-list"></span> Room Numbers 
             <p class="notes"> Note: Please provide valid room numbers with comma seperated</p>
         </label>    
         <textarea class="form-control" [(ngModel)]="roomNumbers" ></textarea>
         
+        <!-- Room Rent -->
         <label for="rent"><span class="glyphicon glyphicon-list"></span>Room Rent</label>
-        <!-- <input type="number" class="form-control" [(ngModel)]="roomRent"> -->
+        <!-- <input type="text" class="form-control" [(ngModel)]="roomRent"> -->
         <p>{{room.roomRent}}</p>
+
+
+        <!-- Number of Beds -->
+        <!-- <label for="bedNumbers"><span class="glyphicon glyphicon-list"> </span> Number of Beds  <p class="notes"> Note: Please provide valid room numbers with comma seperated</p></label>     -->
+        <!-- <textarea class="form-control" [(ngModel)]="numOfBeds" ></textarea> -->
+        <!-- <input type="text" class="form-control" [(ngModel)]="bedNo"> -->
+    
+        <!-- Bed Numbers -->
+        <!-- <label><span class="glyphicon glyphicon-tags"></span>Bed Numbers</label>
+        <input type="text" class="form-control" [(ngModel)]="bedNo"> -->
+    
+        <!-- Position -->
+        <!-- <label><span class="glyphicon glyphicon-list">Position</span></label>
+        <select class="browser-default custom-select form-control"  [(ngModel)]="position">
+            <option>Left</option>
+            <option>Middle</option>
+            <option>Right</option>
+        </select>
+    
+        <label><span class="glyphicon glyphicon-list">Alloted</span></label>
+        <select class="browser-default custom-select form-control"  [(ngModel)]="bedAlloted">
+            <option>Alloted</option>
+            <option>Not Alloted</option>
+            <option>Reserved</option>
+        </select>     -->
+
+
 
         <label for="Comments">Comments</label>
         <input type="text" class="form-control " id="hostelType" [(ngModel)]="comments" >

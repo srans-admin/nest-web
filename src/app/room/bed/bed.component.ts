@@ -42,22 +42,22 @@ export class BedComponent implements OnInit {
     this.bed = new Bed();
   }
 
-  addRoomToHostel() {
-    let currBedNumbers = this.bedNumbers.split(",");
-    if (this.numOfBeds != currBedNumbers.length) {
-      this.errorMsg = "Bed Numbers count not mached";
-      return;
-    }    
+  // addRoomToHostel() {
+  //   let currBedNumbers = this.bedNumbers.split(",");
+  //   if (this.numOfBeds != currBedNumbers.length) {
+  //     this.errorMsg = "Bed Numbers count not mached";
+  //     return;
+  //   }    
 
-    for (let i = 0; i < currBedNumbers.length; i++) {
-      this.tmpBed = new Bed();
-      this.tmpBed.bedNumber = currBedNumbers[i];
-      this.tmpBed.roomType = this.roomType;
-      this.room.addBed(this.roomName, this.tmpBed);
-      console.log(' Bed : ' + this.tmpBed + ' added.');
-    }
-    this.dialogRef.close(); 
-  }
+  //   for (let i = 0; i < currBedNumbers.length; i++) {
+  //     this.tmpBed = new Bed();
+  //     this.tmpBed.bedNumber = currBedNumbers[i];
+  //     this.tmpBed.roomType = this.roomType;
+  //     this.room.addBed(this.roomName, this.tmpBed);
+  //     console.log(' Bed : ' + this.tmpBed + ' added.');
+  //   }
+  //   this.dialogRef.close(); 
+  // }
 
   addBed() {
     this.beds.push(this.tmpBed);
