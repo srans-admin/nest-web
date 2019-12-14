@@ -14,14 +14,11 @@
     <!--</div>-->
   <!--</div>-->
 <!--</div>-->
+ 
 
-<h1>
-  {{title}}!
-</h1>
+<div class="barchart-display">
 
-<div>
-    <div class="col-sm-6 col-lg-3">
-      <div style="height:500px;width:500px;">
+    <div class="barchart-title"> <span class="glyphicon glyphicon-calendar"></span>  {{barchartInfo.name}}</div>
   <canvas
       baseChart
       [chartType]="'bar'"
@@ -32,6 +29,5 @@
       [colors]="colors"
       (chartClick)="onChartClick($event)">
   </canvas>
-      </div>
-    </div>
+      
 </div>

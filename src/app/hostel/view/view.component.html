@@ -1,61 +1,73 @@
-<h2>Hostel Details:</h2><hr>
 <div class="container">
-    <div class="row vertical-align">
-        <div class="col col-sm-3">
-            <img src="{{receptionImage}}"   alt="No Image" class="hostel-init-img"/>
+    <div class="hostel-extended-view">
+        <div class="hex-view-title">
+            <img src="{{receptionImage}}" alt="N" class="hostel-init-img" />
+            <div class="hex-view-basic-details">
+                <div class="hex-view-heading"><span class="glyphicon glyphicon-home"></span> {{hostel.hostelName}}</div>
+                <div class="hex-view-heading-sub"> {{hostel.hostelType}}</div>
+                <div class="hex-view-heading-sub"> {{hostel.hostelAddress}}</div>
+                <div class="hex-view-heading-sub"> Floors : {{hostel.numOfFloors}}</div>
+                <div class="hex-view-heading-sub"> Rooms: {{hostel.roomNumbers}}</div>
+            </div>
+
         </div>
-        <div class="col col-sm-9">
-            <div class="row">
-                <div class="col-xs-4">
-                    <h3><i class="fas fa-fw fa-building"></i> Name</h3>
+        <hr />
+
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <app-doughnut-chart [sharingInfo]="donutInfo.single"> </app-doughnut-chart>
+                    </div>
+
+                    <div class="col-md-6">
+                        <app-doughnut-chart [sharingInfo]="donutInfo.double"></app-doughnut-chart>
+                    </div>
+
                 </div>
-                <div class="col-xs-3">
-                    <h3>: {{hostel.hostelName}}</h3>
-                </div>                 
-            </div>
-            <div class="row">
-                <div class="col-xs-4">
-                    <h3><i class="fas fa-fw fa-user"></i> Type</h3>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <app-doughnut-chart [sharingInfo]="donutInfo.triple"></app-doughnut-chart>
+                    </div>
+
+                    <div class="col-md-6">
+                        <app-doughnut-chart [sharingInfo]="donutInfo.misc"></app-doughnut-chart>
+                    </div>
+
                 </div>
-                <div class="col-xs-3">
-                    <h3>: {{hostel.hostelType}}</h3>
-                </div>                 
+
             </div>
-            <div class="row">
-                <div class="col-xs-4">
-                    <h3><i class="fa fa-map-marker"></i> Address</h3>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-bar-chart [barchartInfo]="barchartInfo"></app-bar-chart>
+                    </div>
+
                 </div>
-                <div class="col-xs-3">
-                    <h3>: {{hostel.hostelAddress}}</h3> 
-                </div>                 
             </div>
-            <div class="row">
-                <div class="col-xs-4">
-                    <h3><i class="fas fa-map"></i> Floors</h3>
-                </div>
-                <div class="col-xs-3">
-                    <h3>: {{hostel.numOfFloors}}</h3>
-                </div>                 
-            </div>
-            <div class="row">
-                <div class="col-xs-4">
-                    <h3><i class="fas fa-bed"></i> Rooms</h3>
-                </div>
-                <div class="col-xs-3">
-                    <h3>: {{hostel.roomNumbers}}</h3>
-                </div>                 
-            </div>
+
+
         </div>
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <floor-view></floor-view>
+            </div>
+
+        </div>
+
     </div>
+
+
+    <hr>
+
+
+    <button (click)="list()" class="btn btn-primary">Back to Hostel List</button><br>
 </div>
-
-
-<hr>
-<!-- <div><img src="{{facadeImage}}"   alt="No Image" class="hostel-init-img"/></div><hr>
-<div><img src="{{b1Image}}"   alt="No Image" class="hostel-init-img"/></div><hr>
-<div><img src="{{b2Image}}"   alt="No Image" class="hostel-init-img"/></div><hr>
-<div><img src="{{b3Image}}"   alt="No Image" class="hostel-init-img"/></div><hr>
-<div><img src="{{miscImage}}"   alt="No Image" class="hostel-init-img"/></div><hr> --> 
- 
-<br>
-<button (click)="list()" class="btn btn-primary">Back to Hostel List</button><br>

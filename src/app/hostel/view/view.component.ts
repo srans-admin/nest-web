@@ -21,6 +21,31 @@ export class ViewComponent implements OnInit {
   b2Image: any;
   b3Image: any;
   miscImage: any;
+
+  donutInfo = {
+
+    "single" :{
+      "sharingType": "Single Sharing Type",
+      "data":[20,30,40]
+    },
+    "double" :{
+      "sharingType": "Double Sharing Type",
+      "data":[30,30,33]
+    },
+    "triple" :{
+      "sharingType": "Triple Sharing Type",
+      "data":[50,30,44]
+    },
+     "misc" :{
+      "sharingType": "Misc Sharing Type",
+      "data":[70,20,45]
+    }
+  }
+
+  barchartInfo ={
+    "name" : "Joining Trends"
+  };
+  
   //isImageLoading: boolean = true; 
 
   constructor(private hostelService:HostelService, 

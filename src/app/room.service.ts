@@ -10,7 +10,7 @@ export class RoomService {
 
   serverConfig: ServerConfig = new ServerConfig();
   private baseUrl = this.serverConfig.getServerURL() +'/api/v1/hostels';
-  // private baseUrl = 'http://dev.nidos.in:8080/nest-server/api/v1/roms';
+  // private baseUrl = 'http://localhost:8080/nest-server/api/v1/roms';
   private extendedViewUrl = this.serverConfig.getServerURL() + '/api/v1/hostels/{id}/extendingviews';
 
   constructor(private http: HttpClient) { }

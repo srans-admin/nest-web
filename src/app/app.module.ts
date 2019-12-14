@@ -45,7 +45,7 @@ import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.componen
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 import { ViewComponent } from './hostel/view/view.component';
-import { FloorViewComponent } from './floor/floor-view/floor-view.component';
+ 
 import { RoomViewComponent } from './room/room-view/room-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -59,6 +59,7 @@ import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.
 import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
 import { HostelFilterPipe } from './hostel/hostel-filter.pipe';
 import { ChartsModule } from 'ng2-charts';
+import { FloorViewComponent } from './hostel/floor-view/floor.view.component';
 // import { LoginComponent } from './login/login.component';
 
 // import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
@@ -88,6 +89,7 @@ import { ChartsModule } from 'ng2-charts';
     ListHostelComponent,
     EditHostelComponent,
     DeleteHostelComponent,
+    FloorViewComponent,
 
     AddFloorComponent,
     ListFloorComponent,
@@ -99,8 +101,7 @@ import { ChartsModule } from 'ng2-charts';
     EditRoomComponent,
     DeleteRoomComponent,
 
-    ViewComponent,
-    FloorViewComponent,
+    ViewComponent, 
     RoomViewComponent,
 
     DoughnutChartComponent,

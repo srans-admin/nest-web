@@ -8,7 +8,7 @@ import { UserpicstorageService } from '././userpicstorage.service';
 })
 export class UserService {
 
-  private baseUrl = 'http://dev.nidos.in:8080/nest-server/api/v1/tenant';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/tenant';
 
   // getCategories(): Observable<any> {
   //   const httpOptions = {

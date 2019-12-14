@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { MultiDataSet,Label } from 'ng2-charts';
 import { HttpClient } from '@angular/common/http';
@@ -10,6 +10,9 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./doughnut-chart.component.css']
 })
 export class DoughnutChartComponent implements OnInit {
+
+  @Input()
+  sharingInfo : any ;
 
   constructor (private httpService: HttpClient) { }
 
@@ -32,13 +35,10 @@ export class DoughnutChartComponent implements OnInit {
         }
     ]
 
-    doughnutChartData:any = [
-        {
-            data: [40,20,35],
-        }
-    ];
+    doughnutChartData:any =[];
 
     ngOnInit () {
+        //TODO : Call the API with hostelId then get the data and populate here 
         this.httpService.get('', {responseType: 'json'}).subscribe(
             data => {
                 this.doughnutChartData = data as any [];	 // FILL THE CHART ARRAY WITH DATA.
@@ -47,6 +47,12 @@ export class DoughnutChartComponent implements OnInit {
                 console.log (err.message);
             }
         );
+
+        this.doughnutChartData = [
+            {
+                data: this.sharingInfo.data
+            }
+        ];
     }
 
     onChartClick(event) {

@@ -73,7 +73,7 @@ const routes: Routes = [
   { path: 'userdetails/:id', component: UserDetailsComponent },
 
   { path: 'doughnut-chart', component: DoughnutChartComponent },
-{ path: 'bar-chart', component: BarChartComponent },
+  { path: 'bar-chart', component: BarChartComponent },
 
   { path: 'invoice', component: InvoiceListComponent },
   { path: 'invoice/add', component: CreateInvoiceComponent},
