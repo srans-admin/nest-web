@@ -34,12 +34,12 @@ export class DoughnutChartComponent implements OnInit {
 
     doughnutChartData:any = [
         {
-            data: [7,23,51]
+            data: [40,20,35],
         }
     ];
 
     ngOnInit () {
-        this.httpService.get('./assets/sales.json', {responseType: 'json'}).subscribe(
+        this.httpService.get('', {responseType: 'json'}).subscribe(
             data => {
                 this.doughnutChartData = data as any [];	 // FILL THE CHART ARRAY WITH DATA.
             },
