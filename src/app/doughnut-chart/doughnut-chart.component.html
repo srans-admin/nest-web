@@ -35,19 +35,37 @@
 <!--</div>-->
 
 
-<div>
-   <div class="col-sm-6 col-lg-3">
-      <div style="height:500px;width:500px;">
+<div class="doughnut-display">
+
+  <div class="doughnut-title"> <span class="glyphicon glyphicon-user"></span> {{sharingInfo.sharingType}}</div>
+   
   <canvas
       baseChart
       [chartType]="'doughnut'"
       [datasets]="doughnutChartData"
       [labels]="doughnutChartLabels"
       [options]="doughnutChartOptions"
-      [legend]="true"
+      [legend]="false"
       [colors]="doughnutChartColor"
       (chartClick)="onChartClick($event)">
   </canvas>
-      </div>
-   </div>
+
+  <div class="doughnut-data">
+
+    <div class="filled">
+      <div class="lable">Filled</div>
+      <div class="value">{{sharingInfo.data[0]}}</div>
+    </div>
+    <div class="vaccant">
+      <div class="lable">Vaccant</div>
+      <div class="value">{{sharingInfo.data[1]}}</div>
+    </div>
+    <div class="reserved">
+      <div class="lable">Reserved</div>
+      <div class="value">{{sharingInfo.data[2]}}</div>
+    </div>
+
+  </div>
+       
+   
 </div>

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ServerConfig {
 
-    private serverUrl = 'http://dev.nidos.in:8080/nest-server';
+    private serverUrl = 'http://localhost:8080/nest-server';
 
     getServerURL(){
         return this.serverUrl;

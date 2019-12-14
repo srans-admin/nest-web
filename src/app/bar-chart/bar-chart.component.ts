@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { HttpClient } from '@angular/common/http';
@@ -12,9 +12,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 
 
-export class BarChartComponent {
-  title = "Bar chart"
+export class BarChartComponent { 
 
+  @Input()
+  barchartInfo: any;
+  
  // ADD CHART OPTIONS.
   chartOptions = {
     responsive: true

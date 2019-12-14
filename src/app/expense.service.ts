@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ExpenseService {
 
-  private baseUrl = 'http://dev.nidos.in:8080/nest-server/api/v1/expenses';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/expenses';
 
   constructor(private http: HttpClient) { }
 

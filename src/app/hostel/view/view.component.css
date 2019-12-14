@@ -1,10 +1,40 @@
+.hostel-extended-view{
+    width: 80%;
+}
 .hostel-init-img{
-    width: 14rem;
-    height: 14rem;
+    width: 7rem;
+    height: 7rem;
     border: 1px solid;
     border-radius: 7rem;
+    float: left;
 }
 .vertical-align{
     display: flex;
     align-items: center;
 }
+.hex-view-title{
+    /* padding-left: 10px;
+    padding-bottom: 10px; */
+}
+.hex-view-heading{
+    font-weight: bold; 
+    font-size: 19px;
+    color: black;
+}
+.hex-view-heading-sub{ 
+    font-size: 8px;
+}
+.hex-view-basic-details{
+    padding-left: 3rem;
+    display: inline-block;
+    /* border: 1px solid; */
+    /* box-shadow: inset 0px 2px 1px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025); */
+    vertical-align: top;
+    margin-left: 12px;
+}
+.row {
+    /* margin: 5px; */
+    /* display: inline-flex; */
+    margin-bottom: 1rem;
+}
+ 

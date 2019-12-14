@@ -1,0 +1,61 @@
+<div class="floor-select " *ngFor="let floor of hostel.floors">
+
+        <div class="floor-header">
+            <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor.floorName}}
+            </span>
+            <div class="add-room-button">
+                <button title="Add Room" type="button" class="btn btn-background"
+                    (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </div>
+            <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
+        </div>
+
+        <div class="room-box">
+            <div class="room-box-header"> <span class="glyphicon glyphicon-tags"></span> Single Rooms </div>
+            <span *ngFor="let room of getRoomsWithType(floor,'Single')">
+                <span class="sub-room-box">
+                    <span class="room-name"> Room-{{room.roomName}} </span>
+                    <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                    <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                </span>
+            </span>
+        </div>
+
+        <div class="room-box">
+            <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> Double Rooms </div>
+            <span *ngFor="let room of getRoomsWithType(floor,'Double')">
+                <span class="sub-room-box">
+                    <span class="room-name"> Room-{{room.roomName}} </span>
+                    <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                    <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                </span>
+            </span>
+        </div>
+
+        <div class="room-box">
+            <div class="room-box-header"><span class="glyphicon glyphicon-center"></span> Triple Rooms </div>
+            <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
+                <span class="sub-room-box">
+                    <span class="room-name"> Room-{{room.roomName}} </span>
+                    <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                    <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                </span>
+            </span>
+        </div>
+
+        <div class="room-box">
+            <div class="room-box-header"><span class="glyphicon glyphicon-home"></span> Misc </div>
+            <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
+                <span class="sub-room-box">
+                    <span class="room-name"> Room-{{room.roomName}} </span>
+                    <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                    <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                </span>
+            </span>
+        </div> 
+    </div>
