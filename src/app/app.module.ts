@@ -41,6 +41,9 @@ import { ListRoomComponent } from './room/list-room/list-room.component';
 import { EditRoomComponent } from './room/edit-room/edit-room.component';
 import { DeleteRoomComponent } from './room/delete-room/delete-room.component';
 
+import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+
 import { ViewComponent } from './hostel/view/view.component';
 import { FloorViewComponent } from './floor/floor-view/floor-view.component';
 import { RoomViewComponent } from './room/room-view/room-view.component';
@@ -98,6 +101,9 @@ import { HostelFilterPipe } from './hostel/hostel-filter.pipe';
     ViewComponent,
     FloorViewComponent,
     RoomViewComponent,
+
+    DoughnutChartComponent,
+    BarChartComponent,
 
     CreateUserComponent,
     UserDetailsComponent,

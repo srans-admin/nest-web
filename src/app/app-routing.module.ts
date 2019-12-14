@@ -16,6 +16,9 @@ import { UpdateExpenseComponent } from './expense/update-expense/update-expense.
 import { CreateExpenseComponent } from './expense/create-expense/create-expense.component';
 import { ExpenseDetailsComponent } from './expense/expense-details/expense-details.component';
 
+import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+
 import { AddHostelComponent } from './hostel/add-hostel/add-hostel.component';
 import { ListHostelComponent } from './hostel/list-hostel/list-hostel.component';
 import { DeleteHostelComponent } from './hostel/delete-hostel/delete-hostel.component';
@@ -68,6 +71,9 @@ const routes: Routes = [
   { path: 'user/add', component: CreateUserComponent },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
+
+  { path: 'doughnut-chart', component: DoughnutChartComponent },
+{ path: 'bar-chart', component: BarChartComponent },
 
   { path: 'invoice', component: InvoiceListComponent },
   { path: 'invoice/add', component: CreateInvoiceComponent},
