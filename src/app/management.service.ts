@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ManagementService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/management';
+  private baseUrl = 'http://dev.nidos.in:8080/nest-server/api/v1/management';
 
   constructor(private http: HttpClient) { }
 

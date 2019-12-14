@@ -8,7 +8,11 @@ export class Hostel {
   hostelAddress: string = "Hyderabad";
   hostelType: string = "Women";
   numOfFloors: number = 1;
+  receptionUIImage: File ;
   floors : Array<Floor> = [];
+  array: any;
+  room: Room = new Room();
+
 
   addRoom(floorName, room: Room){
     

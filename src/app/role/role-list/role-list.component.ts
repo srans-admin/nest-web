@@ -1,10 +1,10 @@
-// import { HostelDetailsComponent } from './../hostel-details/hostel-details.component';
+import { RoleDetailsComponent } from './../role-details/role-details.component';
 import { Observable } from "rxjs";
-// import { RoleService } from "./../role.service";
 import { RoleService } from '../../role.service';
 import { Role } from "../../role";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: "app-role-list",
@@ -16,6 +16,7 @@ export class RoleListComponent implements OnInit {
 
   constructor(private roleService: RoleService,
     private router: Router) {}
+
 
   ngOnInit() {
     this.reloadData();
@@ -36,11 +37,11 @@ export class RoleListComponent implements OnInit {
   }
 
   roleDetails(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['rdetails', id]);
   }
 
   updateRole(id: number){
-    this.router.navigate(['update', id]);
+    this.router.navigate(['rupdate', id]);
   }
 }
 

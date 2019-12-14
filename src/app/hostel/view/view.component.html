@@ -1,9 +1,61 @@
-<h2><span class="glyphicon glyphicon-home"></span>  {{hostel.hostelName}}</h2> 
+<h2>Hostel Details:</h2><hr>
+<div class="container">
+    <div class="row vertical-align">
+        <div class="col col-sm-3">
+            <img src="{{receptionImage}}"   alt="No Image" class="hostel-init-img"/>
+        </div>
+        <div class="col col-sm-9">
+            <div class="row">
+                <div class="col-xs-4">
+                    <h3><i class="fas fa-fw fa-building"></i> Name</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>: {{hostel.hostelName}}</h3>
+                </div>                 
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <h3><i class="fas fa-fw fa-user"></i> Type</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>: {{hostel.hostelType}}</h3>
+                </div>                 
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <h3><i class="fa fa-map-marker"></i> Address</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>: {{hostel.hostelAddress}}</h3> 
+                </div>                 
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <h3><i class="fas fa-map"></i> Floors</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>: {{hostel.numOfFloors}}</h3>
+                </div>                 
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <h3><i class="fas fa-bed"></i> Rooms</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>: {{hostel.roomNumbers}}</h3>
+                </div>                 
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <hr>
-
-<div> COMING SOON. WORKING WITH MANISH</div>
- 
+<!-- <div><img src="{{facadeImage}}"   alt="No Image" class="hostel-init-img"/></div><hr>
+<div><img src="{{b1Image}}"   alt="No Image" class="hostel-init-img"/></div><hr>
+<div><img src="{{b2Image}}"   alt="No Image" class="hostel-init-img"/></div><hr>
+<div><img src="{{b3Image}}"   alt="No Image" class="hostel-init-img"/></div><hr>
+<div><img src="{{miscImage}}"   alt="No Image" class="hostel-init-img"/></div><hr> --> 
  
 <br>
 <button (click)="list()" class="btn btn-primary">Back to Hostel List</button><br>

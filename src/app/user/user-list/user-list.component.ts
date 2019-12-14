@@ -18,7 +18,6 @@ export class UserListComponent implements OnInit {
   users:  any;
   //userImages = new Map(); 
   userImages: Array<TmpUsr> = [];
-  // idproofImages: Array<TmpIdproof> = [];
   acknoldgmentMsg : string = null;
 
   constructor(private userService: UserService,
@@ -36,12 +35,10 @@ export class UserListComponent implements OnInit {
    
     this.users.forEach(elements => { 
     for( let element of elements){
-    this.userService.retriveFile('userpic',  element.userId)
-    // this.userService.retriveFile('idproofpic' element.userId) 
+    this.userService.retriveFile('userpic',  element.userId) 
       .subscribe(data => {
        
           this.createImageFromBlob(element.userId, data);
-          // this.createImageFeomBlob(element.userId, data);
          
         },  
         err => {  
@@ -52,7 +49,6 @@ export class UserListComponent implements OnInit {
       }); 
 
       console.log('this.userImages: '+this.userImages);
-      // console.log('this.idproofImages: '+this.idproofImages);
   } 
 
   createImageFromBlob(userId: any, image: Blob) {

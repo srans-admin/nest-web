@@ -57,8 +57,8 @@
       <label for="name"><span class="glyphicon glyphicon-user"></span>PermanentAddress:</label>
       <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
     
-        <label for="name"><span class="glyphicon glyphicon-user"></span>idProofpic</label>
-        <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" />
+        <label for="name"><span class="glyphicon glyphicon-user"></span>idProofImage</label>
+          <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" />
       </div>    
   
 </div>
@@ -93,6 +93,17 @@
     </div> -->
 
 
+	<div  style="width: 400px;">
+      <label>Hostel: </label>
+      <select class="browser-default custom-select"   [(ngModel)]="hostels" >
+        <option value="">--select--</option>
+        <option *ngFor="let hostel of hostels | async" [value]="hostel.id">
+          {{hostel.hostelName}}
+        </option>
+      </select>
+    </div>
+
+
     <!-- <div class="hostel-select" *ngFor="let hostel of hostel.floors">
 
         <div class="hostel-header">
@@ -112,53 +123,63 @@
         </div>
     </div> -->
 
-    <div  style="width: 400px;">
-      <label>Hostel: </label>
-      <select class="browser-default custom-select"  (click)="filterForeCasts()" [(ngModel)]="hostels" >
-        <option value="">--select--</option>
-        <option *ngFor="let hostel of hostels | async" value={{hostel.hostelName}}>
-          {{hostel.hostelName}}
-        </option>
-      </select>
-    </div>
-    <!-- <p *ngIf="!forecasts"><em>Loading...</em></p> -->
-
 
     <div _ngcontent-dmg-c8="" class="floor-select ng-star-inserted">
-      <div _ngcontent-dmg-c8="" class="floor-header"><span _ngcontent-dmg-c8="" class="floor-name">
-        <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Hostel:{{hostel.hostelName}}</span>
+        <div _ngcontent-dmg-c8="" class="floor-header">
+	 <span _ngcontent-dmg-c8="" class="floor-name">
+        <span _ngcontent-dmg-c8="" class="hostel-name"></span> Hostel Name:{{hostel.id}}</span>
         
-            <span _ngcontent-dmg-c8="" class="total-rooms">Vacancy Rooms : <strong _ngcontent-dmg-c8="">0</strong></span>
+            <span _ngcontent-dmg-c8="" class="total-rooms">Total Vacancy Beds : <strong _ngcontent-dmg-c8="">0</strong></span>
           </div>
           <div _ngcontent-dmg-c8="" class="room-box">
             <div _ngcontent-dmg-c8="" class="room-box-header">
               <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -1 
             </div>
-            <!-- <span *ngFor="let bed of getBedsWithType(roomName, roomType)"> -->
-            <!-- <span class="sub-room-box">
-              <span class="room-type">Room-{{room.roomType}}</span>
-              <span class="room-name">Room-{{room.roomName}}</span>
-              <button class="sub-room-box-ok" (click)="okRoom(room)">Ok</button>
-            </span>
-            </span> -->
+		<span class="sub-room-box">
+		 <span class="roon-type">Room-{{room.roomType}}</span>
+		 <span class="roon-name">Room-{{room.roomName}}</span>
+			<!-- <span class="material-icons">hotel</span> -->
+		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
+		</span>
       <!-- "ng-reflect-ng-for-of": "" -->
     </div>
     <div _ngcontent-dmg-c8="" class="room-box">
       <div _ngcontent-dmg-c8="" class="room-box-header">
         <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -2 
-      </div><!--bindings={
+      </div>
+		<span class="sub-room-box">
+		 <span class="roon-type">Room-{{room.roomType}}</span>
+		 <span class="roon-name">Room-{{room.roomName}}</span>
+			<!-- <i class="material-icons">hotel</i> -->
+		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
+		</span>
+<!--bindings={
       "ng-reflect-ng-for-of": ""
     }--></div>
     <div _ngcontent-dmg-c8="" class="room-box">
       <div _ngcontent-dmg-c8="" class="room-box-header">
         <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -3 
-      </div><!--bindings={
+      </div>
+		<span class="sub-room-box">
+		 <span class="roon-type">Room-{{room.roomType}}</span>
+		 <span class="roon-name">Room-{{room.roomName}}</span>
+			<!-- <i class="material-icons">hotel</i> -->
+		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
+		</span>
+<!--bindings={
       "ng-reflect-ng-for-of": ""
     }--></div>
     <div _ngcontent-dmg-c8="" class="room-box">
       <div _ngcontent-dmg-c8="" class="room-box-header">
         <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -4
-      </div><!--bindings={
+      </div>
+		<span class="sub-room-box">
+		 <span class="roon-type">Room-{{room.roomType}}</span>
+		 <span class="roon-name">Room-{{room.roomName}}</span>
+			<!-- <i class="material-icons">hotel</i> -->
+		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
+		</span>
+<!--bindings={
       "ng-reflect-ng-for-of": ""
     }--></div>
   </div>

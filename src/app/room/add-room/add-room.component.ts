@@ -21,7 +21,10 @@ export class AddRoomComponent implements OnInit {
   numOfRooms: number = 1; 
   roomNumbers : string = "";
   roomType: string = "Single";
-
+  bedNo: string;
+  position: string = "Left";
+  bedAlloted: string = "Alloted";
+  
   //Errors
   errorMsg:String="";
 
@@ -61,7 +64,6 @@ export class AddRoomComponent implements OnInit {
   addRoom() {
 
     this.rooms.push(this.tmpRoom);
-
   }
 
   addRoomToHostel() {
@@ -70,13 +72,18 @@ export class AddRoomComponent implements OnInit {
     if (this.numOfRooms != currRoomNumbers.length) {
       this.errorMsg = "Room Numbers count not mached";
       return;
-    }
+    }  
+
+    
 
     for (let i = 0; i < currRoomNumbers.length; i++) {
 
       this.tmpRoom = new Room();
       this.tmpRoom.roomName = currRoomNumbers[i];
       this.tmpRoom.roomType = this.roomType;
+      // this.tmpRoom.bedNo = this.bedNo;
+      // this.tmpRoom.position = this.position;
+      // this.tmpRoom.bedAlloted = this.bedAlloted;
       this.hostel.addRoom(this.floorName, this.tmpRoom);
       console.log(' Room : ' + this.tmpRoom + ' added.');
     }

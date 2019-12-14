@@ -18,7 +18,7 @@
     color: white;
     font-size: 13px;
 }
-.hostel-name, .hostel-type, .hostel-address{
+.hostel-name, .hostel-type, .hostel-address, .hostel-floors{
     color: cadetblue;
     left: 6rem;
     top: -48px;
@@ -29,7 +29,7 @@
     font-weight: bold;
     color: green;
 }
-.hostel-type, .hostel-address{
+.hostel-type, .hostel-address, .hostel-floors, .hostel-rooms, .hostel-room{
     font-size: 8px;
 }
 .hostel-actions{

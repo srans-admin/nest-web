@@ -6,10 +6,10 @@ import { Floor } from '../../floor';
 import { Room } from '../../room';
 import { Invoice } from '../../invoice';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HostelService } from '../../hostel.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-user',
@@ -17,15 +17,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-  hostels: Observable<Hostel[]>; 
-  
-  //variable declaration
+  hostels: Observable<Hostel[]>;
   imageUrl: string = "/assets/img/showimage.jpg";
-  userImage: File = null; 
+  userImage: File = null;
+  idproofImage: File = null; 
   idImage: File = null;
-  idproofImage: File = null;
   user: User = new User();    
-  hostel: string = "0";
+  hostel: Hostel = new Hostel();
   tempfloor: Array<any>;
   totalRooms: Number=1;
   invoice: Invoice = new Invoice();
@@ -35,13 +33,12 @@ export class CreateUserComponent implements OnInit {
   acknoldgmentMsg: string = "";
  
   constructor(private route: ActivatedRoute,private userService: UserService,
-    private router: Router,
-    private hostelService: HostelService,private httpClient: HttpClient) { }
+    private router: Router,private hostelService: HostelService,private httpClient: HttpClient) { }
 
   ngOnInit() {
     // this.tempFloors = [1];
     // this.populateFloors();
-    // this.filterForeCasts();
+       this.filterForeCasts();
   }
   // handleFileInput(file: FileList) {
   //   this.fileToUpload = file.item(0);
@@ -64,14 +61,14 @@ export class CreateUserComponent implements OnInit {
 
         var obj : any =  res; 
 
-            //Upload user Images 
+            //Upload Reception Images 
             this.uploadImage(this.userImage, 'userpic', obj.userId );
              
 
-            //Upload Idproof Images
-            // for (let recFile of this.facadeUploadFiles) {
-              this.uploadImage(this.idproofImage, 'idproofpic', obj.userid );
-            // }   
+            //Upload Reception Images
+            
+               this.uploadImage(this.idproofImage, 'idproofImage', obj.userid );
+               
 
             this.acknoldgmentMsg = "Tenant added successfully."+obj.userId;
               
@@ -95,11 +92,11 @@ export class CreateUserComponent implements OnInit {
       });
   }
 
-  filterForeCasts()
+   filterForeCasts()
   {
-    // debugger;
     this.hostels = this.hostelService.getHostelsList();
   }
+
   onSubmit() {
     this.submitted = true;
     this.save();
@@ -109,23 +106,6 @@ export class CreateUserComponent implements OnInit {
     this.router.navigate(['/add']);
     // this.router.navigate(['/hostels']);
   }
-
-  // getRoomsWithType(floor: Floor, type: String): Array<Room>{
-  //   let rooms : Array<Room> = [];
-
-  //   this.totalRooms = floor.rooms.length;
-
-  //   //TODO : Need to use map method here
-  //   for( let i=0; i < floor.rooms.length ; i++){ 
-  //     if(floor.rooms[i].roomType == type){
-  //       rooms.push(floor.rooms[i]);
-  //     } 
-  //   } 
-
-  //  this.isSubmitEnable(); 
-  //   return rooms;
-
-  // }
 
 
   
@@ -137,15 +117,16 @@ export class CreateUserComponent implements OnInit {
       case "userImage": { 
         this.userImage = fileInput.target.files[0];
         break; 
-      }
-      case "idproofImage": { 
+      } 
+	case "idproofImage": { 
         this.idproofImage = fileInput.target.files[0];
         break; 
-      }  
-      // case "id": { 
-      //   this.idImage = fileInput.target.files[0];
-      //   break; 
-      // } 
+      } 
+
+      case "id": { 
+        this.idImage = fileInput.target.files[0];
+        break; 
+      } 
       default: { 
         console.log("Invalid File uploading "); 
         break;              
@@ -154,11 +135,5 @@ export class CreateUserComponent implements OnInit {
     //this.selectedFile = <File>fileInput.target.files[0];
      
 }
-
-// isSubmitEnable(){
-//   if(this.hostel.floors.length >= 1 && this.hostel.floors[0].rooms.length >= 1){
-//     this.enableSubmit = true;
-//   }
-// } 
 
 }

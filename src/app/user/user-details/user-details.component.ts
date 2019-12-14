@@ -14,7 +14,7 @@ export class UserDetailsComponent implements OnInit {
   id: number;
   user: User = new User();
   userpicImage: any;
-  idproofpicImage: any;
+  idproofImage: any;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private userService: UserService) { }
@@ -30,46 +30,50 @@ export class UserDetailsComponent implements OnInit {
         this.user = data;
       }, error => console.log(error));
 
-      //RetriveFile from tenantpic 
+      //RetriveFile from Tenantpic	
       this.userService.retriveFile('userpic',this.id)
         .subscribe(data => { 
-          this.createImageFromBlob(data);          
+          this.createImageFromBlob(data);
+          //this.isImageLoading = false;
           this.userpicImage = data;
+        }, error => { 
+          //this.isImageLoading = false; 
+          console.log(error);
+        });
+  
+
+      //RetriveFile from IdproofImage
+      this.userService.retriveFile('idproofImage',this.id)
+        .subscribe(data => { 
+          this.createImageFromBlobidproofImage(data);
+          //this.isImageLoading = false;
+          this.idproofImage = data;
         }, error => {  
           console.log(error);
         });
-
-       //RetriveFile from Idproofpic
-       this.userService.retriveFile('idproofpic', this.user.userId)
-        .subscribe(data => { 
-          this.createImageFromBlobidproofpic(data);
-          this.idproofpicImage = data;
-        }, error => {  
-          console.log(error);
-        }); 
   }
 
-      //Userpic Image
-      createImageFromBlob(image: Blob) {
-        let reader = new FileReader();
-        reader.addEventListener("load", () => {
-          this.userpicImage = reader.result;
-        }, false); 
-        if (image) {
-          reader.readAsDataURL(image);
-        }
+  //Tenantpic Image
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+       this.userpicImage = reader.result;
+    }, false); 
+    if (image) {
+       reader.readAsDataURL(image);
     }
+ }
 
-      //Idproofpic Image
-      createImageFromBlobidproofpic(image: Blob) {
-        let reader = new FileReader();
-        reader.addEventListener("load", () => {
-          this.idproofpicImage = reader.result;
-        }, false); 
-        if (image) {
-          reader.readAsDataURL(image);
-        }
+  //idproofpic Image
+  createImageFromBlobidproofImage(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+       this.idproofImage = reader.result;
+    }, false); 
+    if (image) {
+       reader.readAsDataURL(image);
     }
+ }
 
   list(){
     this.router.navigate(['user']);

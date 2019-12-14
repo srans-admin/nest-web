@@ -2,29 +2,24 @@
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="hostel.firstName" name="firstName">
+      <label for="name">Role Name</label>
+      <select id="roleName" class="form-control" [(ngModel)]="role.roleName" name=" roleName">
+          <option >Super Admin</option>
+          <option >Admin</option>
+          <option >Tenant</option>
+      </select>
     </div>
 
-    <div class="form-group">
-      <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="hostel.lastName" name="lastName">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Mobile</label>
-      <input type="text" class="form-control" id="Mobile" required [(ngModel)]="hostel.mobile" name="mobile">
+     <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="role.name" name="name">
     </div>
 
     <div class="form-group">
       <label for="name">Email</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="hostel.emailId" name="emailId">
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="role.emailId" name="emailId">
     </div>
 
-    <div class="form-group">
-      <label for="name">Role</label>
-      <input type="text" class="form-control" id="role" required [(ngModel)]="hostel.role" name="role">
-    </div>
 
     <button type="submit" class="btn btn-success">Submit</button>
   </form>

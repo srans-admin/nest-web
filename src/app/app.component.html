@@ -103,19 +103,19 @@
     
     <li class="nav-item">
     <a class="nav-link" routerLink="roles">
-    <i class="fas fa-fw fa"></i>
+            <span class="glyphicon glyphicon-home"></span>
     <span>  Roles</span></a>
     </li>
 
     <li class="nav-item">
     <a class="nav-link" routerLink="invoice">
-    <i class="fas fa-fw fa"></i>
+    <i class="fas fa-fw fa-home"></i>
     <span>  Invoices</span></a>
     </li>
     
     <li class="nav-item">
     <a class="nav-link" routerLink="expenses">
-    <i class="fas fa-fw fa"></i>
+            <span class="glyphicon glyphicon-envelope"></span>
     <span>  Expenses</span></a>
     </li>
 
@@ -133,7 +133,7 @@
         
         <li class="nav-item">
         <a class="nav-link" href="#">
-        <i class=""></i>
+                <span class="glyphicon glyphicon-home"></span>
         <span>  Accounts</span></a>
         </li>
         
@@ -161,8 +161,14 @@
         <!--</li>-->
         <!--<li class="breadcrumb-item active">Overview</li>-->
         <!--</ol>-->
-        
-        <router-outlet></router-outlet>
+
+        <div class="row">
+            
+            <div class="col-md-12">
+             <router-outlet></router-outlet>
+            </div>
+
+        </div>
         <!-- Icon Cards-->
         </div>
         <!-- /.container-fluid -->

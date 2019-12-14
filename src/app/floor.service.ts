@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FloorService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/hostels/id/floor';
+  private baseUrl = 'http://dev.nidos.in:8080/nest-server/api/v1/hostels/id/floor';
 
   constructor(private http: HttpClient) { }
 

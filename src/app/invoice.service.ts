@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class InvoiceService {
   
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/invoice';
+  private baseUrl = 'http://dev.nidos.in:8080/nest-server/api/v1/invoice';
   constructor(private http: HttpClient) { }
 
   getInvoice(id: number): Observable<any> {

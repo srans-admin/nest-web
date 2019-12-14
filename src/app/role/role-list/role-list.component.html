@@ -1,30 +1,41 @@
-<div class="col-md-6 user-container">
-  <h2 style="margin: auto"> Role Details</h2>
-  <div>
-  <a class="btn btn-primary" style="width:100px" routerLink="add"  routerLinkActive="active">Add Role</a>
+<div class="panel panel-primary">
+  <div class="row">
+    <div class="col-sm-8"><h2>Role List</h2></div>
+    <div>
+      <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus"></i></a>
+    </div>
+    	<!--<div class="form-group pull-right">-->
+								<!--<input type="text" [(ngModel)]="searchText" placeholder="search">-->
+      <!--</div>-->
+  </div>
+  <br>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Role Name</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of roles |  async">
+          <!--<td class="hidden"></td>-->
+          <td>{{ role.id }}</td>
+          <td>{{ role.roleName }}</td>
+          <td>{{ role.name }}</td>
+          <td>{{ role.emailId }}</td>
+          <td>
+            <button (click)="deleteRole(role.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+            <button  (click)="updateRole(role.id)" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+            <button (click)="roleDetails(role.id)" class="btn btn-info"><i class="fa fa-eye"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th class="hidden">Id</th>
-      <th>FirstName</th>
-      <th>LastName</th>
-      <th>Mobile</th>
-      <th>Email</th>
-      <th>Role</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let role of roles">
-      <td class="hidden"></td>
-      <td>{{role.firstName}}</td>
-      <td>{{role.lastName}}</td>
-      <td>{{role.mobile}}</td>
-      <td>{{role.email}}</td>
-      <td>{{role.role}}</td>
-      <td><button class="btn btn-danger" (click)="deleteRole(role.id)"> Delete</button>
-        <button class="btn btn-success" (click)="updateRole(role.id)" style="margin-left: 20px;"> Edit</button></td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+
+

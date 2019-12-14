@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ServerConfig } from './config/server.config';
+import { FileStorageService } from './services/filestorage.service';
+ 
 
 @Injectable({
   providedIn: 'root'
 })
-export class HostelService {
+export class HostelService { 
+  
+  serverConfig: ServerConfig = new ServerConfig();
+  private baseUrl = this.serverConfig.getServerURL() +'/api/v1/hostels';
+  private extendedViewUrl = this.serverConfig.getServerURL() + '/api/v1/hostels/{id}/extendingviews';
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/hostels';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private fileStorageService: FileStorageService) { }
 
   getHostel(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
@@ -29,5 +34,19 @@ export class HostelService {
 
   getHostelsList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+  } 
+  
+  uploadFile( file: File , cat: String,  id : number ) : Observable<any>  
+  {  
+    let url = this.baseUrl + "/"+id+"/upload/"+cat ; 
+    return this.fileStorageService.uploadFile(url, file );
   }
+
+
+  retriveFile(cat: String,  id : number): Observable<any> {
+    let url = this.baseUrl + "/"+id+"/retrive/"+cat ; 
+    return this.fileStorageService.retriveFile(url);
+  }
+
+
 }
