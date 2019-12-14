@@ -45,7 +45,7 @@ import { ViewComponent } from './hostel/view/view.component';
 import { FloorViewComponent } from './floor/floor-view/floor-view.component';
 import { RoomViewComponent } from './room/room-view/room-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
@@ -54,6 +54,7 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
+import { HostelFilterPipe } from './hostel/hostel-filter.pipe';
 // import { LoginComponent } from './login/login.component';
 
 // import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
@@ -104,6 +105,7 @@ import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.compon
     UpdateUserComponent,
     CreateInvoiceComponent,
     InvoiceListComponent,
+    HostelFilterPipe
     // LoginComponent,
     // DetailsUploadComponent,
     // FormUploadComponent,
