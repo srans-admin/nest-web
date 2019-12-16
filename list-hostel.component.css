@@ -1,0 +1,54 @@
+.hostel{ 
+    color: #bbb;
+    margin: 0px;
+    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
+    padding: 16px;
+    height: 73px;
+    cursor: pointer;
+}
+.hostel:hover{
+    background-color:rgba(0, 0, 0, 0.05);
+}
+.hostel-image{
+    width: 4rem;
+    height: 4rem;
+    padding-top: 16px;
+    padding-left: 21px;
+    border-radius: 5rem;
+    background-color: black;
+    color: white;
+    font-size: 13px;
+}
+.hostel-name, .hostel-type, .hostel-address, .hostel-floors{
+    color: cadetblue;
+    left: 6rem;
+    top: -48px;
+    color: black;
+    position: relative;
+}
+.hostel-name{
+    font-weight: bold;
+    color: green;
+}
+.hostel-type, .hostel-address, .hostel-floors, .hostel-rooms, .hostel-room{
+    font-size: 8px;
+}
+.hostel-actions{
+    padding: 5px;
+    position: relative;
+    top: -93px;
+    /* right: -75px; */
+    left: 81%;
+    
+} 
+.hb{
+    padding: 5px;
+}
+a{
+    cursor: pointer;
+}
+.add-hostel-btn{
+    position: relative;
+    top: -32px;
+}
+ 

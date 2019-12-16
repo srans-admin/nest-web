@@ -1,0 +1,198 @@
+<div class="add-hostel">
+<h4><span class="glyphicon glyphicon-home"></span> Add Hostel</h4>
+<p> {{acknoldgmentMsg}}</p>
+<form (ngSubmit)="onSubmit()" name="hostel-form">
+    <mat-tab-group>
+        <mat-tab label="Info" class="test">
+
+            <div class="add-hostel-details" [hidden]="submitted" style="width: 400px;">
+
+                <label for="name"> <span class="glyphicon glyphicon-envelope"></span> Hostel Name</label>
+                <input type="text" class="form-control " id="hostelName" [(ngModel)]="hostel.hostelName"
+                    name="hostelName">
+
+                <label><span class="glyphicon glyphicon-user"></span> Hostel Address</label>
+                <input type="text" class="form-control " id="hostelAddress" [(ngModel)]="hostel.hostelAddress"
+                    name="hostelAddress">
+
+                <label><span class="glyphicon glyphicon-ok"></span> Hostel Type</label>
+                <input type="text" class="form-control " id="hostelType" [(ngModel)]="hostel.hostelType"
+                    name="hostelType">
+
+                <label><span class="glyphicon glyphicon-cog"></span> Number of Floors</label>
+                <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
+                    (ngModelChange)="populateFloors($event)" name="numOfFloors" >
+
+
+                <label><span class="glyphicon glyphicon-file"></span> Description</label>
+                <textarea class="form-control" [(ngModel)]="hostel.misc" name="misc"></textarea>
+
+                <!-- <button type="submit" class="btn btn-success">Submit</button> -->
+
+            </div>
+        </mat-tab>
+
+
+        <mat-tab label="Rooms">
+
+            <!-- <div class="add-room-button">
+                <button type="button" class="btn btn-info" (click)="addRoomDailog()">Add Room</button>
+            </div>  -->
+
+            <div class="floor-select " *ngFor="let floor of hostel.floors">
+
+                <div class="floor-header">
+                    <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor.floorName}}
+                    </span>
+                    <div class="add-room-button">
+                        <button title="Add Room" type="button" class="btn btn-background"
+                            (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                    <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
+                </div>
+
+                <div class="room-box">
+                    <div class="room-box-header"> <span class="glyphicon glyphicon-tags"></span> Single Rooms </div>
+                    <span *ngFor="let room of getRoomsWithType(floor,'Single')">
+                        <span class="sub-room-box">
+                            <span class="room-name"> Room-{{room.roomName}} </span>
+                            <button class="sub-room-box-edit" (click)="editRoom(room.id)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room.id)"> Remove </button>
+
+                        </span>
+                    </span>
+                </div>
+
+                <div class="room-box">
+                    <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> Double Rooms </div>
+                    <span *ngFor="let room of getRoomsWithType(floor,'Double')">
+                        <span class="sub-room-box">
+                            <span class="room-name"> Room-{{room.roomName}} </span>
+                            <button class="sub-room-box-edit" (click)="editRoom(room.id)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                        </span>
+                    </span>
+                </div>
+
+                <div class="room-box">
+                    <div class="room-box-header"><span class="glyphicon glyphicon-center"></span> Triple Rooms </div>
+                    <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
+                        <span class="sub-room-box">
+                            <span class="room-name"> Room-{{room.roomName}} </span>
+                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                        </span>
+                    </span>
+                </div>
+
+                <div class="room-box">
+                    <div class="room-box-header"><span class="glyphicon glyphicon-home"></span> Misc </div>
+                    <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
+                        <span class="sub-room-box">
+                            <span class="room-name"> Room-{{room.roomName}} </span>
+                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                        </span>
+                    </span>
+                </div>
+
+                <!-- <ul *ngFor="let room of floor.rooms">
+                    <li class="room-select"> 
+                        Room-{{room.roomName}} 
+                    
+                    </li>
+
+                </ul> -->
+            </div>
+
+
+
+            <!-- <button type="button" class="btn btn-info">Add Room</button> -->
+
+
+        </mat-tab>
+        <mat-tab label="Amenities">
+
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch1" >
+                <label class="custom-control-label" for="switch1"><span class="glyphicon glyphicon-asterisk"></span>
+                    TV</label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch2">                 
+                <!-- [(ngModel)]="switch2.Checked" value="{{hostel.switch2}}"
+                [attr.disabled]="hostel.switch2==1 ? true : null" -->
+                <label class="custom-control-label" for="switch2"><span class="glyphicon glyphicon-lock"></span>
+                    Fridge</label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch3" >
+                <label class="custom-control-label" for="switch3"><span class="glyphicon glyphicon-star"></span>
+                    AC</label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch4" >
+                <label class="custom-control-label" for="switch4"><span class="glyphicon glyphicon-off"></span> Mineral
+                    Water</label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch5" >
+                <label class="custom-control-label" for="switch5"><span class="glyphicon glyphicon-home"></span>
+                    Parking</label>
+            </div>
+
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch6" >
+                <label class="custom-control-label" for="switch6"><span class="glyphicon glyphicon-flag"></span>
+                    Gym</label>
+            </div>
+
+
+        </mat-tab>
+
+
+        <mat-tab label="Pics">
+
+            <label><span class="glyphicon glyphicon-download"></span> Facade Uploads</label>
+            <input type="file" class="form-control " (change)="prepareUpload('facade',$event)" multiple  />
+
+
+            <!-- [(ngModel)]="hostel.receptionUIImage" -->
+            <label><span class="glyphicon glyphicon-repeat"></span> Reception Uploads</label>
+            <input type="file" class="form-control "  (change)="prepareUpload('reception',$event)" multiple  />
+
+            <label><span class="glyphicon glyphicon-lock"></span> 1 Bed Room Uploads</label>
+            <input type="file" class="form-control " (change)="prepareUpload('b1',$event)" multiple />
+
+            <label><span class="glyphicon glyphicon-headphones"></span> 2 Bed Room Uploads</label>
+            <input type="file" class="form-control " (change)="prepareUpload('b2',$event)" multiple />
+
+            <label><span class="glyphicon glyphicon-qrcode"></span> 3 Bed Room Uploads</label>
+            <input type="file" class="form-control "(change)="prepareUpload('b3',$event)" multiple />
+
+            <label><span class="glyphicon glyphicon-envelope"></span> Misc Uploads</label>
+            <input type="file" class="form-control " (change)="prepareUpload('misc',$event)" multiple/>
+
+
+
+
+        </mat-tab>
+
+
+
+    </mat-tab-group>
+
+    <div class="add-hostel-submit">
+        <button type="submit" *ngIf="enableSubmit" class="add-hostel-button"> ADD HOSTEL </button>
+    </div>
+</form>
+</div>

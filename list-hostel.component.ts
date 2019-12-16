@@ -3,7 +3,9 @@ import { Observable } from "rxjs";
 import { HostelService } from "../../hostel.service";
 import { Hostel } from "../../hostel";
 import { Router, ActivatedRoute } from '@angular/router';
-import { Floor } from '../../floor';
+import { ServerConfig } from '../../config/server.config';
+import { HttpClient } from '@angular/common/http';
+import { Room } from '../../room';
 
 @Component({
   selector: 'app-list-hostel',
@@ -12,19 +14,30 @@ import { Floor } from '../../floor';
 })
 export class ListHostelComponent implements OnInit {
   hostels: Observable<Hostel[]>;
+  room: Room = new Room();
+  extendingviews: Observable<Hostel[]>;
   searchTerm: string;
-  floor: Floor;
+
+  serverConfig: ServerConfig = new ServerConfig();
+  private extendedViewUrl = this.serverConfig.getServerURL() + '/api/v1/hostels/{id}/extendingviews';
   
   constructor(private hostelService: HostelService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private http: HttpClient) { }
 
     ngOnInit() {
       this.reloadData();
     }
   
     reloadData() {
-      this.hostels = this.hostelService.getHostelsList();
+      this.hostels = this.hostelService.getHostelsList();      
+    }
+
+    oneHostel(id: number){
+      // this.hostels = this.hostelService.getHostel(id);
+      this.extendingviews = this.hostelService.getHostel(id);
+      this.hostelDetails(id);
     }
   
     deleteHostel(id: number) {
@@ -40,7 +53,8 @@ export class ListHostelComponent implements OnInit {
     }
   
     hostelDetails(id: number){
-      this.router.navigate(['details', id]);
+      // this.hostels = this.hostelService.getHostel(id);
+      this.router.navigate(['details', id]);      
     }
   
     updateHostel(id: number){

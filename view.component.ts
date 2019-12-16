@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Hostel } from '../../hostel';
 import { HostelService } from '../../hostel.service';
 import { Room } from 'src/app/room';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-view',
@@ -10,7 +11,7 @@ import { Room } from 'src/app/room';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-
+  hostels: Observable<Hostel[]>;
   // variables declaration
   id : number;
   hostel : Hostel;
@@ -21,6 +22,31 @@ export class ViewComponent implements OnInit {
   b2Image: any;
   b3Image: any;
   miscImage: any;
+
+  donutInfo = {
+
+    "single" :{
+      "sharingType": "Single Sharing Type",
+      "data":[20,30,40]
+    },
+    "double" :{
+      "sharingType": "Double Sharing Type",
+      "data":[30,30,33]
+    },
+    "triple" :{
+      "sharingType": "Triple Sharing Type",
+      "data":[50,30,44]
+    },
+     "misc" :{
+      "sharingType": "Misc Sharing Type",
+      "data":[70,20,45]
+    }
+  }
+
+  barchartInfo ={
+    "name" : "Joining Trends"
+  };
+  
   //isImageLoading: boolean = true; 
 
   constructor(private hostelService:HostelService, 
@@ -167,6 +193,27 @@ createImageFromBlobMisc(image: Blob) {
     this.router.navigate(['/hostels']);
   }
 
+  deleteHostel(id: number) {
+    if(window.confirm("Are you to remove the hostel : "+id)){
+    this.hostelService.deleteHostel(id)
+      .subscribe(
+        data => {
+          console.log(data);  
+          this.reloadData();
+        },
+        error => console.log(error));
+      }
+      this.listHostel();
+  }
+
+  listHostel(){
+    this.router.navigate(['/hostels']);
+  }
+
+  reloadData() {
+    this.hostels = this.hostelService.getHostelsList();      
+  }
+
   changeLanguage(language) {
     var element = document.getElementById("url");
     element.innerHTML = language;
@@ -176,8 +223,8 @@ createImageFromBlobMisc(image: Blob) {
     document.getElementById("myDropdown").classList.toggle("show");
   }
 
-  // Close the dropdown if the user clicks outside of it
-  click = function(event) {
+  //  Close the dropdown if the user clicks outside of it
+   click = function(event) {
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
@@ -189,5 +236,6 @@ createImageFromBlobMisc(image: Blob) {
         }
     }
   }
+
 
 }
