@@ -57,6 +57,12 @@
                     <span *ngFor="let room of getRoomsWithType(floor,'Single')">
                         <span class="sub-room-box">
                             <span class="room-name"> Room-{{room.roomName}} </span>
+                           
+                            <span *ngFor="let bed of room.beds">
+                                <span class="jumbotron show-bed"> {{bed.bedNo}}</span>
+                            </span>
+
+
                             <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
                             <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
 
@@ -69,6 +75,11 @@
                     <span *ngFor="let room of getRoomsWithType(floor,'Double')">
                         <span class="sub-room-box">
                             <span class="room-name"> Room-{{room.roomName}} </span>
+                            
+                            <span *ngFor="let bed of room.beds">
+                                    <span class="jumbotron show-bed"> {{bed.bedNo}}</span>
+                                </span>
+
                             <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
                             <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
 
@@ -81,6 +92,11 @@
                     <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
                         <span class="sub-room-box">
                             <span class="room-name"> Room-{{room.roomName}} </span>
+                            
+                            <span *ngFor="let bed of room.beds">
+                                    <span class="jumbotron show-bed"> {{bed.bedNo}}</span>
+                                </span>
+
                             <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
                             <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
 
@@ -93,6 +109,10 @@
                     <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
                         <span class="sub-room-box">
                             <span class="room-name"> Room-{{room.roomName}} </span>
+                            
+                            <span *ngFor="let bed of room.beds">
+                                <span class="jumbotron show-bed "> {{bed.bedNo}}</span>
+                            </span>
                             <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
                             <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
 

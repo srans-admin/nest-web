@@ -1,15 +1,11 @@
-<h2>Room Details</h2> 
+<div class="room-box">
+    <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> {{room.roomType}} </div>
+    <span *ngFor="let room of getRoomsWithType(floor,'Double')">
+        <span class="sub-room-box">
+            <span class="room-name"> Room-{{room.roomName}} </span>
+            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
 
-<hr/>
-<div *ngIf="room">
-  <div>
-    <label><b>Room Facility Type: </b></label> {{room.room_facility_type}}
-  </div>
-  <div>
-    <label><b>Share Type: </b></label> {{room.room_share_type}}
-  </div>
+        </span>
+    </span>
 </div>
-
-<br>
-<br>
-<button (click)="list()" class="btn btn-primary">Back to Room List</button><br>
