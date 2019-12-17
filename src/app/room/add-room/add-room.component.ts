@@ -4,6 +4,7 @@ import { Room } from '../../room';
 import { Router } from '@angular/router';
 import { Hostel } from 'src/app/hostel';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Bed } from 'src/app/bed';
 
 @Component({
   selector: 'app-add-room',
@@ -24,6 +25,7 @@ export class AddRoomComponent implements OnInit {
   bedNo: string;
   position: string = "Left";
   bedAlloted: string = "Alloted";
+  bed : Array<Room> = [];
   
   //Errors
   errorMsg:String="";
@@ -81,6 +83,7 @@ export class AddRoomComponent implements OnInit {
       this.tmpRoom = new Room();
       this.tmpRoom.roomName = currRoomNumbers[i];
       this.tmpRoom.roomType = this.roomType;
+      this.addBedsToRoom(this.tmpRoom);
       // this.tmpRoom.bedNo = this.bedNo;
       // this.tmpRoom.position = this.position;
       // this.tmpRoom.bedAlloted = this.bedAlloted;
@@ -89,6 +92,47 @@ export class AddRoomComponent implements OnInit {
     }
 
     this.dialogRef.close(); 
+
+  }
+
+
+  addBedsToRoom(room : Room){
+
+    
+    let numOfBeds;
+    switch (room.roomType) {
+      case "Single": {
+        numOfBeds = 1;
+        break;
+      }
+      case "Double": {
+        numOfBeds = 2;
+
+        break;
+      }
+
+      case "Triple": {
+        numOfBeds = 3;
+        break;
+      }
+
+      case "Misc": {
+        numOfBeds = 3;
+        break;
+      }
+
+
+      default: {
+        console.log("Invalid File uploading ");
+        break;
+      }
+    }
+
+    for (let i = 0; i < numOfBeds; i++) {
+      let tmpBed = new Bed();
+      tmpBed.bedNo = (i + 1);
+      room.beds.push(tmpBed);
+    }
 
   }
 

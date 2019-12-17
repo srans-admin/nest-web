@@ -105,3 +105,9 @@ label{
     padding: 15px;
     width: 100%;
 }
+.show-bed{
+    background-color: cornflowerblue;
+    width: 40px;
+    height: 12px;
+    padding: 12px;
+}
