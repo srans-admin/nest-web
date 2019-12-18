@@ -42,7 +42,6 @@ export class AddRoomComponent implements OnInit {
     this.dialogRef.close();
   }
 
-
   ngOnInit() {
   }
 
@@ -52,10 +51,10 @@ export class AddRoomComponent implements OnInit {
   }
 
   save() {
-    this.roomService.postRoom(this.room)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.room = new Room();
-    this.gotoList();
+    // this.roomService.postRoom(this.room)
+    //   .subscribe(data => console.log(data), error => console.log(error));
+    // this.room = new Room();
+    // this.gotoList();
   }
 
   onSubmit() {
@@ -64,19 +63,15 @@ export class AddRoomComponent implements OnInit {
   }
 
   addRoom() {
-
     this.rooms.push(this.tmpRoom);
   }
 
   addRoomToHostel() {
-
     let currRoomNumbers = this.roomNumbers.split(",");
     if (this.numOfRooms != currRoomNumbers.length) {
       this.errorMsg = "Room Numbers count not mached";
       return;
     }  
-
-    
 
     for (let i = 0; i < currRoomNumbers.length; i++) {
 
@@ -84,7 +79,7 @@ export class AddRoomComponent implements OnInit {
       this.tmpRoom.roomName = currRoomNumbers[i];
       this.tmpRoom.roomType = this.roomType;
       this.addBedsToRoom(this.tmpRoom);
-      // this.tmpRoom.bedNo = this.bedNo;
+      this.tmpRoom.beds = this.tmpRoom.beds;
       // this.tmpRoom.position = this.position;
       // this.tmpRoom.bedAlloted = this.bedAlloted;
       this.hostel.addRoom(this.floorName, this.tmpRoom);
@@ -92,13 +87,12 @@ export class AddRoomComponent implements OnInit {
     }
 
     this.dialogRef.close(); 
-
+    
   }
 
 
   addBedsToRoom(room : Room){
 
-    
     let numOfBeds;
     switch (room.roomType) {
       case "Single": {
@@ -107,23 +101,18 @@ export class AddRoomComponent implements OnInit {
       }
       case "Double": {
         numOfBeds = 2;
-
         break;
       }
-
       case "Triple": {
         numOfBeds = 3;
         break;
       }
-
       case "Misc": {
         numOfBeds = 3;
         break;
       }
-
-
       default: {
-        console.log("Invalid File uploading ");
+        console.log("Invalid Number of Beds");
         break;
       }
     }

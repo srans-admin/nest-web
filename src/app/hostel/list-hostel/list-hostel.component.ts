@@ -54,8 +54,6 @@ export class ListHostelComponent implements OnInit {
     }
   
     hostelDetails(id: number){
-      // this.hostels = this.hostelService.getHostel(id);
-      // this.hostels = this.hostelService.getHostel(id);
       this.router.navigate(['details', id]);      
     }
   

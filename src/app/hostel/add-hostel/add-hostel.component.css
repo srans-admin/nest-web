@@ -73,6 +73,13 @@ label{
     margin: 2px;
    
 }
+.bed-style{
+    background-color: green;
+    width: 33px;
+}
+.bed-color{
+    color: orangered;
+}
 .sub-room-box-edit{
     background-color: green;
 }

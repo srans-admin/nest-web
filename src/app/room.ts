@@ -4,8 +4,8 @@ export class Room{
 
     id: number;
     roomName: string; 
-    roomType: string = "Single"; 
-    roomRent: number = 2000; 
+    roomType: string; 
+    roomRent: number; 
     beds : Array<Bed> = []; 
    
   }

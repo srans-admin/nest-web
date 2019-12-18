@@ -1,98 +1,28 @@
-<!-- <h4>Add Room</h4>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div>
-      <label for="name">Room Number</label>
-      <input type="text" id="roomNumber" [(ngModel)]="room.roomNumber" class="form-control" name="roomNumber" />
-    </div>
-
-    <div>
-      <label for="name">Share Type</label>
-      <input type="text" id="shareType" [(ngModel)]="room.shareType" class="form-control" name="shareType" /><br/>
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-</div> -->
-
-<!-- <tr>Hostel 1</tr><hr>
-<tr>Floor 1</tr><hr>
-<div style="text-align: right;">
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
-        <i class="fa fa-plus">Add Room</i>
-    </button>
-</div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Room</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div [hidden]="submitted">
-                <form>
-                    <div class="form-group">
-                        <label for="name" class="col-form-label pull-left" aria-placeholder="AC/Non-AC">Room Facility Type</label>
-                        <input type="text" class="form-control col-sm-6" id="room_facility_type" 
-                        (ngModel)="room.room_facility_type" required name="room_facility_type">
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-form-label">Sharing Type</label>
-                        <input type="text" class="form-control col-sm-6" id="room_share_type" 
-                        (ngModel)="room.room_share_type" required name="room_share_type">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="onSubmit()">Save changes</button>
-        </div>
-        </div>
-    </div>
-</div> -->
-<!-- Begin D Floor-->
-
-
 <div class="add-room-select">
 
     <h2 class="add-room-header"> <span class="glyphicon glyphicon-map-marker"></span>  Add Room(s) </h2>
 
     <div class="error-msg">{{errorMsg}}</div>
 
-    <div class="room-body">
-<!--   
-    <label for="name"><span class="glyphicon glyphicon-tags"></span> Hostel Name</label>
-    <input type="text" readonly class="form-control" [(ngModel)]="hostel.hostelName">          
+        <div class="room-body">
 
-    <label for="name">Floor </label>
-    <input type="text" readonly class="form-control" [(ngModel)]="floorName" >             
-              -->
-
-    <label > <span class="glyphicon glyphicon-tags"></span> Room Type</label>
-    <select class="browser-default custom-select form-control"  [(ngModel)]="roomType">
-        <option>Single</option>
-        <option>Double</option>
-        <option>Triple</option>
-        <option>Misc</option>
-    </select>
- 
+        <label > <span class="glyphicon glyphicon-tags"></span> Room Type</label>
+        <select class="browser-default custom-select form-control"  [(ngModel)]="roomType">
+            <option>Single</option>
+            <option>Double</option>
+            <option>Triple</option>
+            <option>Misc</option>
+        </select> 
     
-    <label for="name"><span class="glyphicon glyphicon-tag"></span>  Number of Rooms</label>
-    <input type="number" class="form-control" [(ngModel)]="numOfRooms" >  
+        <label for="name"><span class="glyphicon glyphicon-tag"></span>  Number of Rooms</label>
+        <input type="number" class="form-control" [(ngModel)]="numOfRooms" >  
 
+        <label for="RoomNumbers"><span class="glyphicon glyphicon-list"></span> Room Numbers  <p class="notes"> Note: Please provide valid room numbers with comma seperated</p></label>    
+        <textarea class="form-control" [(ngModel)]="roomNumbers" ></textarea>
 
-    <label for="RoomNumbers"><span class="glyphicon glyphicon-list"> </span> Room Numbers  <p class="notes"> Note: Please provide valid room numbers with comma seperated</p></label>    
-    <textarea class="form-control" [(ngModel)]="roomNumbers" ></textarea>
+        <label for="Comments"><span class="glyphicon glyphicon-list-alt"></span>Comments</label>
+        <input type="text" class="form-control " id="hostelType" [(ngModel)]="comments" >
 
-
-    <label for="Comments">Comments</label>
-    <input type="text" class="form-control " id="hostelType" [(ngModel)]="comments" >              
-
-    
     </div>
 
     <div class="add-room-popup-buttons">
