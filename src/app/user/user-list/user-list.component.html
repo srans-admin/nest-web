@@ -11,20 +11,19 @@
             <li></li>
         </ul>
         <!-- menu -->
-        <div id="myDropdown" class="dropdown-content">
-             <a href="#home">Home</a>
-            <a href="invoice">invoice generate</a>
-            <a href="#contact">Contact</a> 
+        <div id="myDropdown" class="dropdown-content">          
+            <a href="invoice">Invoice Generate</a>
+            <a href="payment/add">Payment</a> 
         </div>
     </div>
 
         
 
 
-<div class="panel">
+<div>
     <div class="row">
-      <div class="col-sm-8"><h2>User List</h2></div>
-      <div>
+      <h3><span class="fa fa-user"></span> Tenant List</h3> 
+      <div style="text-align: right;" class="add-tenant-btn">
         <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus">Add Tenant</i></a>
       </div>
       <!-- <div class="md-form mt-0">
@@ -42,7 +41,7 @@
                 <tr>
                   <th></th>
                   <th>UserId</th>
-                  <th>Tenantpic</th>                 
+                  <th>TenantPic</th>                 
                   <th>Name</th>
                   <th>ContactNumber</th>
                   <!-- <th>FatherName</th>
@@ -85,10 +84,24 @@
                   <td>{{ user.emailId }}</td>
                   <!-- <td>{{ user.permanentAddress }}</td> -->
                   <!-- <td>{{user.idProof}}</td> -->
-                  <td>                    
-                      <a (click)="deleteUser(user.userId)" title="delete"><span class="glyphicon glyphicon-trash"></span></a>
-                      <a  (click)="updateUser(user.userId)" title="update"><span class="glyphicon glyphicon-edit" style="margin-left: 10px"></span></a>
-                      <a (click)="userDetails(user.userId)" title="view"><span class="glyphicon glyphicon-eye-open" style="margin-left: 10px"></span></a>
+                  <td> 
+                    
+                    <!-- <div class="dropdown">
+                      <ul class="dropbtn icons btn-right showLeft" (click)="showDropdown()">
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                      </ul>
+                      <div id="myDropdown" class="dropdown-content">
+                           <a (click)="deleteUser(user.userId)" title="delete" href><i class="fa fa-trash"></i> Delete</a>
+                           <a (click)="updateUser(user.userId)" title="update" href><i class="fa fa-pencil"></i> Edit</a>
+                           <a (click)="userDetails(user.userId)" title="view" href><i class="fa fa-eye-open"></i> Details</a>
+                          <a href="payment">payment</a>
+                      </div>
+                  </div> -->
+                      <a (click)="deleteUser(user.userId)" title="delete"><span class="fa fa-trash"  style="margin-left: 10px"></span></a>
+                      <a  (click)="updateUser(user.userId)" title="update"><span class="fa fa-edit" style="margin-left: 10px"></span></a>
+                      <a (click)="userDetails(user.userId)" title="view"><span class="fa fa-eye" style="margin-left: 10px"></span></a>
                     
                   </td>
                   

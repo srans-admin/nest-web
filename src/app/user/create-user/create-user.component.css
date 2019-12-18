@@ -2,21 +2,20 @@
 {
     display: block;
 }
-.add-room{
+/* .add-room{
     width: 10rem;
     height: 40px;
-    /* border: 1px solid black; */
     text-align: right;
     position: fixed;
     right: 10%;
-}
+} */
 
-.add-room-button{
+/* .add-room-button{
     position: absolute;
     right: 13px;
     margin-top: -26px;
-}
-.floor-select{
+} */
+/* .floor-select{
     padding: 11px;
     border: solid 1px #ddd;
     background: #fff;
@@ -33,12 +32,12 @@
 .add-hostel-details{
     padding-left: 20px;
     padding-top: 10px;
-}
-label{
+} */
+/* label{
     padding: 0px;
     margin-bottom: 9px;
     margin-top: 13px;
-}
+} */
 .floor-header{
     width: 100%;
     background-color: #001f3f;
@@ -68,9 +67,9 @@ label{
     padding: 3px;
     margin: 2px;
 }
-.add-hostel-submit{
+/* .add-hostel-submit{
     margin: 10px;
-}
-.room-box-header:hover{
+} */
+/* .room-box-header:hover{
     color: black;
-}
+} */
