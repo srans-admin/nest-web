@@ -5,6 +5,7 @@ import { Hostel } from '../../hostel';
 import { Floor } from '../../floor';
 import { Room } from '../../room';
 import { Invoice } from '../../invoice';
+import { Payment } from '../../payment';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HostelService } from '../../hostel.service';
 import { Observable } from 'rxjs';
@@ -27,10 +28,12 @@ export class CreateUserComponent implements OnInit {
   tempfloor: Array<any>;
   totalRooms: Number=1;
   invoice: Invoice = new Invoice();
+  payment: Payment = new Payment();
   submitted = false;
   floor: Floor = new Floor();
   room: Room = new Room();
   acknoldgmentMsg: string = "";
+  tempFloors: [];
  
   constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router,private hostelService: HostelService,private httpClient: HttpClient) { }
@@ -52,6 +55,8 @@ export class CreateUserComponent implements OnInit {
   newRole(): void {
     this.submitted = false;
     this.user = new User();
+    this.payment = new Payment();
+    this.hostel = new Hostel();
   }
 
   save() {
@@ -79,8 +84,20 @@ export class CreateUserComponent implements OnInit {
           });
 
             this.user = new User();
+            room : this.room;
+            console.log(this.room);
             this.gotoList();
   }
+
+  // editRoom(room:Room){
+  //   let eRoom : Array<Room> [];
+  //   const dialogRef = this.dialog.open(EditRoomComponent, {
+  //     width: '30%',
+  //     data: {
+  //       room  : this.room
+  //     }
+  //   });
+  // }
 
   uploadImage(curFile: File, type: string, id : number){
     this.userService.uploadFile(curFile, type,  id).subscribe(
@@ -134,6 +151,21 @@ export class CreateUserComponent implements OnInit {
     }
     //this.selectedFile = <File>fileInput.target.files[0];
      
+}
+
+populateFloors(hostel:Hostel){
+  // this.hostel.hostelName = hostel.hostelName;
+  // this.hostel.numOfFloors = hostel.numOfFloors;
+  this.tempFloors = [];
+  for (let i = 1; i <=  this.hostel.numOfFloors; i++) {
+    this.tempFloors.push[i];
+  } 
+
+  this.hostel.addFloors(this.hostel.numOfFloors);
+
+
+    // this.hostel.addFloors(this.hostel.numOfFloors);
+
 }
 
 }

@@ -12,52 +12,52 @@
           <!-- <label for="name">userpic</label>
           <input type="file" required [(ngModel)]=user.userpic name="userpic" > -->
 
-          <label><span class="glyphicon glyphicon-user"></span> TenantPic </label>
+          <label><span class="fa fa-camera"></span> TenantPic </label>
             <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
             
-          <label><span class="glyphicon glyphicon-user"></span>Name:</label>
+          <label><span class="fa fa-user"></span> Name:</label>
           <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
              
-          <label for="name"><span class="glyphicon glyphicon-phone"></span>ContactNumber:</label>
+          <label for="name"><span class="fa fa-mobile"></span> ContactNumber:</label>
           <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber">
       
-          <label for="name"><span class="glyphicon glyphicon-user"></span>FatherName:</label>
+          <label for="name"><span class="fa fa-user"></span> FatherName:</label>
           <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName">
         
-          <label for="name"><span class="glyphicon glyphicon-phone"></span>Father PhoneNumber:</label>
+          <label for="name"><span class="fa fa-mobile"></span> Father PhoneNumber:</label>
           <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber">
         
-          <label for="name"><span class="glyphicon glyphicon-user-female"></span>MotherName:</label>
+          <label for="name"><span class="fa fa-female"></span> MotherName:</label>
           <input type="text" class="form-control" id="motherName" required [(ngModel)]="user.motherName" name="motherName">
         
-          <label for="name"><span class="glyphicon glyphicon-phone"></span>Mother PhoneNumber:</label>
+          <label for="name"><span class="fa fa-mobile"></span> Mother PhoneNumber:</label>
           <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
         
-          <label for="name"><span class="glyphicon glyphicon-calendar"></span>DoB:</label>
+          <label for="name"><span class="fa fa-calendar"></span> DoB:</label>
           <input type="text" class="form-control" id="dob" required [(ngModel)]="user.dob" name="dob">
         
-          <label for="name"><span class="glyphicon glyphicon-tint"></span>BloodGroup:</label>
+          <label for="name"><span class="fa fa-tint"></span> BloodGroup:</label>
           <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">
         
-          <label for="name"><span class="glyphicon glyphicon-phone"></span>EmergencyContactNumber:</label>
+          <label for="name"><span class="fa fa-mobile"></span> EmergencyContactNumber:</label>
           <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
         
-          <label for="name"><span class="glyphicon glyphicon-user"></span>NameOfTheEmployer:</label>
+          <label for="name"><span class="fa fa-user"></span> NameOfTheEmployer:</label>
           <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
         
-          <label for="name"><span class="glyphicon glyphicon-user"></span>OfficeAddress:</label>
+          <label for="name"><span class="fa fa-user"></span> OfficeAddress:</label>
           <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
         
-          <label for="name"><span class="glyphicon glyphicon-phone"></span>TelephoneNumber:</label>
+          <label for="name"><span class="fa fa-mobile"></span> TelephoneNumber:</label>
           <input type="text" class="form-control" id="telephoneNumber" required [(ngModel)]="user.telephoneNumber" name="telephoneNumber">
         
-      <label for="name"><span class="glyphicon glyphicon-envelope"></span>EmailId:</label>
+      <label for="name"><span class="fa fa-envelope"></span> EmailId:</label>
       <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
     
-      <label for="name"><span class="glyphicon glyphicon-user"></span>PermanentAddress:</label>
+      <label for="name"><span class="fa fa-user"></span> PermanentAddress:</label>
       <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
     
-        <label for="name"><span class="glyphicon glyphicon-user"></span>idProofImage</label>
+        <label for="name"><span class="fa fa-user"></span> idProofImage</label>
           <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" />
       </div>    
   
@@ -94,13 +94,20 @@
 
 
 	<div  style="width: 400px;">
-      <label>Hostel: </label>
+      <!-- <label>Hostel: </label>
       <select class="browser-default custom-select"   [(ngModel)]="hostels" >
-        <option value="">--select--</option>
-        <option *ngFor="let hostel of hostels | async" [value]="hostel.id">
-          {{hostel.hostelName}}
-        </option>
-      </select>
+         <option value="">--select--</option>
+        <option *ngFor="let hostel of hostels | async" [value]="hostel.id"  [(ngModel)]="hostel.numOfFloors"
+         name="id" (ngModelChange)="populateFloors($event)">
+          {{hostel.numOfFloors}}
+        </option>        
+        <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
+                    (ngModelChange)="populateFloors($event)" name="numOfFloors" >
+      </select> -->
+      <label><span class="glyphicon glyphicon-cog"></span> Number of Floors</label>
+      <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
+          (ngModelChange)="populateFloors($event)" name="numOfFloors">
+        
     </div>
 
 
@@ -124,24 +131,22 @@
     </div> -->
 
 
-    <div _ngcontent-dmg-c8="" class="floor-select ng-star-inserted">
+    <!-- <div _ngcontent-dmg-c8="" class="floor-select ng-star-inserted">
         <div _ngcontent-dmg-c8="" class="floor-header">
 	 <span _ngcontent-dmg-c8="" class="floor-name">
-        <span _ngcontent-dmg-c8="" class="hostel-name"></span> Hostel Name:{{hostel.id}}</span>
+        <span _ngcontent-dmg-c8=""  *ngFor="let hostel of hostels | async" class="hostel-name"></span> Hostel Name:{{hostel.id}}</span>
         
             <span _ngcontent-dmg-c8="" class="total-rooms">Total Vacancy Beds : <strong _ngcontent-dmg-c8="">0</strong></span>
-          </div>
-          <div _ngcontent-dmg-c8="" class="room-box">
+          </div> -->
+          <!-- <div _ngcontent-dmg-c8="" class="room-box">
             <div _ngcontent-dmg-c8="" class="room-box-header">
               <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -1 
             </div>
 		<span class="sub-room-box">
 		 <span class="roon-type">Room-{{room.roomType}}</span>
-		 <span class="roon-name">Room-{{room.roomName}}</span>
-			<!-- <span class="material-icons">hotel</span> -->
+		 <span class="roon-name">Room-{{room.roomName}}</span>			
 		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
-		</span>
-      <!-- "ng-reflect-ng-for-of": "" -->
+		</span>     
     </div>
     <div _ngcontent-dmg-c8="" class="room-box">
       <div _ngcontent-dmg-c8="" class="room-box-header">
@@ -149,13 +154,10 @@
       </div>
 		<span class="sub-room-box">
 		 <span class="roon-type">Room-{{room.roomType}}</span>
-		 <span class="roon-name">Room-{{room.roomName}}</span>
-			<!-- <i class="material-icons">hotel</i> -->
+		 <span class="roon-name">Room-{{room.roomName}}</span>			
 		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
 		</span>
-<!--bindings={
-      "ng-reflect-ng-for-of": ""
-    }--></div>
+</div>
     <div _ngcontent-dmg-c8="" class="room-box">
       <div _ngcontent-dmg-c8="" class="room-box-header">
         <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -3 
@@ -163,12 +165,9 @@
 		<span class="sub-room-box">
 		 <span class="roon-type">Room-{{room.roomType}}</span>
 		 <span class="roon-name">Room-{{room.roomName}}</span>
-			<!-- <i class="material-icons">hotel</i> -->
 		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
-		</span>
-<!--bindings={
-      "ng-reflect-ng-for-of": ""
-    }--></div>
+    </span>
+  </div>
     <div _ngcontent-dmg-c8="" class="room-box">
       <div _ngcontent-dmg-c8="" class="room-box-header">
         <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -4
@@ -176,13 +175,80 @@
 		<span class="sub-room-box">
 		 <span class="roon-type">Room-{{room.roomType}}</span>
 		 <span class="roon-name">Room-{{room.roomName}}</span>
-			<!-- <i class="material-icons">hotel</i> -->
 		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
-		</span>
-<!--bindings={
-      "ng-reflect-ng-for-of": ""
-    }--></div>
-  </div>
+    </span>
+  </div> -->
+  <!-- </div> -->
+
+  <div class="floor-select" *ngFor="let floor of hostel.floors">
+
+    <div class="floor-header">
+        <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor.floorName}}
+        </span>
+        <div class="add-room-button">
+            <button title="Add Room" type="button" class="btn btn-background"
+                (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+        <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
+    </div>
+
+    <div class="room-box">
+        <div class="room-box-header"> <span class="glyphicon glyphicon-tags"></span> Single Rooms </div>
+        <span *ngFor="let room of getRoomsWithType(floor,'Single')">
+            <span class="sub-room-box">
+                <span class="room-name"> Room-{{room.roomName}} </span>
+                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+            </span>
+        </span>
+    </div>
+
+    <div class="room-box">
+        <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> Double Rooms </div>
+        <span *ngFor="let room of getRoomsWithType(floor,'Double')">
+            <span class="sub-room-box">
+                <span class="room-name"> Room-{{room.roomName}} </span>
+                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+            </span>
+        </span>
+    </div>
+
+    <div class="room-box">
+        <div class="room-box-header"><span class="glyphicon glyphicon-center"></span> Triple Rooms </div>
+        <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
+            <span class="sub-room-box">
+                <span class="room-name"> Room-{{room.roomName}} </span>
+                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+            </span>
+        </span>
+    </div>
+
+    <div class="room-box">
+        <div class="room-box-header"><span class="glyphicon glyphicon-home"></span> Misc </div>
+        <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
+            <span class="sub-room-box">
+                <span class="room-name"> Room-{{room.roomName}} </span>
+                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+            </span>
+        </span>
+    </div>
+
+    <!-- <ul *ngFor="let room of floor.rooms">
+        <li class="room-select"> 
+            Room-{{room.roomName}} 
+        
+        </li>
+
+    </ul> -->
+</div>
 
 
     </mat-tab>
@@ -191,49 +257,63 @@
     <mat-tab label="payment">
         <div [hidden]="submitted" style="width: 200px;">
 
-      <div class="form-group">
-          <label for="name"><span class="glyphicon glyphicon-calendar"></span>Date:</label>
-          <input type="text" class="form-control" id="date" required [(ngModel)]="invoice.date" name="date">
-      <!-- </div> -->
-
-      <!-- <div class="form-group"> -->
-          <label for="name"><span class="glyphicon glyphicon-user"></span>Name:</label>
-          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
-      <!-- </div> -->
-
-      <!-- <div class="form-group"> -->
-          <label for="name"><span class="glyphicon glyphicon-user"></span>RoomName:</label>
-          <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName">
-      <!-- </div> -->
-
-      <!-- <div class="form-group"> -->
-          <label for="name"><span class="glyphicon glyphicon-list-alt"></span>Sharing:</label>
-          <select class="browser-default custom-select" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
-            <option></option>
-            <option>Single</option>
-            <option>Double</option>
-            <option>Triple</option>
-            <option>Four</option>
-          </select>
-      <!-- </div> -->
-
-      <!-- <div class="form-group"> -->
-          <label for="name"><span class="glyphicon glyphicon-usd"></span>Deposit Amount:</label>
-          <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="invoice.depositAmount" name="depositAmount">
-      <!-- </div> -->
-
-      <!-- <div class="form-group"> -->
-          <label for="name"><span class="glyphicon glyphicon-usd"></span>Amount:</label>
-          <input type="text" class="form-control" id="amount" required [(ngModel)]="invoice.amount" name="amount">
-      <!-- </div>       -->
-
-      <!-- <div class="form-group"> -->
-          <label for="name"><span class="glyphicon glyphicon-user"></span>Payment Type:</label>
-          <select id="paymentType" class="browser-default custom-select" [(ngModel)]="invoice.paymentType" name=" paymentType">
-            <option > </option>
-            <option >Cash</option>
-            <option >Bank Transfer</option>
-          </select>
+          <div class="form-group">
+            <label for="name">
+              <!-- <div class="input-group-prepend"> -->
+              <span class="fa fa-calendar"></span> Date:</label>
+            <!-- </div> -->
+            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="payment.date">
+             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+          <mat-datepicker #picker></mat-datepicker> 
+        </div>
+  
+         <div class="form-group">
+            <label><span class="fa fa-user"></span> Name:</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+        <!-- </div> -->
+  
+        <!-- <div class="form-group"> -->
+            <label><span class="fa fa-user"></span> Room Number:</label>
+            <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName">
+        <!-- </div> -->
+  
+        <!-- <div class="form-group"> -->
+            <label ><span class="fa fa-list-alt"></span> Room Type:</label>
+            <select class="browser-default custom-select" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
+              <option></option>
+              <option>Single</option>
+              <option>Double</option>
+              <option>Triple</option>
+              <option>Four</option>
+              <option>Five</option>
+            </select>
+        <!-- </div> -->
+  
+        <label><span class="fa fa-user"></span> payment Through:</label>
+        <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="payment.paymentThrough" name=" paymentThrough">
+          <option > </option>
+          <option >Cash</option>
+          <option >Bank Transfer</option>
+        </select>
+  
+        <label for="name"><span class="fa fa-book"></span> Transaction Id:</label>
+            <input type="text" class="form-control" id="transactionId" required [(ngModel)]="payment.transactionId" name="transactionId">
+  
+        <label for="name"><span class="fa fa-building"></span> bankName</label>
+        <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">    
+  
+        <!-- <div class="form-group"> -->
+            <label for="name"><span class="fa fa-credit-card"></span> Deposit Amount:</label>
+            <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="payment.depositAmount" name="depositAmount">
+        <!-- </div> -->
+  
+        <!-- <div class="form-group"> -->
+          <label for="name"><span class="fa fa-credit-card"></span> roomRent</label>
+          <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent">
+        <!-- </div>       -->
+  
+        <!-- <div class="form-group"> -->
+          
           <button type="submit" class="btn btn-success">Join Tenant</button>             
       </div>
       </div>
