@@ -120,11 +120,7 @@ export class AddHostelComponent implements OnInit {
     this.router.navigate(['/hostels']);
   }
 
-  openRoomPopup(){ 
-
-  }
-
-  populateFloors(){  
+  populateFloors(){ 
     
     this.tempFloors = [];
     for (let i = 1; i <=  this.hostel.numOfFloors; i++) {

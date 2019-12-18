@@ -3,6 +3,8 @@
 <p> {{acknoldgmentMsg}}</p>
 <form (ngSubmit)="onSubmit()" name="hostel-form">
     <mat-tab-group>
+
+        <!-- Hostel Info Tab -->
         <mat-tab label="Info" class="test">
 
             <div class="add-hostel-details" [hidden]="submitted" style="width: 400px;">
@@ -23,24 +25,17 @@
                 <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
                     (ngModelChange)="populateFloors($event)" name="numOfFloors" >
 
-
                 <label><span class="glyphicon glyphicon-file"></span> Description</label>
                 <textarea class="form-control" [(ngModel)]="hostel.misc" name="misc"></textarea>
 
                 <!-- <button type="submit" class="btn btn-success">Submit</button> -->
-
             </div>
         </mat-tab>
 
-
+        <!-- Rooms Tab -->
         <mat-tab label="Rooms">
 
-            <!-- <div class="add-room-button">
-                <button type="button" class="btn btn-info" (click)="addRoomDailog()">Add Room</button>
-            </div>  -->
-
             <div class="floor-select " *ngFor="let floor of hostel.floors">
-
                 <div class="floor-header">
                     <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor.floorName}}
                     </span>
@@ -59,12 +54,12 @@
                             <span class="room-name"> Room-{{room.roomName}} </span>
                            
                             <span *ngFor="let bed of room.beds">
-                                <span class="jumbotron show-bed"> {{bed.bedNo}}</span>
+                                <!-- <button> <span class="jumbotron show-bed"> {{bed.bedNo}}</span></button> -->
+                                <i class="fa fa-bed bed-color"></i><button class="bed-style" readonly> {{bed.bedNo}} </button>
                             </span>
 
-
-                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+                            <!-- <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button> -->
 
                         </span>
                     </span>
@@ -77,29 +72,30 @@
                             <span class="room-name"> Room-{{room.roomName}} </span>
                             
                             <span *ngFor="let bed of room.beds">
-                                    <span class="jumbotron show-bed"> {{bed.bedNo}}</span>
-                                </span>
+                                <!-- <span class="jumbotron show-bed"> {{bed.bedNo}}</span> -->
+                                <i class="fa fa-bed bed-color"></i><button class="bed-style" readonly> {{bed.bedNo}} </button>
+                            </span>
 
-                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+                            <!-- <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button> -->
 
                         </span>
                     </span>
                 </div>
 
                 <div class="room-box">
-                    <div class="room-box-header"><span class="glyphicon glyphicon-center"></span> Triple Rooms </div>
+                    <div class="room-box-header"><span class="glyphicon glyphicon-tasks"></span> Triple Rooms </div>
                     <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
                         <span class="sub-room-box">
                             <span class="room-name"> Room-{{room.roomName}} </span>
                             
                             <span *ngFor="let bed of room.beds">
-                                    <span class="jumbotron show-bed"> {{bed.bedNo}}</span>
-                                </span>
+                                <!-- <span class="jumbotron show-bed"> {{bed.bedNo}}</span> -->
+                                <i class="fa fa-bed bed-color"></i> <button class="bed-style" aria-readonly="true"> {{bed.bedNo}} </button>
+                            </span>
 
-                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
-
+                            <!-- <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button> -->
                         </span>
                     </span>
                 </div>
@@ -111,32 +107,18 @@
                             <span class="room-name"> Room-{{room.roomName}} </span>
                             
                             <span *ngFor="let bed of room.beds">
-                                <span class="jumbotron show-bed "> {{bed.bedNo}}</span>
+                                <!-- <span class="jumbotron show-bed "> {{bed.bedNo}}</span> -->
+                                <i class="fa fa-bed bed-color"></i><button class="bed-style" readonly> {{bed.bedNo}} </button>
                             </span>
-                            <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
-
+                            <!-- <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
+                            <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button> -->                            
                         </span>
                     </span>
                 </div>
-
-                <!-- <ul *ngFor="let room of floor.rooms">
-                    <li class="room-select"> 
-                        Room-{{room.roomName}} 
-                    
-                    </li>
-
-                </ul> -->
             </div>
-
-
-
-            <!-- <button type="button" class="btn btn-info">Add Room</button> -->
-
 
         </mat-tab>
         <mat-tab label="Amenities">
-
 
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch1" >
@@ -176,7 +158,6 @@
                     Gym</label>
             </div>
 
-
         </mat-tab>
 
 
@@ -184,7 +165,6 @@
 
             <label><span class="glyphicon glyphicon-download"></span> Facade Uploads</label>
             <input type="file" class="form-control " (change)="prepareUpload('facade',$event)" multiple  />
-
 
             <!-- [(ngModel)]="hostel.receptionUIImage" -->
             <label><span class="glyphicon glyphicon-repeat"></span> Reception Uploads</label>
@@ -202,14 +182,10 @@
             <label><span class="glyphicon glyphicon-envelope"></span> Misc Uploads</label>
             <input type="file" class="form-control " (change)="prepareUpload('misc',$event)" multiple/>
 
-
-
-
         </mat-tab>
 
-
-
     </mat-tab-group>
+
 
     <div class="add-hostel-submit">
         <button type="submit" *ngIf="enableSubmit" class="add-hostel-button"> ADD HOSTEL </button>

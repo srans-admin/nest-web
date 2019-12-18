@@ -27,8 +27,10 @@ export class FloorViewComponent implements OnInit {
     private http: HttpClient) { }
 
     ngOnInit() {
+
+      
      
-      //TODO : get this information either from db or Ingestion as @Input() from callable component
+      //TODO : get this information either from db or Ingection as @Input() from callable component
       //Its hardcoded for display 
       this.hostel = new Hostel();
       this.hostel.floors = [];

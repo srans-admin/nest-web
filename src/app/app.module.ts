@@ -60,6 +60,7 @@ import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.compon
 import { HostelFilterPipe } from './hostel/hostel-filter.pipe';
 import { ChartsModule } from 'ng2-charts';
 import { FloorViewComponent } from './hostel/floor-view/floor.view.component';
+// import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 // import { LoginComponent } from './login/login.component';
 
 // import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
