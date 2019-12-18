@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatCheckboxModule} from '@angular/material';
+import { MatCheckboxModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { CUSTOM_ELEMENTS_SCHEMA} from '@angular-devkit/build-angular';
@@ -134,7 +134,9 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatTabsModule,
     MatCheckboxModule,
     ChartsModule,
-    NgbModule
+    NgbModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
     // MatFormField
   ],
   providers: [],  

@@ -21,7 +21,7 @@ export class RoomViewComponent implements OnInit {
   }
 
   list(){
-    
+    this.room.roomType
   }
 
 }
