@@ -2,7 +2,7 @@ import { UserDetailsComponent } from './../user-details/user-details.component';
 import { Observable } from "rxjs";
 import { UserService } from '../../user.service';
 import { User, TmpUsr } from "../../user";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostListener } from "@angular/core";
 import { Router } from '@angular/router';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 // import {  MatFormField } from '@angular/material';
@@ -105,7 +105,8 @@ showDropdown() {
 }
 
 // Close the dropdown if the user clicks outside of it
-onclick = function(event) {
+@HostListener('document:click', ['$event'])
+onclick = function(event) { 
     if (!event.target.matches('.dropbtn')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;

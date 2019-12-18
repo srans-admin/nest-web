@@ -1,8 +1,8 @@
 .user-init-img{
-    height: 5rem;
-    width: 5rem;
-    border: 1px solid;
-    border-radius: 5rem;
+    height: 3rem;
+    width: 3rem;
+    /* border: 1px solid; */
+    border-radius: 3rem;
 }
 
 .checkbox{
@@ -28,8 +28,8 @@
 
 .icons li {
     background: none repeat scroll 0 0 black;
-    height: 7px;
-    width: 7px;
+    height: 4px;
+    width: 4px;
     line-height: 0;
     list-style: none outside none;
     margin-right: 15px;
@@ -102,7 +102,9 @@ a{
     cursor: pointer;
 }
 .add-tenant-btn{
-    position: relative;
-    top: 2px;
-    right: -800px;
+    padding: 5px;
 }
+.tenants-display{
+    margin-top: 15px;
+}
+ 
