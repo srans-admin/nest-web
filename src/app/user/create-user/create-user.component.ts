@@ -33,7 +33,10 @@ export class CreateUserComponent implements OnInit {
   floor: Floor = new Floor();
   room: Room = new Room();
   acknoldgmentMsg: string = "";
-  tempFloors: [];
+  tempFloors: []; 
+  selectedHostel : Hostel;
+
+ 
  
   constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router,private hostelService: HostelService,private httpClient: HttpClient) { }
@@ -116,6 +119,8 @@ export class CreateUserComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
+    console.log('selectedBedInfo::'+this.hostel.selectedBedInfo);
     this.save();
   }
 
@@ -153,19 +158,20 @@ export class CreateUserComponent implements OnInit {
      
 }
 
-populateFloors(hostel:Hostel){
-  // this.hostel.hostelName = hostel.hostelName;
-  // this.hostel.numOfFloors = hostel.numOfFloors;
-  this.tempFloors = [];
-  for (let i = 1; i <=  this.hostel.numOfFloors; i++) {
-    this.tempFloors.push[i];
-  } 
-
-  this.hostel.addFloors(this.hostel.numOfFloors);
-
-
-    // this.hostel.addFloors(this.hostel.numOfFloors);
-
+populateHostel(hostelId : number){
+  
+  this.hostelService.getHostel(hostelId).subscribe(
+    res => {   
+      this.selectedHostel = res;
+    },
+    err =>{
+      console.log('FAILED:: '+err);
+    }); 
 }
 
+
+onSelectedBed(){
+  alert();
+  //this.selectedBed = null;
+  } 
 }

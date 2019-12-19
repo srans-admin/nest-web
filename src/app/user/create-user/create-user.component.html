@@ -1,4 +1,4 @@
-<h3><span class="fa fa-user"></span> Create Tenant</h3>
+<h3><span class="fa fa-user"></span> Create Tenant {{hostel.selectedBedInfo}}  </h3>
   <form (ngSubmit)="onSubmit()">
     <mat-tab-group>
       <mat-tab label="Tenant">
@@ -64,191 +64,19 @@
 </div>
 </mat-tab>
     
-    <mat-tab label="Hostel">
+  <mat-tab label="Hostel"> 
 
-    <!-- <div class="add-room-select">
-        <label for="name">HostelName:</label>
-        <select class="browser-default custom-selector" id="hostelName" required [(ngModel)]="hostel.hostelName" name="hostelName"></select> -->
-    <!-- </div> -->
+	<div class="hostel-tenanat-info">
+       <label>Hostel: </label>
+      <select class="browser-default custom-select"  [ngModel]="selectedDevice" (ngModelChange)="populateHostel($event)" name="sel2"  >
+        <option  value="">--select--</option>
+        <option *ngFor="let hostel of hostels | async"  [value]="hostel.id"  name="id" (ngModelChange)="populateHostel(hostel.id)"> {{hostel.hostelName}} </option>   
+      </select> 
 
-    <!-- <div class="form-group"> -->
-        <!-- <label for="name">Floor:</label>
-        <input type="text" class="form-control" id="floorName" required [(ngModel)]="floor.floorName" name="floorName"> -->
-    <!-- </div> -->
+    <floor-view [hostel]="selectedHostel"></floor-view>
 
-    <!-- <div class="form-group"> -->
-        <!-- <label for="name">RoomName:</label>
-        <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName"> -->
-    <!-- </div> -->
-
-    <!-- <div class="form-group"> -->
-        <!-- <label for="name">Sharing:</label>
-        <select class="browser-default custom-select" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
-          <option> </option>
-          <option>single</option>
-          <option>Double</option>
-          <option>Triple</option>
-          <option>Four</option>
-        </select>
-    </div> -->
-
-
-	<div  style="width: 400px;">
-      <!-- <label>Hostel: </label>
-      <select class="browser-default custom-select"   [(ngModel)]="hostels" >
-         <option value="">--select--</option>
-        <option *ngFor="let hostel of hostels | async" [value]="hostel.id"  [(ngModel)]="hostel.numOfFloors"
-         name="id" (ngModelChange)="populateFloors($event)">
-          {{hostel.numOfFloors}}
-        </option>        
-        <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
-                    (ngModelChange)="populateFloors($event)" name="numOfFloors" >
-      </select> -->
-      <label><span class="glyphicon glyphicon-cog"></span> Number of Floors</label>
-      <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
-          (ngModelChange)="populateFloors($event)" name="numOfFloors">
         
-    </div>
-
-
-    <!-- <div class="hostel-select" *ngFor="let hostel of hostel.floors">
-
-        <div class="hostel-header">
-          <span class="hostel-name">Hostel-{{hostel.hostelName}}</span>
-          <span class="total-rooms"> Rooms Available: <strong>{{roomsavailable}}</strong></span>          
-        </div>
-
-        <div class="room-box">
-          <div class="room-box-header"> Floor-{{floor.floorName}}</div>
-          <span *ngFor="let room of getRoomsWithType(floor,'room')">
-            <span class="sub-room-box">
-              <span class="room-type">{{room.roomType}}</span>
-              <span class="floor-name">Room-{{room.roomName}}</span>
-              <button class="sub-room-box-ok" (click)="okRoom(room)">Ok</button>
-            </span>
-          </span>
-        </div>
-    </div> -->
-
-
-    <!-- <div _ngcontent-dmg-c8="" class="floor-select ng-star-inserted">
-        <div _ngcontent-dmg-c8="" class="floor-header">
-	 <span _ngcontent-dmg-c8="" class="floor-name">
-        <span _ngcontent-dmg-c8=""  *ngFor="let hostel of hostels | async" class="hostel-name"></span> Hostel Name:{{hostel.id}}</span>
-        
-            <span _ngcontent-dmg-c8="" class="total-rooms">Total Vacancy Beds : <strong _ngcontent-dmg-c8="">0</strong></span>
-          </div> -->
-          <!-- <div _ngcontent-dmg-c8="" class="room-box">
-            <div _ngcontent-dmg-c8="" class="room-box-header">
-              <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -1 
-            </div>
-		<span class="sub-room-box">
-		 <span class="roon-type">Room-{{room.roomType}}</span>
-		 <span class="roon-name">Room-{{room.roomName}}</span>			
-		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
-		</span>     
-    </div>
-    <div _ngcontent-dmg-c8="" class="room-box">
-      <div _ngcontent-dmg-c8="" class="room-box-header">
-        <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -2 
-      </div>
-		<span class="sub-room-box">
-		 <span class="roon-type">Room-{{room.roomType}}</span>
-		 <span class="roon-name">Room-{{room.roomName}}</span>			
-		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
-		</span>
-</div>
-    <div _ngcontent-dmg-c8="" class="room-box">
-      <div _ngcontent-dmg-c8="" class="room-box-header">
-        <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -3 
-      </div>
-		<span class="sub-room-box">
-		 <span class="roon-type">Room-{{room.roomType}}</span>
-		 <span class="roon-name">Room-{{room.roomName}}</span>
-		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
-    </span>
-  </div>
-    <div _ngcontent-dmg-c8="" class="room-box">
-      <div _ngcontent-dmg-c8="" class="room-box-header">
-        <span _ngcontent-dmg-c8="" class="glyphicon glyphicon-home"></span> Floor -4
-      </div>
-		<span class="sub-room-box">
-		 <span class="roon-type">Room-{{room.roomType}}</span>
-		 <span class="roon-name">Room-{{room.roomName}}</span>
-		<button type="submit" class="btn-btn-success" (click)="okRoom(room)">ok</button>
-    </span>
-  </div> -->
-  <!-- </div> -->
-
-  <div class="floor-select" *ngFor="let floor of hostel.floors">
-
-    <div class="floor-header">
-        <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor.floorName}}
-        </span>
-        <div class="add-room-button">
-            <button title="Add Room" type="button" class="btn btn-background"
-                (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
-            </button>
-        </div>
-        <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
-    </div>
-
-    <div class="room-box">
-        <div class="room-box-header"> <span class="glyphicon glyphicon-tags"></span> Single Rooms </div>
-        <span *ngFor="let room of getRoomsWithType(floor,'Single')">
-            <span class="sub-room-box">
-                <span class="room-name"> Room-{{room.roomName}} </span>
-                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
-
-            </span>
-        </span>
-    </div>
-
-    <div class="room-box">
-        <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> Double Rooms </div>
-        <span *ngFor="let room of getRoomsWithType(floor,'Double')">
-            <span class="sub-room-box">
-                <span class="room-name"> Room-{{room.roomName}} </span>
-                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
-
-            </span>
-        </span>
-    </div>
-
-    <div class="room-box">
-        <div class="room-box-header"><span class="glyphicon glyphicon-center"></span> Triple Rooms </div>
-        <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
-            <span class="sub-room-box">
-                <span class="room-name"> Room-{{room.roomName}} </span>
-                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
-
-            </span>
-        </span>
-    </div>
-
-    <div class="room-box">
-        <div class="room-box-header"><span class="glyphicon glyphicon-home"></span> Misc </div>
-        <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
-            <span class="sub-room-box">
-                <span class="room-name"> Room-{{room.roomName}} </span>
-                <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
-
-            </span>
-        </span>
-    </div>
-
-    <!-- <ul *ngFor="let room of floor.rooms">
-        <li class="room-select"> 
-            Room-{{room.roomName}} 
-        
-        </li>
-
-    </ul> -->
-</div>
+    </div>  
 
 
     </mat-tab>

@@ -24,7 +24,8 @@
     padding: 11px;
     border: solid 1px #ddd;
     background: #fff;
-    color: #bbb;
+    /* color: #bbb; */
+    color: darkblue;
     box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025)
     
 }
@@ -56,14 +57,15 @@ label{
 }
 .room-box, .sub-room-box{
     padding: 12px;
-    border: solid 1px #ddd;
-    background: #fff;
+    /* border: solid 1px #ddd; */
+    /* background: #fff;
     color: #bbb;
-    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
+    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025); */
 }
 .sub-room-box{
     display: inline-grid;
     margin-top: 5px;
+    margin-right: 13px;
     background-color: beige;
 }
 .sub-room-box-edit, .sub-room-box-delete{
@@ -105,4 +107,22 @@ label{
     color: white;
     padding: 15px;
     width: 100%;
+}
+.bed-alloted{
+    background-color: white;
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 3px;
+    border-radius: 9px;
+}
+
+.bed-alloted:hover{
+    background-color: green;
+}
+
+.bed-alloted-yes{
+    background-color:red;
+}
+.bed-alloted-no{
+    /* background-color: green; */
 }
