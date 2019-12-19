@@ -16,8 +16,15 @@
             <span *ngFor="let room of getRoomsWithType(floor,'Single')">
                 <span class="sub-room-box">
                     <span class="room-name"> Room-{{room.roomName}} </span>
-                    <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                    <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+
+                    <span *ngFor="let bed of room.beds">
+                            <span class="bed-box " (click)="onSelectedBed(hostel.id, floor.id, room.id, bed)" >
+                                <span class="room-name bed-alloted" [ngClass]="{
+                                    'bed-alloted-yes':bed.alloted === 'Y',
+                                    'bed-alloted-no':bed.alloted === 'N'
+                                  }"> {{bed.id}} -{{bed.alloted}} </span>
+                            </span> 
+                    </span>
 
                 </span>
             </span>
@@ -28,8 +35,16 @@
             <span *ngFor="let room of getRoomsWithType(floor,'Double')">
                 <span class="sub-room-box">
                     <span class="room-name"> Room-{{room.roomName}} </span>
-                    <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                    <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+                    
+                    
+                    <span *ngFor="let bed of room.beds">
+                            <span class="bed-box ">
+                                <span class="room-name bed-alloted" [ngClass]="{
+                                    'bed-alloted-yes':bed.alloted === 'Y',
+                                    'bed-alloted-no':bed.alloted === 'N'
+                                  }"> {{bed.id}} -{{bed.alloted}} </span>
+                            </span> 
+                    </span>
 
                 </span>
             </span>
@@ -40,8 +55,16 @@
             <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
                 <span class="sub-room-box">
                     <span class="room-name"> Room-{{room.roomName}} </span>
-                    <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                    <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+                    
+                    
+                    <span *ngFor="let bed of room.beds">
+                            <span class="bed-box ">
+                                <span class="room-name bed-alloted" [ngClass]="{
+                                    'bed-alloted-yes':bed.alloted === 'Y',
+                                    'bed-alloted-no':bed.alloted === 'N'
+                                  }"> {{bed.id}} -{{bed.alloted}} </span>
+                            </span> 
+                    </span>
 
                 </span>
             </span>
@@ -52,10 +75,18 @@
             <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
                 <span class="sub-room-box">
                     <span class="room-name"> Room-{{room.roomName}} </span>
-                    <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
-                    <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button>
+                    
+                    
+                    <span *ngFor="let bed of room.beds">
+                            <span class="bed-box ">
+                                <span class="room-name bed-alloted" [ngClass]="{
+                                    'bed-alloted-yes':bed.alloted === 'Y',
+                                    'bed-alloted-no':bed.alloted === 'N'
+                                  }"> {{bed.id}} -{{bed.alloted}} </span>
+                            </span> 
+                    </span>
 
                 </span>
             </span>
-        </div> 
+        </div>   
     </div>

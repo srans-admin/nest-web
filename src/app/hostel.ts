@@ -12,6 +12,7 @@ export class Hostel {
   floors : Array<Floor> = [];
   array: any;
   room: Room = new Room();
+  selectedBedInfo:any;
 
 
   addRoom(floorName, room: Room){

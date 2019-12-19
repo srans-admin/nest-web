@@ -73,3 +73,11 @@
 /* .room-box-header:hover{
     color: black;
 } */
+
+.hostel-tenanat-info{
+    padding-top: 10px;
+}
+.custom-select{
+    height: calc(1.5em + 0.75rem + 14px);
+    font-size: 19px;
+}

@@ -7,6 +7,8 @@ import { ServerConfig } from '../../config/server.config';
 import { HttpClient } from '@angular/common/http';
 import { Room } from '../../room';
 import { Floor } from 'src/app/floor';
+import { CreateUserComponent } from 'src/app/user/create-user/create-user.component';
+import { Bed } from 'src/app/bed';
 
 @Component({
   selector: 'floor-view',
@@ -15,54 +17,19 @@ import { Floor } from 'src/app/floor';
 })
 export class FloorViewComponent implements OnInit {
     
-  //@Input()
+  @Input()
   hostel : Hostel;
 
-  totalRooms = 0;
-   
+  totalRooms = 0; 
   
   constructor(private hostelService: HostelService,
     private router: Router,
     private route: ActivatedRoute,
-    private http: HttpClient) { }
-
-    ngOnInit() {
-
-      
+    private http: HttpClient) {
      
-      //TODO : get this information either from db or Ingection as @Input() from callable component
-      //Its hardcoded for display 
-      this.hostel = new Hostel();
-      this.hostel.floors = [];
-      let floor: Floor = new Floor();
-      floor.id = 1;
-      floor.floorName = "F-1";
+  }
 
-      floor.rooms = [];
-      let room : Room = new Room();
-      room.id = 1;
-      room.roomName="R-100";
-      room.roomType='Single';
-      floor.rooms.push(room);
-
-      room = new Room();
-      room.id = 1;
-      room.roomName="R-100";
-      room.roomType='Double';
-      floor.rooms.push(room);
-
-      room   = new Room();
-      room.id = 3;
-      room.roomName="R-100";
-      room.roomType='Triple';
-      floor.rooms.push(room);
-
-      room   = new Room();
-      room.id = 4;
-      room.roomName="R-100";
-      room.roomType='Misc';
-      floor.rooms.push(room);
-      this.hostel.floors.push(floor);
+    ngOnInit() { 
     }
    
 
@@ -80,6 +47,17 @@ export class FloorViewComponent implements OnInit {
       return rooms;
   
     }
+
+    //TODO Need to make sure we need to pass the info to the called : example: CreateUserComponent
+     onSelectedBed(hostelId, floorId, roomId, bed : Bed){
+        
+       this.hostel.selectedBedInfo = {
+        hostedId: hostelId,
+        floorId: floorId,
+        roomId: roomId,
+        bedId: bed.bedNo 
+      } 
+    } 
 
   }
   

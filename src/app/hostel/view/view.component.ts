@@ -236,7 +236,9 @@ createImageFromBlobMisc(image: Blob) {
           }
         }
     }
-  }
+  } 
+  
+  
 
 
 }
