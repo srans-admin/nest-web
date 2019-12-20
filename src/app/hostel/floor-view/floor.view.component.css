@@ -56,7 +56,7 @@ label{
     margin-right: 20px; 
 }
 .room-box, .sub-room-box{
-    padding: 12px;
+     padding: 2px; 
     /* border: solid 1px #ddd; */
     /* background: #fff;
     color: #bbb;
@@ -65,8 +65,11 @@ label{
 .sub-room-box{
     display: inline-grid;
     margin-top: 5px;
-    margin-right: 13px;
+    margin-right: 3px;
     background-color: beige;
+    /* border: 1px solid bisque; */
+    /* height: 105px; */
+    margin-bottom: 5px;
 }
 .sub-room-box-edit, .sub-room-box-delete{
     /*width: 33px; */
@@ -121,11 +124,29 @@ label{
 }
 
 .bed-alloted-yes{
-    background-color:red;
+    background-color: orangered;
+    color: white;
 }
 .bed-alloted-no{
     /* background-color: green; */
 }
-.bed{
-    background-image: 'images/bed.png';
+.bed{  
+    background-repeat: no-repeat;
+    /* padding: 6px;*/
 }
+.bed-image{
+    width: 16px;
+}
+.room-header{
+    color: white;
+    background-color: black;
+    padding-left: 12px;
+    padding-right: 11px;
+    margin-bottom: 8px;
+    border: 1px solid;
+}
+.bed-box{
+    display: inline-block;
+    padding: 4px;
+}
+

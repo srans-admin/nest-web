@@ -1,4 +1,4 @@
-<h3><span class="glyphicon glyphicon-user"></span> Create Tenant {{hostel.selectedBedInfo}}  </h3>
+<h3><span class="glyphicon glyphicon-user"></span> Tenant Registration {{hostel.selectedBedInfo}}  </h3>
   <form (ngSubmit)="onSubmit()">
     <mat-tab-group>
       <mat-tab label="Tenant">
@@ -24,40 +24,40 @@
           <label for="name"><span class="glyphicon glyphicon-user"></span> FatherName:</label>
           <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName">
         
-          <label for="name"><span class="glyphicon glyphicon-mobile"></span> Father PhoneNumber:</label>
+          <label for="name"><span class="glyphicon glyphicon-tasks"></span> Father PhoneNumber:</label>
           <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber">
         
           <label for="name"><span class="glyphicon glyphicon-female"></span> MotherName:</label>
           <input type="text" class="form-control" id="motherName" required [(ngModel)]="user.motherName" name="motherName">
         
-          <label for="name"><span class="glyphicon glyphicon-mobile"></span> Mother PhoneNumber:</label>
+          <label for="name"><span class="glyphicon glyphicon-tasks"></span> Mother PhoneNumber:</label>
           <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
         
-          <label for="name"><span class="glyphicon glyphicon-calendar"></span> DoB:</label>
+          <label for="name"><span class="glyphicon glyphicon-calendar"></span> DOB:</label>
           <input type="text" class="form-control" id="dob" required [(ngModel)]="user.dob" name="dob">
         
-          <label for="name"><span class="glyphicon glyphicon-tint"></span> BloodGroup:</label>
+          <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
           <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">
         
-          <label for="name"><span class="glyphicon glyphicon-mobile"></span> EmergencyContactNumber:</label>
+          <label for="name"><span class="glyphicon glyphicon-mobile"></span> Emergency Contact Number:</label>
           <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
         
-          <label for="name"><span class="glyphicon glyphicon-user"></span> NameOfTheEmployer:</label>
+          <label for="name"><span class="glyphicon glyphicon-user"></span> Name Of The Employer:</label>
           <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
         
-          <label for="name"><span class="glyphicon glyphicon-user"></span> OfficeAddress:</label>
+          <label for="name"><span class="glyphicon glyphicon-user"></span> Office Address:</label>
           <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
         
-          <label for="name"><span class="glyphicon glyphicon-mobile"></span> TelephoneNumber:</label>
+          <label for="name"><span class="glyphicon glyphicon-tasks"></span> Telephone Number:</label>
           <input type="text" class="form-control" id="telephoneNumber" required [(ngModel)]="user.telephoneNumber" name="telephoneNumber">
         
-      <label for="name"><span class="glyphicon glyphicon-envelope"></span> EmailId:</label>
+      <label for="name"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
       <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
     
-      <label for="name"><span class="glyphicon glyphicon-user"></span> PermanentAddress:</label>
+      <label for="name"><span class="glyphicon glyphicon-user"></span> Permanent Address:</label>
       <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
     
-        <label for="name"><span class="glyphicon glyphicon-user"></span> idProofImage</label>
+        <label for="name"><span class="glyphicon glyphicon-user"></span> ID </label>
           <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" />
       </div>    
   
@@ -66,14 +66,15 @@
     
   <mat-tab label="Hostel"> 
 
-	<div class="hostel-tenanat-info">
-       <label>Hostel: </label>
+	<div class="hostel-tenanat-info" > 
+
+       <label><span class="glyphicon glyphicon-home"></span> Choose Hostel </label>
       <select class="browser-default custom-select"  [ngModel]="selectedDevice" (ngModelChange)="populateHostel($event)" name="sel2"  >
         <option  value="">--select--</option>
         <option *ngFor="let hostel of hostels | async"  [value]="hostel.id"  name="id" (ngModelChange)="populateHostel(hostel.id)"> {{hostel.hostelName}} </option>   
       </select> 
 
-    <floor-view [hostel]="selectedHostel"></floor-view>
+    <floor-view [hostel]="selectedHostel" (onSelectedBedInfoEmitor)="onSelectedBedInfoEmited($event)"></floor-view>
 
         
     </div>  
@@ -83,6 +84,54 @@
 
 
     <mat-tab label="Payment">
+
+
+        <div class="selected-bed-info container primary" *ngIf="isBedSelected">
+            <div class=row>
+              <div> Selected Bed Information </div>
+            </div>
+            <div class=row>
+              <div class="col-md-6">
+                <label>Hosel</label>
+                <div class="name"> {{selectedBedInfo.hostelName}} </div>
+              </div>
+              <div class="col-md-6">
+                <label>Floor</label>
+                <div class="name">{{selectedBedInfo.bed.floorId}}</div>
+              </div>
+            </div>
+            <div class=row>
+                <div class="col-md-6">
+                  <label>Room</label>
+                  <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
+                </div>
+                <div class="col-md-6">
+                  <label>Bed</label>
+                  <div class="name">{{selectedBedInfo.bed.id}}</div>
+                </div>
+              </div> 
+              <div class=row>
+                  <div class="col-md-6">
+                      <label>Bed Position</label>
+                      <div class="name">{{selectedBedInfo.bed.position}} </div>
+                    </div>
+                  <div class="col-md-6">
+                    <label>Room Rent</label>
+                    <div class="name">{{selectedBedInfo.roomRent}} </div>
+                  </div>
+                   
+                </div>
+    
+                <div class=row>
+                    <div class="col-md-6">
+                        <label>Room Sharing </label>
+                        <div class="name">{{selectedBedInfo.roomType}} </div>
+                      </div> 
+                     
+                  </div>
+          </div>
+
+
         <div [hidden]="submitted" style="width: 200px;">
 
           <div class="form-group">
@@ -90,44 +139,24 @@
               <!-- <div class="input-group-prepend"> -->
               <span class="glyphicon glyphicon-calendar"></span> Date:</label>
             <!-- </div> -->
+            <span class="date-picker">
             <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="payment.date">
              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
-          <mat-datepicker #picker></mat-datepicker> 
+             <mat-datepicker #picker></mat-datepicker> 
+            </span>
         </div>
-  
-         <div class="form-group">
-            <label><span class="glyphicon glyphicon-user"></span> Name:</label>
-            <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
-        <!-- </div> -->
-  
-        <!-- <div class="form-group"> -->
-            <label><span class="glyphicon glyphicon-user"></span> Room Number:</label>
-            <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName">
-        <!-- </div> -->
-  
-        <!-- <div class="form-group"> -->
-            <label ><span class="glyphicon glyphicon-list-alt"></span> Room Type:</label>
-            <select class="browser-default custom-select" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
-              <option></option>
-              <option>Single</option>
-              <option>Double</option>
-              <option>Triple</option>
-              <option>Four</option>
-              <option>Five</option>
-            </select>
-        <!-- </div> -->
-  
-        <label><span class="glyphicon glyphicon-user"></span> payment Through:</label>
+   
+        <label><span class="glyphicon glyphicon-user"></span> Payment Through:</label>
         <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="payment.paymentThrough" name=" paymentThrough">
-          <option > </option>
-          <option >Cash</option>
+          
+          <option selected>Cash</option>
           <option >Bank Transfer</option>
         </select>
   
         <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
             <input type="text" class="form-control" id="transactionId" required [(ngModel)]="payment.transactionId" name="transactionId">
   
-        <label for="name"><span class="glyphicon glyphicon-building"></span> bankName</label>
+        <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
         <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">    
   
         <!-- <div class="form-group"> -->
@@ -136,14 +165,14 @@
         <!-- </div> -->
   
         <!-- <div class="form-group"> -->
-          <label for="name"><span class="glyphicon glyphicon-credit-card"></span> roomRent</label>
+          <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Room Rent</label>
           <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent">
         <!-- </div>       -->
   
         <!-- <div class="form-group"> -->
           
           <button type="submit" class="btn btn-success">Join Tenant</button>             
-      </div>
+     
       </div>
     </mat-tab>    
 </mat-tab-group>

@@ -1,42 +1,10 @@
-<!-- <nav class="navbar navbar-expand-sm navbar-dark">
-    <nav id="nav">
-        <ul >
-            <li class="nav-item"><a routerLink="hostels" class="nav-link" routerLinkActive="active">Hostels</a></li>
-            <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Tenants</a></li>
-            <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Invoices</a></li>
-            <li class="nav-item"><a  routerLink="hostels1" class="nav-link" routerLinkActive="active">Expences</a></li>
-            <li class="nav-item"><a  routerLink="roles" class="nav-link" routerLinkActive="active">Roles</a></li>
-        </ul>
-    </nav> 
-</nav>
-<div class="container">
-    <div class="card">
-        <div class="card-body">
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-</div> -->
-
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-        <a class="navbar-brand mr-1" href="index.html"> <img src="../srans-favicon.png" /> NIODS</a>
+                <!--<img src="assets/img/bed.svg" />  -->
+        <a class="navbar-brand " href="index.html"> <span class="logo"> <img src="favicon.ico" /> NIODS </span> </a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
                 <span class="glyphicon glyphicon-bars"></span>
         </button>
-
-        <!-- Navbar Search -->
-        <!--<form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">-->
-        <!--<div class="input-group">-->
-        <!--<input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">-->
-        <!--<div class="input-group-append">-->
-        <!--<button class="btn btn-primary" type="button">-->
-        <!--<span class="glyphicon glyphicon-search"></span>-->
-        <!--</button>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</form>-->
-        <ul class="nav navbar-nav d-md-down-none">
-
-        </ul>
+  
         <ul class="nav navbar-nav ml-auto">
 
         </ul>
@@ -87,65 +55,65 @@
 <!-- Sidebar -->
 <div id="wrapper">
         <ul class="sidebar navbar-nav">
-                <li class="nav-item active">
-                        <a class="nav-link" routerLink="index.html">
-                                <span class="glyphicon glyphicon-fw fa-tachometer-alt"></span>
-                                <span> Dashboard</span>
+                <li class="nav-item ">
+                        <a class="nav-link" routerLink="hostels">
+                                <span class="glyphicon glyphicon-folder-close"></span>
+                                <span class="nav-title"> Dashboard</span>
                         </a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item ">
                         <a class="nav-link" routerLink="hostels">
                                 <span class="glyphicon glyphicon-home"></span>
-                                <span> Hostels</span>
+                                <span class="nav-title"> Hostels</span>
                         </a>
                 </li>
                 <li class="nav-item">
                         <a class="nav-link" routerLink="user">
                                 <span class="glyphicon glyphicon-user"></span>
-                                <span>Tenants</span></a>
+                                <span class="nav-title">Tenants</span></a>
                 </li>
 
 
                 <li class="nav-item">
                         <a class="nav-link" routerLink="roles">
                                 <span class="glyphicon glyphicon-folder-close"></span>
-                                <span> Roles</span></a>
+                                <span class="nav-title"> Roles</span></a>
                 </li>
 
                 <li class="nav-item">
                         <a class="nav-link" routerLink="invoice">
                                 <span class="glyphicon glyphicon-calendar"></span>
-                                <span> Invoices </span></a>
+                                <span class="nav-title"> Invoices </span></a>
                 </li>
 
                 <li class="nav-item">
                         <a class="nav-link" routerLink="expenses">
                                 <span class="glyphicon glyphicon-plane"></span>
-                                <span> Expenses</span></a>
+                                <span class="nav-title"> Expenses</span></a>
                 </li>
 
                 <li class="nav-item">
                         <a class="nav-link" routerLink="management">
                                 <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                <span> Management</span></a>
+                                <span class="nav-title"> Management</span></a>
                 </li>
 
                 <li class="nav-item">
                         <a class="nav-link" href="#">
                                 <span class="glyphicon glyphicon-picture"></span>
-                                <span> Rents</span></a>
+                                <span class="nav-title"> Rents</span></a>
                 </li>
 
                 <li class="nav-item">
                         <a class="nav-link" href="#">
                                 <span class="glyphicon glyphicon-lock"></span>
-                                <span> Accounts</span></a>
+                                <span class="nav-title"> Accounts</span></a>
                 </li>
 
                 <li class="nav-item">
                         <a class="nav-link" href="#">
                                 <span class="glyphicon glyphicon-cog"></span>
-                                <span> Settings</span></a>
+                                <span class="nav-title"> Settings</span></a>
                 </li>
         </ul>
 
