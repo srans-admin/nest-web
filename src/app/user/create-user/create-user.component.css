@@ -77,7 +77,23 @@
 .hostel-tenanat-info{
     padding-top: 10px;
 }
-.custom-select{
-    height: calc(1.5em + 0.75rem + 14px);
-    font-size: 19px;
+.custom-select{ 
+    height: calc(1.5em + 0.75rem + 12px);
+    font-size: 14px;
+}
+.date-picker{
+    display: flex;
+}
+.selected-bed-info{
+    margin-bottom: 12px;
+    border: solid 1px #ddd;
+    background: #fff;
+    color: #bbb;
+    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
+    padding: 24px;
+}
+.header{
+    text-align: center;
+    font-weight: bold;
+    color: rebeccapurple;
 }

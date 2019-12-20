@@ -1,4 +1,5 @@
-<div class="floor-select " *ngFor="let floor of hostel.floors">
+<div *ngIf="hostel">
+<div class="floor-select "  *ngFor="let floor of hostel.floors">
 
         <div class="floor-header">
             <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor.floorName}}
@@ -8,21 +9,22 @@
                     (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
                 </button>
             </div>
-            <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
+            <span class="total-rooms"> Total Beds : <strong>{{totalRooms}}</strong></span>
         </div>
 
         <div class="room-box">
             <div class="room-box-header"> <span class="glyphicon glyphicon-tags"></span> Single Rooms </div>
             <span *ngFor="let room of getRoomsWithType(floor,'Single')">
                 <span class="sub-room-box">
-                    <span class="room-name"> Room-{{room.roomName}} </span>
-
+                    <div class="room-header">
+                        <span class="room-name"> Room-{{room.roomName}} </span> 
+                    </div>
                     <span *ngFor="let bed of room.beds">
-                            <span class="bed-box " (click)="onSelectedBed(hostel.id, floor.id, room.id, bed)" >
+                            <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
                                 <span class="bed bed-alloted" [ngClass]="{
                                     'bed-alloted-yes':bed.alloted === 'Y',
                                     'bed-alloted-no':bed.alloted === 'N'
-                                  }"> {{bed.id}} -{{bed.alloted}} </span>
+                                  }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} </span>
                             </span> 
                     </span>
 
@@ -34,17 +36,17 @@
             <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> Double Rooms </div>
             <span *ngFor="let room of getRoomsWithType(floor,'Double')">
                 <span class="sub-room-box">
-                    <span class="room-name"> Room-{{room.roomName}} </span>
-                    
-                    
-                    <span *ngFor="let bed of room.beds">
-                            <span class="bed-box ">
-                                <span class="room-name bed-alloted" [ngClass]="{
-                                    'bed-alloted-yes':bed.alloted === 'Y',
-                                    'bed-alloted-no':bed.alloted === 'N'
-                                  }"> {{bed.id}} -{{bed.alloted}} </span>
-                            </span> 
-                    </span>
+                        <div class="room-header">
+                                <span class="room-name"> Room-{{room.roomName}} </span> 
+                            </div>
+                            <span *ngFor="let bed of room.beds">
+                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                                        <span class="bed bed-alloted" [ngClass]="{
+                                            'bed-alloted-yes':bed.alloted === 'Y',
+                                            'bed-alloted-no':bed.alloted === 'N'
+                                          }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} </span>
+                                    </span> 
+                            </span>
 
                 </span>
             </span>
@@ -54,17 +56,17 @@
             <div class="room-box-header"><span class="glyphicon glyphicon-center"></span> Triple Rooms </div>
             <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
                 <span class="sub-room-box">
-                    <span class="room-name"> Room-{{room.roomName}} </span>
-                    
-                    
-                    <span *ngFor="let bed of room.beds">
-                            <span class="bed-box ">
-                                <span class="room-name bed-alloted" [ngClass]="{
-                                    'bed-alloted-yes':bed.alloted === 'Y',
-                                    'bed-alloted-no':bed.alloted === 'N'
-                                  }"> {{bed.id}} -{{bed.alloted}} </span>
-                            </span> 
-                    </span>
+                        <div class="room-header">
+                                <span class="room-name"> Room-{{room.roomName}} </span> 
+                            </div>
+                            <span *ngFor="let bed of room.beds">
+                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType,room.roomRent)" >
+                                        <span class="bed bed-alloted" [ngClass]="{
+                                            'bed-alloted-yes':bed.alloted === 'Y',
+                                            'bed-alloted-no':bed.alloted === 'N'
+                                          }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} </span>
+                                    </span> 
+                            </span>
 
                 </span>
             </span>
@@ -74,19 +76,20 @@
             <div class="room-box-header"><span class="glyphicon glyphicon-home"></span> Misc </div>
             <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
                 <span class="sub-room-box">
-                    <span class="room-name"> Room-{{room.roomName}} </span>
-                    
-                    
-                    <span *ngFor="let bed of room.beds">
-                            <span class="bed-box ">
-                                <span class="room-name bed-alloted" [ngClass]="{
-                                    'bed-alloted-yes':bed.alloted === 'Y',
-                                    'bed-alloted-no':bed.alloted === 'N'
-                                  }"> {{bed.id}} -{{bed.alloted}} </span>
-                            </span> 
-                    </span>
+                        <div class="room-header">
+                                <span class="room-name"> Room-{{room.roomName}} </span> 
+                            </div>
+                            <span *ngFor="let bed of room.beds">
+                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                                        <span class="bed bed-alloted" [ngClass]="{
+                                            'bed-alloted-yes':bed.alloted === 'Y',
+                                            'bed-alloted-no':bed.alloted === 'N'
+                                          }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} </span>
+                                    </span> 
+                            </span>
 
                 </span>
             </span>
         </div>   
     </div>
+</div>

@@ -34,7 +34,9 @@ export class CreateUserComponent implements OnInit {
   room: Room = new Room();
   acknoldgmentMsg: string = "";
   tempFloors: []; 
-  selectedHostel : Hostel;
+  selectedHostel : Hostel; 
+  isBedSelected : boolean = false;
+  selectedBedInfo : any;
 
  
  
@@ -64,6 +66,7 @@ export class CreateUserComponent implements OnInit {
 
   save() {
     // console.log('Current User : '+this.user);
+    //TODO Need to save seelected Bed information here
     this.userService.createUser(this.user)
       .subscribe(res => {
 
@@ -118,9 +121,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-
-    console.log('selectedBedInfo::'+this.hostel.selectedBedInfo);
+    this.submitted = true; 
     this.save();
   }
 
@@ -170,8 +171,18 @@ populateHostel(hostelId : number){
 }
 
 
-onSelectedBed(){
-  alert();
-  //this.selectedBed = null;
-  } 
+onSelectedBedInfoEmited(selectedBedInfo: any){
+   
+  this.isBedSelected = true;
+  this.selectedBedInfo = selectedBedInfo;
+  this.selectedBedInfo.hostelName = this.selectedHostel.hostelName;
+
+  window.confirm('Hostel Name : '+this.selectedBedInfo.hostelName+'\nRoom Num: '+this.selectedBedInfo.bed.roomId + '\nBed Num: '+this.selectedBedInfo.bed.id +' \nRoom Rent : '+this.selectedBedInfo.roomRent+' \nSharing : '+this.selectedBedInfo.roomType+' \nPlease confirm your booking !!');
+ 
+  console.log('selectedBedInfo:'+selectedBedInfo.roomRent);
+
+}
+
+
+
 }
