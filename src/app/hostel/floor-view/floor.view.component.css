@@ -126,3 +126,6 @@ label{
 .bed-alloted-no{
     /* background-color: green; */
 }
+.bed{
+    background-image: 'images/bed.png';
+}
