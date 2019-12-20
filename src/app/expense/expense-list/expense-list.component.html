@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-8"><h2>Expense List</h2></div>
     <div>
-      <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus"></i></a>
+      <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><span class="glyphicon glyphicon-plus"></span></a>
     </div>
     	<!--<div class="form-group pull-right">-->
 								<!--<input type="text" [(ngModel)]="searchText" placeholder="search">-->
@@ -23,9 +23,9 @@
           <td>{{ expense.typeOfExpenses }}</td>
           <td>{{ expense.cost }}</td>
           <td>
-            <button (click)="deleteExpense(expense.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-            <button  (click)="updateExpense(expense.id)" class="btn btn-primary"><i class="fa fa-edit"></i></button>
-            <button (click)="expenseDetails(expense.id)" class="btn btn-info"><i class="fa fa-eye"></i></button>
+            <button (click)="deleteExpense(expense.id)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+            <button  (click)="updateExpense(expense.id)" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
+            <button (click)="expenseDetails(expense.id)" class="btn btn-info"><span class="glyphicon glyphicon-eye"></span></button>
           </td>
         </tr>
       </tbody>

@@ -8,15 +8,15 @@
         </ul>
         <!-- menu -->
         <div id="myDropdown" class="dropdown-content"> 
-            <a routerLink="add"><i class="fas fa-plus"></i> Add Tenant </a>          
-            <a href="invoice"><i class="fas fa-money-bill-alt"></i> Generate Invoice </a>
-            <a href="payment/add"><i class="fas fa-building"></i> Payment</a>
+            <a routerLink="add"><span class="glyphicon glyphicon-plus"></span> Add Tenant </a>          
+            <a href="invoice"><span class="glyphicon glyphicon-camera"></span> Generate Invoice </a>
+            <a href="payment/add"><span class="glyphicon glyphicon-tag"></span> Payment</a>
         </div>
     </div> 
 
 <div>
      
-      <h3><span class="fa fa-user"></span> Tenants </h3>  
+      <h3><span class="glyphicon glyphicon-user"></span> Tenants </h3>  
           
                   
           <div class="tenants-display  table-responsive-sm  ">
@@ -25,7 +25,7 @@
               <thead>
                 <tr>
                   <th><span class="glyphicon glyphicon-tag"></span></th>
-                  <th><span class="fas fa-money-bill-alt"></span> TenantPic</th> 
+                  <th><span class="glyphicon glyphicon-camera"></span> TenantPic</th> 
                   <th><span class="glyphicon glyphicon-chevron-up"></span> UserId</th> 
                   <th><span class="glyphicon glyphicon-chevron-down"></span> Name</th>
                   <th><span class="glyphicon glyphicon-tag"></span> Contact Number</th>
@@ -79,17 +79,17 @@
                           <li></li>
                       </ul>
                       <div id="myDropdown" class="dropdown-content">
-                           <a (click)="deleteUser(user.userId)" title="delete" href><i class="fa fa-trash"></i> Delete</a>
-                           <a (click)="updateUser(user.userId)" title="update" href><i class="fa fa-pencil"></i> Edit</a>
-                           <a (click)="userDetails(user.userId)" title="view" href><i class="fa fa-eye-open"></i> Details</a>
+                           <a (click)="deleteUser(user.userId)" title="delete" href><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                           <a (click)="updateUser(user.userId)" title="update" href><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                           <a (click)="userDetails(user.userId)" title="view" href><span class="glyphicon glyphicon-eye-open"></span> Details</a>
                           <a href="payment">payment</a>
                       </div>
                   </div> -->
                   <div class="user-options">
-                      <a (click)="deleteUser(user.userId)" title="delete"><span class="fa fa-trash"  style="margin-left: 10px"></span></a>
-                      <a  (click)="updateUser(user.userId)" title="update"><span class="fa fa-edit" style="margin-left: 10px"></span></a>
-                      <a (click)="userDetails(user.userId)" title="view"><span class="fa fa-eye" style="margin-left: 10px"></span></a>
-                      <a (click)="userDetails(user.userId)" title="payment"><span class="fa fa-bitcoin" style="margin-left: 10px"></span></a>
+                      <a (click)="deleteUser(user.userId)" title="delete"><span class="glyphicon glyphicon-trash"  style="margin-left: 10px"></span></a>
+                      <a  (click)="updateUser(user.userId)" title="update"><span class="glyphicon glyphicon-edit" style="margin-left: 10px"></span></a>
+                      <a (click)="userDetails(user.userId)" title="view"><span class="glyphicon glyphicon-eye" style="margin-left: 10px"></span></a>
+                      <a (click)="userDetails(user.userId)" title="payment"><span class="glyphicon glyphicon-bitcoin" style="margin-left: 10px"></span></a>
 
                     </div>
                   </td>

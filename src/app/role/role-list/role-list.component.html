@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-8"><h2><span class="glyphicon glyphicon-map-marker"></span> Role List</h2></div>
     <div>
-      <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus"></i></a>
+      <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><span class="glyphicon glyphicon-plus"></span></a>
     </div>
     	<!--<div class="form-group pull-right">-->
 								<!--<input type="text" [(ngModel)]="searchText" placeholder="search">-->
@@ -28,9 +28,9 @@
           <td>{{ role.name }}</td>
           <td>{{ role.emailId }}</td>
           <td>
-            <button (click)="deleteRole(role.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-            <button  (click)="updateRole(role.id)" class="btn btn-primary"><i class="fa fa-edit"></i></button>
-            <button (click)="roleDetails(role.id)" class="btn btn-info"><i class="fa fa-eye"></i></button>
+            <button (click)="deleteRole(role.id)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+            <button  (click)="updateRole(role.id)" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
+            <button (click)="roleDetails(role.id)" class="btn btn-info"><span class="glyphicon glyphicon-eye"></span></button>
           </td>
         </tr>
       </tbody>

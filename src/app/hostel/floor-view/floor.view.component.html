@@ -19,7 +19,7 @@
 
                     <span *ngFor="let bed of room.beds">
                             <span class="bed-box " (click)="onSelectedBed(hostel.id, floor.id, room.id, bed)" >
-                                <span class="room-name bed-alloted" [ngClass]="{
+                                <span class="bed bed-alloted" [ngClass]="{
                                     'bed-alloted-yes':bed.alloted === 'Y',
                                     'bed-alloted-no':bed.alloted === 'N'
                                   }"> {{bed.id}} -{{bed.alloted}} </span>
