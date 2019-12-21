@@ -55,6 +55,9 @@ import { UserDetailsComponent } from './user/user-details/user-details.component
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
 
+import { CreatePaymentComponent } from './payment/create-payment/create-payment.component';
+import { PaymentListComponent } from './payment/payment-list/payment-list.component';
+
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
 import { HostelFilterPipe } from './hostel/hostel-filter.pipe';
@@ -115,7 +118,10 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     UpdateUserComponent,
     CreateInvoiceComponent,
     InvoiceListComponent,
-    HostelFilterPipe
+    HostelFilterPipe,
+
+    CreatePaymentComponent,
+    PaymentListComponent
     // LoginComponent,
     // DetailsUploadComponent,
     // FormUploadComponent,

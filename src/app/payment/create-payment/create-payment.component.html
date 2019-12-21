@@ -2,8 +2,12 @@
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Date</label>
-      <input type="text" class="form-control" id="date" required [(ngModel)]="payment.date" name="date">
+      <label for="name">Date</label>      
+      <span class="date-picker">
+        <input type="text" required [matDatepicker]="picker" class="form-control" id="date" required [(ngModel)]="payment.date" name="date">
+         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+         <mat-datepicker #picker></mat-datepicker> 
+      </span>
 
       <label for="name">Tenant Name</label>
       <input type="text" class="form-control" id="name" required [(ngModel)]="payment.name" name="name">
