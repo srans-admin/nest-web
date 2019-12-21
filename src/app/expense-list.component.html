@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+ <div class="row">
+    <div class="col-sm-10"><h2>Role List</h2></div>
+    <div>
+      <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><i class="fa fa-plus">Add Expense</i></a>
+    </div>
+  </div>
+
+
+  <br>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+           <th>Type of Expense</th>
+          <th>Cost</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of expenses |  async">
+          <td>{{ expense.expenseType }}</td>
+          <td>{{ expense.cost }}</td>
+          <td>
+            <button (click)="deleteExpense(expense.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+            <button  (click)="updateExpense(expense.id)" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+            <button (click)="expenseDetails(expense.id)" class="btn btn-info"><i class="fa fa-eye"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
