@@ -39,6 +39,9 @@ import { UserDetailsComponent } from './user/user-details/user-details.component
 import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 
+import { CreatePaymentComponent } from './payment/create-payment/create-payment.component';
+import { PaymentListComponent } from './payment/payment-list/payment-list.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'roles', component: RoleListComponent },
@@ -77,6 +80,9 @@ const routes: Routes = [
 
   { path: 'invoice', component: InvoiceListComponent },
   { path: 'invoice/add', component: CreateInvoiceComponent},
+
+  { path: 'payment', component: PaymentListComponent },
+  { path: 'payment/add', component: CreatePaymentComponent},
 
 ];
 

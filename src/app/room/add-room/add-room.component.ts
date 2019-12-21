@@ -20,6 +20,7 @@ export class AddRoomComponent implements OnInit {
   submitted = false;
   rooms: Array<Room> = [];
   numOfRooms: number = 1; 
+  roomRent: number;
   roomNumbers : string = "";
   roomType: string = "Single";
   bedNo: string;
@@ -78,6 +79,7 @@ export class AddRoomComponent implements OnInit {
       this.tmpRoom = new Room();
       this.tmpRoom.roomName = currRoomNumbers[i];
       this.tmpRoom.roomType = this.roomType;
+      this.tmpRoom.roomRent = this.roomRent;
       this.addBedsToRoom(this.tmpRoom);
       this.tmpRoom.beds = this.tmpRoom.beds;
       // this.tmpRoom.position = this.position;
