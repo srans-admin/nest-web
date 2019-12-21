@@ -55,7 +55,7 @@
                            
                             <span *ngFor="let bed of room.beds">
                                 <!-- <button> <span class="jumbotron show-bed"> {{bed.bedNo}}</span></button> -->
-                                <span class="glyphicon glyphicon-bed bed-color"></span><button class="bed-style" readonly> {{bed.bedNo}} </button>
+                                <span class="glyphicon glyphicon-bed bed-color"></span><button class="bed-style" disabled> {{bed.bedNo}} </button>
                             </span>
 
                             <!-- <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
@@ -73,7 +73,7 @@
                             
                             <span *ngFor="let bed of room.beds">
                                 <!-- <span class="jumbotron show-bed"> {{bed.bedNo}}</span> -->
-                                <span class="glyphicon glyphicon-bed bed-color"></span><button class="bed-style" readonly> {{bed.bedNo}} </button>
+                                <span class="glyphicon glyphicon-bed bed-color"></span><button class="bed-style" disabled> {{bed.bedNo}} </button>
                             </span>
 
                             <!-- <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
@@ -91,7 +91,7 @@
                             
                             <span *ngFor="let bed of room.beds">
                                 <!-- <span class="jumbotron show-bed"> {{bed.bedNo}}</span> -->
-                                <span class="glyphicon glyphicon-bed bed-color"></span> <button class="bed-style" aria-readonly="true"> {{bed.bedNo}} </button>
+                                <span class="glyphicon glyphicon-bed bed-color"></span> <button class="bed-style" disabled> {{bed.bedNo}} </button>
                             </span>
 
                             <!-- <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
@@ -108,7 +108,7 @@
                             
                             <span *ngFor="let bed of room.beds">
                                 <!-- <span class="jumbotron show-bed "> {{bed.bedNo}}</span> -->
-                                <span class="glyphicon glyphicon-bed bed-color"></span><button class="bed-style" readonly> {{bed.bedNo}} </button>
+                                <span class="glyphicon glyphicon-bed bed-color"></span><button class="bed-style" disabled> {{bed.bedNo}} </button>
                             </span>
                             <!-- <button class="sub-room-box-edit" (click)="editRoom(room)"> Edit </button>
                             <button class="sub-room-box-delete" (click)="deleteRoom(room)"> Remove </button> -->                            
@@ -120,11 +120,18 @@
         </mat-tab>
         <mat-tab label="Amenities">
 
-            <div class="custom-control custom-switch">
+            <!-- <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch1" >
                 <label class="custom-control-label" for="switch1"><span class="glyphicon glyphicon-asterisk"></span>
                     TV</label>
+            </div> -->
+
+            <div class="custom-control custom-switch" *ngFor = "let item of amenities" [(ngModel)] = "amenities">
+                <input type="checkbox" class="custom-control-input" id="tv" [(ngModel)] = "item.tv" [checked]='isSelected(item.tv)'/>
+                <label class="custom-control-label" ><span class="glyphicon glyphicon-asterisk"></span>
+                    TV</label>
             </div>
+
 
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch2">                 

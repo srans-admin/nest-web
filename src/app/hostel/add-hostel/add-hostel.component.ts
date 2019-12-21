@@ -39,6 +39,9 @@ export class AddHostelComponent implements OnInit {
   switch5: boolean;
   switch6: boolean;
 
+  amenities : ['tv', 'fridge', 'ac', 'mineralWater', 'parking', 'gym']
+
+
   ngOnInit() {
     this.tempFloors = [1];
     this.populateFloors();
