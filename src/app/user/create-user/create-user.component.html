@@ -1,13 +1,19 @@
-<h3><span class="glyphicon glyphicon-user"></span> Tenant Registration {{hostel.selectedBedInfo}}  </h3>
+<h3><span class="glyphicon glyphicon-user"></span> 
+  Tenant <span *ngIf="!isHostelPaymentReq">Only</span> Registration {{hostel.selectedBedInfo}} 
+  <span *ngIf="isHostelPaymentReq"> with booking PG</span> </h3>
+  
   <form (ngSubmit)="onSubmit()">
     <mat-tab-group>
       <mat-tab label="Tenant">
-      <div [hidden]="submitted" style="width: 300px;">
 
-      <div class="row">
-          <div class="input-field col s12"></div>          
+
+      <div class="is-hostel-info-req">
+          <mat-checkbox [(checked)]="isHostelPaymentReq" 
+          (change)="isHostelPaymentRequired($event)"> I will be set Hostel and Payment Info as per the
+           Registation </mat-checkbox>
       </div>
-    
+      <div class="tenant-form-1"  >  
+
       <div class="form-group">
           <!-- <label for="name">userpic</label>
           <input type="file" required [(ngModel)]=user.userpic name="userpic" > -->
@@ -68,33 +74,35 @@
 </div>
 </mat-tab>
     
-  <mat-tab label="Hostel"> 
+  <mat-tab label="Hostel" *ngIf="isHostelPaymentReq">  
 
-	<div class="hostel-tenanat-info" > 
-
-       <label><span class="glyphicon glyphicon-home"></span> Choose Hostel </label>
-      <select class="browser-default custom-select"  [ngModel]="selectedDevice" (ngModelChange)="populateHostel($event)" name="sel2"  >
-        <option  value="">--select--</option>
-        <option *ngFor="let hostel of hostels | async"  [value]="hostel.id"  name="id" (ngModelChange)="populateHostel(hostel.id)"> {{hostel.hostelName}} </option>   
-      </select> 
-
+  <div class="hostel-tenant-info tenant-form-1">
+  
+    <label><span class="glyphicon glyphicon-home"></span> Choose Hostel </label>
+    <select class="browser-default custom-select" [ngModel]="selectedDevice" (ngModelChange)="populateHostel($event)"
+      name="sel2">
+      <option value="">--select--</option>
+      <option *ngFor="let hostel of hostels | async" [value]="hostel.id" name="id"
+        (ngModelChange)="populateHostel(hostel.id)"> {{hostel.hostelName}} </option>
+    </select>
+  
     <floor-view [hostel]="selectedHostel" (onSelectedBedInfoEmitor)="onSelectedBedInfoEmited($event)"></floor-view>
-
-        
-    </div>  
+  
+  
+  </div>
 
 
     </mat-tab>
 
 
-    <mat-tab label="Payment">
+    <mat-tab label="Payment" *ngIf="isHostelPaymentReq">
 
 
-        <div class="selected-bed-info container primary" *ngIf="isBedSelected">
-            <div class=row>
-              <div> Selected Bed Information </div>
+        <div class="selected-bed-info " *ngIf="isBedSelected">
+            <div class="row selected-bed-info-header">
+              <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
             </div>
-            <div class=row>
+            <div class="row">
               <div class="col-md-6">
                 <label>Hosel</label>
                 <div class="name"> {{selectedBedInfo.hostelName}} </div>
@@ -104,7 +112,7 @@
                 <div class="name">{{selectedBedInfo.bed.floorId}}</div>
               </div>
             </div>
-            <div class=row>
+            <div class="row">
                 <div class="col-md-6">
                   <label>Room</label>
                   <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
@@ -114,7 +122,7 @@
                   <div class="name">{{selectedBedInfo.bed.id}}</div>
                 </div>
               </div> 
-              <div class=row>
+              <div class="row">
                   <div class="col-md-6">
                       <label>Bed Position</label>
                       <div class="name">{{selectedBedInfo.bed.position}} </div>
@@ -126,7 +134,7 @@
                    
                 </div>
     
-                <div class=row>
+                <div class="row">
                     <div class="col-md-6">
                         <label>Room Sharing </label>
                         <div class="name">{{selectedBedInfo.roomType}} </div>
@@ -136,7 +144,7 @@
           </div>
 
 
-        <div [hidden]="submitted" style="width: 200px;">
+        <div class="tenant-form-1" style="width: 300px;">
 
           <div class="form-group">
             <label for="name">
@@ -175,17 +183,16 @@
   
         <!-- <div class="form-group"> -->
           
-          <button type="submit" class="btn btn-success">Join Tenant</button>             
+                  
      
       </div>
     </mat-tab>    
 </mat-tab-group>
- </form>
- 
 
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
+
+<div *ngIf="!isHostelPaymentReq || selectedBedInfo" class="join-tenant-button" >
+  <button type="submit" class="btn btn-success">Join Tenant</button>    
 </div>
 
-
-
+ </form>
+  

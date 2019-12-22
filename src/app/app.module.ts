@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
@@ -142,7 +143,8 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ChartsModule,
     NgbModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule, 
+    ToastrModule.forRoot()
     // MatFormField
   ],
   providers: [],  
@@ -150,3 +152,6 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
   bootstrap: [AppComponent],
 })
 export class AppModule { }
+
+// References::
+// Toaster : https://blog.jscrambler.com/how-to-create-angular-toastr-notifications/
