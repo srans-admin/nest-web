@@ -9,20 +9,20 @@ import { Observable } from 'rxjs';
 export class PaymentService {
 
   private baseUrl = 'http://localhost:8080/nest-server/api/v1/payments';
-  private hostelId = 'http://localhost:8080/nest-server/api/v1/payment/hostels/{id}/roomdetail';
-  private floorId = 'http://localhost:8080/nest-server/api/v1/payment/hostels/{id}/roomdetail';
+  private roomType = 'http://localhost:8080/nest-server/api/v1/payment/hostels/{id}/roomdetail';
+  private roomRent = 'http://localhost:8080/nest-server/api/v1/payment/hostels/{id}/roomdetail';
   
   constructor(private http: HttpClient) { }
 
 
 
-  getfloorId(id: number): Observable<any> {
-    return this.http.get('${this.floorId}/${id}');
+  getroomType(id: number): Observable<any> {
+    return this.http.get(`${this.roomType}/${id}`);
   }
 
 
-  gethostelId(id: number): Observable<any> {
-    return this.http.get('${this.hostelId}/${id}');
+  getroomRent(id: number): Observable<any> {
+    return this.http.get(`${this.roomRent}/${id}`);
   }
 
   getPayment(id: number): Observable<any> {

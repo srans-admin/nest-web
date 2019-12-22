@@ -33,8 +33,12 @@
           <label for="name"><span class="glyphicon glyphicon-tasks"></span> Mother PhoneNumber:</label>
           <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
         
-          <label for="name"><span class="glyphicon glyphicon-calendar"></span> DOB:</label>
-          <input type="text" class="form-control" id="dob" required [(ngModel)]="user.dob" name="dob">
+          <label for="name"><span class="glyphicon glyphicon-calendar"></span> DOB:</label>          
+          <!-- <span class="date-picker"> -->
+            <input type="text"  class="form-control" id="dob" required [(ngModel)]="user.dob" name="dob">
+             <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+             <mat-datepicker #picker></mat-datepicker>  -->
+            <!-- </span> -->
         
           <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
           <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">

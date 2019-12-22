@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Hostel } from '../../hostel';
 import { HostelService } from '../../hostel.service';
@@ -225,6 +225,7 @@ createImageFromBlobMisc(image: Blob) {
   }
 
   //  Close the dropdown if the user clicks outside of it
+  @HostListener('document:click', ['$event'])
    click = function(event) {
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");

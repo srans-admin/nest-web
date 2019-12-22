@@ -50,6 +50,7 @@
                 <div class="room-box">
                     <div class="room-box-header"> <span class="glyphicon glyphicon-tags"></span> Single Rooms </div>
                     <span *ngFor="let room of getRoomsWithType(floor,'Single')">
+
                             <span class="sub-room-box">
                                     <div class="room-header">
                                             <span class="room-name"> Room-{{room.roomName}} </span> 
@@ -63,6 +64,7 @@
                                                 </span> 
                                         </span>
             
+
                             </span>
                     </span>
                 </div>
@@ -71,6 +73,7 @@
                     <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> Double Rooms </div>
                       
                     <span *ngFor="let room of getRoomsWithType(floor,'Double')">
+
                             <span class="sub-room-box">
                                     <div class="room-header">
                                             <span class="room-name"> Room-{{room.roomName}} </span> 
@@ -84,6 +87,7 @@
                                                 </span> 
                                         </span>
             
+
                             </span>
                         </span>
                     
@@ -92,6 +96,7 @@
                 <div class="room-box">
                     <div class="room-box-header"><span class="glyphicon glyphicon-tasks"></span> Triple Rooms </div>
                     <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
+
                             <span class="sub-room-box">
                                     <div class="room-header">
                                             <span class="room-name"> Room-{{room.roomName}} </span> 
@@ -105,6 +110,7 @@
                                                 </span> 
                                         </span>
             
+
                             </span>
                     </span>
                 </div>
@@ -112,6 +118,7 @@
                 <div class="room-box">
                     <div class="room-box-header"><span class="glyphicon glyphicon-home"></span> Misc </div>
                     <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
+
                             <span class="sub-room-box">
                                     <div class="room-header">
                                             <span class="room-name"> Room-{{room.roomName}} </span> 
@@ -125,6 +132,7 @@
                                                 </span> 
                                         </span>
             
+
                             </span>
                     </span>
                 </div>
@@ -133,11 +141,18 @@
         </mat-tab>
         <mat-tab label="Amenities">
 
-            <div class="custom-control custom-switch">
+            <!-- <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch1" >
                 <label class="custom-control-label" for="switch1"><span class="glyphicon glyphicon-asterisk"></span>
                     TV</label>
+            </div> -->
+
+            <div class="custom-control custom-switch" *ngFor = "let item of amenities" [(ngModel)] = "amenities">
+                <input type="checkbox" class="custom-control-input" id="tv" [(ngModel)] = "item.tv" [checked]='isSelected(item.tv)'/>
+                <label class="custom-control-label" ><span class="glyphicon glyphicon-asterisk"></span>
+                    TV</label>
             </div>
+
 
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="switch2">                 
