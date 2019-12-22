@@ -14,3 +14,41 @@
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.bed-alloted{
+    background-color: white;
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 3px;
+    border-radius: 9px;
+}
+
+.bed-alloted:hover{
+    background-color: green;
+}
+
+.bed-alloted-yes{
+    background-color: orangered;
+    color: white;
+}
+.bed-alloted-no{
+    /* background-color: green; */
+}
+.bed{  
+    background-repeat: no-repeat;
+    /* padding: 6px;*/
+}
+.bed-image{
+    width: 16px;
+}
+.room-header{
+    color: white;
+    background-color: black;
+    padding-left: 12px;
+    padding-right: 11px;
+    margin-bottom: 8px;
+    border: 1px solid;
+}
+.bed-box{
+    display: inline-block;
+    padding: 4px;
+}
