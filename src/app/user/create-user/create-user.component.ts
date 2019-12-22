@@ -11,6 +11,9 @@ import { HostelService } from '../../_services/hostel.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { AlertMessage } from 'src/app/_alerts/alert.message';
+import { NIDOSMessages } from 'src/app/_messages/message_eng';
 
 @Component({
   selector: 'app-create-user',
@@ -28,82 +31,47 @@ export class CreateUserComponent implements OnInit {
   tempfloor: Array<any>;
   totalRooms: Number=1;
   invoice: Invoice = new Invoice();
-  payment: Payment = new Payment();
-  submitted = false;
+  payment: Payment = new Payment(); 
   floor: Floor = new Floor();
   room: Room = new Room();
   acknoldgmentMsg: string = "";
   tempFloors: []; 
   selectedHostel : Hostel; 
   isBedSelected : boolean = false;
-  selectedBedInfo : any;
+  selectedBedInfo : any = null;
+  isHostelPaymentReq:boolean = true;
 
  
  
   constructor(private route: ActivatedRoute,private userService: UserService,
-    private router: Router,private hostelService: HostelService,private httpClient: HttpClient) { }
+    private router: Router,
+      private hostelService: HostelService,
+      private httpClient: HttpClient,
+      private alertMessage: AlertMessage,
+      private nIDOSMessages: NIDOSMessages
+      ) { }
 
-  ngOnInit() {
-    // this.tempFloors = [1];
-    // this.populateFloors();
+  ngOnInit() { 
        this.filterForeCasts();
   }
-  // handleFileInput(file: FileList) {
-  //   this.fileToUpload = file.item(0);
-  //   var reader = new FileReader();
-  //   reader.onload = (event:any) => {
-  //     this.imageUrl = event.target.result;
-  //   } 
-  //   reader.readAsDataURL(this.fileToUpload);
-  // }
-
-  newRole(): void {
-    this.submitted = false;
-    this.user = new User();
-    this.payment = new Payment();
-    this.hostel = new Hostel();
-  }
-
+  
   save() {
-    // console.log('Current User : '+this.user);
-    //TODO Need to save seelected Bed information here
+    
     this.userService.createUser(this.user)
-      .subscribe(res => {
+      .subscribe(res => { 
+        var obj : any =  res;  
+            //Upload UserPic as Image 
+            this.uploadImage(this.userImage, 'userpic', obj.userId ); 
 
-        var obj : any =  res; 
-
-            //Upload Reception Images 
-            this.uploadImage(this.userImage, 'userpic', obj.userId );
-             
-
-            //Upload Reception Images
-            
-               this.uploadImage(this.idproofImage, 'idproofImage', obj.userid );
-               
-
-            this.acknoldgmentMsg = "Tenant added successfully."+obj.userId;
-              
-          },  
-          err => {  
-            this.acknoldgmentMsg = "Tenant addition failed ."+err;
-            alert(this.acknoldgmentMsg );  
-          });
-
-            this.user = new User();
-            room : this.room;
-            console.log(this.room);
+            //Upload ID Proofas Image
+            this.uploadImage(this.idproofImage, 'idproofImage', obj.userid );  
+            this.alertMessage.showSuccessMsg( this.nIDOSMessages.TenantCreationSuccess + obj.userId );  
             this.gotoList();
-  }
-
-  // editRoom(room:Room){
-  //   let eRoom : Array<Room> [];
-  //   const dialogRef = this.dialog.open(EditRoomComponent, {
-  //     width: '30%',
-  //     data: {
-  //       room  : this.room
-  //     }
-  //   });
-  // }
+          },  
+          err => {   
+            this.alertMessage.showFailedMsg( this.nIDOSMessages.TenantCreationFailed + err );  
+          });
+  }  
 
   uploadImage(curFile: File, type: string, id : number){
     this.userService.uploadFile(curFile, type,  id).subscribe(
@@ -120,14 +88,12 @@ export class CreateUserComponent implements OnInit {
     this.hostels = this.hostelService.getHostelsList();
   }
 
-  onSubmit() {
-    this.submitted = true; 
+  onSubmit() { 
     this.save();
   }
 
   gotoList() {
-    this.router.navigate(['/add']);
-    // this.router.navigate(['/hostels']);
+    this.router.navigate(['/user']); 
   }
 
 
@@ -183,6 +149,9 @@ onSelectedBedInfoEmited(selectedBedInfo: any){
 
 }
 
-
+isHostelPaymentRequired(event){ 
+  this.isHostelPaymentReq = event.checked; 
+}
+ 
 
 }
