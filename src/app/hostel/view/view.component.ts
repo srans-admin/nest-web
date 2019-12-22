@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Hostel } from '../../_models/hostel';
+import { Hostel } from '../../_models/Hostel';
 import { HostelService } from '../../_services/hostel.service';
-import { Room } from 'src/app/_models/room';
+import { Room } from 'src/app/_models/Room';
 import { Observable } from 'rxjs';
 
 @Component({

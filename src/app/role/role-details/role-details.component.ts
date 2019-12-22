@@ -1,4 +1,4 @@
-import { Role } from '../../_models/role';
+import { Role } from '../../_models/Role';
 import { Component, OnInit, Input } from '@angular/core';
 import { RoleService } from '../../_services/role.service';
 import { RoleListComponent } from '../role-list/role-list.component';

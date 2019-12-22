@@ -152,33 +152,33 @@
               <span class="glyphicon glyphicon-calendar"></span> Date:</label>
             <!-- </div> -->
             <span class="date-picker">
-            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="payment.date">
+            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.payment.date">
              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
              <mat-datepicker #picker></mat-datepicker> 
             </span>
         </div>
    
         <label><span class="glyphicon glyphicon-user"></span> Payment Through:</label>
-        <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="payment.paymentThrough" name=" paymentThrough">
+        <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="user.payment.paymentThrough" name=" paymentThrough">
           
           <option selected>Cash</option>
           <option >Bank Transfer</option>
         </select>
   
         <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
-            <input type="text" class="form-control" id="transactionId" required [(ngModel)]="payment.transactionId" name="transactionId">
+            <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
   
         <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
-        <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">    
+        <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
   
         <!-- <div class="form-group"> -->
             <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
-            <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="payment.depositAmount" name="depositAmount">
+            <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="user.payment.depositAmount" name="depositAmount">
         <!-- </div> -->
   
         <!-- <div class="form-group"> -->
           <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Room Rent</label>
-          <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent">
+          <input type="text" class="form-control" id="roomRent" required [(ngModel)]="user.payment.roomRent" name="roomRent">
         <!-- </div>       -->
   
         <!-- <div class="form-group"> -->

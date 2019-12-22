@@ -23,6 +23,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .bed-alloted:hover{
+    background-color: #ddd;
+}
+.bed-alloted:active, .bed-alloted:visited{
     background-color: green;
 }
 

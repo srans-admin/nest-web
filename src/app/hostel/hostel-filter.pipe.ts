@@ -1,5 +1,5 @@
 import { PipeTransform, Pipe } from '@angular/core';
-import { Hostel } from '../_models/hostel';
+import { Hostel } from '../_models/Hostel';
 
 @Pipe({
     name: "hostelFilter"

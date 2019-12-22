@@ -1,6 +1,6 @@
 
 export class Payment{
-    date:Date;
+    date:Date = new Date();
     name:string;
     // roomName:string;
     // roomType:string;

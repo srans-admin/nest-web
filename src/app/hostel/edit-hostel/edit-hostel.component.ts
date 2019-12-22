@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Hostel } from '../../_models/hostel';
+import { Hostel } from '../../_models/Hostel';
 import { HostelService } from '../../_services/hostel.service';
 
 @Component({
