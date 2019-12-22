@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../_services/user.service';
-import { User } from '../../_models/user';
-import { Hostel } from '../../_models/hostel';
-import { Floor } from '../../_models/floor';
-import { Room } from '../../_models/room';
-import { Invoice } from '../../_models/invoice';
-import { Payment } from '../../_models/payment';
+import { User } from '../../_models/User';
+import { TenantBooking } from '../../_models/TenantBooking';
+import { Hostel } from '../../_models/Hostel';
+import { Floor } from '../../_models/Floor';
+import { Room } from '../../_models/Room';
+import { Invoice } from '../../_models/Invoice';
+import { Payment } from '../../_models/Payment';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HostelService } from '../../_services/hostel.service';
 import { Observable } from 'rxjs';
@@ -29,9 +30,7 @@ export class CreateUserComponent implements OnInit {
   user: User = new User();    
   hostel: Hostel = new Hostel();
   tempfloor: Array<any>;
-  totalRooms: Number=1;
-  invoice: Invoice = new Invoice();
-  payment: Payment = new Payment(); 
+  totalRooms: Number=1; 
   floor: Floor = new Floor();
   room: Room = new Room();
   acknoldgmentMsg: string = "";
@@ -40,6 +39,7 @@ export class CreateUserComponent implements OnInit {
   isBedSelected : boolean = false;
   selectedBedInfo : any = null;
   isHostelPaymentReq:boolean = true;
+  tenantBooking : TenantBooking = new TenantBooking();
 
  
  
@@ -57,6 +57,7 @@ export class CreateUserComponent implements OnInit {
   
   save() {
     
+    this.setTenantBooking();
     this.userService.createUser(this.user)
       .subscribe(res => { 
         var obj : any =  res;  
@@ -69,7 +70,7 @@ export class CreateUserComponent implements OnInit {
             this.gotoList();
           },  
           err => {   
-            this.alertMessage.showFailedMsg( this.nIDOSMessages.TenantCreationFailed + err );  
+            this.alertMessage.showFailedMsg( this.nIDOSMessages.TenantCreationFailed + err.message );  
           });
   }  
 
@@ -151,6 +152,21 @@ onSelectedBedInfoEmited(selectedBedInfo: any){
 
 isHostelPaymentRequired(event){ 
   this.isHostelPaymentReq = event.checked; 
+}
+
+setTenantBooking(){ 
+  
+  this.tenantBooking.tenantId	= -1;
+  this.tenantBooking.hostelId  =	this.selectedBedInfo.bed.hostelId;
+  this.tenantBooking.floorId		=this.selectedBedInfo.bed.floorId
+  this.tenantBooking.roomId		=this.selectedBedInfo.bed.roomId
+  this.tenantBooking.roomBedId	=this.selectedBedInfo.bed.id
+  this.tenantBooking.roomRent	 =this.selectedBedInfo.bed.roomRent
+  this.tenantBooking.allotedFrom = new Date();
+  this.tenantBooking.allotedTill = null;
+
+  this.user.tenantBooking = this.tenantBooking;
+
 }
  
 

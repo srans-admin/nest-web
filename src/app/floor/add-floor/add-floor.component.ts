@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { Floor } from '../../_models/floor';
+import { Floor } from '../../_models/Floor';
 import { FloorService } from '../../_services/floor.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Hostel } from '../../_models/hostel';
+import { Hostel } from '../../_models/Hostel';
 import { HostelService } from '../../_services/hostel.service';
 import { Observable } from 'rxjs';
 

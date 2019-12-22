@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Observable } from "rxjs";
 import { HostelService } from "../../_services/hostel.service";
-import { Hostel } from "../../_models/hostel";
+import { Hostel } from "../../_models/Hostel";
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServerConfig } from '../../config/server.config';
 import { HttpClient } from '@angular/common/http';
-import { Room } from '../../_models/room';
+import { Room } from '../../_models/Room';
 
 import { CreateUserComponent } from 'src/app/user/create-user/create-user.component';
-import { Bed } from 'src/app/_models/bed'; 
+import { Bed } from 'src/app/_models/Bed'; 
 import { Floor } from '../../_models/Floor';
 
 @Component({

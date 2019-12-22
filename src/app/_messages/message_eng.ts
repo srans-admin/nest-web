@@ -7,7 +7,12 @@ export class NIDOSMessages {
 
   constructor() { }
 
-  public TenantCreationSuccess = "Tenant Created succssfully";
-  public TenantCreationFailed = "Tenant creation failed";
+  //Tenant related messages here
+  public TenantCreationSuccess = "Tenant created successfully ";
+  public TenantCreationFailed = "Tenant creation failed ";
+
+  //Hostel related messages here
+  public HostelCreationSuccess = "Hostel created successfully ";
+  public HostelCreationFailed = "Hostel creation failed ";
   
 }

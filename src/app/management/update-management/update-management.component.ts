@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Management } from '../../_models/management';
+import { Management } from '../../_models/Management';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ManagementService } from '../../_services/management.service';
 
