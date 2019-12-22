@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Hostel } from '../../hostel';
-import { HostelService } from '../../hostel.service';
+import { Hostel } from '../../_models/hostel';
+import { HostelService } from '../../_services/hostel.service';
 
 @Component({
   selector: 'app-edit-hostel',

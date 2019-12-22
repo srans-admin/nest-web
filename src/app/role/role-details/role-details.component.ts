@@ -1,6 +1,6 @@
-import { Role } from '../../role';
+import { Role } from '../../_models/role';
 import { Component, OnInit, Input } from '@angular/core';
-import { RoleService } from '../../role.service';
+import { RoleService } from '../../_services/role.service';
 import { RoleListComponent } from '../role-list/role-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
 

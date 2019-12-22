@@ -1,6 +1,6 @@
-import { Expense } from '../../expense';
+import { Expense } from '../../_models/expense';
 import { Component, OnInit, Input } from '@angular/core';
-import { ExpenseService } from '../../expense.service';
+import { ExpenseService } from '../../_services/expense.service';
 import { ExpenseListComponent } from '../expense-list/expense-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
 

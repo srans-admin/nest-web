@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Expense } from '../../expense';
+import { Expense } from '../../_models/expense';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ExpenseService } from '../../expense.service';
+import { ExpenseService } from '../../_services/expense.service';
 
 
 @Component({
