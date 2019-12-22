@@ -1,5 +1,5 @@
-import { ExpenseService } from '../../expense.service';
-import { Expense } from '../../expense';
+import { ExpenseService } from '../../_services/expense.service';
+import { Expense } from '../../_models/expense';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 

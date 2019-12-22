@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ServerConfig } from './config/server.config';
-import { FileStorageService } from './services/filestorage.service';
+import { ServerConfig } from '../config/server.config';
+import { FileStorageUtil } from '../utils/filestorage.util';
  
 
 @Injectable({
@@ -14,7 +14,7 @@ export class HostelService {
   private baseUrl = this.serverConfig.getServerURL() +'/api/v1/hostels';
   private extendedViewUrl = this.serverConfig.getServerURL() + '/api/v1/hostels/{id}/extendingviews';
 
-  constructor(private http: HttpClient, private fileStorageService: FileStorageService) { }
+  constructor(private http: HttpClient, private fileStorageUtil: FileStorageUtil) { }
 
   getHostel(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
@@ -39,13 +39,13 @@ export class HostelService {
   uploadFile( file: File , cat: String,  id : number ) : Observable<any>  
   {  
     let url = this.baseUrl + "/"+id+"/upload/"+cat ; 
-    return this.fileStorageService.uploadFile(url, file );
+    return this.fileStorageUtil.uploadFile(url, file );
   }
 
 
   retriveFile(cat: String,  id : number): Observable<any> {
     let url = this.baseUrl + "/"+id+"/retrive/"+cat ; 
-    return this.fileStorageService.retriveFile(url);
+    return this.fileStorageUtil.retriveFile(url);
   }
 
 

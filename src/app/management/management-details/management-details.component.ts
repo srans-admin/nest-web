@@ -1,6 +1,6 @@
-import { Management } from '../../management';
+import { Management } from '../../_models/management';
 import { Component, OnInit, Input } from '@angular/core';
-import { ManagementService } from '../../management.service';
+import { ManagementService } from '../../_services/management.service';
 import { ManagementListComponent } from '../management-list/management-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
 

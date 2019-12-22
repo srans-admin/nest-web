@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PaymentService } from '../../payment.service';
-import { Payment } from '../../payment';
-import { Room } from '../../room';
+import { PaymentService } from '../../_services/payment.service';
+import { Payment } from '../../_models/payment';
+import { Room } from '../../_models/room';
 import { Router } from '@angular/router';
 
 @Component({

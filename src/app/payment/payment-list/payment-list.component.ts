@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
-import { PaymentService } from '../../payment.service';
-import { Payment } from "../../payment";
+import { PaymentService } from '../../_services/payment.service';
+import { Payment } from "../../_models/payment";
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Role } from '../../role';
+import { Role } from '../../_models/role';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RoleService } from '../../role.service';
+import { RoleService } from '../../_services/role.service';
 
 @Component({
   selector: 'app-update-role',

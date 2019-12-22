@@ -6,7 +6,7 @@ import { ServerConfig } from '../config/server.config';
 @Injectable({
   providedIn: 'root'
 })
-export class FileStorageService {
+export class FileStorageUtil {
 
   serverConfig: ServerConfig = new ServerConfig();
   private baseUrl = this.serverConfig.getServerURL() +'/api/v1/hostels';

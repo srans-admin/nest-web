@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Hostel } from '../../hostel';
-import { HostelService } from '../../hostel.service';
+import { Hostel } from '../../_models/hostel';
+import { HostelService } from '../../_services/hostel.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddRoomComponent } from 'src/app/room/add-room/add-room.component';
-import { Room } from 'src/app/room';
-import { RoomService } from 'src/app/room.service';
-import { Floor } from 'src/app/floor';
+import { Room } from 'src/app/_models/room';
+import { RoomService } from 'src/app/_services/room.service';
+import { Floor } from 'src/app/_models/floor';
 import { Observable } from 'rxjs';
 
 @Component({
