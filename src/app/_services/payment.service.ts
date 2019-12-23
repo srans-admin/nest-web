@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PaymentService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/payments';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/payment';
   private roomType = 'http://localhost:8080/nest-server/api/v1/payment/hostels/{id}/roomdetail';
   private roomRent = 'http://localhost:8080/nest-server/api/v1/payment/hostels/{id}/roomdetail';
   
