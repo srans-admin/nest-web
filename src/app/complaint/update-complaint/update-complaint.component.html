@@ -1,0 +1,33 @@
+<h3><span class="glyphicon glyphicon-envelope"></span>Update Complaint</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name"><span class="glyphicon glyphicon-user"></span>Role Name</label>
+      <input type="text" class="form-control" id="roleName" required [(ngModel)]="complaint.roleName" name="roleName">
+    </div>
+
+    <div class="form-group">
+      <label for="name"><span class="glyphicon glyphicon-tag"></span>Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="complaint.name" name="name">
+    </div>
+
+     <div class="form-group">
+      <label for="name"><span class="glyphicon glyphicon-envelope"></span>Email Id</label>
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="complaint.emailId" name="emailId">
+    </div>
+
+    <div class="form-group">
+        <label for="name"><span class="glyphicon glyphicon-phone"></span>Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" required [(ngModel)]="complaint.phoneNumber" name="phoneNumber">
+      </div>
+
+      <div class="form-group">
+        <label for="name"><span class="glyphicon glyphicon-envelope"></span>Description</label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="complaint.description" name="description">
+      </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+
