@@ -7,12 +7,19 @@ export class Hostel {
   hostelName: string = "Nidos";
   hostelAddress: string = "Hyderabad";
   hostelType: string = "Women";
+  tv : boolean;
+  fridge : boolean;
+  ac : boolean;
+  mineralWater : boolean;
+  parking : boolean;
+  gym : boolean;
   numOfFloors: number = 1;
   receptionUIImage: File ;
   floors : Array<Floor> = [];
   array: any;
   room: Room = new Room();
   selectedBedInfo:any;
+  pic:any;
 
 
   addRoom(floorName, room: Room){

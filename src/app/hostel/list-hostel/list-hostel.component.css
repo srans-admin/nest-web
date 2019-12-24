@@ -19,6 +19,15 @@
     color: white;
     font-size: 13px;
 }
+
+.hostel-init-img{
+    width: 7rem;
+    height: 7rem;
+    border: 1px solid;
+    border-radius: 7rem;
+    float: left;
+}
+
 .hostel-name, .hostel-type, .hostel-address, .hostel-floors{
     color: cadetblue;
     left: 6rem;

@@ -14,9 +14,11 @@ import { Room } from '../../_models/Room';
 })
 export class ListHostelComponent implements OnInit {
   hostels: Observable<Hostel[]>;
+  hostelImages: Array<Hostel> = [];
   room: Room = new Room();
   extendingviews: Observable<Hostel[]>;
   searchTerm: string;
+  acknoldgmentMsg : string = null;
 
   serverConfig: ServerConfig = new ServerConfig();
   private extendedViewUrl = this.serverConfig.getServerURL() + '/api/v1/hostels/{id}/extendingviews';
@@ -31,14 +33,9 @@ export class ListHostelComponent implements OnInit {
     }
   
     reloadData() {
-      this.hostels = this.hostelService.getHostelsList();
-      
-    }
 
-    oneHostel(id: number){
-      // this.hostels = this.hostelService.getHostel(id);
-      this.extendingviews = this.hostelService.getHostel(id);
-      this.hostelDetails(id);
+      this.hostels = this.hostelService.getHostelsList();
+
     }
   
     deleteHostel(id: number) {
