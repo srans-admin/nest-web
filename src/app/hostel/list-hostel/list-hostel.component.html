@@ -12,19 +12,15 @@
 <div class="hostels-list">
     <div *ngFor="let hostel of hostels | async | hostelFilter:searchTerm " >
         <div class="hostel" (click)="hostelDetails(hostel.id)" >
-            <div class="hostel-image"> {{hostel.id}}</div>
+            <div class="hostel-image"> 
+                <!-- <img src="{{ facadeImage(hostel.id)}}" alt="No Image" /> -->
+                {{hostel.id}}
+            </div>
             <div class="hostel-name"> {{hostel.hostelName}} </div>
             <div class="hostel-type"> {{hostel.hostelType}} </div>
             <div class="hostel-address">{{hostel.hostelAddress}} </div>
             <div class="hostel-floors">{{hostel.numOfFloors}}</div>
             <div class="hostel-room">{{hostel.room}}</div>
-            <!-- <div class="hostel-rooms">{{room.roomNumbers}}</div> -->
-            <div class="hostel-actions">
-                <a (click)="deleteHostel(hostel.id)"  title="delete"><span class="glyphicon glyphicon-trash"></span></a>
-            <!--<a (click)="updateHostel(hostel.id)"  title="update" style="margin-left: 10px"><span class="glyphicon glyphicon-home"></span></a>-->
-                <a (click)="hostelDetails(hostel.id)"  title="extended view" style="margin-left: 10px"><span class="glyphicon glyphicon-tag"></span></a>
-
-            </div>
         </div>
 
     </div>
@@ -39,7 +35,7 @@
             <p>{{hostel.id}}</p>
             <button (click)="listHostel(hostel.id)" class="btn btn-info" style="margin-left: 10px">{{hostel.hostelName}}</button>
             <p>{{hostel.hostelAddress}}</p>
-            <p>{{hostel.hostelType}}</p>
+            <p>{{hostel.hostelType}}</p>{{hostel.id}}
             <p>
                 <button (click)="deleteHostel(hostel.id)" class="btn btn-danger">Delete</button>
                 <button (click)="updateHostel(hostel.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
