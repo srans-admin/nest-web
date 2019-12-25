@@ -70,6 +70,12 @@ import { HostelFilterPipe } from './hostel/hostel-filter.pipe';
 import { ChartsModule } from 'ng2-charts';
 import { FloorViewComponent } from './hostel/floor-view/floor.view.component';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardSuperadminComponent } from './dashboard-superadmin/dashboard-superadmin.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
+import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 // import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 // import { LoginComponent } from './login/login.component';
 
@@ -81,6 +87,15 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
+
+    HomeComponent,
+    LoginComponent,
+
+    DashboardSuperadminComponent,
+    DashboardAdminComponent,
+    DashboardHomeComponent,
+    DashboardUserComponent,
+
     CreateRoleComponent,
     RoleDetailsComponent,
     RoleListComponent,

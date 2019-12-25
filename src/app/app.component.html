@@ -1,179 +1,30 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-                <!--<img src="assets/img/bed.svg" />  -->
-        <a class="navbar-brand " href="index.html"> 
-                <span class="logo"> 
-                        <img src="favicon.ico" /> NIODS   
-                </span> 
-        </a>
-        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-                <span class="glyphicon glyphicon-bars"></span>
-        </button>
-  
-        <ul class="nav navbar-nav ml-auto">
+<div class="app-haeader">
+        <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+                <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIODS  </span>  </a>
 
-        </ul>
-        <!-- Navbar -->
-        <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-bell fa-fw"></span>
-                                <span class="badge badge-danger"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                </li>
-                <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-envelope fa-fw"></span>
-                                <span class="badge badge-danger">7</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                </li>
-                <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-user-circle fa-fw"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">Settings</a>
-                                <a class="dropdown-item" href="#">Activity Log</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                        data-target="#logoutModal">Logout</a>
-                        </div>
-                </li>
-        </ul>
-</nav>
+                <span *ngIf="currentUser" class="align-right">
+                        <div class="header-card" (click)="notifications()" title="notifications"> <span class="glyphicon glyphicon-bullhorn"></span> </div>
+                        <div class="header-card" (click)="profile()" title="profile"> <span class="glyphicon glyphicon-user"></span> </div>
+                        <div class="header-card" (click)="logout()" title="logout">  <span class="glyphicon glyphicon-off"></span></div>
+                </span>
+        </nav> 
+</div>
+<div class="row">
+        <div class="col-md-2"> 
+                <!-- <app-home [role]="role"></app-home>  -->
 
-<!-- Sidebar -->
-<div id="wrapper">
-        <ul class="sidebar navbar-nav">
-                <li class="nav-item ">
-                        <a class="nav-link" routerLink="hostels">
-                                <span class="glyphicon glyphicon-folder-close"></span>
-                                <span class="nav-title"> Dashboard</span>
-                        </a>
-                </li>
-                <li class="nav-item ">
-                        <a class="nav-link" routerLink="hostels">
-                                <span class="glyphicon glyphicon-home"></span>
-                                <span class="nav-title"> Hostels</span>
-                        </a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" routerLink="user">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <span class="nav-title">Tenants</span></a>
-                </li>
-
-
-                <li class="nav-item">
-                        <a class="nav-link" routerLink="roles">
-                                <span class="glyphicon glyphicon-folder-close"></span>
-                                <span class="nav-title"> Roles</span></a>
-                </li>
-
-                <li class="nav-item">
-                        <a class="nav-link" routerLink="payment">
-                                <span class="glyphicon glyphicon-folder-close"></span>
-                                <span class="nav-title"> Payments</span></a>
-                </li>
-
-                <li class="nav-item">
-                        <a class="nav-link" routerLink="invoice">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                <span class="nav-title"> Invoices </span></a>
-                </li>
-
-                <li class="nav-item">
-                        <a class="nav-link" routerLink="expenses">
-                                <span class="glyphicon glyphicon-plane"></span>
-                                <span class="nav-title"> Expenses</span></a>
-                </li>
-
-                <li class="nav-item">
-                        <a class="nav-link" routerLink="management">
-                                <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                <span class="nav-title"> Management</span></a>
-                </li>
-
-                <li class="nav-item">
-                        <a class="nav-link" routerLink="complaint">
-                                <span class="glyphicon glyphicon-envelope"></span>
-                                <span class="nav-title"> Complaints</span></a>
-                </li>
-
-                <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">
-                                <span class="glyphicon glyphicon-picture"></span>
-                                <span class="nav-title"> Rents</span></a>
-                </li>
-
-                <li class="nav-item">
-                        <a class="nav-link" href="#">
-                                <span class="glyphicon glyphicon-lock"></span>
-                                <span class="nav-title"> Accounts</span></a>
-                </li>
-
-                <li class="nav-item">
-                        <a class="nav-link" href="#">
-                                <span class="glyphicon glyphicon-cog"></span>
-                                <span class="nav-title"> Settings</span></a>
-                </li> -->
-        </ul>
-
-
-        <div id="content-wrapper">
-
-                <div class="container">
-
-
-                        <div class="row">
-
-                                <div class="col-md-12">
-                                        <router-outlet></router-outlet>
-                                </div>
-
-                        </div>
-                        <!-- Icon Cards-->
+                <app-dashboard-superadmin *ngIf="currentUser"> </app-dashboard-superadmin>
+                <!-- 
+                <app-dashboard-home></app-dashboard-home>
+                <app-dashboard-admin></app-dashboard-admin>
+                <app-dashboard-user></app-dashboard-user>  
+                -->
+                 
+        </div>
+        <div class="col-md-10">
+                <div class="app-body">
+                        <router-outlet></router-outlet>
                 </div>
         </div>
+</div>
 
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-                <span class="glyphicon glyphicon-angle-up"></span>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                                <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                        </button>
-                                </div>
-                                <div class="modal-body">Select "Logout" below if you are ready to end your current
-                                        session.</div>
-                                <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button"
-                                                data-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-primary" href="login.html">Logout</a>
-                                </div>
-                        </div>
-                </div>
-        </div>
