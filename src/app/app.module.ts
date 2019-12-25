@@ -76,6 +76,7 @@ import { DashboardSuperadminComponent } from './dashboard-superadmin/dashboard-s
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
+import { CookieService } from 'ngx-cookie-service';
 // import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 // import { LoginComponent } from './login/login.component';
 
@@ -172,7 +173,7 @@ import { DashboardHomeComponent } from './dashboard-home/dashboard-home.componen
     ToastrModule.forRoot()
     // MatFormField
   ],
-  providers: [],  
+  providers: [CookieService],  
   // UploadFileService
   bootstrap: [AppComponent],
 })

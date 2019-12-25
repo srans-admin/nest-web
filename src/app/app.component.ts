@@ -19,12 +19,11 @@ export class AppComponent {
     private authenticationService: AuthenticationService
     
   ) {
-    this.authenticationService.currentUser.subscribe(x => 
+    this.authenticationService.currentUser.subscribe(user => 
       {
-        this.currentUser = x 
+        this.currentUser = user 
       }
-      );
-     //this.authenticationService.isUserLoggedIn().subscribe(x => this.loginStatus = x);
+      ); 
   }
 
   logout() {
@@ -37,8 +36,16 @@ export class AppComponent {
   }
 
   profile(){  
-    var loggedInUserDetails = this.authenticationService.getLoggedInUserDetails();
-    this.alertMessage.showHTMLMessage('Profile Info', loggedInUserDetails)
+    var loggedInUserDetails : User = this.authenticationService.getLoggedInUserDetails();
+
+    var htmlMsg = "<br/><label> <span class=\"glyphicon glyphicon-user\"></span> Name : </label><span> "+loggedInUserDetails.name+"</span>"+
+                  "<br/><label> UerId : </label><span> "+loggedInUserDetails.userId+"</span>"   +          
+                  "<br/><label> Email : </label><span> "+loggedInUserDetails.emailId+"</span>"+
+                  "<br/><label> Phone : </label><span> "+loggedInUserDetails.telephoneNumber+"</span>"+
+                  "<br/><label> Emergency : </label><span> "+loggedInUserDetails.emergencyContactNumber+"</span>"
+                  ;
+
+    this.alertMessage.showHTMLMessage('My Profile', htmlMsg)
   }
 
 
