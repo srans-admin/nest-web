@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Hostel } from '../../_models/Hostel';
+import { Hostel } from '../../_models/hostel';
 import { HostelService } from '../../_services/hostel.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddRoomComponent } from 'src/app/room/add-room/add-room.component';
-import { Room } from 'src/app/_models/Room';
+import { Room } from 'src/app/_models/room';
 import { RoomService } from 'src/app/_services/room.service';
-import { Floor } from 'src/app/_models/Floor';
+import { Floor } from 'src/app/_models/floor';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, FormArray, FormControl, NgForm} from '@angular/forms';
 import { of } from 'rxjs';

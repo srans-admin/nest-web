@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FloorService } from '../../_services/floor.service'
-import { Floor } from '../../_models/Floor';
+import { Floor } from '../../_models/floor';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Hostel } from '../../_models/Hostel';
+import { Hostel } from '../../_models/hostel';
 import { HostelService } from '../../_services/hostel.service';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { RoomService } from '../../_services/room.service';
-import { Room } from '../../_models/Room';
+import { Room } from '../../_models/room';
 import { Router } from '@angular/router';
-import { Hostel } from 'src/app/_models/Hostel';
+import { Hostel } from 'src/app/_models/hostel';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Bed } from 'src/app/_models/Bed';
 

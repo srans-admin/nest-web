@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RoomService } from '../../_services/room.service';
-import { Room } from '../../_models/Room';
+import { Room } from '../../_models/room';
 import { Router } from '@angular/router';
 
 @Component({
