@@ -1,5 +1,5 @@
-import { TenantBooking } from './TenantBooking';
-import { Payment } from './Payment';
+import { TenantBooking } from './tenant-booking';
+import { Payment } from './payment';
 
 //  import { Hostel } from './hostel';
 

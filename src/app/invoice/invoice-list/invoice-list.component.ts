@@ -1,7 +1,7 @@
 // import { InvoiceDetailsComponent } from './../invoice-details/invoice-details.component';
 import { Observable } from "rxjs";
 import { InvoiceService } from '../../_services/invoice.service';
-import { Invoice } from "../../_models/Invoice";
+import { Invoice } from "../../_models/invoice";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 
