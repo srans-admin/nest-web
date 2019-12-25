@@ -1,4 +1,4 @@
-import { Floor } from './Floor';
+import { Floor } from './floor';
 import { Room } from './room';
 
 export class Hostel {
