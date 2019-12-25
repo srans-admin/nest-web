@@ -21,7 +21,7 @@ export class AlertMessage {
   }
 
 
-  showHTMLMessage(message, title){
+  showHTMLMessage(title, message ){
 	this.toastr.success(message, title, {
 		enableHtml :  true
 	})

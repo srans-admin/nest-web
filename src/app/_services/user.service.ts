@@ -30,6 +30,10 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
+  getUserDetails(name: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${name}`);
+  }
+
   createUser(user: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, user);
   }

@@ -46,9 +46,14 @@ import { AddComplaintComponent } from './complaint/add-complaint/add-complaint.c
 import { ComplaintListComponent } from './complaint/complaint-list/complaint-list.component';
 import { UpdateComplaintComponent } from './complaint/update-complaint/update-complaint.component';
 import { ComplaintDetailsComponent } from './complaint/complaint-details/complaint-details.component';
+import { AuthGuard } from './_auth/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'hostel', pathMatch: 'full' },
+  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent },
+  //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
   { path: 'rupdate/:id', component: UpdateRoleComponent },
@@ -64,7 +69,7 @@ const routes: Routes = [
   { path: 'eupdate/:id', component: UpdateExpenseComponent },
   { path: 'edetails/:id', component: ExpenseDetailsComponent },
 
-  { path: 'hostels', component: ListHostelComponent},
+  { path: 'hostels', component: ListHostelComponent, canActivate: [AuthGuard] },
   { path: 'hostels/viewtabs', component: AddHostelComponent},
   { path: 'hostels/addFloor/rooms', component: AddRoomComponent},
   { path: 'update/:id', component: EditHostelComponent },
@@ -93,6 +98,9 @@ const routes: Routes = [
   { path: 'complaint/add', component: AddComplaintComponent},
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
   { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
+
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 
 ];
 
