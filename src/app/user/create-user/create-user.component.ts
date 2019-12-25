@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../_services/user.service';
 import { User } from '../../_models/User';
-import { TenantBooking } from '../../_models/TenantBooking';
+import { TenantBooking } from '../../_models/tenant-booking';
 import { Hostel } from '../../_models/hostel';
 import { Floor } from '../../_models/floor';
 import { Room } from '../../_models/room';
-import { Invoice } from '../../_models/Invoice';
-import { Payment } from '../../_models/Payment';
+import { Invoice } from '../../_models/invoice';
+import { Payment } from '../../_models/payment';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HostelService } from '../../_services/hostel.service';
 import { Observable } from 'rxjs';
