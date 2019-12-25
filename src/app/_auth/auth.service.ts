@@ -4,41 +4,37 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../_models/User';
 import { UserService } from '../_services/user.service';
-
- 
+import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
-    private currentUser: Observable<User>;
-    private isLoggedIn : boolean = false;
+    public currentUser: Observable<User>; 
 
     private userName = '';
     private password = '';
 
-    private clientId = 'foo';
-    private clientSecret = 'bar';
-    private uaaURL = "http://localhost:9090/uaa-server/oauth/token";
+    private clientId = environment.clientId;
+    private clientSecret = environment.clientSecret;
+    private uaaURL = environment.uaaURL;
 
     private currentLoginSubject: BehaviorSubject<Boolean>;
     public currentLogin: Observable<Boolean>;
 
     constructor(private _http: HttpClient,
-        private userService: UserService) { 
-         
-        //this.currentLoginSubject = new BehaviorSubject<boolean>(false);
-        //this.currentLogin = this.currentLoginSubject.asObservable();
-
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser1')));
+        private userService: UserService,
+        private cookieService: CookieService
+        ) {  
+        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    public get currentUserValue(): User {
-        
+    public get currentUserValue(): User { 
         return  this.currentUserSubject.value;
     }
-
-    //{config.apiUrl}/users/authenticate
+ 
+    //TODO Need to remove localStorage completely and use only cookieService from angular
     login(userName, password) { 
 
         this.userName = userName;
@@ -51,7 +47,6 @@ export class AuthenticationService {
         
         let headers = new HttpHeaders({'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
          'Authorization': 'Basic '+btoa(this.clientId+":"+this.clientSecret)});
-           
         
         return this._http.post(this.uaaURL,  encodeURI(params.toString()), { headers: headers });
     }
@@ -59,42 +54,41 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');
-        this.isLoggedIn = false;
+        this.cookieService.delete('access_token'); 
         this.currentUserSubject.next(null);
-    }
+    } 
 
-  
+    setAccessToken(tokenInfo){ 
 
-    setAccessToken(tokenInfo){
-        //this.isLoggedIn = true;
-        //localStorage.setItem('accessToken', tokenInfo);
-        //localStorage.setItem('currentUser', tokenInfo);
+        localStorage.setItem('currentUser', JSON.stringify(tokenInfo)); 
+        console.log('Got access token : '+tokenInfo);
+        this.currentUserSubject.next( tokenInfo );
 
-        //this.currentLoginSubject.next(true);
-        //this.currentUserSubject.next(new User());
-
-        localStorage.setItem('currentUser', JSON.stringify(tokenInfo));
-        this.currentUserSubject.next(tokenInfo);
+        var expireDate = new Date().getTime() + (1000 * tokenInfo.expires_in);
+        this.cookieService.set("access_token", tokenInfo.access_token, expireDate); 
 
         this.userService.getUserDetails(this.userName).subscribe(
-            data => { 
-                localStorage.setItem('userinfo', data); 
+            data => {  
+                this.cookieService.set('userinfo', JSON.stringify(data) );
             },
             error => { 
                 alert('Unable to get User Info : '+error.error.error_description); 
             });  
     } 
 
-    getLoggedInUserDetails(){
-        return localStorage.getItem('userinfo'); 
-    }
+    getLoggedInUserDetails() : User {
+        return JSON.parse(this.cookieService.get('userinfo'))
+    } 
 
-     
-
-    // isUserLoggedIn(){
-    //     return  this.currentLoginSubject.value; 
-    // }
-
+    getHttpHeaders()  {
+        var headers = new HttpHeaders(
+            {
+                'Content-type': 'application/x-www-form-urlencoded; charset=utf-8', 
+                'Authorization': 'Bearer '+this.cookieService.get('access_token')
+            });
+        return { headers: headers }; 
+      } 
+      
     public get isUserLoggedIn(): Boolean {
       return  this.currentLoginSubject.value;
     }

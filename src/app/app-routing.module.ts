@@ -54,17 +54,17 @@ const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },
-  { path: 'roles', component: RoleListComponent },
+  { path: 'roles', component: RoleListComponent, canActivate: [AuthGuard] },
   { path: 'roles/add', component: CreateRoleComponent },
   { path: 'rupdate/:id', component: UpdateRoleComponent },
   { path: 'rdetails/:id', component: RoleDetailsComponent },
 
-  { path: 'management', component: ManagementListComponent },
+  { path: 'management', component: ManagementListComponent, canActivate: [AuthGuard] },
   { path: 'management/add', component: CreateManagementComponent },
   { path: 'mupdate/:id', component: UpdateManagementComponent },
   { path: 'mdetails/:id', component: ManagementDetailsComponent },
 
-  { path: 'expenses', component: ExpenseListComponent },
+  { path: 'expenses', component: ExpenseListComponent, canActivate: [AuthGuard] },
   { path: 'expenses/add', component: CreateExpenseComponent },
   { path: 'eupdate/:id', component: UpdateExpenseComponent },
   { path: 'edetails/:id', component: ExpenseDetailsComponent },
@@ -80,7 +80,7 @@ const routes: Routes = [
 
   { path: 'roms', component: ListRoomComponent},
 
-  { path: 'user', component: UserListComponent },
+  { path: 'user', component: UserListComponent, canActivate: [AuthGuard] },
   { path: 'user/add', component: CreateUserComponent },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
@@ -88,13 +88,13 @@ const routes: Routes = [
   { path: 'doughnut-chart', component: DoughnutChartComponent },
   { path: 'bar-chart', component: BarChartComponent },
 
-  { path: 'invoice', component: InvoiceListComponent },
+  { path: 'invoice', component: InvoiceListComponent, canActivate: [AuthGuard] },
   { path: 'invoice/add', component: CreateInvoiceComponent},
 
-  { path: 'payment', component: PaymentListComponent },
+  { path: 'payment', component: PaymentListComponent, canActivate: [AuthGuard] },
   { path: 'payment/add', component: CreatePaymentComponent},
 
-  { path: 'complaint', component: ComplaintListComponent},
+  { path: 'complaint', component: ComplaintListComponent, canActivate: [AuthGuard]},
   { path: 'complaint/add', component: AddComplaintComponent},
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
   { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},

@@ -1,39 +1,40 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { ServerConfig } from '../config/server.config';
+import { Observable } from 'rxjs'; 
 import { FileStorageUtil } from '../utils/filestorage.util';
+import { environment } from '../../environments/environment';
+import { AuthenticationService } from '../_auth/auth.service';
  
 
 @Injectable({
   providedIn: 'root'
 })
 export class HostelService { 
-  
-  serverConfig: ServerConfig = new ServerConfig();
-  private baseUrl = this.serverConfig.getServerURL() +'/api/v1/hostels';
-  private extendedViewUrl = this.serverConfig.getServerURL() + '/api/v1/hostels/{id}/extendingviews';
 
-  constructor(private http: HttpClient, private fileStorageUtil: FileStorageUtil) { }
+  private baseUrl = environment.appUrl +'/api/v1/hostels';
+  private extendedViewUrl = environment.appUrl + '/api/v1/hostels/{id}/extendingviews';
+
+  constructor(private http: HttpClient, private fileStorageUtil: FileStorageUtil, 
+    private authenticationService: AuthenticationService) { }
 
   getHostel(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${this.baseUrl}/${id}`, this.authenticationService.getHttpHeaders());
   }
 
   createHostel(hostel: Object): Observable<Object>{
-    return this.http.post(`${this.baseUrl}`, hostel);
+    return this.http.post(`${this.baseUrl}`, hostel, this.authenticationService.getHttpHeaders());
   }  
 
   putHostel(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+    return this.http.put(`${this.baseUrl}/${id}`, value, this.authenticationService.getHttpHeaders());
   }
 
   deleteHostel(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/${id}`,  this.authenticationService.getHttpHeaders());
   }
 
   getHostelsList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
   } 
   
   uploadFile( file: File , cat: String,  id : number ) : Observable<any>  

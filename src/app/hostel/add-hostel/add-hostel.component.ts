@@ -10,6 +10,8 @@ import { Floor } from 'src/app/_models/floor';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, FormArray, FormControl, NgForm} from '@angular/forms';
 import { of } from 'rxjs';
+import { AlertMessage } from 'src/app/_alerts/alert.message';
+import { NIDOSMessages } from 'src/app/_messages/message_eng';
 
 @Component({
   selector: 'app-add-hostel',
@@ -21,6 +23,8 @@ export class AddHostelComponent implements OnInit {
   form: FormGroup;
   constructor(private formBuilder: FormBuilder, 
               private hostelService: HostelService, 
+              private alertMessage: AlertMessage,
+              private nIDOSMessages: NIDOSMessages,
               private router: Router,
               public dialog: MatDialog) {
 
@@ -127,12 +131,13 @@ export class AddHostelComponent implements OnInit {
               this.uploadImage(miscFile, 'misc', obj.id);
             }
 
-            this.acknoldgmentMsg = "Hostel added successfully."+obj.id;
+            //this.acknoldgmentMsg = "Hostel added successfully."+obj.id;
+            this.alertMessage.showSuccessMsg( this.nIDOSMessages.HostelCreationSuccess + obj.id ); 
+
               
           },  
           err => {  
-            this.acknoldgmentMsg = "Hostel addition failed ."+err;
-            alert(this.acknoldgmentMsg );  
+            this.alertMessage.showFailedMsg( this.nIDOSMessages.HostelCreationFailed + err.message );
           });
     
     // this.hostel.array.forEach(e => {

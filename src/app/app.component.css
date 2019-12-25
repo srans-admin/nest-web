@@ -11,6 +11,7 @@
     border-radius: 3rem;
     cursor: pointer;
     padding: 7px;
+    margin-right: 8px;
 }
 .header-card:hover{
     color:green;
@@ -20,5 +21,8 @@
    position: absolute;
    right: 10px; 
    display: inline-flex;
+}
+.navbar{
+    border-radius: 0px !important;
 }
  

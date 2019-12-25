@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  appUrl: 'http://localhost:8080/nest-server',
+  clientId: 'foo',
+  clientSecret: 'bar',
+  uaaURL: 'http://localhost:9090/uaa-server/oauth/token'
 };
 
 /*
