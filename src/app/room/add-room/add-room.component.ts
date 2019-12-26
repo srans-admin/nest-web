@@ -20,7 +20,7 @@ export class AddRoomComponent implements OnInit {
   submitted = false;
   rooms: Array<Room> = [];
   numOfRooms: number = 1; 
-  roomRent: number;
+  roomRent: number = 2000;
   roomNumbers : string = "";
   roomType: string = "Single";
   bedNo: string;
