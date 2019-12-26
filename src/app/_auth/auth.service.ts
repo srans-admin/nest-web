@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { User } from '../_models/User';
-import { UserService } from '../_services/user.service';
+import { BehaviorSubject, Observable } from 'rxjs'; 
+import { User } from '../_models/User'; 
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../environments/environment';
 
@@ -22,8 +20,7 @@ export class AuthenticationService {
     private currentLoginSubject: BehaviorSubject<Boolean>;
     public currentLogin: Observable<Boolean>;
 
-    constructor(private _http: HttpClient,
-        private userService: UserService,
+    constructor(private _http: HttpClient, 
         private cookieService: CookieService
         ) {  
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -55,26 +52,23 @@ export class AuthenticationService {
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');
         this.cookieService.delete('access_token'); 
+        this.cookieService.delete('userinfo'); 
         this.currentUserSubject.next(null);
     } 
 
-    setAccessToken(tokenInfo){ 
-
+    setAccessToken(tokenInfo){  
         localStorage.setItem('currentUser', JSON.stringify(tokenInfo)); 
         console.log('Got access token : '+tokenInfo);
         this.currentUserSubject.next( tokenInfo );
 
         var expireDate = new Date().getTime() + (1000 * tokenInfo.expires_in);
-        this.cookieService.set("access_token", tokenInfo.access_token, expireDate); 
-
-        this.userService.getUserDetails(this.userName).subscribe(
-            data => {  
-                this.cookieService.set('userinfo', JSON.stringify(data) );
-            },
-            error => { 
-                alert('Unable to get User Info : '+error.error.error_description); 
-            });  
+        this.cookieService.set("access_token", tokenInfo.access_token, expireDate);  
     } 
+
+
+    saveUserDetails(user){
+        this.cookieService.set('userinfo', JSON.stringify(user) );
+    }
 
     getLoggedInUserDetails() : User {
         return JSON.parse(this.cookieService.get('userinfo'))
