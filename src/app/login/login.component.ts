@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../_auth/auth.service';
+import { UserService } from '../_services/user.service';
+import { AlertMessage } from '../_alerts/alert.message';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +21,8 @@ export class LoginComponent implements OnInit {
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
+      private userService: UserService,
+      private alertMessage: AlertMessage,
       private authenticationService: AuthenticationService 
   ) {
       // redirect to home if already logged in
@@ -29,8 +33,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       this.loginForm = this.formBuilder.group({
-          username: ['test2', Validators.required],
-          password: ['test2', Validators.required]
+          username: ['superadmin', Validators.required],
+          password: ['superadmin', Validators.required]
       });
 
       // get return url from route parameters or default to '/'
@@ -52,13 +56,23 @@ export class LoginComponent implements OnInit {
        this.authenticationService.login(this.f.username.value, this.f.password.value) 
            .subscribe(
                data => { 
-                 console.log('Login Success: '+data);
+                   console.log('Login Success: '+data);
                    this.authenticationService.setAccessToken(data);
+
+                   //TODO Need to get User Details on successfull login and from UAA server
+                   this.userService.getUserDetails(this.f.username.value).subscribe(
+                    data => {  
+                        this.authenticationService.saveUserDetails(data);
+                    },
+                    error => { 
+                        this.alertMessage.showFailedMsg('Unable to get User Info : '+error.error.error_description); 
+                    });
+
                    this.router.navigate([this.returnUrl]);
                    //this.router.navigate(['/']);
                },
                error => { 
-                alert('Invalid Credentials : '+error.error.error_description); 
+                this.alertMessage.showFailedMsg('Invalid Credentials : '+error.error.error_description); 
                 this.loading = false;
                });
                

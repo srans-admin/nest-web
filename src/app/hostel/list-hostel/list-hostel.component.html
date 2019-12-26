@@ -10,7 +10,7 @@
     <input type="text" class="form-control" placeholder="Search here" [(ngModel)]="searchTerm" >
 </div><br/>
 <div class="hostels-list">
-    <div *ngFor="let hostel of hostels | async | hostelFilter:searchTerm " >
+    <div *ngFor="let hostel of hostels  | hostelFilter:searchTerm " >
         <div class="hostel" (click)="hostelDetails(hostel.id)" >
             <div class="hostel-image"> 
                 <!-- <img src="{{ facadeImage(hostel.id)}}" alt="No Image" /> -->
