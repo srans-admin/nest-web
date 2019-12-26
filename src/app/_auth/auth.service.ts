@@ -81,14 +81,15 @@ export class AuthenticationService {
     } 
 
     getHttpHeaders()  {
-        var headers = new HttpHeaders(
+        let  headers = new HttpHeaders(
             {
-                'Content-type': 'application/x-www-form-urlencoded; charset=utf-8', 
+                'Content-type': 'application/json; charset=utf-8', 
                 'Authorization': 'Bearer '+this.cookieService.get('access_token')
             });
+            
         return { headers: headers }; 
       } 
-      
+
     public get isUserLoggedIn(): Boolean {
       return  this.currentLoginSubject.value;
     }

@@ -22,7 +22,7 @@ export class HostelService {
   }
 
   createHostel(hostel: Object): Observable<Object>{
-    return this.http.post(`${this.baseUrl}`, hostel, this.authenticationService.getHttpHeaders());
+    return this.http.post(`${this.baseUrl}`, hostel, this.authenticationService.getHttpHeaders() );
   }  
 
   putHostel(id: number, value: any): Observable<Object> {

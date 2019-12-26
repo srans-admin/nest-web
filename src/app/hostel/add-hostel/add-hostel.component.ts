@@ -163,8 +163,7 @@ export class AddHostelComponent implements OnInit {
     this.router.navigate(['/hostels']);
   }
 
-  populateFloors(){ 
-    debugger;
+  populateFloors(){  
     this.tempFloors = [];
     for (let i = 1; i <=  this.hostel.numOfFloors; i++) {
       this.tempFloors.push(this.hostel.numOfFloors[i]);
@@ -177,7 +176,8 @@ export class AddHostelComponent implements OnInit {
   addRoomDailog(floorName: any): void {
 
     const dialogRef = this.dialog.open(AddRoomComponent, {
-      width: '30%',
+      width: '50%',
+      height:'90%',
       data: {
        hostel :  this.hostel,
        floorName : floorName
