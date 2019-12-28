@@ -67,18 +67,20 @@ import { ComplaintDetailsComponent } from './complaint/complaint-details/complai
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
 import { HostelFilterPipe } from './hostel/hostel-filter.pipe';
+import { UserFilterPipe } from './user/user-filter.pipe';
 import { ChartsModule } from 'ng2-charts';
 import { FloorViewComponent } from './hostel/floor-view/floor.view.component';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { DashboardSuperadminComponent } from './dashboard-superadmin/dashboard-superadmin.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { CookieService } from 'ngx-cookie-service';
 // import { Ng2CarouselamosModule } from 'ng2-carouselamos';
-// import { LoginComponent } from './login/login.component';
+
 
 // import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 // import { FormUploadComponent } from './upload/form-upload/form-upload.component';
@@ -91,6 +93,7 @@ import { CookieService } from 'ngx-cookie-service';
 
     HomeComponent,
     LoginComponent,
+    RegistrationComponent,
 
     DashboardSuperadminComponent,
     DashboardAdminComponent,
@@ -141,6 +144,7 @@ import { CookieService } from 'ngx-cookie-service';
     CreateInvoiceComponent,
     InvoiceListComponent,
     HostelFilterPipe,
+    UserFilterPipe,
 
     CreatePaymentComponent,
     PaymentListComponent,
@@ -149,7 +153,7 @@ import { CookieService } from 'ngx-cookie-service';
     ComplaintListComponent,
     UpdateComplaintComponent,
     ComplaintDetailsComponent
-    // LoginComponent,
+    
     // DetailsUploadComponent,
     // FormUploadComponent,
     // ListUploadComponent

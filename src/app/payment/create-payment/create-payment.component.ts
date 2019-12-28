@@ -3,6 +3,10 @@ import { PaymentService } from '../../_services/payment.service';
 import { Payment } from '../../_models/payment';
 import { Room } from '../../_models/room';
 import { Router } from '@angular/router';
+import { User } from '../../_models/User';
+import { UserService } from '../../_services/user.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-payment',
@@ -12,9 +16,13 @@ import { Router } from '@angular/router';
 export class CreatePaymentComponent implements OnInit {
 
   room: Room = new Room();
+  user: Observable<User[]>;
+  users: User = new User();
 
   constructor(private paymentService: PaymentService,
-    private router: Router) { }
+    private router: Router, 
+    private userService: UserService,
+    private httpClient: HttpClient) { }
 
     payment: Payment = new Payment();
     submitted = false;

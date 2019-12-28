@@ -22,7 +22,7 @@ export class UserService {
   }
 
   getUserDetails(name: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${name}`, this.authenticationService.getHttpHeaders());
+    return this.http.get(`${this.baseUrl}/byname/${name}`, this.authenticationService.getHttpHeaders());
   }
 
   createUser(user: Object): Observable<Object> {

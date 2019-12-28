@@ -48,11 +48,13 @@ import { UpdateComplaintComponent } from './complaint/update-complaint/update-co
 import { ComplaintDetailsComponent } from './complaint/complaint-details/complaint-details.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistrationComponent },
   //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'roles', component: RoleListComponent, canActivate: [AuthGuard] },
   { path: 'roles/add', component: CreateRoleComponent },
