@@ -15,6 +15,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
+import { MatDialog } from '@angular/material/dialog';
+import { BanktransferComponent } from 'src/app/payment/banktransfer/banktransfer.component';
 
 @Component({
   selector: 'app-create-user',
@@ -33,6 +35,7 @@ export class CreateUserComponent implements OnInit {
   totalRooms: Number=1; 
   floor: Floor = new Floor();
   room: Room = new Room();
+  payment: Payment = new Payment();
   acknoldgmentMsg: string = "";
   tempFloors: []; 
   selectedHostel : Hostel; 
@@ -47,6 +50,7 @@ export class CreateUserComponent implements OnInit {
     private router: Router,
       private hostelService: HostelService,
       private httpClient: HttpClient,
+      public dialog: MatDialog,
       private alertMessage: AlertMessage,
       private nIDOSMessages: NIDOSMessages
       ) { }
@@ -169,5 +173,20 @@ setTenantBooking(){
 
 }
  
+addTransfer(){
+
+  const dialogRef = this.dialog.open(BanktransferComponent, {
+  width: '40%',
+  height: '40%',
+  data: {
+  }
+  });
+  
+  dialogRef.afterClosed().subscribe(result => {
+  console.log('The dialog was closed');
+  });
+  
+  
+  }
 
 }

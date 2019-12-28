@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentService } from '../../_services/payment.service';
 import { Payment } from '../../_models/payment';
 import { Room } from '../../_models/room';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../_models/User';
 import { UserService } from '../../_services/user.service';
 import { Observable } from 'rxjs';
@@ -20,7 +20,8 @@ export class CreatePaymentComponent implements OnInit {
   users: User = new User();
 
   constructor(private paymentService: PaymentService,
-    private router: Router, 
+    private router: Router,
+    private route: ActivatedRoute, 
     private userService: UserService,
     private httpClient: HttpClient) { }
 
@@ -40,6 +41,14 @@ export class CreatePaymentComponent implements OnInit {
       .subscribe(data => console.log(data), error => console.log(error));
     this.payment = new Payment();
     this.gotoList();
+  }
+
+  populateUser(userId : number){
+  
+    this.userService.getUser(userId).subscribe(      
+      err =>{
+        console.log('FAILED:: '+err);
+      }); 
   }
 
   onSubmit() {
