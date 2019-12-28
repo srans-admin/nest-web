@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../_services/user.service';
 import { User } from '../../_models/User';
-import { TenantBooking } from '../../_models/tenant-booking';
-import { Hostel } from '../../_models/hostel';
-import { Floor } from '../../_models/floor';
-import { Room } from '../../_models/room';
-import { Invoice } from '../../_models/invoice';
-import { Payment } from '../../_models/payment';
+import { TenantBooking } from '../../_models/TenantBooking';
+import { Hostel } from '../../_models/Hostel';
+import { Floor } from '../../_models/Floor';
+import { Room } from '../../_models/Room';
+import { Invoice } from '../../_models/Invoice';
+import { Payment } from '../../_models/Payment';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HostelService } from '../../_services/hostel.service';
 import { Observable } from 'rxjs';
@@ -64,7 +64,7 @@ export class CreateUserComponent implements OnInit {
             //Upload UserPic as Image 
             this.uploadImage(this.userImage, 'userpic', obj.userId ); 
 
-            //Upload ID Proof as Image
+            //Upload ID Proofas Image
             this.uploadImage(this.idproofImage, 'idproofImage', obj.userid );  
             this.alertMessage.showSuccessMsg( this.nIDOSMessages.TenantCreationSuccess + obj.userId );  
             this.gotoList();

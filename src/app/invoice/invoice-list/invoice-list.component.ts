@@ -1,9 +1,11 @@
 // import { InvoiceDetailsComponent } from './../invoice-details/invoice-details.component';
 import { Observable } from "rxjs";
 import { InvoiceService } from '../../_services/invoice.service';
-import { Invoice } from "../../_models/invoice";
+import { Invoice } from "../../_models/Invoice";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+import { UserService } from '../../_services/user.service';
+import { User, TmpUsr } from "../../_models/User";
 
 @Component({
   selector: 'app-invoice-list',
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./invoice-list.component.css']
 })
 export class InvoiceListComponent implements OnInit {
-  invoices: Observable<Invoice[]>;
+        invoices: Observable<Invoice[]>;
 
   constructor(private invoiceService: InvoiceService,
     private router: Router) {}

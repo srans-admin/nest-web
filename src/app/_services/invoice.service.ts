@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ import { environment } from '../../environments/environment';
 export class InvoiceService {
   
 
-  private baseUrl = environment.appUrl+'/api/v1/invoice';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/invoice';
   constructor(private http: HttpClient) { }
 
   getInvoice(id: number): Observable<any> {

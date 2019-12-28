@@ -5,8 +5,6 @@ import { User, TmpUsr } from "../../_models/User";
 import { Component, OnInit, HostListener } from "@angular/core";
 import { Router } from '@angular/router';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { AlertMessage } from 'src/app/_alerts/alert.message';
-import { NIDOSMessages } from 'src/app/_messages/message_eng';
 // import {  MatFormField } from '@angular/material';
 // import {MatSnackBar} from '@angular/material';
 
@@ -21,12 +19,9 @@ export class UserListComponent implements OnInit {
   //userImages = new Map(); 
   userImages: Array<TmpUsr> = [];
   acknoldgmentMsg : string = null;
-  searchTerm: string;
 
   constructor(private userService: UserService,
-    private router: Router,private matcheckbox: MatCheckboxModule, 
-    private alertMessage: AlertMessage,
-    private nIDOSMessages: NIDOSMessages,
+    private router: Router,private matcheckbox: MatCheckboxModule
     // private formfield: MatFormField,
     // private snackBar:MatSnackBar
     ) { }
@@ -35,29 +30,25 @@ export class UserListComponent implements OnInit {
     this.reloadData();
   }
 
-  reloadData() { 
-
-    this.userService.getUsersList().subscribe(res => { 
-      this.users = res; 
-      this.users.forEach(elements => { 
-        for( let element of elements){
-        this.userService.retriveFile('userpic',  element.userId) 
-          .subscribe(data => { 
-              this.createImageFromBlob(element.userId, data); 
-            },  
-            err => {  
-              this.acknoldgmentMsg = "Tenant Image Retrival failed ."+err;
-              console.log(this.acknoldgmentMsg );  
-            });
-          }
-          });
-          //console.log('this.userImages: '+this.userImages);
-
-    },err =>{ 
-        this.alertMessage.showHttpMessage(err);
-    }); 
+  reloadData() {
+    this.users = this.userService.getUsersList();
    
-    
+    this.users.forEach(elements => { 
+    for( let element of elements){
+    this.userService.retriveFile('userpic',  element.userId) 
+      .subscribe(data => {
+       
+          this.createImageFromBlob(element.userId, data);
+         
+        },  
+        err => {  
+          this.acknoldgmentMsg = "Tenant addition failed ."+err;
+          console.log(this.acknoldgmentMsg );  
+        });
+      }
+      }); 
+
+      console.log('this.userImages: '+this.userImages);
   } 
 
   createImageFromBlob(userId: any, image: Blob) {
@@ -126,16 +117,6 @@ onclick = function(event) {
             }
         }
     }
-}
-
-payment(id :number){
-this.userService.getUser(id)
-.subscribe(
-  data => {
-    console.log(data);
-    this.reloadData();
-  },
-  error => console.log(error));
 }
 
 }

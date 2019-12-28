@@ -9,7 +9,7 @@ import { Room } from '../../_models/room';
 
 import { CreateUserComponent } from 'src/app/user/create-user/create-user.component';
 import { Bed } from 'src/app/_models/Bed'; 
-import { Floor } from '../../_models/floor';
+import { Floor } from '../../_models/Floor';
 
 @Component({
   selector: 'floor-view',
@@ -66,4 +66,3 @@ export class FloorViewComponent implements OnInit {
   }
   
 
-  

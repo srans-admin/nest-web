@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoomService } from '../../_services/room.service';
-import { Room } from '../../_models/room';
+import { Room } from '../../_models/Room';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

@@ -129,4 +129,8 @@
 
 .show {display:block;}
 
+a:hover {
+  background-color: None;
+}
+
 /* end of 3 dots option styling  */

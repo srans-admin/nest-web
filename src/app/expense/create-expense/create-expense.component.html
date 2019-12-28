@@ -1,29 +1,56 @@
-<h5>Create Expense</h5>
+<!--<div style = "position:right; left:30px; top:20px; background-color:white;">-->
+<!--<button mat-button (click)="close()">-->
+        <!--<i class="fa fa-window-close" aria-hidden="true"></i>-->
+<!--</button>-->
+<!--</div>-->
+
+<h4><span class="glyphicon glyphicon-credit-card"></span> Create Expense</h4>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label><span class="glyphicon glyphicon-home"></span> Choose Hostel </label>
+        <select class="browser-default custom-select" [(ngModel)]="expense.hostelId"
+          name="sel2">
+          <option value="">--select--</option>
+          <option *ngFor="let hostel of hostels | async" [value]="hostel.id" name="id">
+            {{hostel.hostelName}}
+          </option>
+        </select>
+      </div>
+
      <div class="form-group">
-      <label for="name">Type of Expense</label>
-      <!--<input type="text" class="form-control" id="typeOfExpenses" required [(ngModel)]="expense.typeOfExpenses" name="typeOfExpenses">-->
-       <select id="typeOfExpenses" class="form-control" [(ngModel)]="expense.typeOfExpenses" name="typeOfExpenses">
-          <option >Grocery</option>
-          <option >Staff Salary</option>
-          <option >vegetables</option>
-         <option >Furniture Bill</option>
-          <option >Internet Bill</option>
+      <label> <span class="glyphicon glyphicon-envelope"></span>Type of Expense</label>
+       <select  class="browser-default custom-select" id="expenseType" [(ngModel)]="expense.expenseType" name="sel">
+         <option *ngFor="let category of categories | async" [value]="category.id" name="id" >
+          {{category.name}}
+        </option>
       </select>
+           <!--<a routerLink="categorys/add"  class="btn btn-info " ><i class="fa fa-plus"></i></a>-->
+           <a  class="btn btn-info " (click)="addCategory()"> <span class="glyphicon glyphicon-plus"></span>Add  </a>
     </div>
 
     <div class="form-group">
-      <label for="name">Cost</label>
-      <input type="text" class="form-control" id="cost" required [(ngModel)]="expense.cost" name="cost">
+      <label ><span class="glyphicon glyphicon-credit-card"></span>Amount</label>
+      <input type="text" class="form-control" id="amount" required [(ngModel)]="expense.amount" name="amount">
     </div>
 
 
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-</div>
 
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newHostel()">Add</button> -->
+
+     <!--<div class="form-group">-->
+            <!--<label for="name">-->
+              <!--&lt;!&ndash; <div class="input-group-prepend"> &ndash;&gt;-->
+              <!--<span class="glyphicon glyphicon-calendar"></span> Date:</label>-->
+            <!--&lt;!&ndash; </div> &ndash;&gt;-->
+            <!--<span class="date-picker">-->
+            <!--<input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  >-->
+             <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+             <!--<mat-datepicker #picker></mat-datepicker>-->
+            <!--</span>-->
+        <!--</div>-->
+
+    <button type="submit" class="btn btn-success">Submit</button>
+    <!--<button mat-button  type="submit" class="btn btn-danger" (click)="onClose()">close</button>-->
+  </form>
 </div>

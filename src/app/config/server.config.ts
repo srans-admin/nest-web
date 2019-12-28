@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerConfig {
 
-    private serverUrl = environment.appUrl+'';
+    private serverUrl = 'http://localhost:8080/nest-server';
 
     getServerURL(){
         return this.serverUrl;

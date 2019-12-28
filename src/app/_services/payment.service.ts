@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -9,9 +8,9 @@ import { environment } from '../../environments/environment';
 })
 export class PaymentService {
 
-  private baseUrl = environment.appUrl+'/api/v1/payment';
-  private roomType = environment.appUrl+'/api/v1/payment/hostels/{id}/roomdetail';
-  private roomRent = environment.appUrl+'/api/v1/payment/hostels/{id}/roomdetail';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/payments';
+  private roomType = 'http://localhost:8080/nest-server/api/v1/payment/hostels/{id}/roomdetail';
+  private roomRent = 'http://localhost:8080/nest-server/api/v1/payment/hostels/{id}/roomdetail';
   
   constructor(private http: HttpClient) { }
 

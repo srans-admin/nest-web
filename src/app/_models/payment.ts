@@ -1,7 +1,7 @@
 
 export class Payment{
     date:Date = new Date();
-    // name:string;
+    name:string;
     // roomName:string;
     // roomType:string;
     paymentThrough:string;

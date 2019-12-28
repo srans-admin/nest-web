@@ -1,9 +1,11 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Hostel } from '../../_models/hostel';
+import { Hostel } from '../../_models/Hostel';
 import { HostelService } from '../../_services/hostel.service';
-import { Room } from 'src/app/_models/room';
+import { Room } from 'src/app/_models/Room';
 import { Observable } from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { CreateExpenseComponent } from 'src/app/expense/create-expense/create-expense.component';
 
 @Component({
   selector: 'app-view',
@@ -50,9 +52,10 @@ export class ViewComponent implements OnInit {
   
   //isImageLoading: boolean = true; 
 
-  constructor(private hostelService:HostelService, 
-              private route: ActivatedRoute, 
-              private router: Router) { }
+  constructor(private hostelService:HostelService,
+              private route: ActivatedRoute,
+              private router: Router,
+              private dialog:MatDialog) { }
 
   ngOnInit() {
     this.hostel = new Hostel(); 
@@ -239,7 +242,11 @@ createImageFromBlobMisc(image: Blob) {
     }
   } 
   
-  
+onAdd(){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.width = "35",
+  this.dialog.open(CreateExpenseComponent,dialogConfig);
+}
 
 
 }

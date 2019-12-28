@@ -12,13 +12,6 @@ export class AlertMessage {
     this.toastr.success(message);
   }
 
-  showHttpMessage(err){
-    let errMsg = (err.url)? 'URL : '+err.url : '';
-        errMsg+= (err.ok)? '\nOK : '+err.ok : '';
-        errMsg+= (err.error)? '\nMessage : '+err.error.message: '';
-    this.toastr.error(errMsg);
-  }
-
   showFailedMsg(message){
     this.toastr.error(message);
   }
@@ -28,7 +21,7 @@ export class AlertMessage {
   }
 
 
-  showHTMLMessage(title, message ){
+  showHTMLMessage(message, title){
 	this.toastr.success(message, title, {
 		enableHtml :  true
 	})

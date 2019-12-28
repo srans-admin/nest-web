@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http'; 
-import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { ServerConfig } from '../config/server.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
- 
-  private baseUrl = environment.appUrl + +'/api/v1/hostels'; 
-  private extendedViewUrl = environment.appUrl + + '/api/v1/hostels/{id}/extendingviews';
+
+  serverConfig: ServerConfig = new ServerConfig();
+  private baseUrl = this.serverConfig.getServerURL() +'/api/v1/hostels';
+  // private baseUrl = 'http://localhost:8080/nest-server/api/v1/roms';
+  private extendedViewUrl = this.serverConfig.getServerURL() + '/api/v1/hostels/{id}/extendingviews';
 
   constructor(private http: HttpClient) { }
 

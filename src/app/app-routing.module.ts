@@ -42,36 +42,29 @@ import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.
 import { CreatePaymentComponent } from './payment/create-payment/create-payment.component';
 import { PaymentListComponent } from './payment/payment-list/payment-list.component';
 
-import { AddComplaintComponent } from './complaint/add-complaint/add-complaint.component';
-import { ComplaintListComponent } from './complaint/complaint-list/complaint-list.component';
-import { UpdateComplaintComponent } from './complaint/update-complaint/update-complaint.component';
-import { ComplaintDetailsComponent } from './complaint/complaint-details/complaint-details.component';
-import { AuthGuard } from './_auth/auth.guard';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { HomeComponent } from './home/home.component';
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import { CategoryDetailsComponent } from './category/category-details/category-details.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { UpdateCategoryComponent } from './category/update-category/update-category.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistrationComponent },
-  //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },
-  { path: 'roles', component: RoleListComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: 'hostels', pathMatch: 'full' },
+  { path: 'roles', component: RoleListComponent },
   { path: 'roles/add', component: CreateRoleComponent },
   { path: 'rupdate/:id', component: UpdateRoleComponent },
   { path: 'rdetails/:id', component: RoleDetailsComponent },
 
-  { path: 'management', component: ManagementListComponent, canActivate: [AuthGuard] },
+  { path: 'management', component: ManagementListComponent },
   { path: 'management/add', component: CreateManagementComponent },
   { path: 'mupdate/:id', component: UpdateManagementComponent },
   { path: 'mdetails/:id', component: ManagementDetailsComponent },
 
-  { path: 'expenses', component: ExpenseListComponent, canActivate: [AuthGuard] },
+  { path: 'expenses', component: ExpenseListComponent },
   { path: 'expenses/add', component: CreateExpenseComponent },
   { path: 'eupdate/:id', component: UpdateExpenseComponent },
   { path: 'edetails/:id', component: ExpenseDetailsComponent },
 
-  { path: 'hostels', component: ListHostelComponent, canActivate: [AuthGuard] },
+  { path: 'hostels', component: ListHostelComponent},
   { path: 'hostels/viewtabs', component: AddHostelComponent},
   { path: 'hostels/addFloor/rooms', component: AddRoomComponent},
   { path: 'update/:id', component: EditHostelComponent },
@@ -82,7 +75,7 @@ const routes: Routes = [
 
   { path: 'roms', component: ListRoomComponent},
 
-  { path: 'user', component: UserListComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserListComponent },
   { path: 'user/add', component: CreateUserComponent },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
@@ -90,19 +83,16 @@ const routes: Routes = [
   { path: 'doughnut-chart', component: DoughnutChartComponent },
   { path: 'bar-chart', component: BarChartComponent },
 
-  { path: 'invoice', component: InvoiceListComponent, canActivate: [AuthGuard] },
+  { path: 'invoice', component: InvoiceListComponent },
   { path: 'invoice/add', component: CreateInvoiceComponent},
 
-  { path: 'payment', component: PaymentListComponent, canActivate: [AuthGuard] },
+  { path: 'payment', component: PaymentListComponent },
   { path: 'payment/add', component: CreatePaymentComponent},
 
-  { path: 'complaint', component: ComplaintListComponent, canActivate: [AuthGuard]},
-  { path: 'complaint/add', component: AddComplaintComponent},
-  { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
-  { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
-
-  // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+   { path: 'categorys', component: CategoryListComponent },
+  { path: 'categorys/add', component: CreateCategoryComponent },
+  { path: 'cupdate/:id', component: UpdateCategoryComponent },
+  { path: 'cdetails/:id', component: CategoryDetailsComponent },
 
 ];
 
