@@ -1,4 +1,5 @@
 export class Category{
-    id:number;
-   expenseType:string;
+   id: number;
+   name: string;
+   description: string;
 }
