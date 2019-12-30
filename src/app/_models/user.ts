@@ -3,7 +3,7 @@ import { Payment } from './payment';
 
 //  import { Hostel } from './hostel';
 
-export class User{
+export class User {
   userId: number;
   userpic: File;
   name: string;
