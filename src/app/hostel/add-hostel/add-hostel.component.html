@@ -13,7 +13,7 @@
                 <input type="text" class="form-control " id="hostelName" [(ngModel)]="hostel.hostelName"
                     name="hostelName">
 
-                <label><span class="glyphicon glyphicon-user"></span> Hostel Address</label>
+                <label><span class="glyphicon glyphicon-map-marker"></span> Hostel Address</label>
                 <input type="text" class="form-control " id="hostelAddress" [(ngModel)]="hostel.hostelAddress"
                     name="hostelAddress">
 
@@ -21,7 +21,7 @@
                 <input type="text" class="form-control " id="hostelType" [(ngModel)]="hostel.hostelType"
                     name="hostelType">
 
-                <label><span class="glyphicon glyphicon-cog"></span> Number of Floors</label>
+                <label><span class="glyphicon glyphicon-th-large"></span> Number of Floors</label>
                 <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
                     (ngModelChange)="populateFloors($event)" name="numOfFloors" >
 
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="room-box">
-                    <div class="room-box-header"> <span class="glyphicon glyphicon-tags"></span> Single Rooms </div>
+                    <div class="room-box-header"> <span class="glyphicon glyphicon-stop"></span> Single Rooms </div>
                     <span *ngFor="let room of getRoomsWithType(floor,'Single')">
 
                             <span class="sub-room-box">
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="room-box">
-                    <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> Double Rooms </div>
+                    <div class="room-box-header"> <span class="glyphicon glyphicon-th-large"></span> Double Rooms </div>
                       
                     <span *ngFor="let room of getRoomsWithType(floor,'Double')">
 
@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="room-box">
-                    <div class="room-box-header"><span class="glyphicon glyphicon-tasks"></span> Triple Rooms </div>
+                    <div class="room-box-header"><span class="glyphicon glyphicon-th"></span> Triple Rooms </div>
                     <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
 
                             <span class="sub-room-box">
@@ -115,7 +115,7 @@
                     </span>
                 </div>
 
-                <div class="room-box">
+                <!-- <div class="room-box">
                     <div class="room-box-header"><span class="glyphicon glyphicon-home"></span> Misc </div>
                     <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
 
@@ -133,103 +133,47 @@
                                     </span>
                             </span>
                     </span>
-                </div>
+                </div> -->
             </div>
 
         </mat-tab>
         <mat-tab label="Amenities">
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" name="tv" [(ngModel)]="hostel.tv" >
-                <label><span class="glyphicon glyphicon-asterisk"></span>
+                <input type="checkbox" name="tv" class="largerCheckbox" [(ngModel)]="hostel.tv" >
+                <label><span class="glyphicon glyphicon-facetime-video"></span>
                     TV</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" name="fridge" [(ngModel)]="hostel.fridge" >
-                <label ><span class="glyphicon glyphicon-lock"></span>
+                <input type="checkbox" name="fridge" class="largerCheckbox" [(ngModel)]="hostel.fridge" >
+                <label ><span class="glyphicon glyphicon-cutlery"></span>
                     Fridge</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" name="ac" [(ngModel)]="hostel.ac" >
+                <input type="checkbox" name="ac" class="largerCheckbox" [(ngModel)]="hostel.ac" >
                 <label ><span class="glyphicon glyphicon-star"></span>
                     AC</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" name="mineralWater" [(ngModel)]="hostel.mineralWater" >
-                <label ><span class="glyphicon glyphicon-off"></span>
+                <input type="checkbox" name="mineralWater" class="largerCheckbox" [(ngModel)]="hostel.mineralWater" >
+                <label ><span class="glyphicon glyphicon-tint"></span>
                     Mineral Water</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" name="parking" [(ngModel)]="hostel.parking" >
-                <label ><span class="glyphicon glyphicon-home"></span>
+                <input type="checkbox" name="parking" class="largerCheckbox" [(ngModel)]="hostel.parking" >
+                <label ><span class="glyphicon glyphicon-dashboard"></span>
                     Parking</label>
             </div>
 
             <div class="custom-control custom-switch">
-                <input type="checkbox" name="gym" [(ngModel)]="hostel.gym" >
-                <label ><span class="glyphicon glyphicon-flag"></span>
+                <input type="checkbox" name="gym" class="largerCheckbox" [(ngModel)]="hostel.gym">
+                <label><span class="glyphicon glyphicon-compressed"></span>
                     GYM</label>
             </div>
-
-            <!-- this is i tried -->
-            <!-- <div class="custom-control custom-switch" *ngFor = "let item of amenitiesData"  >
-                <input type="checkbox"  [(ngModel)] = "item.name" [checked]='isSelected(item)'/>
-                    {{item.name}}
-                     [(ngModel)]="switch2.Checked" value="{{hostel.switch2}}"
-                [attr.disabled]="hostel.switch2==1 ? true : null" 
-            </div> -->
-
-
-            <!-- <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch2">                 
-                <label class="custom-control-label" for="switch2"><span class="glyphicon glyphicon-lock"></span>
-                    Fridge</label>
-            </div>
-
-            <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch3" >
-                <label class="custom-control-label" for="switch3"><span class="glyphicon glyphicon-star"></span>
-                    AC</label>
-            </div>
-
-            <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch4" >
-                <label class="custom-control-label" for="switch4"><span class="glyphicon glyphicon-off"></span> Mineral
-                    Water</label>
-            </div>
-
-            <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch5" >
-                <label class="custom-control-label" for="switch5"><span class="glyphicon glyphicon-home"></span>
-                    Parking</label>
-            </div>
-
-            <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="switch6" >
-                <label class="custom-control-label" for="switch6"><span class="glyphicon glyphicon-flag"></span>
-                    Gym</label>
-            </div> -->
-
-             <!-- <div formArrayName="amenities" *ngFor="let amenity of form.controls.amenities.controls; let i = index">
-                <input type="checkbox" [formControlName]="i">
-                {{amenitiesData[i].name}}
-            </div> -->
-
-            <!-- <div mat-app-brackground class="custom-control custom-switch">
-                  <div *ngFor="let amenity of amenityData; let i=index">
-                    <mat-checkbox 
-                      [checked]="amenity.checked"
-                       name="amenity.name" 
-                     (change)='showOptions(amenity)'
-                    >
-                        {{amenity.name }}
-                    </mat-checkbox>                        
-                  </div>    
-            </div> -->             
 
         </mat-tab>
 

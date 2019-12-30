@@ -21,7 +21,6 @@ export class UserListComponent implements OnInit {
   //userImages = new Map(); 
   userImages: Array<TmpUsr> = [];
   acknoldgmentMsg : string = null;
-  searchTerm: string;
 
   constructor(private userService: UserService,
     private router: Router,private matcheckbox: MatCheckboxModule, 
@@ -126,16 +125,6 @@ onclick = function(event) {
             }
         }
     }
-}
-
-payment(id :number){
-this.userService.getUser(id)
-.subscribe(
-  data => {
-    console.log(data);
-    this.reloadData();
-  },
-  error => console.log(error));
 }
 
 }

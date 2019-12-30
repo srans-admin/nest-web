@@ -1,7 +1,7 @@
 
 export class Payment{
     date:Date = new Date();
-    // name:string;
+    name:string;
     // roomName:string;
     // roomType:string;
     paymentThrough:string;
@@ -9,5 +9,6 @@ export class Payment{
     bankName:string;
     // roomRent:number;
     depositAmount:number;
-    
+    maintenanceCharges: string;
+    breakageCharges: string;
 }

@@ -48,13 +48,12 @@ import { UpdateComplaintComponent } from './complaint/update-complaint/update-co
 import { ComplaintDetailsComponent } from './complaint/complaint-details/complaint-details.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
+import { FilterPaymentComponent } from './filter-payment/filter-payment.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistrationComponent },
   //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'roles', component: RoleListComponent, canActivate: [AuthGuard] },
   { path: 'roles/add', component: CreateRoleComponent },
@@ -100,7 +99,8 @@ const routes: Routes = [
   { path: 'complaint/add', component: AddComplaintComponent},
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
   { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
-
+  { path: 'card', component: AddFloorComponent},
+  // { path: 'showpayments', component: FilterPaymentComponent, canActivate: [AuthGuard]},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 
