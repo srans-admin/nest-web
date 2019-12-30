@@ -41,5 +41,10 @@ export class Hostel {
   }
 
 
+  addFloor( numOfFloor: number){ 
+      this.floors.push(new Floor(""+numOfFloor)); 
+  }
+
+
 }
 

@@ -8,6 +8,7 @@ import { Room } from '../../_models/room';
 import { environment } from '../../../environments/environment';
 import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
+import {MatCardModule} from '@angular/material/card';
  
 
 @Component({

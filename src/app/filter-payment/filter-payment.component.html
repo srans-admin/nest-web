@@ -1,0 +1,28 @@
+<div class="form-control">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Type</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let hostel of hostels | async">
+                <tr>
+                    <td>{{ hostel.hostelName }}</td>
+                    <td>{{ hostel.hostelAddress }}</td>
+                    <td colspan="2">
+                        <ul>
+                            <div *ngFor="let payment of payments |  async">
+                                <td>{{ payment.breakageCharges }}</td>
+                                <td>{{ payment.maintenanceCharges }}</td>
+                            </div>
+                        </ul>
+                    </td>                    
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

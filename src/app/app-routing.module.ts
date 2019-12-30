@@ -49,6 +49,7 @@ import { ComplaintDetailsComponent } from './complaint/complaint-details/complai
 import { AuthGuard } from './_auth/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { FilterPaymentComponent } from './filter-payment/filter-payment.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -98,7 +99,8 @@ const routes: Routes = [
   { path: 'complaint/add', component: AddComplaintComponent},
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
   { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
-
+  { path: 'card', component: AddFloorComponent},
+  // { path: 'showpayments', component: FilterPaymentComponent, canActivate: [AuthGuard]},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 

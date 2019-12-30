@@ -46,41 +46,14 @@ export class AddHostelComponent implements OnInit {
   b2UploadFiles: Array<File>;
   b3UploadFiles: Array<File>;
   miscUploadFiles: Array<File>;
-  // tv: boolean;
-  // fridge: boolean;
-  // ac: boolean;
-  // mineralWater: boolean;
-  // parking: boolean;
-  // gym: boolean;
-
-  // amenities : ['tv', 'fridge', 'ac', 'mineralWater', 'parking', 'gym']
   amenityData = [];
 
   ngOnInit() {
     this.tempFloors = [1];
     this.populateFloors();
-    // this.amenityData=[
-    //                     {id:1,name:'TV',checked:false},
-    //                     {id:2,name:'Fridge', checked:false},
-    //                     {id:3, name:'AC', checked:false},
-    //                     {id:4, name: 'Mineral Water', checked: false},
-    //                     {id:5, name: 'Parking', checked: false},
-    //                     {id:6, name: 'Gym', checked:false}
-    //                   ]
   }
 
-  showOptions(item:any){
-    // debugger;
-       console.log(item);
-    console.log(this.hostel);
-    this.hostel[item.name]=item.checked;
-    sessionStorage.removeItem('selectedhostel');
-    sessionStorage.setItem('selectedhostel', "");
-    this.hostel=JSON.parse(sessionStorage.getItem('selectedhostel'));
-    }  
-
-  newHostel(): void { 
-    // this.tv = true;
+  newHostel(): void {
     this.submitted = false;
     this.hostel = new Hostel();
   }
@@ -139,10 +112,6 @@ export class AddHostelComponent implements OnInit {
           err => {  
             this.alertMessage.showFailedMsg( this.nIDOSMessages.HostelCreationFailed + err.message );
           });
-    
-    // this.hostel.array.forEach(e => {
-    //   console.log();
-    // });
 
     this.hostel = new Hostel();
     this.gotoList();
@@ -186,7 +155,6 @@ export class AddHostelComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-     // this.animal = result;
     }); 
     
   }

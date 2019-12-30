@@ -4,6 +4,11 @@ import { Hostel } from '../../_models/hostel';
 import { HostelService } from '../../_services/hostel.service';
 import { Room } from 'src/app/_models/room';
 import { Observable } from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { FloorViewComponent } from '../floor-view/floor.view.component';
+import { AddHostelComponent } from '../add-hostel/add-hostel.component';
+import { AddFloorRoomComponent } from '../add-floor-room/add-floor-room.component';
+import { Floor } from 'src/app/_models/floor';
 
 @Component({
   selector: 'app-view',
@@ -52,7 +57,8 @@ export class ViewComponent implements OnInit {
 
   constructor(private hostelService:HostelService, 
               private route: ActivatedRoute, 
-              private router: Router) { }
+              private router: Router,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
     this.hostel = new Hostel(); 
@@ -239,7 +245,4 @@ createImageFromBlobMisc(image: Blob) {
     }
   } 
   
-  
-
-
 }

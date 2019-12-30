@@ -77,6 +77,7 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AddFloorRoomComponent } from './hostel/add-floor-room/add-floor-room.component';
 // import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 // import { LoginComponent } from './login/login.component';
 
@@ -148,7 +149,8 @@ import { CookieService } from 'ngx-cookie-service';
     AddComplaintComponent,
     ComplaintListComponent,
     UpdateComplaintComponent,
-    ComplaintDetailsComponent
+    ComplaintDetailsComponent,
+    AddFloorRoomComponent
     // LoginComponent,
     // DetailsUploadComponent,
     // FormUploadComponent,
@@ -170,12 +172,13 @@ import { CookieService } from 'ngx-cookie-service';
     NgbModule,
     MatDatepickerModule,
     MatNativeDateModule, 
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
     // MatFormField
   ],
   providers: [CookieService],  
   // UploadFileService
   bootstrap: [AppComponent],
+  entryComponents: [AddFloorRoomComponent]
 })
 export class AppModule { }
 

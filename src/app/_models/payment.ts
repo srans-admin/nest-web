@@ -9,5 +9,6 @@ export class Payment{
     bankName:string;
     // roomRent:number;
     depositAmount:number;
-    
+    maintenanceCharges: string;
+    breakageCharges: string;
 }
