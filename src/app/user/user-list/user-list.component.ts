@@ -128,14 +128,14 @@ onclick = function(event) {
     }
 }
 
-payment(id :number){
-this.userService.getUser(id)
-.subscribe(
-  data => {
-    console.log(data);
-    this.reloadData();
-  },
-  error => console.log(error));
+payment(users : object){
+// this.userService.getUser(users)
+// .subscribe(
+//   data => {
+//     console.log(data);
+//     this.reloadData();
+//   },
+//   error => console.log(error));
 }
 
 }

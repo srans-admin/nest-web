@@ -21,6 +21,11 @@ export class User{
   emailId: string;
   permanentAddress: string;
   idProofpic: string;
+  userName: string;
+  password: string;
+  conformpassword: string;
+  phoneNumber: number;
+  token: string;
 
   tenantBooking: TenantBooking = new TenantBooking();
   payment: Payment = new Payment();

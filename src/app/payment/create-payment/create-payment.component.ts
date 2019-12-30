@@ -28,6 +28,12 @@ export class CreatePaymentComponent implements OnInit {
     payment: Payment = new Payment();
     submitted = false;
 
+
+
+
+
+
+
   ngOnInit() {
   }
 
@@ -43,13 +49,13 @@ export class CreatePaymentComponent implements OnInit {
     this.gotoList();
   }
 
-  populateUser(userId : number){
+  // populateUser(userId : number){
   
-    this.userService.getUser(userId).subscribe(      
-      err =>{
-        console.log('FAILED:: '+err);
-      }); 
-  }
+  //   this.userService.getUser(userId).subscribe(      
+  //     err =>{
+  //       console.log('FAILED:: '+err);
+  //     }); 
+  // }
 
   onSubmit() {
     this.submitted = true;
