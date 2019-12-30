@@ -1,5 +1,7 @@
 export class Expense{
-    id:number;
-   typeOfExpenses:string;
-   cost:string;
+   id:number;
+   expenseType:string;
+   amount:number;
+      hostelId: number;
+
 }
