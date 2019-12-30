@@ -5,28 +5,29 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ExpenseService {
+export class CategoryService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/expenses';
+ private baseUrl = 'http://localhost:8080/nest-server/api/v1/categories';
+
   constructor(private http: HttpClient) { }
 
-  getExpense(id: number): Observable<any> {
+  getCategory(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createExpense(expense: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, expense);
+  createCategory(category: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, category);
   }
 
-  updateExpense(id: number, value: any): Observable<Object> {
+  updateCategory(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteExpense(id: number): Observable<any> {
+  deleteCategory(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getExpensesList(): Observable<any> {
+  getCategorysList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 }
