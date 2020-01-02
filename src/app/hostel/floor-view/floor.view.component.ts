@@ -40,14 +40,13 @@ export class FloorViewComponent implements OnInit {
     getRoomsWithType(floor: Floor, type: String): Array<Room>{
       let rooms : Array<Room> = [];
   
-      this.totalRooms = floor.rooms.length;
-  
-      //TODO : Need to use map method here
+      this.totalRooms = floor.rooms.length;  
+      
       for( let i=0; i < floor.rooms.length ; i++){ 
         if(floor.rooms[i].roomType == type){
           rooms.push(floor.rooms[i]);
         } 
-      }  
+      }
       return rooms;
   
     }

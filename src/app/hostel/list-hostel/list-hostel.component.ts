@@ -44,7 +44,6 @@ export class ListHostelComponent implements OnInit {
       },err =>{ 
         this.alertMessage.showHttpMessage(err);
       });
-
     }
   
     deleteHostel(id: number) {

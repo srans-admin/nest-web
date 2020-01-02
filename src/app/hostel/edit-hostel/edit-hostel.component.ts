@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hostel } from '../../_models/hostel';
 import { HostelService } from '../../_services/hostel.service';
+import { Room } from 'src/app/_models/Room';
 
 @Component({
   selector: 'app-edit-hostel',
@@ -11,6 +12,7 @@ import { HostelService } from '../../_services/hostel.service';
 export class EditHostelComponent implements OnInit {
   id : number;
   hostel : Hostel;
+  room : Room;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private hostelService: HostelService) { }

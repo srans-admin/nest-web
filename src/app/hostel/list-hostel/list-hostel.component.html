@@ -22,6 +22,12 @@
             <div class="hostel-address">{{hostel.hostelAddress}} </div>
             <div class="hostel-floors">{{hostel.numOfFloors}}</div>
             <div class="hostel-room">{{hostel.room}}</div>
+            <div class="hostel-actions">
+                <!-- <a (click)="deleteHostel(hostel.id)"  title="delete"><span class="glyphicon glyphicon-trash"></span></a> -->
+                <a (click)="updateHostel(hostel.id)"  title="Edit" style="margin-left: 10px"><span class="glyphicon glyphicon-edit"></span></a>
+                <!-- <a (click)="hostelDetails(hostel.id)"  title="extended view" style="margin-left: 10px"><span class="glyphicon glyphicon-tag"></span></a> -->
+
+            </div>
         </div>
     </div>
 </div>

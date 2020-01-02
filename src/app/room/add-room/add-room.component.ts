@@ -99,18 +99,22 @@ export class AddRoomComponent implements OnInit {
     switch (room.roomType) {
       case "Single": {
         numOfBeds = 1;
+        // room.roomRent = 13000;
         break;
       }
       case "Double": {
         numOfBeds = 2;
+        // room.roomRent = 12000;
         break;
       }
       case "Triple": {
         numOfBeds = 3;
+        // room.roomRent = 10000;
         break;
       }
       case "Misc": {
         numOfBeds = 3;
+        // room.roomRent = 10000;
         break;
       }
       default: {
@@ -124,7 +128,7 @@ export class AddRoomComponent implements OnInit {
       tmpBed.bedNo = (i + 1);
       room.beds.push(tmpBed);
     }
-
+    
   }
 
   close() {
