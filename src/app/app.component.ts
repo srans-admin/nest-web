@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { User } from './_models/User';
+import { User, Users } from './_models/User';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './_auth/auth.service';
 import { AlertMessage } from './_alerts/alert.message';
+import { Role } from './_models/Role';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,11 @@ import { AlertMessage } from './_alerts/alert.message';
 export class AppComponent { 
 
   currentUser: User;  
+  user : Users[] = [
+    {username: 'superadmin', password: 'superadmin', role: Role.superadmin},
+    {username: 'admin', password: 'admin', role: Role.admin},
+    { username: 'user', password: 'user', role: Role.user }
+  ];
 
   constructor(
     private alertMessage: AlertMessage,
@@ -21,7 +27,7 @@ export class AppComponent {
   ) {
     this.authenticationService.currentUser.subscribe(user => 
       {
-        this.currentUser = user 
+        this.currentUser = user
       }
       ); 
   }

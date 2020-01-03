@@ -24,16 +24,19 @@ export class User{
 
   tenantBooking: TenantBooking = new TenantBooking();
   payment: Payment = new Payment();
- 
-  
+    role: any;
 
- }
-
- 
+ } 
 
   export class TmpUsr{
     userId;
     pic:any;
+  }
+
+  export class Users{
+    username: string
+    password: string
+    role: string
   }
 
 //  export class Hostel {  

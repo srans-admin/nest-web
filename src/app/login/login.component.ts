@@ -5,6 +5,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../_auth/auth.service';
 import { UserService } from '../_services/user.service';
 import { AlertMessage } from '../_alerts/alert.message';
+import { NotificationService } from '.././_services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
       private router: Router,
       private userService: UserService,
       private alertMessage: AlertMessage,
-      private authenticationService: AuthenticationService 
+      private authenticationService: AuthenticationService,
+      private notificationService: NotificationService 
   ) {
       // redirect to home if already logged in
       if (this.authenticationService.currentUserValue) {
@@ -51,6 +53,10 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.invalid) {
           return;
       }
+    
+      this.notificationService.getNotification(this.loginForm.value);
+
+      
 
       this.loading = true;
        this.authenticationService.login(this.f.username.value, this.f.password.value) 

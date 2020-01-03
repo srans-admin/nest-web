@@ -46,6 +46,7 @@ export class AuthenticationService {
          'Authorization': 'Basic '+btoa(this.clientId+":"+this.clientSecret)});
         
         return this._http.post(this.uaaURL,  encodeURI(params.toString()), { headers: headers });
+        
     }
 
     logout() {

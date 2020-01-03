@@ -13,11 +13,11 @@
         <div class="col-md-2"> 
                 <!-- <app-home [role]="role"></app-home>  -->
 
-                <app-dashboard-superadmin *ngIf="currentUser"> </app-dashboard-superadmin>
+                <app-dashboard-superadmin *ngIf="currentUser.superadmin"> </app-dashboard-superadmin>
                 
                 <!-- <app-dashboard-home></app-dashboard-home> -->
-                <!-- <app-dashboard-admin></app-dashboard-admin>
-                <app-dashboard-user></app-dashboard-user>   -->
+                <app-dashboard-admin *ngIf = "currentUser.admin"></app-dashboard-admin>
+                <app-dashboard-user *ngIf = "currentUser.user"></app-dashboard-user>  
                
                  
         </div>
