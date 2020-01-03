@@ -157,13 +157,15 @@ isHostelPaymentRequired(event){
 setTenantBooking(){ 
   
   this.tenantBooking.tenantId	= -1;
-  this.tenantBooking.hostelId  =	this.selectedBedInfo.bed.hostelId;
-  this.tenantBooking.floorId		=this.selectedBedInfo.bed.floorId
-  this.tenantBooking.roomId		=this.selectedBedInfo.bed.roomId
-  this.tenantBooking.roomBedId	=this.selectedBedInfo.bed.id
-  this.tenantBooking.roomRent	 =this.selectedBedInfo.bed.roomRent
-  this.tenantBooking.allotedFrom = new Date();
-  this.tenantBooking.allotedTill = null;
+  if(this.selectedBedInfo){
+    this.tenantBooking.hostelId  =	this.selectedBedInfo.bed.hostelId;
+    this.tenantBooking.floorId		=this.selectedBedInfo.bed.floorId
+    this.tenantBooking.roomId		=this.selectedBedInfo.bed.roomId
+    this.tenantBooking.roomBedId	=this.selectedBedInfo.bed.id
+    this.tenantBooking.roomRent	 =this.selectedBedInfo.bed.roomRent
+    this.tenantBooking.allotedFrom = new Date();
+    this.tenantBooking.allotedTill = null;
+  } 
 
   this.user.tenantBooking = this.tenantBooking;
 
