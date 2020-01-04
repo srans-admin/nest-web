@@ -1,7 +1,9 @@
 <div class="container">
     <div class="hostel-extended-view">
+
         <!-- three dot menu -->
         <div class="dropdown">
+
             <!-- three dots -->
             <ul class="dropbtn icons btn-right showLeft" (click)="showDropdown()">
                 <li></li>
@@ -15,18 +17,69 @@
                 <a href><span class="glyphicon glyphicon-tag"></span> Add Expenses</a>
             </div>
         </div>
+
+        <!-- Extended view headerpart -->
         <div class="hex-view-title">
             <img src="{{facadeImage}}" alt="N" class="hostel-init-img" />
             <div class="hex-view-basic-details">
                 <div class="hex-view-heading"><span class="glyphicon glyphicon-home"></span> {{hostel.hostelName}}</div>
                 <div class="hex-view-heading-sub"> {{hostel.hostelType}}</div>
                 <div class="hex-view-heading-sub"> {{hostel.hostelAddress}}</div>
-                <div class="hex-view-heading-sub"> Floors : {{hostel.numOfFloors}}</div>
-                <div class="hex-view-heading-sub"> Rooms: {{hostel.roomNumbers}}</div>
+                <!-- <div class="hex-view-heading-sub"> Floors : {{hostel.numOfFloors}}</div> -->
+                <!-- <div class="hex-view-heading-sub"> Rooms: {{hostel.roomNumbers}}</div> -->
+            </div>
+        </div>
+        <hr/>       
+
+        <!-- Bar & Doughnut Chart -->
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <app-doughnut-chart [sharingInfo]="donutInfo.single"> </app-doughnut-chart>
+                    </div>
+
+                    <div class="col-md-6">
+                        <app-doughnut-chart [sharingInfo]="donutInfo.double"></app-doughnut-chart>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <app-doughnut-chart [sharingInfo]="donutInfo.triple"></app-doughnut-chart>
+                    </div>
+
+                    <div class="col-md-6">
+                        <app-doughnut-chart [sharingInfo]="donutInfo.misc"></app-doughnut-chart>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-bar-chart [barchartInfo]="barchartInfo"></app-bar-chart>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Hostel Extended view -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <floor-view [hostel]="hostel"></floor-view>
             </div>
 
         </div>
-        <hr/>
+
+        <!-- Carousel Sliding -->
         <div class="row">
             <ngb-carousel>
                 <ng-template ngbSlide>
@@ -85,50 +138,6 @@
                     </div>
                 </ng-template>
             </ngb-carousel>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <app-doughnut-chart [sharingInfo]="donutInfo.single"> </app-doughnut-chart>
-                    </div>
-
-                    <div class="col-md-6">
-                        <app-doughnut-chart [sharingInfo]="donutInfo.double"></app-doughnut-chart>
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <app-doughnut-chart [sharingInfo]="donutInfo.triple"></app-doughnut-chart>
-                    </div>
-
-                    <div class="col-md-6">
-                        <app-doughnut-chart [sharingInfo]="donutInfo.misc"></app-doughnut-chart>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <app-bar-chart [barchartInfo]="barchartInfo"></app-bar-chart>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="col-md-12">
-                <floor-view [hostel]="hostel"></floor-view>
-            </div>
-
         </div>
 
     </div>

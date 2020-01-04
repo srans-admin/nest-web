@@ -1,11 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from "rxjs";
-import { HostelService } from "../../hostel.service";
-import { Hostel } from "../../hostel";
-import { Router, ActivatedRoute } from '@angular/router';
-import { ServerConfig } from '../../config/server.config';
+import { HostelService } from "../../_services/hostel.service";
+import { Hostel } from "../../_models/hostel";
+import { Router, ActivatedRoute } from '@angular/router'; 
 import { HttpClient } from '@angular/common/http';
-import { Room } from '../../room';
+import { Room } from '../../_models/room';
+import { environment } from '../../../environments/environment';
+import { AlertMessage } from 'src/app/_alerts/alert.message';
+import { NIDOSMessages } from 'src/app/_messages/message_eng';
+ 
 
 @Component({
   selector: 'app-list-hostel',
@@ -14,16 +17,19 @@ import { Room } from '../../room';
 })
 export class ListHostelComponent implements OnInit {
   hostels: Observable<Hostel[]>;
+  hostelImages: Array<Hostel> = [];
   room: Room = new Room();
   extendingviews: Observable<Hostel[]>;
   searchTerm: string;
-
-  serverConfig: ServerConfig = new ServerConfig();
-  private extendedViewUrl = this.serverConfig.getServerURL() + '/api/v1/hostels/{id}/extendingviews';
+  acknoldgmentMsg : string = null; 
+   
+  private extendedViewUrl = environment.appUrl+ '/api/v1/hostels/{id}/extendingviews';
   
   constructor(private hostelService: HostelService,
     private router: Router,
     private route: ActivatedRoute,
+    private alertMessage: AlertMessage,
+    private nIDOSMessages: NIDOSMessages,
     private http: HttpClient) { }
 
     ngOnInit() {
@@ -31,14 +37,13 @@ export class ListHostelComponent implements OnInit {
     }
   
     reloadData() {
-      this.hostels = this.hostelService.getHostelsList();
-      
-    }
 
-    oneHostel(id: number){
-      // this.hostels = this.hostelService.getHostel(id);
-      this.extendingviews = this.hostelService.getHostel(id);
-      this.hostelDetails(id);
+     this.hostelService.getHostelsList().subscribe(res => { 
+        this.hostels = res;
+      },err =>{ 
+        this.alertMessage.showHttpMessage(err);
+      });
+
     }
   
     deleteHostel(id: number) {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Floor } from '../../floor';
-import { FloorService } from '../../floor.service';
+import { Floor } from '../../_models/floor';
+import { FloorService } from '../../_services/floor.service';
 
 @Component({
   selector: 'app-edit-floor',

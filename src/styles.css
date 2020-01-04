@@ -3,6 +3,13 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; 
 
+.loading{
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    text-align: center;
+    vertical-align: baseline;
+}
 .footer {
     position: absolute;
     bottom: 0;
@@ -23,6 +30,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .bed-alloted:hover{
+    background-color: #ddd;
+}
+.bed-alloted:active, .bed-alloted:visited{
     background-color: green;
 }
 
@@ -52,3 +62,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: inline-block;
     padding: 4px;
 }
+

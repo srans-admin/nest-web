@@ -1,0 +1,25 @@
+<h2><span class="glyphicon glyphicon-envelope"></span> Complaint Details</h2>
+
+<hr/>
+<div *ngIf="complaint">
+  <div>
+    <label><b><span class="glyphicon glyphicon-user"></span>Role Name: </b></label> {{complaint.roleName}}
+  </div>
+  <div>
+    <label><b><span class="glyphicon glyphicon-user"></span>Last Name: </b></label> {{complaint.name}}
+  </div>
+  <div>
+    <label><b><span class="glyphicon glyphicon-envelope"></span>EmailId : </b></label> {{complaint.emailId}}
+  </div>
+  <div>
+    <label><b><span class="glyphicon glyphicon-phone"></span>PhoneNumber : </b></label> {{complaint.phoneNumber}}
+  </div>
+  <div>
+    <label><b><span class="glyphicon glyphicon-envelope"></span>Description : </b></label> {{complaint.description}}
+  </div>
+
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Complaint List</button><br>

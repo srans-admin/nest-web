@@ -1,14 +1,15 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Observable } from "rxjs";
-import { HostelService } from "../../hostel.service";
-import { Hostel } from "../../hostel";
+import { HostelService } from "../../_services/hostel.service";
+import { Hostel } from "../../_models/hostel";
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServerConfig } from '../../config/server.config';
 import { HttpClient } from '@angular/common/http';
-import { Room } from '../../room';
-import { Floor } from 'src/app/floor';
+import { Room } from '../../_models/room';
+
 import { CreateUserComponent } from 'src/app/user/create-user/create-user.component';
-import { Bed } from 'src/app/bed'; 
+import { Bed } from 'src/app/_models/Bed'; 
+import { Floor } from '../../_models/floor';
 
 @Component({
   selector: 'floor-view',

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular8-springboot-client": {
+    "nest-web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular8-springboot-client",
+            "outputPath": "dist/nest-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -22,10 +22,10 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-
+            "styles": [ 
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular8-springboot-client:build"
+            "browserTarget": "nest-web:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular8-springboot-client:build:production"
+              "browserTarget": "nest-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular8-springboot-client:build"
+            "browserTarget": "nest-web:build"
           }
         },
         "test": {
@@ -96,7 +96,8 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -121,16 +122,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular8-springboot-client:serve"
+            "devServerTarget": "nest-web:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular8-springboot-client:serve:production"
+              "devServerTarget": "nest-web:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "angular8-springboot-client"
+  "defaultProject": "nest-web"
 }

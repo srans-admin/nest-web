@@ -1,7 +1,7 @@
 import { ManagementDetailsComponent } from './../management-details/management-details.component';
 import { Observable } from "rxjs";
-import { ManagementService } from '../../management.service';
-import { Management } from "../../management";
+import { ManagementService } from '../../_services/management.service';
+import { Management } from "../../_models/Management";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 

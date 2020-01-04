@@ -9,9 +9,9 @@
         <!-- menu -->
         <div id="myDropdown" class="dropdown-content"> 
             <a routerLink="add"><span class="glyphicon glyphicon-plus"></span> Add Tenant </a> 
-            <a routerLink="add"><span class="glyphicon glyphicon-wrench"></span> Book Hostel </a>           
+            <!-- <a routerLink="add"><span class="glyphicon glyphicon-wrench"></span> Book Hostel </a>            -->
             <a href="invoice"><span class="glyphicon glyphicon-camera"></span> Generate Invoice </a>
-            <a href="payment/add"><span class="glyphicon glyphicon-tag"></span> Payment</a>
+            <!-- <a href="payment/add"><span class="glyphicon glyphicon-tag"></span> Payment</a> -->
         </div>
     </div> 
 
@@ -19,7 +19,9 @@
      
       <h3><span class="glyphicon glyphicon-user"></span> Tenants </h3>  
           
-                  
+      <div class="user-search" style="width:200px">        
+        <input type="text" class="form-control"  placeholder="Search here" [(ngModel)]="searchTerm" >
+    </div><br/>       
           <div class="tenants-display  table-responsive-sm  ">
             <table class="table table-striped table-sm">
                 
@@ -27,20 +29,20 @@
                 <tr>
                   <th><span class="glyphicon glyphicon-tag"></span></th>
                   <th><span class="glyphicon glyphicon-camera"></span> TenantPic</th> 
-                  <th><span class="glyphicon glyphicon-chevron-up"></span> UserId</th> 
-                  <th><span class="glyphicon glyphicon-chevron-down"></span> Name</th>
-                  <th><span class="glyphicon glyphicon-tag"></span> Contact Number</th>
+                  <th><span class="glyphicon glyphicon-wrench"></span> UserId</th> 
+                  <th><span class="glyphicon glyphicon-plus"></span> Name</th>
+                  <th><span class="glyphicon glyphicon-wrench"></span> Contact Number</th>
                   <!-- <th>FatherName</th>
                   <th>FatherphoneNumber</th> -->
                   <!-- <th>motherName</th> -->
                   <!-- <th>motherphoneNumber</th> -->
-                  <th><span class="glyphicon glyphicon-chevron-left"></span> DOB</th>
+                  <!-- <th><span class="glyphicon  glyphicon-calendar"></span> DOB</th> -->
                   <!-- <th>bloodGroup</th>
                   <th>emergencyContactNumber</th>
                   <th>nameOfTheEmployer</th>
                   <th>officeAddress</th>
                   <th>telephoneNumber</th> -->
-                  <th><span class="glyphicon glyphicon-chevron-right"></span> Email Id</th>
+                  <th><span class="glyphicon glyphicon-plus"></span> Email Id</th>
                   <!-- <th>PermanentAddress</th> -->
                   <!-- <th>idProof</th> -->
                   <th><span class="glyphicon glyphicon-chevron-left"></span>Options</th>
@@ -49,7 +51,7 @@
               <tbody>
                   
                     
-                <tr *ngFor="let user of users |  async">              
+                <tr *ngFor="let user of users | userFilter:searchTerm">              
                    <td> <mat-checkbox ></mat-checkbox></td>
                    <td>
                       <img class="user-init-img" src="{{ bringMyImage(user.userId)}}"  alt="NA"/>
@@ -62,7 +64,7 @@
                   <td>{{ user.fatherphoneNumber }}</td> -->
                   <!-- <td>{{ user.motherName }}</td> -->
                   <!-- <td>{{ user.motherphoneNumber }}</td> -->
-                  <td>{{ user.dob }}</td>
+                  <!-- <td>{{ user.dob }}</td> -->
                   <!-- <td>{{ user.bloodGroup }}</td>
                   <td>{{ user.emergencyContactNumber }}</td>
                   <td>{{ user.nameOfTheEmployer }}</td>
@@ -90,7 +92,7 @@
                       <a (click)="deleteUser(user.userId)" title="delete"><span class="glyphicon glyphicon-trash"  style="margin-left: 10px"></span></a>
                       <a  (click)="updateUser(user.userId)" title="update"><span class="glyphicon glyphicon-edit" style="margin-left: 10px"></span></a>
                       <a (click)="userDetails(user.userId)" title="view"><span class="glyphicon glyphicon-eye-open" style="margin-left: 10px"></span></a>
-                      <a href="payment/add" (click)="payment(user.userId)" title="payment"><span class="glyphicon glyphicon-credit-card" style="margin-left: 10px"></span></a>
+                      <a href="payment/add" (click)="payment(users)" title="payment"><span class="glyphicon glyphicon-credit-card" style="margin-left: 10px"></span></a>
 
                     </div>
                   </td>

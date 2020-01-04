@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Hostel } from '../../hostel';
-import { HostelService } from '../../hostel.service';
+import { Hostel } from '../../_models/hostel';
+import { HostelService } from '../../_services/hostel.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddRoomComponent } from 'src/app/room/add-room/add-room.component';
-import { Room } from 'src/app/room';
-import { RoomService } from 'src/app/room.service';
-import { Floor } from 'src/app/floor';
+import { Room } from 'src/app/_models/room';
+import { RoomService } from 'src/app/_services/room.service';
+import { Floor } from 'src/app/_models/floor';
 import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup, FormArray, FormControl, NgForm} from '@angular/forms';
+import { of } from 'rxjs';
+import { AlertMessage } from 'src/app/_alerts/alert.message';
+import { NIDOSMessages } from 'src/app/_messages/message_eng';
 
 @Component({
   selector: 'app-add-hostel',
@@ -16,9 +20,19 @@ import { Observable } from 'rxjs';
 })
 export class AddHostelComponent implements OnInit {  
   
-  constructor(private hostelService: HostelService, 
+  form: FormGroup;
+  constructor(private formBuilder: FormBuilder, 
+              private hostelService: HostelService, 
+              private alertMessage: AlertMessage,
+              private nIDOSMessages: NIDOSMessages,
               private router: Router,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog) {
+
+                this.form = this.formBuilder.group({
+                  amenities: new FormArray([])
+                });                
+
+              }
   
   hostel: Hostel = new Hostel();
   acknoldgmentMsg: string = "";
@@ -32,33 +46,58 @@ export class AddHostelComponent implements OnInit {
   b2UploadFiles: Array<File>;
   b3UploadFiles: Array<File>;
   miscUploadFiles: Array<File>;
-  switch1: boolean;
-  switch2: boolean;
-  switch3: boolean;
-  switch4: boolean;
-  switch5: boolean;
-  switch6: boolean;
+  // tv: boolean;
+  // fridge: boolean;
+  // ac: boolean;
+  // mineralWater: boolean;
+  // parking: boolean;
+  // gym: boolean;
 
-  amenities : ['tv', 'fridge', 'ac', 'mineralWater', 'parking', 'gym']
-
+  // amenities : ['tv', 'fridge', 'ac', 'mineralWater', 'parking', 'gym']
+  amenityData = [];
 
   ngOnInit() {
     this.tempFloors = [1];
     this.populateFloors();
-  }  
+    // this.amenityData=[
+    //                     {id:1,name:'TV',checked:false},
+    //                     {id:2,name:'Fridge', checked:false},
+    //                     {id:3, name:'AC', checked:false},
+    //                     {id:4, name: 'Mineral Water', checked: false},
+    //                     {id:5, name: 'Parking', checked: false},
+    //                     {id:6, name: 'Gym', checked:false}
+    //                   ]
+  }
 
-  newHostel(): void {
+  showOptions(item:any){
+    // debugger;
+       console.log(item);
+    console.log(this.hostel);
+    this.hostel[item.name]=item.checked;
+    sessionStorage.removeItem('selectedhostel');
+    sessionStorage.setItem('selectedhostel', "");
+    this.hostel=JSON.parse(sessionStorage.getItem('selectedhostel'));
+    }  
+
+  newHostel(): void { 
+    // this.tv = true;
     this.submitted = false;
     this.hostel = new Hostel();
   }
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
+    this.hostel.tv = form.controls['tv'].value;
+    this.hostel.fridge = form.controls['fridge'].value;
+    this.hostel.ac = form.controls['ac'].value;
+    this.hostel.mineralWater = form.controls['mineralWater'].value;
+    this.hostel.parking = form.controls['parking'].value;
+    this.hostel.gym = form.controls['gym'].value;
     this.submitted = true;
     this.save();
   }
 
   save() {
-    this.hostelService.createHostel(this.hostel)
+    this.hostelService.createHostel(this.hostel) 
       .subscribe(res => { 
             var obj : any =  res; 
 
@@ -92,12 +131,13 @@ export class AddHostelComponent implements OnInit {
               this.uploadImage(miscFile, 'misc', obj.id);
             }
 
-            this.acknoldgmentMsg = "Hostel added successfully."+obj.id;
+            //this.acknoldgmentMsg = "Hostel added successfully."+obj.id;
+            this.alertMessage.showSuccessMsg( this.nIDOSMessages.HostelCreationSuccess + obj.id ); 
+
               
           },  
           err => {  
-            this.acknoldgmentMsg = "Hostel addition failed ."+err;
-            alert(this.acknoldgmentMsg );  
+            this.alertMessage.showFailedMsg( this.nIDOSMessages.HostelCreationFailed + err.message );
           });
     
     // this.hostel.array.forEach(e => {
@@ -123,11 +163,10 @@ export class AddHostelComponent implements OnInit {
     this.router.navigate(['/hostels']);
   }
 
-  populateFloors(){ 
-    
+  populateFloors(){  
     this.tempFloors = [];
     for (let i = 1; i <=  this.hostel.numOfFloors; i++) {
-      this.tempFloors.push(i);
+      this.tempFloors.push(this.hostel.numOfFloors[i]);
     } 
 
     this.hostel.addFloors(this.hostel.numOfFloors);
@@ -137,7 +176,8 @@ export class AddHostelComponent implements OnInit {
   addRoomDailog(floorName: any): void {
 
     const dialogRef = this.dialog.open(AddRoomComponent, {
-      width: '30%',
+      width: '50%',
+      height:'90%',
       data: {
        hostel :  this.hostel,
        floorName : floorName

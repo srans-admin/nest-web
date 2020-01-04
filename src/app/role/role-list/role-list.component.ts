@@ -1,7 +1,7 @@
 import { RoleDetailsComponent } from './../role-details/role-details.component';
 import { Observable } from "rxjs";
-import { RoleService } from '../../role.service';
-import { Role } from "../../role";
+import { RoleService } from '../../_services/role.service';
+import { Role } from "../../_models/Role";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 

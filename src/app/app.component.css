@@ -1,33 +1,38 @@
-
-div.cdk-overlay-pane{ 
-    width: 50% !important; 
-}
-.navbar-nav{
-    float: left;
-    margin: 0;
-    margin-left: 0px; 
-    margin-top: -21px;
-    padding-left: 16px;
-    padding-top: 17px;
-}
-.navbar-nav>li {
-    float: left;
-    top: 11px;
-}  
-.sidebar .nav-item .nav-link span{
-    font-size: 13px;
-    display: inline; 
-}
-.sidebar:hover{
-    color: indigo;
-}
-.container {
+.app-view{
     width: 100%;
 }
-.logo{
-    display: inline-block;
+.side-bar{
+    width: 20%;
 }
-.nav-title{
-    padding-left: 4px;
-    color: aliceblue;
+.app-body{ 
+    margin-left: 1px;
+    margin-right: 30px;
+    margin-bottom: 43px;
+    width: 75%;  
+    position: absolute;
+    left: 20%;
+} 
+.header-card{
+    border: 1px solid;
+    width: 3rem;
+    height: 3rem;
+    color: black;
+    background-color: white;
+    border-radius: 3rem;
+    cursor: pointer;
+    padding: 7px;
+    margin-right: 8px;
 }
+.header-card:hover{
+    color:green;
+    background-color: greenyellow;
+}
+.align-right{
+   position: absolute;
+   right: 10px; 
+   display: inline-flex;
+}
+.navbar{
+    border-radius: 0px !important;
+}
+ 

@@ -1,13 +1,19 @@
-<h3><span class="glyphicon glyphicon-user"></span> Tenant Registration {{hostel.selectedBedInfo}}  </h3>
+<h3><span class="glyphicon glyphicon-user"></span> 
+  Tenant <span *ngIf="!isHostelPaymentReq">Only</span> Registration {{hostel.selectedBedInfo}} 
+  <span *ngIf="isHostelPaymentReq"> with booking PG</span> </h3>
+  
   <form (ngSubmit)="onSubmit()">
     <mat-tab-group>
       <mat-tab label="Tenant">
-      <div [hidden]="submitted" style="width: 300px;">
 
-      <div class="row">
-          <div class="input-field col s12"></div>          
+
+      <div class="is-hostel-info-req">
+          <mat-checkbox [(checked)]="isHostelPaymentReq" 
+          (change)="isHostelPaymentRequired($event)"> I will be set Hostel and Payment Info as per the
+           Registation </mat-checkbox>
       </div>
-    
+      <div class="tenant-form-1" style="width: 300px;"  >  
+
       <div class="form-group">
           <!-- <label for="name">userpic</label>
           <input type="file" required [(ngModel)]=user.userpic name="userpic" > -->
@@ -34,11 +40,11 @@
           <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
         
           <label for="name"><span class="glyphicon glyphicon-calendar"></span> DOB:</label>          
-          <!-- <span class="date-picker"> -->
-            <input type="text"  class="form-control" id="dob" required [(ngModel)]="user.dob" name="dob">
-             <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
-             <mat-datepicker #picker></mat-datepicker>  -->
-            <!-- </span> -->
+          <span class="date-picker">
+            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.dob">
+             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+             <mat-datepicker #picker></mat-datepicker> 
+            </span>
         
           <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
           <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">
@@ -68,33 +74,35 @@
 </div>
 </mat-tab>
     
-  <mat-tab label="Hostel"> 
+  <mat-tab label="Hostel" *ngIf="isHostelPaymentReq">  
 
-	<div class="hostel-tenanat-info" > 
-
-       <label><span class="glyphicon glyphicon-home"></span> Choose Hostel </label>
-      <select class="browser-default custom-select"  [ngModel]="selectedDevice" (ngModelChange)="populateHostel($event)" name="sel2"  >
-        <option  value="">--select--</option>
-        <option *ngFor="let hostel of hostels | async"  [value]="hostel.id"  name="id" (ngModelChange)="populateHostel(hostel.id)"> {{hostel.hostelName}} </option>   
-      </select> 
-
+  <div class="hostel-tenant-info tenant-form-1">
+  
+    <label><span class="glyphicon glyphicon-home"></span> Choose Hostel </label>
+    <select class="browser-default custom-select" [ngModel]="selectedDevice" (ngModelChange)="populateHostel($event)"
+      name="sel2">
+      <option value="">--select--</option>
+      <option *ngFor="let hostel of hostels | async" [value]="hostel.id" name="id"
+        (ngModelChange)="populateHostel(hostel.id)"> {{hostel.hostelName}} </option>
+    </select>
+  
     <floor-view [hostel]="selectedHostel" (onSelectedBedInfoEmitor)="onSelectedBedInfoEmited($event)"></floor-view>
-
-        
-    </div>  
+  
+  
+  </div>
 
 
     </mat-tab>
 
 
-    <mat-tab label="Payment">
+    <mat-tab label="Payment" *ngIf="isHostelPaymentReq">
 
 
-        <div class="selected-bed-info container primary" *ngIf="isBedSelected">
-            <div class=row>
-              <div> Selected Bed Information </div>
+        <div class="selected-bed-info " *ngIf="isBedSelected">
+            <div class="row selected-bed-info-header">
+              <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
             </div>
-            <div class=row>
+            <div class="row">
               <div class="col-md-6">
                 <label>Hosel</label>
                 <div class="name"> {{selectedBedInfo.hostelName}} </div>
@@ -104,7 +112,7 @@
                 <div class="name">{{selectedBedInfo.bed.floorId}}</div>
               </div>
             </div>
-            <div class=row>
+            <div class="row">
                 <div class="col-md-6">
                   <label>Room</label>
                   <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
@@ -114,7 +122,7 @@
                   <div class="name">{{selectedBedInfo.bed.id}}</div>
                 </div>
               </div> 
-              <div class=row>
+              <div class="row">
                   <div class="col-md-6">
                       <label>Bed Position</label>
                       <div class="name">{{selectedBedInfo.bed.position}} </div>
@@ -126,7 +134,7 @@
                    
                 </div>
     
-                <div class=row>
+                <div class="row">
                     <div class="col-md-6">
                         <label>Room Sharing </label>
                         <div class="name">{{selectedBedInfo.roomType}} </div>
@@ -136,7 +144,7 @@
           </div>
 
 
-        <div [hidden]="submitted" style="width: 200px;">
+        <div class="tenant-form-1" style="width: 300px;">
 
           <div class="form-group">
             <label for="name">
@@ -144,48 +152,51 @@
               <span class="glyphicon glyphicon-calendar"></span> Date:</label>
             <!-- </div> -->
             <span class="date-picker">
-            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="payment.date">
+            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.payment.date">
              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
              <mat-datepicker #picker></mat-datepicker> 
             </span>
         </div>
    
         <label><span class="glyphicon glyphicon-user"></span> Payment Through:</label>
-        <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="payment.paymentThrough" name=" paymentThrough">
+        <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="user.payment.paymentThrough" name=" paymentThrough">
           
           <option selected>Cash</option>
-          <option >Bank Transfer</option>
+          <option ><a class="btn btn-info " (click)="addTransfer()"> <span class="glyphicon glyphicon-plus"></span>Bank Transfer </a></option>
         </select>
   
         <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
-            <input type="text" class="form-control" id="transactionId" required [(ngModel)]="payment.transactionId" name="transactionId">
+            <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
   
         <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
-        <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">    
+        <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
   
         <!-- <div class="form-group"> -->
             <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
-            <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="payment.depositAmount" name="depositAmount">
+            <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="user.payment.depositAmount" name="depositAmount">
         <!-- </div> -->
   
         <!-- <div class="form-group"> -->
-          <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Room Rent</label>
-          <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent">
+          <!-- <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Room Rent</label>
+          <input type="text" class="form-control" id="roomRent" required [(ngModel)]="user.payment.roomRent" name="roomRent"> -->
         <!-- </div>       -->
   
         <!-- <div class="form-group"> -->
           
-          <button type="submit" class="btn btn-success">Join Tenant</button>             
+          
      
       </div>
-    </mat-tab>    
+      
+    </mat-tab>        
 </mat-tab-group>
- </form>
- 
 
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-</div>
-
+  <div *ngIf="!isHostelPaymentReq || selectedBedInfo" class="join-tenant-button">
+    <button type="submit" class="btn btn-success">Join Tenant</button>           
+  </div>
+</form>
 
 
+
+
+
+  

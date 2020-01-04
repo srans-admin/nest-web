@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
@@ -58,23 +59,56 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { CreatePaymentComponent } from './payment/create-payment/create-payment.component';
 import { PaymentListComponent } from './payment/payment-list/payment-list.component';
 
+import { AddComplaintComponent } from './complaint/add-complaint/add-complaint.component';
+import { ComplaintListComponent } from './complaint/complaint-list/complaint-list.component';
+import { UpdateComplaintComponent } from './complaint/update-complaint/update-complaint.component';
+import { ComplaintDetailsComponent } from './complaint/complaint-details/complaint-details.component';
+
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
 import { HostelFilterPipe } from './hostel/hostel-filter.pipe';
+import { UserFilterPipe } from './user/user-filter.pipe';
 import { ChartsModule } from 'ng2-charts';
 import { FloorViewComponent } from './hostel/floor-view/floor.view.component';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { SubscriptionRegisterComponent } from './subscription-register/subscription-register.component';
+import { DashboardSuperadminComponent } from './dashboard-superadmin/dashboard-superadmin.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
+import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
+import { CookieService } from 'ngx-cookie-service';
+import { BanktransferComponent } from './payment/banktransfer/banktransfer.component'
 // import { Ng2CarouselamosModule } from 'ng2-carouselamos';
-// import { LoginComponent } from './login/login.component';
+
 
 // import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 // import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 // import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 // import { UploadFileService } from './upload-file.service';
 
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import { CategoryDetailsComponent } from './category/category-details/category-details.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { UpdateCategoryComponent } from './category/update-category/update-category.component';
+
+//import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
+
+    HomeComponent,
+    LoginComponent,
+    RegistrationComponent,
+    //ProfileComponent,
+
+    DashboardSuperadminComponent,
+    DashboardAdminComponent,
+    DashboardHomeComponent,
+    DashboardUserComponent,
+
     CreateRoleComponent,
     RoleDetailsComponent,
     RoleListComponent,
@@ -119,15 +153,26 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CreateInvoiceComponent,
     InvoiceListComponent,
     HostelFilterPipe,
+    UserFilterPipe,
 
     CreatePaymentComponent,
-    PaymentListComponent
-    // LoginComponent,
+    PaymentListComponent,
+
+    AddComplaintComponent,
+    ComplaintListComponent,
+    UpdateComplaintComponent,
+    ComplaintDetailsComponent, 
+    SubscriptionRegisterComponent,
+ 
     // DetailsUploadComponent,
     // FormUploadComponent,
     // ListUploadComponent
     // CUSTOM_ELEMENTS_SCHEMA
 
+     CreateCategoryComponent,
+    CategoryDetailsComponent,
+    CategoryListComponent,
+    UpdateCategoryComponent,
   ],
   imports: [
    BrowserModule,
@@ -142,11 +187,17 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ChartsModule,
     NgbModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule, 
+    ToastrModule.forRoot()
     // MatFormField
   ],
-  providers: [],  
+  providers: [CookieService],  
   // UploadFileService
   bootstrap: [AppComponent],
+entryComponents:[CreateExpenseComponent]
+
 })
 export class AppModule { }
+
+// References::
+// Toaster : https://blog.jscrambler.com/how-to-create-angular-toastr-notifications/
