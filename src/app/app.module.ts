@@ -80,6 +80,7 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { CookieService } from 'ngx-cookie-service';
+import { BanktransferComponent } from './payment/banktransfer/banktransfer.component'
 // import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 
@@ -159,9 +160,9 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
     AddComplaintComponent,
     ComplaintListComponent,
     UpdateComplaintComponent,
-    ComplaintDetailsComponent,
-
+    ComplaintDetailsComponent, 
     SubscriptionRegisterComponent,
+ 
     // DetailsUploadComponent,
     // FormUploadComponent,
     // ListUploadComponent

@@ -20,8 +20,8 @@ export class User {
   telephoneNumber: number;
   emailId: string;
   permanentAddress: string;
-  idProofpic: string;
-  role: string = 'TENANT';
+  idProofpic: string; 
+  role: string = 'TENANT'; 
 
   tenantBooking: TenantBooking = new TenantBooking();
   payment: Payment = new Payment();
