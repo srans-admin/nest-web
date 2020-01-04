@@ -74,6 +74,7 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { SubscriptionRegisterComponent } from './subscription-register/subscription-register.component';
 import { DashboardSuperadminComponent } from './dashboard-superadmin/dashboard-superadmin.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
@@ -87,6 +88,12 @@ import { BanktransferComponent } from './payment/banktransfer/banktransfer.compo
 // import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 // import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 // import { UploadFileService } from './upload-file.service';
+
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import { CategoryDetailsComponent } from './category/category-details/category-details.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { UpdateCategoryComponent } from './category/update-category/update-category.component';
+
 
 @NgModule({
   declarations: [
@@ -153,13 +160,18 @@ import { BanktransferComponent } from './payment/banktransfer/banktransfer.compo
     AddComplaintComponent,
     ComplaintListComponent,
     UpdateComplaintComponent,
-    ComplaintDetailsComponent,
-    BanktransferComponent
+    ComplaintDetailsComponent, 
+    SubscriptionRegisterComponent,
+ 
     // DetailsUploadComponent,
     // FormUploadComponent,
     // ListUploadComponent
     // CUSTOM_ELEMENTS_SCHEMA
 
+     CreateCategoryComponent,
+    CategoryDetailsComponent,
+    CategoryListComponent,
+    UpdateCategoryComponent,
   ],
   imports: [
    BrowserModule,
@@ -181,6 +193,8 @@ import { BanktransferComponent } from './payment/banktransfer/banktransfer.compo
   providers: [CookieService],  
   // UploadFileService
   bootstrap: [AppComponent],
+entryComponents:[CreateExpenseComponent]
+
 })
 export class AppModule { }
 

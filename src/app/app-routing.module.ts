@@ -50,12 +50,20 @@ import { AuthGuard } from './_auth/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from 'src/app/registration/registration.component';
 import { HomeComponent } from './home/home.component';
-import { BanktransferComponent } from './payment/banktransfer/banktransfer.component';
+ 
+import { SubscriptionRegisterComponent } from './subscription-register/subscription-register.component';
+
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import { CategoryDetailsComponent } from './category/category-details/category-details.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { UpdateCategoryComponent } from './category/update-category/update-category.component';
+ 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
+  { path: 'subscription', component: SubscriptionRegisterComponent },
   //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'roles', component: RoleListComponent, canActivate: [AuthGuard] },
   { path: 'roles/add', component: CreateRoleComponent },
@@ -102,7 +110,12 @@ const routes: Routes = [
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
   { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
 
-  { path: 'bankTransfer', component: BanktransferComponent},
+ 
+ { path: 'categorys', component: CategoryListComponent },
+  { path: 'categorys/add', component: CreateCategoryComponent },
+  { path: 'cupdate/:id', component: UpdateCategoryComponent },
+  { path: 'cdetails/:id', component: CategoryDetailsComponent },
+ 
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

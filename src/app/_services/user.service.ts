@@ -9,13 +9,7 @@ import { RegistrationService } from '.././_services/registration.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  // registration(value: any) {
-  //   throw new Error("Method not implemented.");
-  // }
-  // register(value: any) {
-  //   throw new Error("Method not implemented.");
-  // }
+export class UserService { 
 
   private baseUrl = environment.appUrl+'/api/v1/users'; 
    
