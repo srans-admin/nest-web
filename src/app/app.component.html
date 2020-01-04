@@ -3,7 +3,11 @@
                 <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIODS  </span>  </a>
 
                 <span *ngIf="currentUser" class="align-right">
-                        <div class="header-card" (click)="notifications()" title="notifications"> <span class="glyphicon glyphicon-bullhorn"></span> </div>
+                        <div class="header-card" (click)="notifications()" title="notifications" > 
+                                <span class="glyphicon glyphicon-bullhorn">
+                                        <span class="badge">10</span>
+                                </span> 
+                        </div>
                         <div class="header-card" (click)="profile()" title="profile"> <span class="glyphicon glyphicon-user"></span> </div>
                         <div class="header-card" (click)="logout()" title="logout">  <span class="glyphicon glyphicon-off"></span></div>
                 </span>
@@ -13,11 +17,11 @@
         <div class="col-md-2"> 
                 <!-- <app-home [role]="role"></app-home>  -->
 
-                <app-dashboard-superadmin *ngIf="currentUser.superadmin"> </app-dashboard-superadmin>
+                <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin>
                 
                 <!-- <app-dashboard-home></app-dashboard-home> -->
-                <app-dashboard-admin *ngIf = "currentUser.admin"></app-dashboard-admin>
-                <app-dashboard-user *ngIf = "currentUser.user"></app-dashboard-user>  
+                <!-- <app-dashboard-admin *ngIf = "isAdmin"></app-dashboard-admin>
+                <app-dashboard-user *ngIf = "isUser"></app-dashboard-user>    -->
                
                  
         </div>
@@ -28,3 +32,5 @@
         </div>
 </div>
 
+<!-- *ngFor="let role of user; let i = index" 
+[(ngModel)]="notification.message"-->

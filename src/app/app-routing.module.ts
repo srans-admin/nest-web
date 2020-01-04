@@ -50,6 +50,11 @@ import { AuthGuard } from './_auth/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { FilterPaymentComponent } from './filter-payment/filter-payment.component';
+import { HostelPaymentsComponent } from './hostel-payments/hostel-payments.component';
+import { DashboardSuperadminComponent } from './dashboard-superadmin/dashboard-superadmin.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
+import { HostelSubscriptionsComponent } from './hostel-subscriptions/hostel-subscriptions.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -93,6 +98,8 @@ const routes: Routes = [
   { path: 'invoice/add', component: CreateInvoiceComponent},
 
   { path: 'payment', component: PaymentListComponent, canActivate: [AuthGuard] },
+  { path: 'hpayment', component: HostelPaymentsComponent, canActivate: [AuthGuard] },
+  { path: 'hsubscription', component: HostelSubscriptionsComponent, canActivate: [AuthGuard]},
   { path: 'payment/add', component: CreatePaymentComponent},
 
   { path: 'complaint', component: ComplaintListComponent, canActivate: [AuthGuard]},
@@ -100,6 +107,9 @@ const routes: Routes = [
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
   { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
   { path: 'card', component: AddFloorComponent},
+  { path: 'superadmin', component: DashboardSuperadminComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: DashboardAdminComponent, canActivate: [AuthGuard] },
+  { path: 'tenant', component: DashboardUserComponent, canActivate: [AuthGuard] },
   // { path: 'showpayments', component: FilterPaymentComponent, canActivate: [AuthGuard]},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

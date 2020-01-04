@@ -78,6 +78,8 @@ import { DashboardUserComponent } from './dashboard-user/dashboard-user.componen
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AddFloorRoomComponent } from './hostel/add-floor-room/add-floor-room.component';
+import { HostelPaymentsComponent } from './hostel-payments/hostel-payments.component';
+import { HostelSubscriptions, HostelSubscriptionsComponent } from './hostel-subscriptions/hostel-subscriptions.component';
 // import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 // import { LoginComponent } from './login/login.component';
 
@@ -128,7 +130,6 @@ import { AddFloorRoomComponent } from './hostel/add-floor-room/add-floor-room.co
     ListRoomComponent,
     EditRoomComponent,
     DeleteRoomComponent,
-
     ViewComponent, 
     RoomViewComponent,
 
@@ -150,7 +151,9 @@ import { AddFloorRoomComponent } from './hostel/add-floor-room/add-floor-room.co
     ComplaintListComponent,
     UpdateComplaintComponent,
     ComplaintDetailsComponent,
-    AddFloorRoomComponent
+    AddFloorRoomComponent,
+    HostelPaymentsComponent,
+    HostelSubscriptionsComponent
     // LoginComponent,
     // DetailsUploadComponent,
     // FormUploadComponent,

@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { User, Users } from './_models/User';
+import { User } from './_models/User';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './_auth/auth.service';
 import { AlertMessage } from './_alerts/alert.message';
 import { Role } from './_models/Role';
+import { Notification } from './_models/Notification';
+import { NotificationService } from './_services/notification.service';
+import { AlertMessage } from 'src/app/_alerts/alert.message';
+import { NIDOSMessages } from 'src/app/_messages/message_eng';
 
 @Component({
   selector: 'app-root',
@@ -11,25 +15,37 @@ import { Role } from './_models/Role';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent { 
-
-  currentUser: User;  
-  user : Users[] = [
-    {username: 'superadmin', password: 'superadmin', role: Role.superadmin},
-    {username: 'admin', password: 'admin', role: Role.admin},
-    { username: 'user', password: 'user', role: Role.user }
-  ];
+  notification: Array<string>;
+  currentUser: User; 
+  notified: Notification = new Notification();
 
   constructor(
     private alertMessage: AlertMessage,
     private router: Router,
-    private authenticationService: AuthenticationService
-    
+    private authenticationService: AuthenticationService,
+    private notificationService: NotificationService,
+    private nIDOSMessages: NIDOSMessages,
   ) {
     this.authenticationService.currentUser.subscribe(user => 
       {
         this.currentUser = user
       }
       ); 
+
+      this.notificationService.getNotification(this.notification);
+      // this.notificationService.getNotifications();
+  }
+
+  get isAdmin() {
+    return this.currentUser && this.currentUser.role === Role.Admin;
+  }
+
+  get isSuperAdmin(){
+    return this.currentUser && this.currentUser.role === Role.superadmin;
+  }
+
+  get isUser(){
+    return this.currentUser && this.currentUser.role === Role.user;
   }
 
   logout() {
@@ -37,8 +53,8 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
-  notifications(){
-    this.alertMessage.showHTMLMessage('Notifications',' Notifications Here')
+  notifications(){    
+    this.alertMessage.showHTMLMessage('Notifications',' Notifications Here');
   }
 
   profile(){  
