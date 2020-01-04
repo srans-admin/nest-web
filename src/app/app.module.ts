@@ -93,7 +93,7 @@ import { CategoryDetailsComponent } from './category/category-details/category-d
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { UpdateCategoryComponent } from './category/update-category/update-category.component';
 
-
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,6 +101,7 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
+    ProfileComponent,
 
     DashboardSuperadminComponent,
     DashboardAdminComponent,
