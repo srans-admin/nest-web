@@ -5,6 +5,8 @@ import { first } from 'rxjs/operators';
 import { UserService } from '.././_services/user.service';
 import { AuthenticationService } from '.././_auth/auth.service';
 import { AlertMessage } from '.././_alerts/alert.message';
+import { RegistrationService } from '.././_services/registration.service';
+import { Registration } from '.././_models/registration';
 
 @Component({
   selector: 'app-registration',
@@ -12,16 +14,20 @@ import { AlertMessage } from '.././_alerts/alert.message';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  registerForm: FormGroup;
+  registrationForm: FormGroup;
     loading = false;
     submitted = false;
+    // registration = false;
+    registration: Registration = new Registration();
+  nIDOSMessages: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-   private alertMessage: AlertMessage
+   private alertMessage: AlertMessage,
+   private registrationService: RegistrationService
   ) { 
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -29,16 +35,17 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
+    this.registrationForm = this.formBuilder.group({
+      id: ['', Validators.required],
       username: ['', Validators.required],
       emailId: ['', Validators.required],
       phonenumber: ['', Validators.required],      
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      conformpassword: ['', [Validators.required, Validators.minLength(6)]]
+      // password: ['', [Validators.required, Validators.minLength(6)]],
+      // confirmpassword: ['', [Validators.required, Validators.minLength(6)]]
   });
   }
 
-  get f() { return this.registerForm.controls; }
+  get f() { return this.registrationForm.controls; }
   onSubmit() {
     this.submitted = true;
 
@@ -46,22 +53,19 @@ export class RegistrationComponent implements OnInit {
     // this.alertService.clear();
 
     // stop here if form is invalid
-    if (this.registerForm.invalid) {
+    if (this.registrationForm.invalid) {
         return;
     }
 
     this.loading = true;
-    this.userService.register(this.registerForm.value)
-        .pipe(first())
-        .subscribe(
-            data => {
-                this.alertMessage.success('Registration successful', true);
-                this.router.navigate(['/login']);
-            },
-            error => {
-                this.alertMessage.error(error);
-                this.loading = false;
-            });
+       this.registrationService.registration(this.registration)
+       .subscribe(result => {
+         var obj : any=result;
+         console.log(result);
+        // this.alertMessage.showSuccessMsg( this.nIDOSMessages.UserRegistrationSuccess + obj.userId );  
+        this.router.navigate(['/login']);
+
+       })
 }
 
 }

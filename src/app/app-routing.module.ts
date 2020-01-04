@@ -48,7 +48,7 @@ import { UpdateComplaintComponent } from './complaint/update-complaint/update-co
 import { ComplaintDetailsComponent } from './complaint/complaint-details/complaint-details.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from 'src/app/registration/registration.component';
 import { HomeComponent } from './home/home.component';
 import { BanktransferComponent } from './payment/banktransfer/banktransfer.component';
 
