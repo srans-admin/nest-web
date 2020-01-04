@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SubscriptionService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/user';
+  private baseUrl = 'http://localhost:8080/nest-server/api/v1/registration';
   constructor(private http: HttpClient) { }
 
   getSubscription(id: number): Observable<any> {

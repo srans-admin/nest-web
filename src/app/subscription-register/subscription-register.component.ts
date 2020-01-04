@@ -3,6 +3,8 @@ import { Subscription } from 'src/app/_models/subscription';
 import { SubscriptionService } from 'src/app/_services/subscription.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { AlertMessage } from '../_alerts/alert.message';
+import { NIDOSMessages } from '../_messages/message_eng';
 
 @Component({
   selector: 'app-subscription-register',
@@ -12,13 +14,19 @@ import { Router } from '@angular/router';
 export class SubscriptionRegisterComponent implements OnInit {
 
   constructor(private subscriptionService: SubscriptionService,
-              private router: Router) { }
+              private router: Router,
+              private alertMessage: AlertMessage, 
+              private nIDOSMessages: NIDOSMessages
+              ) { }
 
   subscription: Subscription = new Subscription();
     submitted = false;
 
 
   ngOnInit() {
+
+    this.subscription.role="ADMIN";
+    this.subscription.subscriptions=1;
   }
 
   newSubscription(): void {
@@ -28,8 +36,14 @@ export class SubscriptionRegisterComponent implements OnInit {
 
   save() {
     this.subscriptionService.createSubscription(this.subscription)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.subscription = new Subscription();
+    .subscribe(result => {
+      var obj : any = result; 
+      this.alertMessage.showSuccessMsg( this.nIDOSMessages.UserRegistrationSuccess +":"+ obj.userId );  
+      this.router.navigate(['/login']);  
+    },  
+    err => {   
+      this.alertMessage.showFailedMsg( this.nIDOSMessages.UserRegistrationFailed +":"+ err.message );  
+    });
     this.gotoList();
   }
 

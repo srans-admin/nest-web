@@ -15,6 +15,7 @@ export class NIDOSMessages {
   public HostelCreationSuccess = "Hostel created successfully ";
   public HostelCreationFailed = "Hostel creation failed ";
 
-  public UserRegistrationSuccess = "User Registered successfully ";
+  public UserRegistrationSuccess = "Registration successfull, an email and SMS will be sent with initial login credentials. If not please approach complaints@srans.in";
+  public UserRegistrationFailed = "User Registration failed ";
   
 }

@@ -1,7 +1,7 @@
 export class Registration{
     id:number;
     name:String;
-    phoneNumber:number;
+    contactNumber:number;
     emailId:string;
     role:string = "Tenant";
     // password:string;
