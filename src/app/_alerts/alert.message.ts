@@ -5,6 +5,12 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class AlertMessage {
+  success(arg0: string, arg1: boolean) {
+    throw new Error("Method not implemented.");
+  }
+  error(error: any) {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private toastr: ToastrService) { } 
   

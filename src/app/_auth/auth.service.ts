@@ -84,6 +84,15 @@ export class AuthenticationService {
         return { headers: headers }; 
       } 
 
+      getHttpOnlyHeaders()  {
+        let  headers = new HttpHeaders(
+            { 
+                'Authorization': 'Bearer '+this.cookieService.get('access_token')
+            });
+            
+        return headers; 
+      } 
+
     public get isUserLoggedIn(): Boolean {
       return  this.currentLoginSubject.value;
     }

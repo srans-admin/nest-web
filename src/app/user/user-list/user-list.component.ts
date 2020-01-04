@@ -39,8 +39,8 @@ export class UserListComponent implements OnInit {
 
     this.userService.getUsersList().subscribe(res => { 
       this.users = res; 
-      this.users.forEach(elements => { 
-        for( let element of elements){
+      this.users.forEach(element => { 
+        //for( let element of elements){
         this.userService.retriveFile('userpic',  element.userId) 
           .subscribe(data => { 
               this.createImageFromBlob(element.userId, data); 
@@ -49,7 +49,7 @@ export class UserListComponent implements OnInit {
               this.acknoldgmentMsg = "Tenant Image Retrival failed ."+err;
               console.log(this.acknoldgmentMsg );  
             });
-          }
+          //}
           });
           //console.log('this.userImages: '+this.userImages);
 
@@ -128,14 +128,14 @@ onclick = function(event) {
     }
 }
 
-payment(id :number){
-this.userService.getUser(id)
-.subscribe(
-  data => {
-    console.log(data);
-    this.reloadData();
-  },
-  error => console.log(error));
+payment(users : object){
+// this.userService.getUser(users)
+// .subscribe(
+//   data => {
+//     console.log(data);
+//     this.reloadData();
+//   },
+//   error => console.log(error));
 }
 
 }

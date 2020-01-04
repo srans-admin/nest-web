@@ -162,7 +162,7 @@
         <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="user.payment.paymentThrough" name=" paymentThrough">
           
           <option selected>Cash</option>
-          <option >Bank Transfer</option>
+          <option ><a class="btn btn-info " (click)="addTransfer()"> <span class="glyphicon glyphicon-plus"></span>Bank Transfer </a></option>
         </select>
   
         <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>

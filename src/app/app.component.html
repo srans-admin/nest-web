@@ -9,22 +9,20 @@
                 </span>
         </nav> 
 </div>
-<div class="row">
-        <div class="col-md-2"> 
-                <!-- <app-home [role]="role"></app-home>  -->
-
-                <!--<app-dashboard-superadmin *ngIf="currentUser"> </app-dashboard-superadmin>-->
-
-                <!--<app-dashboard-home></app-dashboard-home>-->
-                <app-dashboard-admin *ngIf="currentUser"></app-dashboard-admin>
-                <!--<app-dashboard-user></app-dashboard-user>  -->
-
+<div  class="app-view">
+        <div class="side-bar"> 
+                <!-- <app-home [role]="role"></app-home>  --> 
+                <!--<app-dashboard-superadmin *ngIf="currentUser"> </app-dashboard-superadmin>
                  
-        </div>
-        <div class="col-md-10">
-                <div class="app-body">
-                        <router-outlet></router-outlet>
-                </div>
-        </div>
+                <app-dashboard-home></app-dashboard-home>
+                <app-dashboard-admin></app-dashboard-admin>-->
+                <app-dashboard-user *ngIf="currentUser"></app-dashboard-user>  
+                
+ 
+                 
+        </div>  
+        <div class="app-body">
+                <router-outlet></router-outlet>
+        </div> 
 </div>
 

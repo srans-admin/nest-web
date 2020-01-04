@@ -48,17 +48,18 @@ import { UpdateComplaintComponent } from './complaint/update-complaint/update-co
 import { ComplaintDetailsComponent } from './complaint/complaint-details/complaint-details.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from 'src/app/registration/registration.component';
 import { HomeComponent } from './home/home.component';
+ 
 import { SubscriptionRegisterComponent } from './subscription-register/subscription-register.component';
 
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import { CategoryDetailsComponent } from './category/category-details/category-details.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { UpdateCategoryComponent } from './category/update-category/update-category.component';
-
 import { ProfileComponent } from './profile/profile.component';
 
+ 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -111,11 +112,13 @@ const routes: Routes = [
   { path: 'complaint/add', component: AddComplaintComponent},
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
   { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
-
+ 
  { path: 'categories', component: CategoryListComponent },
   { path: 'categories/add', component: CreateCategoryComponent },
+ 
   { path: 'cupdate/:id', component: UpdateCategoryComponent },
   { path: 'cdetails/:id', component: CategoryDetailsComponent },
+ 
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

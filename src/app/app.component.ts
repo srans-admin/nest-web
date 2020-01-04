@@ -38,7 +38,8 @@ export class AppComponent {
   profile(){  
     var loggedInUserDetails : User = this.authenticationService.getLoggedInUserDetails();
 
-    var htmlMsg = "<br/><label> <span class=\"glyphicon glyphicon-user\"></span> Name : </label><span> "+loggedInUserDetails.name+"</span>"+
+    var htmlMsg = "<br/><label><span class=\"glyphicon glyphicon-camera\"></span> TenantPic : </label><span> "+loggedInUserDetails.userpic+"</span>"+
+    "<br/><label> <span class=\"glyphicon glyphicon-user\"></span> Name : </label><span> "+loggedInUserDetails.name+"</span>"+
                   "<br/><label> UerId : </label><span> "+loggedInUserDetails.userId+"</span>"   +          
                   "<br/><label> Email : </label><span> "+loggedInUserDetails.emailId+"</span>"+
                   "<br/><label> Phone : </label><span> "+loggedInUserDetails.telephoneNumber+"</span>"+
