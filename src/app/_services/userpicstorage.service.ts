@@ -9,7 +9,7 @@ import { AuthenticationService } from '../_auth/auth.service';
 })
 export class UserpicstorageService {
 
-  private baseUrl = environment.appUrl+'/api/v1/tenants';
+  private baseUrl = environment.appUrl+'/api/v1/users';
 
   constructor(private http: HttpClient,
     private authenticationService: AuthenticationService) { }
