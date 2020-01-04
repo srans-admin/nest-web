@@ -14,5 +14,7 @@ export class NIDOSMessages {
   //Hostel related messages here
   public HostelCreationSuccess = "Hostel created successfully ";
   public HostelCreationFailed = "Hostel creation failed ";
+
+  public NotificationMessage = " Notifications";
   
 }
