@@ -2,28 +2,31 @@
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
                 <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIODS  </span>  </a>
 
+
                 <span *ngIf="currentUser" class="align-right">
                         <div class="header-card" (click)="notification()" title="Notifications"> 
                                 <span class="glyphicon glyphicon-bullhorn">
                                         <sup><span class="badge">{{notifications.length}}</span></sup>
                                 </span> 
-                        </div>
+                        </div>               
+ 
+
                         <div class="header-card" (click)="profile()" title="profile"> <span class="glyphicon glyphicon-user"></span> </div>
                         <div class="header-card" (click)="logout()" title="logout">  <span class="glyphicon glyphicon-off"></span></div>
                 </span>
         </nav> 
 </div>
 <div  class="app-view">
-        <div class="side-bar"> 
-                <!-- <app-home [role]="role"></app-home>  --> 
-                <app-dashboard-superadmin *ngIf="currentUser"> </app-dashboard-superadmin> 
-                <!-- <app-dashboard-home></app-dashboard-home>
-                <app-dashboard-admin></app-dashboard-admin> -->
-                <!-- <app-dashboard-user *ngIf="currentUser"></app-dashboard-user> -->
-                 
-        </div>  
-        <div class="app-body">
-                <router-outlet></router-outlet>
-        </div> 
+<div class="side-bar"> 
+        <!-- <app-home [role]="role"></app-home>  --> 
+        <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin> 
+        <app-dashboard-home *ngIf="isSuperAdmin"></app-dashboard-home>
+        <app-dashboard-admin *ngIf="isAdmin"></app-dashboard-admin> 
+        <app-dashboard-user *ngIf="isTenant || isUser"></app-dashboard-user>
+                
+</div>  
+<div class="app-body">
+        <router-outlet></router-outlet>
+</div> 
 </div>
 
