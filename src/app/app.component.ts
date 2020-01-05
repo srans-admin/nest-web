@@ -14,8 +14,10 @@ import { Role } from './_models/role';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent { 
-  notification: Array<Notification> = [];
+  notifications: Array<Notification> = [];
   currentUser: User; 
+  //messages :Array<Notification> = [];
+
   // notified: Notification = new Notification(); 
 
   constructor(
@@ -25,13 +27,37 @@ export class AppComponent {
     private notificationService: NotificationService,
     private nIDOSMessages: NIDOSMessages
   ) {
-    this.authenticationService.currentUser.subscribe(user => 
-      {
+    this.authenticationService.currentUser.subscribe(user => {
         this.currentUser = user 
-      }
-      ); 
+      }); 
 
-      this.notificationService.getNotification(this.notification);
+    this.notificationService.getNotifications().subscribe(results => {
+      this.notifications = results;          
+        
+    
+      }, err =>{
+        //TODO Alert
+        this.alertMessage.showHttpMessage(err);
+        // this.notifications = [
+        //   {
+        //     "id" : 1,
+        //     "message": "Ram requested for new suscription, <a> click here</a>"
+        //   },
+        //   {
+        //     "id" : 2,
+        //     "message": "Sawthi requested for new suscription, <a> click here</a>"
+        //   },
+        //   {
+        //     "id" : 3,
+        //     "message": "Hey Man, You are gone !!!"
+        //   },        
+
+        // ]; 
+      });   
+      
+      this.notificationService.inActivateNotifications().subscribe(res => {
+        this.notifications = res;
+      })
   }
 
   get isAdmin() {
@@ -51,8 +77,16 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
-  notifications(){
-    this.alertMessage.showHTMLMessage('Notifications',' Notifications Here')
+  notification(){
+
+    let list = '';
+    for(let currNotification of this.notifications){
+      list += '<p>'+currNotification.message+'</p>';
+    }
+     
+    this.alertMessage.showHTMLMessage('Notifications', list);
+
+    this.notificationService.inActivateNotifications();
   }
 
   profile(){  

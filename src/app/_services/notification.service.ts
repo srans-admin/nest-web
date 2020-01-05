@@ -15,8 +15,21 @@ import { AuthenticationService } from '../_auth/auth.service';
       constructor(private http: HttpClient, 
                   private authenticationService: AuthenticationService) { }
 
-      getNotification(notification: Array<object>): Observable<object> {
-          return this.http.get(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
-        }
+      // getNotification(notification: Array<object>): Observable<object> {
+          
+      //   return this.http.get(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());       
+       
+      // }
+
+      getNotifications(): Observable<any>{
+        return this.http.get(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
+      }
+
+      inActivateNotifications(): Observable<any>{
+        return this.http.post(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
+
+      }
+
+      
 
   }
