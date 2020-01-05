@@ -19,9 +19,7 @@
 <div  class="app-view">
 
 <div class="side-bar"> 
-        <!-- <app-home [role]="role"></app-home>  --> 
-        <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin> 
-        <app-dashboard-home *ngIf="isSuperAdmin"></app-dashboard-home>
+        <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin>  
         <app-dashboard-admin *ngIf="isAdmin"></app-dashboard-admin> 
         <app-dashboard-user *ngIf="isTenant || isUser"></app-dashboard-user>
                 
