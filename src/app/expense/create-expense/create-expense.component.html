@@ -22,8 +22,8 @@
      <div class="form-group">
       <label> <span class="glyphicon glyphicon-envelope"></span>Type of Expense</label>
        <select  class="browser-default custom-select" id="expenseType" [(ngModel)]="expense.expenseType" name="sel">
-         <option *ngFor="let category of categories | async" [value]="category.name" name="id" >
-          {{category.name}}
+         <option *ngFor="let category of categories | async" [value]="category.typeId" name="id" >
+          {{category.expenseType}}
         </option>
       </select>
            <!--<a routerLink="categorys/add"  class="btn btn-info " ><i class="fa fa-plus"></i></a>-->

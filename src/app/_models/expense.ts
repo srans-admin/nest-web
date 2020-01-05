@@ -3,5 +3,4 @@ export class Expense{
    expenseType:string;
    amount:number;
       hostelId: number;
-
 }
