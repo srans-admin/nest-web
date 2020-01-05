@@ -39,4 +39,9 @@
 .counter.counter-lg {
     top: -24px !important;
 }
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
  

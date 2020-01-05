@@ -15,6 +15,10 @@ import { Role } from './_models/role';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] 
 })
+
+export class AppComponent { 
+  notifications: Array<Notification> = [];
+
 export class AppComponent {   
   private tokenInfo;  
   private userInfo : User; 
@@ -25,7 +29,10 @@ export class AppComponent {
   private isTenant: boolean = false; 
  
   notification: Array<Notification> = [];
+
   currentUser: User; 
+  //messages :Array<Notification> = [];
+
   // notified: Notification = new Notification(); 
  
 
@@ -36,6 +43,40 @@ export class AppComponent {
     private authenticationService: AuthenticationService,
     private notificationService: NotificationService,
     private nIDOSMessages: NIDOSMessages
+
+  ) {
+    this.authenticationService.currentUser.subscribe(user => {
+        this.currentUser = user 
+      }); 
+
+    this.notificationService.getNotifications().subscribe(results => {
+      this.notifications = results;          
+        
+    
+      }, err =>{
+        //TODO Alert
+        this.alertMessage.showHttpMessage(err);
+        // this.notifications = [
+        //   {
+        //     "id" : 1,
+        //     "message": "Ram requested for new suscription, <a> click here</a>"
+        //   },
+        //   {
+        //     "id" : 2,
+        //     "message": "Sawthi requested for new suscription, <a> click here</a>"
+        //   },
+        //   {
+        //     "id" : 3,
+        //     "message": "Hey Man, You are gone !!!"
+        //   },        
+
+        // ]; 
+      });   
+      
+      this.notificationService.inActivateNotifications().subscribe(res => {
+        this.notifications = res;
+      })
+
   ) { 
     // this.authenticationService.currentUser.subscribe(user => 
     //   {
@@ -49,6 +90,7 @@ export class AppComponent {
     //     console.log( "Login Trigger unable recieve  : "+ this.userInfo );
     //   }
     //   );
+
   }
 
   ngOnInit() {
@@ -78,8 +120,16 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
-  notifications(){
-    this.alertMessage.showHTMLMessage('Notifications',' Notifications Here')
+  notification(){
+
+    let list = '';
+    for(let currNotification of this.notifications){
+      list += '<p>'+currNotification.message+'</p>';
+    }
+     
+    this.alertMessage.showHTMLMessage('Notifications', list);
+
+    this.notificationService.inActivateNotifications();
   }
 
   profile(){  
