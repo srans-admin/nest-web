@@ -13,14 +13,14 @@
             <!-- menu -->
             <div id="myDropdown" class="dropdown-content">
                 <a (click)="deleteHostel(hostel.id)" title="Delete" href><span class="glyphicon glyphicon-trash"></span> Delete</a>
-                <a href><span class="glyphicon glyphicon-plus"></span> Add Floor</a>
-                <a href><span class="glyphicon glyphicon-tag"></span> Add Expenses</a>
+                <!-- <a href><span class="glyphicon glyphicon-plus"></span> Add Floor</a> -->
+                <a href><span class="glyphicon glyphicon-credit-card"></span> Add Expenses</a>
             </div>
         </div>
 
         <!-- Extended view headerpart -->
         <div class="hex-view-title">
-            <img src="{{facadeImage}}" alt="N" class="hostel-init-img" />
+            <img src="{{facadeImage}}" alt="" class="hostel-init-img" />
             <div class="hex-view-basic-details">
                 <div class="hex-view-heading"><span class="glyphicon glyphicon-home"></span> {{hostel.hostelName}}</div>
                 <div class="hex-view-heading-sub"> {{hostel.hostelType}}</div>
@@ -80,7 +80,7 @@
         </div>
 
         <!-- Carousel Sliding -->
-        <div class="row">
+        <!-- <div class="row">
             <ngb-carousel>
                 <ng-template ngbSlide>
                 <div class="picsum-img-wrapper">
@@ -138,7 +138,7 @@
                     </div>
                 </ng-template>
             </ngb-carousel>
-        </div>
+        </div> -->
 
     </div>
     <hr>

@@ -93,6 +93,8 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
 import { CategoryDetailsComponent } from './category/category-details/category-details.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { UpdateCategoryComponent } from './category/update-category/update-category.component';
+import { HostelPaymentComponent } from './hostel-payment/hostel-payment.component';
+import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscription.component';
 
 //import { ProfileComponent } from './profile/profile.component';
 @NgModule({
@@ -173,6 +175,8 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
     CategoryDetailsComponent,
     CategoryListComponent,
     UpdateCategoryComponent,
+    HostelPaymentComponent,
+    HostelSubscriptionComponent,
   ],
   imports: [
    BrowserModule,

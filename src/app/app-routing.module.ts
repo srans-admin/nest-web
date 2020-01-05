@@ -57,6 +57,8 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
 import { CategoryDetailsComponent } from './category/category-details/category-details.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { UpdateCategoryComponent } from './category/update-category/update-category.component';
+import { HostelPaymentComponent } from './hostel-payment/hostel-payment.component';
+import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscription.component';
 //import { ProfileComponent } from './profile/profile.component';
 
  
@@ -107,6 +109,8 @@ const routes: Routes = [
 
   { path: 'payment', component: PaymentListComponent, canActivate: [AuthGuard] },
   { path: 'payment/add', component: CreatePaymentComponent},
+  { path: 'hpayment', component: HostelPaymentComponent, canActivate: [AuthGuard] },
+  { path: 'hsubscription', component: HostelSubscriptionComponent, canActivate: [AuthGuard] },
 
   { path: 'complaint', component: ComplaintListComponent, canActivate: [AuthGuard]},
   { path: 'complaint/add', component: AddComplaintComponent},
