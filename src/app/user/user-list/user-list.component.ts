@@ -1,7 +1,7 @@
 import { UserDetailsComponent } from './../user-details/user-details.component';
 import { Observable } from "rxjs";
 import { UserService } from '../../_services/user.service';
-import { User, TmpUsr } from "../../_models/User";
+import { User, TmpUsr } from "../../_models/user";
 import { Component, OnInit, HostListener } from "@angular/core";
 import { Router } from '@angular/router';
 import {MatCheckboxModule} from '@angular/material/checkbox';

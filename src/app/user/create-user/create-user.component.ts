@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../_services/user.service';
-import { User } from '../../_models/User';
+import { User } from '../../_models/user';
 import { TenantBooking } from '../../_models/tenant-booking';
 import { Hostel } from '../../_models/hostel';
 import { Floor } from '../../_models/floor';

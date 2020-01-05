@@ -4,7 +4,7 @@ import { Room } from '../../_models/room';
 import { Router } from '@angular/router';
 import { Hostel } from 'src/app/_models/hostel';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Bed } from 'src/app/_models/Bed';
+import { Bed } from 'src/app/_models/bed';
 
 @Component({
   selector: 'app-add-room',

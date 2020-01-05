@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { Room } from '../../_models/room';
 
 import { CreateUserComponent } from 'src/app/user/create-user/create-user.component';
-import { Bed } from 'src/app/_models/Bed'; 
+import { Bed } from 'src/app/_models/bed'; 
 import { Floor } from '../../_models/floor';
 
 @Component({

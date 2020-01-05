@@ -146,7 +146,7 @@ export class ViewComponent implements OnInit {
   }
 }
 
-//Bed 1
+//bed 1
 createImageFromBlobB1(image: Blob) {
   let reader = new FileReader();
   reader.addEventListener("load", () => {
@@ -157,7 +157,7 @@ createImageFromBlobB1(image: Blob) {
   }
 }
 
-//Bed 2
+//bed 2
 createImageFromBlobB2(image: Blob) {
   let reader = new FileReader();
   reader.addEventListener("load", () => {
@@ -168,7 +168,7 @@ createImageFromBlobB2(image: Blob) {
   }
 }
 
-//Bed 3
+//bed 3
 createImageFromBlobB3(image: Blob) {
   let reader = new FileReader();
   reader.addEventListener("load", () => {

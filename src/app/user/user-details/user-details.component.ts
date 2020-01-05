@@ -1,4 +1,4 @@
-import { User } from '../../_models/User';
+import { User } from '../../_models/user';
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../_services/user.service';
 import { UserListComponent } from '../user-list/user-list.component';

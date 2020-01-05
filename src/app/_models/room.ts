@@ -1,4 +1,4 @@
-import { Bed } from './Bed';
+import { Bed } from './bed';
 
 export class Room{ 
 

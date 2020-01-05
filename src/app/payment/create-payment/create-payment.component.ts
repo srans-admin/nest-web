@@ -3,7 +3,7 @@ import { PaymentService } from '../../_services/payment.service';
 import { Payment } from '../../_models/payment';
 import { Room } from '../../_models/room';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User } from '../../_models/User';
+import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
