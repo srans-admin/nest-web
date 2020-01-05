@@ -42,7 +42,7 @@ export class CreateCategoryComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/categories']);
+    this.router.navigate(['expenses/add']);
   }
 }
 

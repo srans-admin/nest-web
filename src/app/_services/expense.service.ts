@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExpenseService {
 
-  private baseUrl = 'http://localhost:8080/nest-server/api/v1/expenses';
+   private baseUrl = environment.appUrl+'/api/v1/expenses';
+
   constructor(private http: HttpClient) { }
 
   getExpense(id: number): Observable<any> {

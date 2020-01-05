@@ -10,7 +10,7 @@
       </span>
 
       <label for="name">Tenant Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="users.name" name="name">
+      <input type="text" class="form-control" id="name" required [(ngModel)]="payment.name" name="name">
 
  
   
@@ -28,10 +28,10 @@
   
 
       <label for="name">Room Number</label>
-      <input type="text" class="form-control" id="roomName" required [(ngModel)]="room.roomName" name="roomName">
+      <input type="text" class="form-control" id="roomName" required [(ngModel)]="payment.roomName" name="roomName">
 
       <label for="name">Room Type</label>
-      <select class="browser-default custom-select" id="roomType" required [(ngModel)]="room.roomType" name="roomType">
+      <select class="browser-default custom-select" id="roomType" required [(ngModel)]="payment.roomType" name="roomType">
         <option>--Select--</option>
         <option>Single</option>
         <option>Double</option>
@@ -56,7 +56,7 @@
     <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">
     
       <label for="name">roomRent</label>
-      <input type="text" class="form-control" id="roomRent" required [(ngModel)]="room.roomRent" name="roomRent">
+      <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent">
     </div>
 
 
