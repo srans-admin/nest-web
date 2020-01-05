@@ -15,20 +15,17 @@ import { Role } from './_models/role';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] 
 })
-
-export class AppComponent { 
-  notifications: Array<Notification> = [];
-
-export class AppComponent {   
+  
+export class AppComponent {  
+  
+  private notifications: Array<Notification> = [];
   private tokenInfo;  
   private userInfo : User; 
 
   private isSuperAdmin: boolean = false;
   private isAdmin: boolean = false;
   private isUser: boolean = false;
-  private isTenant: boolean = false; 
- 
-  notification: Array<Notification> = [];
+  private isTenant: boolean = false;  
 
   currentUser: User; 
   //messages :Array<Notification> = [];
@@ -45,51 +42,19 @@ export class AppComponent {
     private nIDOSMessages: NIDOSMessages
 
   ) {
-    this.authenticationService.currentUser.subscribe(user => {
-        this.currentUser = user 
-      }); 
+     
 
     this.notificationService.getNotifications().subscribe(results => {
-      this.notifications = results;          
-        
+      this.notifications = results; 
     
       }, err =>{
         //TODO Alert
-        this.alertMessage.showHttpMessage(err);
-        // this.notifications = [
-        //   {
-        //     "id" : 1,
-        //     "message": "Ram requested for new suscription, <a> click here</a>"
-        //   },
-        //   {
-        //     "id" : 2,
-        //     "message": "Sawthi requested for new suscription, <a> click here</a>"
-        //   },
-        //   {
-        //     "id" : 3,
-        //     "message": "Hey Man, You are gone !!!"
-        //   },        
-
-        // ]; 
+        this.alertMessage.showFailedMsg(err.error); 
       });   
       
       this.notificationService.inActivateNotifications().subscribe(res => {
         this.notifications = res;
-      })
-
-  ) { 
-    // this.authenticationService.currentUser.subscribe(user => 
-    //   {
-    //     console.log( "Login Trigger received  :  "+ this.userInfo );
-    //     this.tokenInfo = user ;
-    //     //this.currentUser = this.authenticationService.getLoggedInUserDetails();
-    //     this.userInfo = this.authenticationService.getLoggedInUserDetails();
-    //     console.log( "Currently Logged user : "+ this.userInfo.role);
-    //     this.defineRole();
-    //   },err =>{
-    //     console.log( "Login Trigger unable recieve  : "+ this.userInfo );
-    //   }
-    //   );
+      });
 
   }
 
@@ -120,15 +85,14 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
-  notification(){
+  showNotifications(){
 
     let list = '';
     for(let currNotification of this.notifications){
       list += '<p>'+currNotification.message+'</p>';
     }
      
-    this.alertMessage.showHTMLMessage('Notifications', list);
-
+    this.alertMessage.showHTMLMessage('Notifications', list); 
     this.notificationService.inActivateNotifications();
   }
 
