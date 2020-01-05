@@ -5,4 +5,7 @@ export class Role{
     mobile:number;
     email:string;
     role:string;
+  static Admin: string;
+  static superadmin: string;
+  static user: string;
 }

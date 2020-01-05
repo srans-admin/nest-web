@@ -4,14 +4,18 @@ import { Router, provideRoutes } from '@angular/router';
 import { AuthenticationService } from './_auth/auth.service';
 import { AlertMessage } from './_alerts/alert.message';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { Notification } from './_models/notification';
+import { NotificationService } from './_services/notification.service';
+import { NIDOSMessages } from './_messages/message_eng';
+import { Role } from './_models/role';
+ 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] 
 })
-export class AppComponent { 
-
+export class AppComponent {   
   private tokenInfo;  
   private userInfo : User; 
 
@@ -19,11 +23,19 @@ export class AppComponent {
   private isAdmin: boolean = false;
   private isUser: boolean = false;
   private isTenant: boolean = false; 
+ 
+  notification: Array<Notification> = [];
+  currentUser: User; 
+  // notified: Notification = new Notification(); 
+ 
 
   constructor(
     private alertMessage: AlertMessage,
     private router: Router,
-    private authenticationService: AuthenticationService 
+ 
+    private authenticationService: AuthenticationService,
+    private notificationService: NotificationService,
+    private nIDOSMessages: NIDOSMessages
   ) { 
     // this.authenticationService.currentUser.subscribe(user => 
     //   {
@@ -57,7 +69,7 @@ export class AppComponent {
     this.isSuperAdmin = (this.userInfo) ? this.userInfo.role == 'SUPERADMIN' : false;
     this.isAdmin = (this.userInfo) ? this.userInfo.role == 'ADMIN' : false;
     this.isUser = (this.userInfo) ? this.userInfo.role == 'USER' : false;
-    this.isTenant = (this.userInfo) ? this.userInfo.role == 'TENANT' : false;
+    this.isTenant = (this.userInfo) ? this.userInfo.role == 'TENANT' : false; 
   }
 
   logout() {

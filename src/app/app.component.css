@@ -35,4 +35,8 @@
 .navbar{
     border-radius: 0px !important;
 }
+
+.counter.counter-lg {
+    top: -24px !important;
+}
  

@@ -15,7 +15,7 @@ import { AuthenticationService } from '../_auth/auth.service';
       constructor(private http: HttpClient, 
                   private authenticationService: AuthenticationService) { }
 
-      getNotification(notification: Array<string>): Observable<any> {
+      getNotification(notification: Array<object>): Observable<object> {
           return this.http.get(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
         }
 
