@@ -118,3 +118,8 @@ label{
     height: 12px;
     padding: 12px;
 }
+
+.largerCheckbox { 
+    width: 17px; 
+    height: 16px;
+} 
