@@ -55,21 +55,18 @@ export class LoginComponent implements OnInit {
       this.loading = true;
        this.authenticationService.login(this.f.username.value, this.f.password.value) 
            .subscribe(
-               data => { 
-                   console.log('Login Success: '+data);
-                   this.authenticationService.setAccessToken(data);
+               data => {  
+                   this.authenticationService.setAccessToken(data); 
 
-                   //TODO Need to get User Details on successfull login and from UAA server
                    this.userService.getUserDetails(this.f.username.value).subscribe(
                     data => {  
                         this.authenticationService.saveUserDetails(data);
+                        this.router.navigate([this.returnUrl]);
                     },
                     error => { 
                         this.alertMessage.showFailedMsg('Unable to get User Info : '+error.error.error_description); 
+                        this.loading = false;
                     });
-
-                   this.router.navigate([this.returnUrl]);
-                   //this.router.navigate(['/']);
                },
                error => { 
                 this.alertMessage.showFailedMsg('Invalid Credentials : '+error.error.error_description); 

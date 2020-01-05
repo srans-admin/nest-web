@@ -17,13 +17,14 @@ export class AuthenticationService {
     private clientSecret = environment.clientSecret;
     private uaaURL = environment.uaaURL;
 
-    private currentLoginSubject: BehaviorSubject<Boolean>;
-    public currentLogin: Observable<Boolean>;
+    //private currentLoginSubject: BehaviorSubject<Boolean>;
+    //public currentLogin: Observable<Boolean>;
 
     constructor(private _http: HttpClient, 
         private cookieService: CookieService
         ) {  
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+        //this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+        this.currentUserSubject = new BehaviorSubject<User>(null);
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
@@ -50,24 +51,27 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage and set current user to null
-        localStorage.removeItem('currentUser');
+        //localStorage.removeItem('currentUser');
         this.cookieService.delete('access_token'); 
         this.cookieService.delete('userinfo'); 
         this.currentUserSubject.next(null);
     } 
 
     setAccessToken(tokenInfo){  
-        localStorage.setItem('currentUser', JSON.stringify(tokenInfo)); 
+        //localStorage.setItem('currentUser', JSON.stringify(tokenInfo)); 
         console.log('Got access token : '+tokenInfo);
-        this.currentUserSubject.next( tokenInfo );
-
+        //this.currentUserSubject.next( tokenInfo );
         var expireDate = new Date().getTime() + (1000 * tokenInfo.expires_in);
         this.cookieService.set("access_token", tokenInfo.access_token, expireDate);  
     } 
 
 
     saveUserDetails(user){
+        console.log('Got user : '+user);
         this.cookieService.set('userinfo', JSON.stringify(user) );
+        //this.currentUserSubject.next( this.getLoggedInUserDetails() );
+        this.currentUserSubject.next( user );
+        console.log('Triggered login event'); 
     }
 
     getLoggedInUserDetails() : User {
@@ -93,7 +97,4 @@ export class AuthenticationService {
         return headers; 
       } 
 
-    public get isUserLoggedIn(): Boolean {
-      return  this.currentLoginSubject.value;
-    }
 }
