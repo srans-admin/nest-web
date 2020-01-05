@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs'; 
 import { User } from '../_models/user'; 
@@ -7,8 +7,9 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    private currentUserSubject: BehaviorSubject<User>;
-    public currentUser: Observable<User>; 
+    
+    //private currentUserSubject: BehaviorSubject<User>;
+    //public currentUser: Observable<User>; 
 
     private userName = '';
     private password = '';
@@ -20,19 +21,31 @@ export class AuthenticationService {
     //private currentLoginSubject: BehaviorSubject<Boolean>;
     //public currentLogin: Observable<Boolean>;
 
+    @Output() 
+    private currentUserEvent: EventEmitter<any> = new EventEmitter();
+    private currentUser:  User = null; 
+
     constructor(private _http: HttpClient, 
         private cookieService: CookieService
         ) {  
         //this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUserSubject = new BehaviorSubject<User>(null);
-        this.currentUser = this.currentUserSubject.asObservable();
+        //this.currentUserSubject = new BehaviorSubject<User>(null);
+        //this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    public get currentUserValue(): User { 
-        return  this.currentUserSubject.value;
+    // change() {
+    //     console.log('change started'); 
+    //     this.fire.emit(true);
+    // }
+
+    getCurrentUserEmitorEvent() {
+        return this.currentUserEvent;
     }
- 
-    //TODO Need to remove localStorage completely and use only cookieService from angular
+
+    public get currentUserValue(): User {  
+        return this.currentUser;
+    }
+  
     login(userName, password) { 
 
         this.userName = userName;
@@ -54,7 +67,9 @@ export class AuthenticationService {
         //localStorage.removeItem('currentUser');
         this.cookieService.delete('access_token'); 
         this.cookieService.delete('userinfo'); 
-        this.currentUserSubject.next(null);
+        //this.currentUserSubject.next(null);
+        this.currentUser = null;
+        this.currentUserEvent.emit(null);
     } 
 
     setAccessToken(tokenInfo){  
@@ -67,16 +82,18 @@ export class AuthenticationService {
 
 
     saveUserDetails(user){
-        console.log('Got user : '+user);
+        //console.log('Got user : '+user);
         this.cookieService.set('userinfo', JSON.stringify(user) );
         //this.currentUserSubject.next( this.getLoggedInUserDetails() );
-        this.currentUserSubject.next( user );
-        console.log('Triggered login event'); 
+        //this.currentUserSubject.next( user );
+        this.currentUser = user;
+        console.log('Triggered login event : '+user); 
+        this.currentUserEvent.emit(user);
     }
 
-    getLoggedInUserDetails() : User {
-        return JSON.parse(this.cookieService.get('userinfo'))
-    } 
+    //getLoggedInUserDetails() : User {
+    //    return JSON.parse(this.cookieService.get('userinfo'))
+    //} 
 
     getHttpHeaders()  {
         let  headers = new HttpHeaders(

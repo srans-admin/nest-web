@@ -25,21 +25,30 @@ export class AppComponent {
     private router: Router,
     private authenticationService: AuthenticationService 
   ) { 
-    this.authenticationService.currentUser.subscribe(user => 
-      {
-        console.log( "Login Trigger received  :  "+ this.userInfo );
-        this.tokenInfo = user ;
-        //this.currentUser = this.authenticationService.getLoggedInUserDetails();
-        this.userInfo = this.authenticationService.getLoggedInUserDetails();
-        console.log( "Currently Logged user : "+ this.userInfo.role);
-        this.defineRole();
-      },err =>{
-        console.log( "Login Trigger unable recieve  : "+ this.userInfo );
-      }
-      );
+    // this.authenticationService.currentUser.subscribe(user => 
+    //   {
+    //     console.log( "Login Trigger received  :  "+ this.userInfo );
+    //     this.tokenInfo = user ;
+    //     //this.currentUser = this.authenticationService.getLoggedInUserDetails();
+    //     this.userInfo = this.authenticationService.getLoggedInUserDetails();
+    //     console.log( "Currently Logged user : "+ this.userInfo.role);
+    //     this.defineRole();
+    //   },err =>{
+    //     console.log( "Login Trigger unable recieve  : "+ this.userInfo );
+    //   }
+    //   );
   }
 
   ngOnInit() {
+      this.authenticationService.getCurrentUserEmitorEvent().subscribe(user => { 
+         
+         this.userInfo  = user;
+         console.log( "Login trigger received  :  "+ this.userInfo ); 
+         this.defineRole(); 
+
+      }, err => {
+        console.log( "Login trigger unable recieve  : "+ this.userInfo );
+      });
     
   }
    

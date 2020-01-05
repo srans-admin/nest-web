@@ -2,7 +2,7 @@
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
                 <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIODS  </span>  </a>
 <!-- *ngIf="userInfo" -->
-                <span  class="align-right">
+                <span *ngIf="userInfo" class="align-right">
                         <div class="header-card" (click)="notifications()" title="notifications"> <span class="glyphicon glyphicon-bullhorn"></span> </div>
                         <div class="header-card" (click)="profile()" title="profile"> <span class="glyphicon glyphicon-user"></span> </div>
                         <div class="header-card" (click)="logout()" title="logout">  <span class="glyphicon glyphicon-off"></span></div>
@@ -15,7 +15,7 @@
         <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin> 
         <app-dashboard-home *ngIf="isSuperAdmin"></app-dashboard-home>
         <app-dashboard-admin *ngIf="isAdmin"></app-dashboard-admin> 
-        <app-dashboard-user *ngIf="isTenant"></app-dashboard-user>
+        <app-dashboard-user *ngIf="isTenant || isUser"></app-dashboard-user>
                 
 </div>  
 <div class="app-body">

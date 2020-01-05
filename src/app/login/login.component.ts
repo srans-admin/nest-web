@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
       private authenticationService: AuthenticationService 
   ) {
       // redirect to home if already logged in
-      if (this.authenticationService.currentUserValue) {
-          this.router.navigate(['/']);
-      }
+      //if (!this.authenticationService.currentUserValue) {
+      //    this.router.navigate(['/']);
+      //}
   }
 
   ngOnInit() {
@@ -59,9 +59,13 @@ export class LoginComponent implements OnInit {
                    this.authenticationService.setAccessToken(data); 
 
                    this.userService.getUserDetails(this.f.username.value).subscribe(
-                    data => {  
+                    data => { 
+                        if(data == null || data === undefined){
+                            this.alertMessage.showFailedMsg('UserInfo not found on server for the user:'+this.f.username.value+' : '+data); 
+                        } 
                         this.authenticationService.saveUserDetails(data);
-                        this.router.navigate([this.returnUrl]);
+                        this.loading = false; 
+                        this.router.navigate([this.returnUrl]); 
                     },
                     error => { 
                         this.alertMessage.showFailedMsg('Unable to get User Info : '+error.error.error_description); 
