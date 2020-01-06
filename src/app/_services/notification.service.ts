@@ -10,7 +10,7 @@ import { AuthenticationService } from '../_auth/auth.service';
   })
 
   export class NotificationService{
-      private baseUrl = environment.appUrl + '/api/v1/users/{userId}/notifications';
+      private baseUrl = environment.appUrl + '/api/v1/users';
 
       constructor(private http: HttpClient, 
                   private authenticationService: AuthenticationService) { }
@@ -22,11 +22,11 @@ import { AuthenticationService } from '../_auth/auth.service';
       // }
 
       getNotifications(id: number): Observable<any>{
-        return this.http.get(`${this.baseUrl}/${id}`, this.authenticationService.getHttpHeaders());
+        return this.http.get(`${this.baseUrl}/${id}/notifications`, this.authenticationService.getHttpHeaders());
       }
 
-      inActivateNotifications(): Observable<any>{
-        return this.http.post(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
+      inActivateNotifications(id: number): Observable<any>{
+        return this.http.post(`${this.baseUrl}/${id}/notifications`, this.authenticationService.getHttpHeaders());
 
       }
 

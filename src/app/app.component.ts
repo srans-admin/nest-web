@@ -50,23 +50,21 @@ export class AppComponent {
         this.userInfo  = user;
         console.log( "Login trigger received  :  "+ this.userInfo ); 
         this.defineRole(); 
+        if(this.userInfo){
+        this.notificationService.getNotifications(this.userInfo.userId).subscribe(results => {
+             console.log("notifications: " + results);
+             this.notifications = results; 
+          }, err =>{ 
+            this.alertMessage.showFailedMsg(err.message); 
+          });  
+          
+        }
 
     }, err => {
       console.log( "Login trigger unable recieve  : "+ this.userInfo );
     });
         
-    this.notificationService.getNotifications(this.id).subscribe(results => {
-      console.log("notifications: " + results);
-      this.notifications = results; 
     
-      }, err =>{
-        //TODO Alert
-        this.alertMessage.showFailedMsg(err.error); 
-      });   
-      
-      this.notificationService.inActivateNotifications().subscribe(res => {
-        this.notifications = res;
-      });
 
   }
 
@@ -106,7 +104,12 @@ export class AppComponent {
     }
      
     this.alertMessage.showHTMLMessage('Notifications', list); 
-    this.notificationService.inActivateNotifications();
+    
+    this.notificationService.inActivateNotifications(this.userInfo.userId).subscribe(results => {
+      console.log("inactivated notifications: " + results); 
+     }, err =>{ 
+        this.alertMessage.showFailedMsg(err.message); 
+     });  
   }
 
   profile(){  
