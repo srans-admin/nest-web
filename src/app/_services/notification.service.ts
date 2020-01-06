@@ -21,8 +21,8 @@ import { AuthenticationService } from '../_auth/auth.service';
        
       // }
 
-      getNotifications(): Observable<any>{
-        return this.http.get(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
+      getNotifications(id: number): Observable<any>{
+        return this.http.get(`${this.baseUrl}/${id}`, this.authenticationService.getHttpHeaders());
       }
 
       inActivateNotifications(): Observable<any>{
