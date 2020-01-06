@@ -8,6 +8,7 @@ import { Room } from '../../_models/room';
 import { environment } from '../../../environments/environment';
 import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
+import { AuthenticationService } from 'src/app/_auth/auth.service';
  
 
 @Component({
@@ -27,6 +28,7 @@ export class ListHostelComponent implements OnInit {
   
   constructor(private hostelService: HostelService,
     private router: Router,
+    private authenticationService: AuthenticationService,
     private route: ActivatedRoute,
     private alertMessage: AlertMessage,
     private nIDOSMessages: NIDOSMessages,
@@ -72,11 +74,14 @@ export class ListHostelComponent implements OnInit {
 
     addNewHostel(){
 
-      if(this.hostels.length() == 1){
-        this.alertMessage.showHttpMessage("Soory, you are not subsribed for adding  more than this, please req...");
-      }else{
-        this.alertMessage.showHttpMessage("Soory, you are not subsribed for adding  more than this, please req...");
- 
+      let currentUser : any = this.authenticationService.currentUser;
+      if(currentUser )
+      {
+        if(this.hostels.length <= currentUser.subscriptions){
+          this.alertMessage.showSuccessMsg("Unable to add more than given subscription");
+        }else{
+          this.router.navigate(['viewtabs']); 
+        }
       }
     }
 
