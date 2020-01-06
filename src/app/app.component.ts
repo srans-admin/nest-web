@@ -3,7 +3,7 @@ import { User } from './_models/user';
 import { Router, provideRoutes } from '@angular/router';
 import { AuthenticationService } from './_auth/auth.service';
 import { AlertMessage } from './_alerts/alert.message';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, Observable } from 'rxjs';
 import { Notification } from './_models/notification';
 import { NotificationService } from './_services/notification.service';
 import { NIDOSMessages } from './_messages/message_eng';
@@ -17,17 +17,19 @@ import { Role } from './_models/role';
 })
   
 export class AppComponent {  
-  
+    
   private notifications: Array<Notification> = [];
   private tokenInfo;  
   private userInfo : User; 
-
+  
   private isSuperAdmin: boolean = false;
   private isAdmin: boolean = false;
   private isUser: boolean = false;
   private isTenant: boolean = false;  
 
   currentUser: User; 
+  // id  = this.userInfo.userId;
+  id = 1000;
   //messages :Array<Notification> = [];
 
   // notified: Notification = new Notification(); 
@@ -41,10 +43,20 @@ export class AppComponent {
     private notificationService: NotificationService,
     private nIDOSMessages: NIDOSMessages
 
-  ) {
-     
+  ) {    
+    
+      this.authenticationService.getCurrentUserEmitorEvent().subscribe(user => { 
+          
+        this.userInfo  = user;
+        console.log( "Login trigger received  :  "+ this.userInfo ); 
+        this.defineRole(); 
 
-    this.notificationService.getNotifications().subscribe(results => {
+    }, err => {
+      console.log( "Login trigger unable recieve  : "+ this.userInfo );
+    });
+        
+    this.notificationService.getNotifications(this.id).subscribe(results => {
+      console.log("notifications: " + results);
       this.notifications = results; 
     
       }, err =>{
@@ -59,16 +71,17 @@ export class AppComponent {
   }
 
   ngOnInit() {
-      this.authenticationService.getCurrentUserEmitorEvent().subscribe(user => { 
+      // this.authenticationService.getCurrentUserEmitorEvent().subscribe(user => { 
          
-         this.userInfo  = user;
-         console.log( "Login trigger received  :  "+ this.userInfo ); 
-         this.defineRole(); 
+      //    this.userInfo  = user;
+      //    console.log( "Login trigger received  :  "+ this.userInfo ); 
+      //    this.defineRole(); 
 
-      }, err => {
-        console.log( "Login trigger unable recieve  : "+ this.userInfo );
-      });
-    
+      // }, err => {
+      //   console.log( "Login trigger unable recieve  : "+ this.userInfo );
+      // });
+
+      
   }
    
 
