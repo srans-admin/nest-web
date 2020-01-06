@@ -16,7 +16,7 @@ import { NIDOSMessages } from 'src/app/_messages/message_eng';
   styleUrls: ['./list-hostel.component.css']
 })
 export class ListHostelComponent implements OnInit {
-  hostels: Observable<Hostel[]>;
+  hostels;
   hostelImages: Array<Hostel> = [];
   room: Room = new Room();
   extendingviews: Observable<Hostel[]>;
@@ -68,6 +68,16 @@ export class ListHostelComponent implements OnInit {
 
     listHostel(id: number){
       this.router.navigate(['floor', id]);
+    }
+
+    addNewHostel(){
+
+      if(this.hostels.length() == 1){
+        this.alertMessage.showHttpMessage("Soory, you are not subsribed for adding  more than this, please req...");
+      }else{
+        this.alertMessage.showHttpMessage("Soory, you are not subsribed for adding  more than this, please req...");
+ 
+      }
     }
 
   }
