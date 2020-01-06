@@ -17,10 +17,10 @@
         <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
             <div *ngIf="f.emailId.errors.required">emailId is required</div>
         </div>
-        <label for="phonenumber">Phone Number</label>
-        <input type="text" formControlName="phonenumber"  [(ngModel)]="registration.phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }" />
-        <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
-            <div *ngIf="f.phonenumber.errors.required">phonenumber is required</div>
+        <label for="contactNumber">Phone Number</label>
+        <input type="text" formControlName="contactNumber"  [(ngModel)]="registration.contactNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }" />
+        <div *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.contactNumber.errors.required">contactNumber is required</div>
         </div>
         <!--         
         <label for="role"><span class="glyphicon glyphicon-mobile"></span> Role:</label> 
@@ -28,7 +28,7 @@
          -->
     <div >
         <br/>
-        <button type="submit" class="btn btn-primary">
+        <button [disabled]="loading" class="btn btn-primary">
               <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>  
             Register
         </button>

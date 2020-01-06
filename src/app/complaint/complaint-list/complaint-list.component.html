@@ -1,8 +1,9 @@
-<div class="panel ">
+<div class="container">
     <div class="row">
-      <div class="col-sm-10"><h2><span class="glyphicon glyphicon-envelope"></span> Complaint List</h2></div>
+      <h3><span class="glyphicon glyphicon-envelope"></span> View All My Complaints</h3>
       <div>
-        <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><span class="glyphicon glyphicon-plus">AddComplaint</span></a>
+        <a routerLink="add"  class="btn btn-info pull-right" routerLinkActive="active"><span class="glyphicon glyphicon-plus">AddComplaint</span></a>
+        <h4></h4>
       </div>
           <!--<div class="form-group pull-right">-->
                                   <!--<input type="text" [(ngModel)]="searchText" placeholder="search">-->
@@ -10,34 +11,34 @@
     </div>
     <br>
     <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th><span class="glyphicon glyphicon-menu-down"></span>Id</th>
-            <th><span class="glyphicon glyphicon-user"></span>Role Name</th>
-            <th><span class="glyphicon glyphicon-tag"></span>Name</th>
-            <!-- <th><span class="glyphicon glyphicon-envelope"></span>EmailId</th> -->
-            <th><span class="glyphicon glyphicon-phone"></span>PhoneNumber</th>
-            <th><span class="glyphicon glyphicon-envelope"></span>Description</th>
-            <th><span class="glyphicon glyphicon-cog"></span>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let complaint of complaints |  async">
-            <!--<td class="hidden"></td>-->
-            <td>{{ complaint.id }}</td>
-            <td>{{ complaint.roleName }}</td>
-            <td>{{ complaint.name }}</td>
-            <!-- <td>{{ complaint.emailId }}</td> -->
-            <td>{{ complaint.phoneNumber }}</td>
-            <td>{{ complaint.description }}</td>
-            <td>
-              <a (click)="deleteComplaint(complaint.id)" title="delete"><span class="glyphicon glyphicon-trash" style="margin-left: 10px"></span></a>
-              <a  (click)="updateComplaint(complaint.id)" title="update"><span class="glyphicon glyphicon-edit" style="margin-left: 10px"></span></a>
-              <a (click)="complaintDetails(complaint.id)" title="View"><span class="glyphicon glyphicon-eye-open" style="margin-left: 10px"></span></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          <div class="row">
+            <legend>
+            <div class="col col-md-6">
+              <h6> {{ complaintType }} </h6>            
+              <progress value="150" max="300" class="pull-right"></progress>
+              
+            </div>
+          </legend>
+          </div>
+          <div class="row">
+            <textarea rows="4" cols="50">{{ description }}</textarea>            
+          </div>
+          <button class="btn btn-primary pull-right">Reply</button><hr/>
+          <div class="row">
+            <div class="col col-md-2">
+              <img src="" alt="NA" />
+            </div>
+            <div class="col col-md-6">
+              <input type="text" class="form-control" [(ngModel)]="reply">
+            </div>
+          </div><br/>
+          <div class="row">
+            <div class="col col-md-2">
+              <img src="" alt="NA" />
+            </div>
+            <div class="col col-md-6">
+              <input type="text" class="form-control" [(ngModel)]="response">
+            </div>
+          </div>
     </div>
   </div>

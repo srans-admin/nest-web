@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 })
 export class ComplaintListComponent implements OnInit {
   complaints: Observable<Complaint[]>;
-
+  complaintType : string = "Water Supply Issue";
+  description : string = "water problem occuring repeatedly,please solve these issue as soon as possible";
+  reply : string = "Sorry man..!, I am Consider";
+  response : string = "Its Noted...!";
   constructor(private complaintService: ComplaintService,
     private router: Router) { }
 

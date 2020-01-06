@@ -3,17 +3,21 @@
 
 <hr/>
 <div *ngIf="user">
-  <!-- <div>
-    <label><b>userpic: </b></label> {{user.userpic}}
-    <img class="imgClass" [src]="user.userphoto">
-  </div> -->
-  <img src="{{userpicImage}}" alt=" NO IMAGE"  class="user-init-img"/>  
-  <div>
-    <label><b>name: </b></label> {{user.name}}
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{userpicImage}}" alt=" NO IMAGE"  class="user-init-img"/>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-md-6">
+      <label><b>name: </b></label> {{user.name}}
+    </div>
   </div>
-  <div>
-    <label><b>contactNumber : </b></label> {{user.contactNumber}}
-  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label><b>contactNumber : </b></label> {{user.contactNumber}}
+    </div>
+</div>
   <div>
     <label><b>fatherName : </b></label> {{user.fatherName}}
   </div>
