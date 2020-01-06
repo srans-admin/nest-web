@@ -16,7 +16,8 @@ import { NIDOSMessages } from '../_messages/message_eng';
 })
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup; 
-    submitted = false; 
+    submitted = false;
+    loading = false; 
     registration: Registration = new Registration(); 
 
   constructor(
@@ -38,7 +39,7 @@ export class RegistrationComponent implements OnInit {
       id: ['', Validators.required],
       username: ['', Validators.required],
       emailId: ['', Validators.required],
-      phonenumber: ['', Validators.required]
+      contactNumber: ['', Validators.required]
   });
   }
 
@@ -47,7 +48,8 @@ export class RegistrationComponent implements OnInit {
 
     this.submitted = true;  
     this.registration.role = 'USER';
-    //this.userService.createUser(this.registration)
+    
+    this.loading = true;
     this.registrationService.registration(this.registration)
        .subscribe(result => {
          var obj : any = result; 
@@ -56,7 +58,8 @@ export class RegistrationComponent implements OnInit {
        },  
        err => {  
          console.log(err) ;
-         this.alertMessage.showFailedMsg( this.nIDOSMessages.UserRegistrationFailed +":"+ err.message );  
+         this.alertMessage.showFailedMsg( this.nIDOSMessages.UserRegistrationFailed +":"+ err.message ); 
+         this.loading = false; 
        });
 }
 

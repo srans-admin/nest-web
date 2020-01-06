@@ -96,7 +96,9 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
 import { HostelPaymentComponent } from './hostel-payment/hostel-payment.component';
 import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscription.component';
 
-//import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ChartComponent } from './chart/chart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,7 +106,7 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
-    //ProfileComponent,
+    ProfileComponent,
 
     DashboardSuperadminComponent,
     DashboardAdminComponent,
@@ -177,6 +179,9 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
     UpdateCategoryComponent,
     HostelPaymentComponent,
     HostelSubscriptionComponent,
+    ChartComponent,
+
+    
   ],
   imports: [
    BrowserModule,

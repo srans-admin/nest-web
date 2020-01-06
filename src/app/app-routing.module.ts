@@ -57,9 +57,13 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
 import { CategoryDetailsComponent } from './category/category-details/category-details.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { UpdateCategoryComponent } from './category/update-category/update-category.component';
+
 import { HostelPaymentComponent } from './hostel-payment/hostel-payment.component';
 import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscription.component';
 //import { ProfileComponent } from './profile/profile.component';
+
+import { ProfileComponent } from './profile/profile.component';
+
 
  
 
@@ -67,7 +71,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
-  //{ path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'subscription', component: SubscriptionRegisterComponent },
   //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'roles', component: RoleListComponent, canActivate: [AuthGuard] },

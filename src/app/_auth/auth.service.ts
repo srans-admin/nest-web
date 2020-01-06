@@ -23,7 +23,7 @@ export class AuthenticationService {
 
     @Output() 
     private currentUserEvent: EventEmitter<any> = new EventEmitter();
-    private currentUser:  User = null; 
+    public currentUser:  User = null; 
 
     constructor(private _http: HttpClient, 
         private cookieService: CookieService

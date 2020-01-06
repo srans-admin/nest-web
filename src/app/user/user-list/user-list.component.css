@@ -59,7 +59,7 @@
     font-size: 0px;
     border: none;
     cursor: pointer;
-    right: 15px;
+    right: -60px;
 }
 
 /* .dropbtn:hover, .dropbtn:focus {
@@ -109,6 +109,7 @@ a{
     margin-top: 15px;
 }
 .user-search{
-    margin-left: 800px;
-    margin-top: -30px;
+    margin-left: 890px;
+    margin-top: -40px;
+
 }
