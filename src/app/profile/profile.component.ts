@@ -4,6 +4,7 @@ import { UserService } from '.././_services/user.service';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '.././_auth/auth.service';
 import { AlertMessage } from '.././_alerts/alert.message';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -11,106 +12,95 @@ import { AlertMessage } from '.././_alerts/alert.message';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  users:  any;
-  acknoldgmentMsg : string = null;
-  userImages: Array<TmpUsr> = [];
-  currentUser: User;
+  
+  private users:  any;
+  private acknoldgmentMsg : string = null;
+  private userImages: Array<TmpUsr> = [];
+  private currentUser: User; 
+  private userpic: any;
 
-  // userpic:any;
+  name = 'Angular 4';
+  url  ;
+ 
 
   constructor(
     private alertMessage: AlertMessage,
     private router: Router,
     private userService: UserService,
-    private authenticationService: AuthenticationService
-  ) { 
-    
-  }
+    private authenticationService: AuthenticationService 
+  ) {  
+    this.currentUser = this.authenticationService.currentUser;
 
-  ngOnInit() {
-    // this.profile();
-    // this.reloadData();
-
-    // this.authenticationService.getCurrentUserEmitorEvent().subscribe(user => {
-    //   this.currentUser = user;
-    //   console.log(this.currentUser.name);
-    // })
-
-    this.currentUser;
-
-  }
-
-     profile(){  
-      // var loggedInUserDetails : User = this.authenticationService.getLoggedInUserDetails();
+    //Retrive currestUser Image
+    this.userService.retriveFile('userpic',  this.currentUser.userId) 
+          .subscribe(data => { 
+              this.createImageFromBlob(data); 
+            },
+            err => {  
+              this.acknoldgmentMsg = "Unable to load image from server."+err;
+              this.alertMessage.showFailedMsg(this.acknoldgmentMsg );  
+            }); 
+  } 
   
-      var htmlMsg = "<br/><label><span class=\"glyphicon glyphicon-camera\"></span> TenantPic : </label><span> "+this.currentUser.userpic+"</span>"+
-      "<br/><label> <span class=\"glyphicon glyphicon-user\"></span> Name : </label><span> "+this.currentUser.name+"</span>"+
-                    "<br/><label> UerId : </label><span> "+this.currentUser.userId+"</span>"   +          
-                    "<br/><label> Email : </label><span> "+this.currentUser.emailId+"</span>"+
-                    "<br/><label> Phone : </label><span> "+this.currentUser.telephoneNumber+"</span>"+
-                    "<br/><label> Emergency : </label><span> "+this.currentUser.emergencyContactNumber+"</span>"
-                    ;
-  
-      this.alertMessage.showHTMLMessage('My Profile', htmlMsg)
-    
-  }
+  ngOnInit() {  
+   
+  } 
 
-//   reloadData(){
-//     this.userService.getUsersList().subscribe(res => { 
-//       console.log(res);
-//       this.users = res; 
-//       this.users.forEach(element => { 
-//         //for( let element of elements){
-//         this.userService.retriveFile('userpic',  element.userId) 
-//           .subscribe(data => { 
-//               this.createImageFromBlob(element.userId, data); 
-//               this.userpic = data;
-//             },  
-//             err => {  
-//               this.acknoldgmentMsg = "Tenant Image Retrival failed ."+err;
-//               console.log(this.acknoldgmentMsg );  
-//             });
-//           //}
-//           });
-//           //console.log('this.userImages: '+this.userImages);
-          
-
-//           //
-
-//     },err =>{ 
-//         this.alertMessage.showHttpMessage(err);
-//     }); 
-//   }
-
-//   createImageFromBlob(userId: any, image: Blob) {
-//     let reader = new FileReader();
-//     reader.addEventListener("load", () => { 
-//       // this.userImages.set(userId,  reader.result);
-//       let usr = new TmpUsr();
-//       usr.userId = userId;
-//       usr.pic = reader.result;
-//       this.userImages.push(usr);
-//     }, false); 
-//     if (image) {
-//        reader.readAsDataURL(image);
-//     }
-//  }
-
- //
-
- 
-
- //
-
- bringMyImage(userId){
-  for(let user of this.userImages){
-  
-    if(user.userId == userId){
-      return user.pic;
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => { 
+      this.userpic = reader.result; 
+    }, false); 
+    if (image) {
+       reader.readAsDataURL(image);
     }
+ } 
+ 
+ prepareUpload(typeOfUpload: string) { 
+  switch(typeOfUpload) { 
 
+    case "userImage":  
+      this.uploadChangedUserPic(this.userpic, 'userpic', this.currentUser.userId )
+      break; 
+    
+  //  case "idproofImage":  
+  //     this.uploadChangedUserPic( this.userpic, 'userpic', this.currentUser.userId )
+  //     break;
+ 
+    default: { 
+      console.log("Invalid File uploading "); 
+      break;              
+   } 
+  } 
   }
 
- }
 
+ uploadChangedUserPic(curFile: File, type: string, id : number){
+  this.userService.uploadFile(curFile, type,  id).subscribe(
+    res => {   
+      console.log('SUCCESS:: Type :'+type+', File: '+curFile+':'+res);
+    },
+    err =>{
+      console.log('FAILED:: Type :'+type+', File: '+curFile+': '+err);
+    });
+  }
+
+
+  
+  previewMyImage(event) {
+    
+    this.userpic = event.target.files[0];
+
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+      }
+    }
+  }
+  
+  
 }
