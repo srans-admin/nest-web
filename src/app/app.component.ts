@@ -97,10 +97,13 @@ export class AppComponent {
   }
 
   showNotifications(){
-
+    
     let list = '';
     for(let currNotification of this.notifications){
-      list += '<p>'+currNotification.message+'</p>';
+      // list += '<p>'+currNotification.message+'</p>';
+      list += "<div style=\"width: 18rem;\"><ul><li (click)=alert('hi...')>"+ currNotification.message +
+        "</li></ul></div>";
+        // list += "<div style=\"width: 18rem; \"><button class=\"btn btn-primary\">" + currNotification.message + "</button></div>";
     }
      
     this.alertMessage.showHTMLMessage('Notifications', list); 
