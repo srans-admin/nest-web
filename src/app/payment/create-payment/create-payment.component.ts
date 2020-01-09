@@ -7,6 +7,7 @@ import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { AlertMessage } from 'src/app/_alerts/alert.message';
 
 @Component({
   selector: 'app-create-payment',
@@ -17,24 +18,32 @@ export class CreatePaymentComponent implements OnInit {
 
   room: Room = new Room();
   user: Observable<User[]>;
-  users: User = new User();
+  // users: User = new User();
+  users : Observable<User[]>;
 
   constructor(private paymentService: PaymentService,
     private router: Router,
     private route: ActivatedRoute, 
     private userService: UserService,
-    private httpClient: HttpClient) { }
+    private alertMessage: AlertMessage,
+    private httpClient: HttpClient) { 
+      this.reloadUsers();
+    }
 
     payment: Payment = new Payment();
     submitted = false;
 
-
-
-
-
-
-
   ngOnInit() {
+    
+  }
+
+  reloadUsers(){
+    this.userService.getUsersList().subscribe(res => { 
+      this.users = res;
+      console.log(this.users);
+    },err =>{ 
+      this.alertMessage.showHttpMessage(err);
+  }); 
   }
 
   newPayment(): void {

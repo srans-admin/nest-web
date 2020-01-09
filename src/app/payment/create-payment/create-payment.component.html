@@ -1,8 +1,8 @@
 <h3>Payment </h3>
-<div [hidden]="submitted" style="width: 400px;">
+<!-- <div [hidden]="submitted" style="width: 400px;"> -->
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Date</label>      
+      <!-- <label for="name">Date</label>      
       <span class="date-picker">
         <input type="text" required [matDatepicker]="picker" class="form-control" id="date" required [(ngModel)]="payment.date" name="date">
          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
@@ -10,22 +10,7 @@
       </span>
 
       <label for="name">Tenant Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="payment.name" name="name">
-
- 
-  
-    <!-- <label><span class="glyphicon glyphicon-home"></span> Tenant Name </label>
-    <select class="browser-default custom-select"  (ngModelChange)="populateUser($event)"
-      name="sel2">
-      <option value="">--select--</option>
-      <option *ngFor="let user of users" [value]="user.id" name="id"
-        (ngModelChange)="populateUser(user.id)"> {{user.name}} </option>
-    </select> -->
-  
-    
-  
-  
-  
+      <input type="text" class="form-control" id="name" required [(ngModel)]="payment.name" name="name">    
 
       <label for="name">Room Number</label>
       <input type="text" class="form-control" id="roomName" required [(ngModel)]="payment.roomName" name="roomName">
@@ -38,8 +23,7 @@
         <option>Triple</option>
         <option>Four</option>
         <option>Five</option>
-      </select>
-    
+      </select>    
 
       <label for="name">payment Through</label>
       <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="payment.paymentThrough" name=" paymentThrough">
@@ -52,17 +36,34 @@
     <label for="name">Transaction Id</label>
     <input type="text" class="form-control" id="transactionId" required [(ngModel)]="payment.transactionId" name="transactionId">
 
-    <label for="name">bankName</label>
+    <label for="name">Bank Name</label>
     <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">
     
-      <label for="name">roomRent</label>
-      <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent">
-    </div>
+      <label for="name">Room Rent</label>
+      <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent"> -->
+
+      <!-- <div *ngFor="let user of users" value="user.userId" name="userId"></div> -->
+      <!-- <div class="search-buttons">
+        <p> Search Name: </p> 
+        <input type="text" class="form-control search-button" >
+        <button class="btn btn-info search-button s-b-height">Search</button>
+      </div> -->
+      <!-- <p>{{user.name}}</p> -->
 
 
-    <button type="submit" class="btn btn-success">Submit</button>
+      <select class="form-control custom-select chosen" name="sel2">
+          <option value="">--select--</option>
+          <option *ngFor="let user of users" [value]="user.userId" name="userId">
+            {{user.name}} - {{ user.contactNumber}}
+          </option>
+      </select>       
+
+    </div> 
+
+
+    <button type="submit" class="btn btn-success">Make Payment</button>
   </form>
-</div>
+<!-- </div> -->
 
 <!-- <div [hidden]="!submitted">
   <h4>You submitted successfully!</h4>
