@@ -36,6 +36,11 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
 
+import { CreateGuestComponent } from './guest/create-guest/create-guest.component';
+import { GuestDetailsComponent } from './guest/guest-details/guest-details.component';
+import { GuestListComponent } from './guest/guest-list/guest-list.component';
+import { UpdateGuestComponent } from './guest/update-guest/update-guest.component';
+
 import { InvoiceListComponent } from './invoice/invoice-list/invoice-list.component';
 import { CreateInvoiceComponent } from './invoice/create-invoice/create-invoice.component';
 
@@ -104,6 +109,11 @@ const routes: Routes = [
   { path: 'user/add', component: CreateUserComponent },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
+
+  { path: 'guest', component: GuestListComponent, canActivate: [AuthGuard] },
+  { path: 'guest/add', component: CreateGuestComponent },
+  { path: 'guestupdate/:id', component: UpdateGuestComponent },
+  { path: 'guestdetails/:id', component: GuestDetailsComponent },
 
   { path: 'doughnut-chart', component: DoughnutChartComponent },
   { path: 'bar-chart', component: BarChartComponent },

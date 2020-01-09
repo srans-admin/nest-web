@@ -1,0 +1,84 @@
+<h3>Update Guest</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    
+
+      <div class="form-group">
+          <label for="name">User Pic</label>
+          <input type="file" required [(ngModel)]="guest.userpic" name="userpic" >
+      </div>
+
+    <div class="form-group">
+      <label for="name">name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="guest.name" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="name">contactNumber</label>
+        <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="guest.contactNumber" name="contactNumber">
+      </div>
+
+    <div class="form-group">
+        <label for="name">fatherName</label>
+        <input type="text" class="form-control" id="fatherName" required [(ngModel)]="guest.fatherName" name="fatherName">
+      </div>  
+
+    <div class="form-group">
+        <label for="name">fatherphoneNumber</label>
+        <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="guest.fatherphoneNumber" name="fatherphoneNumber">
+      </div>
+
+    <div class="form-group">
+        <label for="name">motherName</label>
+        <input type="text" class="form-control" id="motherName" required [(ngModel)]="guest.motherName" name="motherName">
+      </div>
+
+    <div class="form-group">
+        <label for="name">motherphoneNumber</label>
+        <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="guest.motherphoneNumber" name="motherphoneNumber">
+      </div>
+
+    <div class="form-group">
+        <label for="name">dob</label>
+        <input type="text" class="form-control" id="dob" required [(ngModel)]="guest.dob" name="dob">
+      </div>
+
+    <div class="form-group">
+        <label for="name">bloodGroup</label>
+        <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="guest.bloodGroup" name="bloodGroup">
+      </div>
+
+    <div class="form-group">
+        <label for="name">emergencyContactNumber</label>
+        <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="guest.emergencyContactNumber" name="emergencyContactNumber">
+      </div>
+
+    <div class="form-group">
+        <label for="name">nameOfTheEmployer</label>
+        <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="guest.nameOfTheEmployer" name="nameOfTheEmployer">
+      </div>
+
+    <div class="form-group">
+      <label for="name">officeAddress</label>
+      <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="guest.officeAddress" name="officeAddress">
+    </div>
+
+    <div class="form-group">
+        <label for="name">emailId</label>
+        <input type="text" class="form-control" id="emailId" required [(ngModel)]="guest.emailId" name="emailId">
+      </div>
+
+     <div class="form-group">
+      <label for="name">permanentAddress</label>
+      <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="guest.permanentAddress" name="permanentAddress">
+    </div>
+
+    <div class="form-group">
+        <label for="name">idProof</label>
+        <input type="text" class="form-control" id="idProof" required [(ngModel)]="guest.idProof" name="idProof">
+      </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+

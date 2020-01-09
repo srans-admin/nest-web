@@ -1,0 +1,89 @@
+<h2>Guest Details</h2>
+
+
+<hr/>
+<div *ngIf="user">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{userpicImage}}" alt=" NO IMAGE"  class="user-init-img"/>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-md-6">
+      <label><b>name: </b></label> {{guest.name}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label><b>contactNumber : </b></label> {{guest.contactNumber}}
+    </div>
+</div>
+  <div>
+    <label><b>fatherName : </b></label> {{guest.fatherName}}
+  </div>
+  <div>
+    <label><b>fatherphoneNumber : </b></label> {{guest.fatherphoneNumber}}
+  </div>
+  <div>
+    <label><b>motherName : </b></label> {{guest.motherName}}
+  </div>
+  <div>
+    <label><b>motherphoneNumber : </b></label> {{guest.motherphoneNumber}}
+  </div>
+  <div>
+    <label><b>dob : </b></label> {{guest.dob}}
+  </div>
+  <div>
+    <label><b>bloodGroup : </b></label> {{guest.bloodGroup}}
+  </div>
+  <div>
+    <label><b>emergencyContactNumber : </b></label> {{guest.emergencyContactNumber}}
+  </div>
+  <div>
+    <label><b>nameOfTheEmployer : </b></label> {{guest.nameOfTheEmployer}}
+  </div>   
+  <div>
+    <label><b>officeAddress : </b></label> {{guest.officeAddress}}
+  </div>
+  <div>
+    <label><b>emailId : </b></label> {{guest.emailId}}
+  </div>
+  <div>
+    <label><b>permanentAddress : </b></label> {{guest.permanentAddress}}
+  </div>
+
+  <img src="{{idproofImage}}" alt=" NO IMAGE"  class="user-init-img"/>
+
+  <div>
+      <label><b>hostelName : </b></label> {{hostel.hostelName}}
+    </div>
+  <div>
+      <label><b>floor : </b></label> {{floor.floorName}}
+  </div>
+  <div>
+      <label><b>RoomName : </b></label> {{room.roomName}}
+  </div>
+  <div>
+      <label><b>Sharing : </b></label> {{room.roomType}}
+  </div>
+  <div>
+      <label><b>Date : </b></label> {{payment.date}}
+  </div>
+  <!-- <div>
+      <label><b>Name : </b></label> {{invoice.name}}
+  </div> -->
+  <div>
+      <label><b>Deposit Amount : </b></label> {{payment.depositAmount}}
+  </div>
+  <div>
+      <label><b>Amount : </b></label> {{payment.amount}}
+  </div>
+  <div>
+      <label><b>Payment Type : </b></label> {{payment.paymentType}}
+  </div>
+  
+
+</div>
+
+<br>
+<button (click)="list()" class="btn btn-primary">Back to User List</button><br>

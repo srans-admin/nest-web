@@ -1,0 +1,92 @@
+.modal.show
+{
+    display: block;
+}
+.label{
+    display: inline-block;
+    /* max-width: 20%; */
+    margin-bottom: 9px;
+    font-weight: 700;
+}
+.tenant-form-1{
+    padding: 23px;
+    width: 100%;
+}
+
+.floor-header{
+    width: 100%;
+    background-color: #001f3f;
+    display: inline-block;
+    color: white;
+    padding: 6px 7px 7px 14px;
+    border-radius: 5px;
+}
+.floor-name{  
+    margin-right: 20px; 
+}
+.room-box, .sub-room-box{
+    padding: 12px;
+    border: solid 1px #ddd;
+    background: #fff;
+    color: #bbb;
+    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
+}
+.sub-room-box{
+    display: inline-grid;
+    margin-top: 5px;
+}
+.sub-room-box-edit, .sub-room-box-delete{
+    width: 55px;
+    height: 22px;
+    font-size: small;
+    padding: 3px;
+    margin: 2px;
+}
+/* .add-hostel-submit{
+    margin: 10px;
+} */
+/* .room-box-header:hover{
+    color: black;
+} */
+
+.hostel-tenant-info{
+    padding-top: 10px;
+}
+.custom-select{ 
+    height: calc(1.5em + 0.75rem + 12px);
+    font-size: 14px;
+}
+.date-picker{
+    display: flex;
+}
+.selected-bed-info{
+    margin-top: 17px;
+    margin-bottom: 12px;
+    border: solid 1px #ddd;
+    background: #fff;
+    /* color: #bbb; */
+    /* box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025); */
+    padding: 24px;
+}
+.selected-bed-info-header{
+    background-color: black;
+    color: white;
+    padding: 12px;
+    margin-top: -24px;
+    margin-left: -24px;
+    margin-right: -24px;
+    margin-bottom: 24px;
+}
+.header{
+    text-align: center;
+    font-weight: bold;
+    color: rebeccapurple;
+}
+.is-hostel-info-req{
+    color: royalblue;
+    padding-top: 29px;
+    padding-left: 22px;
+}
+.join-tenant-button{
+    text-align: right;
+}

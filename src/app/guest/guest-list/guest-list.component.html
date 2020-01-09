@@ -1,0 +1,112 @@
+<!-- three dot menu -->
+<div class="dropdown">
+    <!-- three dots -->
+    <ul class="dropbtn icons btn-right showLeft" (click)="showDropdown()">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!-- menu -->
+    <div id="myDropdown" class="dropdown-content"> 
+        <a routerLink="add"><span class="glyphicon glyphicon-plus"></span> Add Guest </a> 
+        <!-- <a routerLink="add"><span class="glyphicon glyphicon-wrench"></span> Book Hostel </a>            -->
+        <a href="invoice"><span class="glyphicon glyphicon-camera"></span> Generate Invoice </a>
+        <!-- <a href="payment/add"><span class="glyphicon glyphicon-tag"></span> Payment</a> -->
+    </div>
+</div> 
+
+<div>
+ 
+  <h3><span class="glyphicon glyphicon-user"></span> Guests </h3>  
+      
+  <div class="user-search" style="width:200px">        
+    <input type="text" class="form-control"  placeholder="Search here" [(ngModel)]="searchTerm" >
+</div>
+<br/>
+      <div class="tenants-display  table-responsive-sm  ">
+        <table class="table table-striped table-sm">
+            
+          <thead>
+            <tr>
+              <th><span class="glyphicon glyphicon-tag"></span></th>
+              <th><span class="glyphicon glyphicon-camera"></span> TenantPic</th> 
+              <th><span class="glyphicon glyphicon-wrench"></span> UserId</th> 
+              <th><span class="glyphicon glyphicon-plus"></span> Name</th>
+              <th><span class="glyphicon glyphicon-wrench"></span> Contact Number</th>
+              <!-- <th>FatherName</th>
+              <th>FatherphoneNumber</th> -->
+              <!-- <th>motherName</th> -->
+              <!-- <th>motherphoneNumber</th> -->
+              <!-- <th><span class="glyphicon  glyphicon-calendar"></span> DOB</th> -->
+              <!-- <th>bloodGroup</th>
+              <th>emergencyContactNumber</th>
+              <th>nameOfTheEmployer</th>
+              <th>officeAddress</th>
+              <th>telephoneNumber</th> -->
+              <th><span class="glyphicon glyphicon-plus"></span> Email Id</th>
+              <!-- <th>PermanentAddress</th> -->
+              <!-- <th>idProof</th> -->
+              <th><span class="glyphicon glyphicon-chevron-left"></span>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+              
+                
+            <tr *ngFor="let guest of guests  ">   
+              <!-- | guestFilter:searchTerm            -->
+               <td> <mat-checkbox ></mat-checkbox></td>
+               <td>
+                  <img class="user-init-img" src="{{ bringMyImage(guest.userId)}}"  alt="NA"/>
+              </td>  
+              <td>{{ user.userId }}</td>                  
+                                   
+              <td>{{ guest.name }}</td>
+              <td>{{ guest.contactNumber }}</td>
+             <!-- <td>{{ user.fatherName }}</td>
+              <td>{{ user.fatherphoneNumber }}</td> -->
+              <!-- <td>{{ user.motherName }}</td> -->
+              <!-- <td>{{ user.motherphoneNumber }}</td> -->
+              <!-- <td>{{ user.dob }}</td> -->
+              <!-- <td>{{ user.bloodGroup }}</td>
+              <td>{{ user.emergencyContactNumber }}</td>
+              <td>{{ user.nameOfTheEmployer }}</td>
+              <td>{{ user.officeAddress }}</td>
+              <td>{{ user.telephoneNumber }}</td>       -->
+              <td>{{ guest.emailId }}</td>
+              <!-- <td>{{ user.permanentAddress }}</td> -->
+              <!-- <td>{{user.idProof}}</td> -->
+              <td> 
+                
+                <!-- <div class="dropdown">
+                  <ul class="dropbtn icons btn-right showLeft" (click)="showDropdown()">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul>
+                  <div id="myDropdown" class="dropdown-content">
+                       <a (click)="deleteUser(user.userId)" title="delete" href><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                       <a (click)="updateUser(user.userId)" title="update" href><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                       <a (click)="userDetails(user.userId)" title="view" href><span class="glyphicon glyphicon-eye-open"></span> Details</a>
+                      <a href="payment">payment</a>
+                  </div>
+              </div> -->
+              <div class="user-options">
+                  <a (click)="deleteUser(guest.userId)" title="delete"><span class="glyphicon glyphicon-trash"  style="margin-left: 10px"></span></a>
+                  <a  (click)="updateUser(guest.userId)" title="update"><span class="glyphicon glyphicon-edit" style="margin-left: 10px"></span></a>
+                  <a (click)="userDetails(guest.userId)" title="view"><span class="glyphicon glyphicon-eye-open" style="margin-left: 10px"></span></a>
+                  <a href="payment/add" (click)="payment(guests)" title="payment"><span class="glyphicon glyphicon-credit-card" style="margin-left: 10px"></span></a>
+
+                </div>
+              </td>
+              
+            <!-- </div> -->
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>
+    
+<br>
+</div>
+
+

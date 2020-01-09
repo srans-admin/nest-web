@@ -56,6 +56,11 @@ import { UserDetailsComponent } from './user/user-details/user-details.component
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
 
+import { CreateGuestComponent } from './guest/create-guest/create-guest.component';
+import { GuestDetailsComponent } from './guest/guest-details/guest-details.component';
+import { GuestListComponent } from './guest/guest-list/guest-list.component';
+import { UpdateGuestComponent } from './guest/update-guest/update-guest.component';
+
 import { CreatePaymentComponent } from './payment/create-payment/create-payment.component';
 import { PaymentListComponent } from './payment/payment-list/payment-list.component';
 
@@ -155,6 +160,12 @@ import { ProfileChangepasswordComponent } from './profile/profile-changepassword
     UserDetailsComponent,
     UserListComponent,
     UpdateUserComponent,
+
+    CreateGuestComponent,
+    GuestDetailsComponent,
+    GuestListComponent,
+    UpdateGuestComponent,
+
     CreateInvoiceComponent,
     InvoiceListComponent,
     HostelFilterPipe,
