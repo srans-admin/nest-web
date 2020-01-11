@@ -40,7 +40,7 @@
           
             <label for="name"><span class="glyphicon glyphicon-calendar"></span> DOB:</label>          
             <span class="date-picker">
-              <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="guest.dob">
+              <input type="text" required [matDatepicker]="picker" class="form-control"   required [(ngModel)]="guest.dob">
                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
                <mat-datepicker #picker></mat-datepicker> 
               </span>
@@ -143,37 +143,37 @@
             </div>
   
   
-          <!-- <div class="tenant-form-1" style="width: 300px;">
+          <div class="tenant-form-1" style="width: 300px;">
   
             <div class="form-group">
               <label for="name">
                 <span class="glyphicon glyphicon-calendar"></span> Date:</label>
               
               <span class="date-picker">
-              <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.payment.date">
+              <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="guest.payment.date">
                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
                <mat-datepicker #picker></mat-datepicker> 
               </span>
           </div>
      
           <label><span class="glyphicon glyphicon-user"></span> Payment Through:</label>
-          <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="user.payment.paymentThrough" name=" paymentThrough">
+          <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="guest.payment.paymentThrough" name=" paymentThrough">
             
             <option selected>Cash</option>
             <option ><a class="btn btn-info " (click)="addTransfer()"> <span class="glyphicon glyphicon-plus"></span>Bank Transfer </a></option>
           </select>
     
           <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
-              <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
+              <input type="text" class="form-control" id="transactionId" required [(ngModel)]="guest.payment.transactionId" name="transactionId">
     
           <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
-          <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
+          <input type="text" class="form-control" id="bankName" required [(ngModel)]="guest.payment.bankName" name="bankName">    
     
           
               <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
-              <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="user.payment.depositAmount" name="depositAmount">
+              <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="guest.payment.depositAmount" name="depositAmount">
        
-          </div> -->
+          </div>
         
       </mat-tab>        
   </mat-tab-group>

@@ -1,0 +1,94 @@
+<form (ngSubmit)="onSubmit()">
+    <h2>Vacate Appilication Form</h2>
+
+        <!-- <div class="selected-bed-info " *ngIf="isBedSelected">
+            <div class="row selected-bed-info-header">
+            <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+                <label>Hosel</label>
+                <div class="name"> {{selectedBedInfo.hostelName}} </div>
+            </div>
+            <div class="col-md-6">
+                <label>Floor</label>
+                <div class="name">{{selectedBedInfo.bed.floorId}}</div>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <label>Room</label>
+                <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
+                </div>
+                <div class="col-md-6">
+                <label>Bed</label>
+                <div class="name">{{selectedBedInfo.bed.id}}</div>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Bed Position</label>
+                    <div class="name">{{selectedBedInfo.bed.position}} </div>
+                    </div>
+                <div class="col-md-6">
+                    <label>Room Rent</label>
+                    <div class="name">{{selectedBedInfo.roomRent}} </div>
+                </div>
+                
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Room Sharing </label>
+                        <div class="name">{{selectedBedInfo.roomType}} </div>
+                    </div> 
+                    
+                </div>
+        </div> -->
+
+
+        <div class="tenant-form-1" style="width: 300px;">
+
+            <div class="form-group">
+                <label for="name">
+                <span class="glyphicon glyphicon-calendar"></span> Date:</label>
+                <span class="date-picker">
+                <input type="text" required [matDatepicker]="picker" class="form-control"  name="date" required [(ngModel)]="user.payment.date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+                <mat-datepicker #picker></mat-datepicker> 
+                </span>
+            
+            <label><span class="glyphicon glyphicon-user"></span> Hostel Name:</label>
+            <input type="text" class="form-control"   >
+
+            <label><span class="glyphicon glyphicon-user"></span> Floor:</label>
+            <input type="text" class="form-control"   >
+
+            <label><span class="glyphicon glyphicon-user"></span> Room:</label>
+            <input type="text" class="form-control"   >
+
+            <label><span class="glyphicon glyphicon-user"></span> Bed:</label>
+            <input type="text" class="form-control"  >
+
+            <label><span class="glyphicon glyphicon-user"></span> Room Rent:</label>
+            <input type="text" class="form-control"  >
+
+            <label><span class="glyphicon glyphicon-user"></span> RoomType:</label>
+            <input type="text" class="form-control"  >
+     
+            <label><span class="glyphicon glyphicon-money"></span> Refund Amount:</label>
+            <input type="text" class="form-control"  >
+
+            <label for="name"> Comment:</label>
+        <textarea class="form-control" ></textarea>
+
+        </div> 
+         
+        <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions
+        <!-- <input type="submit" name="submit" value="submit" /> -->
+    
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+    
+</form>

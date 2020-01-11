@@ -41,7 +41,7 @@
         
           <label for="name"><span class="glyphicon glyphicon-calendar"></span> DOB:</label>          
           <span class="date-picker">
-            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.dob">
+            <input type="text" required [matDatepicker]="picker" class="form-control"  required [(ngModel)]="user.dob">
              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
              <mat-datepicker #picker></mat-datepicker> 
             </span>

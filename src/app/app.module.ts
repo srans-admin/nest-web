@@ -64,6 +64,8 @@ import { UpdateGuestComponent } from './guest/update-guest/update-guest.componen
 import { CreatePaymentComponent } from './payment/create-payment/create-payment.component';
 import { PaymentListComponent } from './payment/payment-list/payment-list.component';
 
+import { VacateComponent } from './vacate/vacate.component';
+
 import { AddComplaintComponent } from './complaint/add-complaint/add-complaint.component';
 import { ComplaintListComponent } from './complaint/complaint-list/complaint-list.component';
 import { UpdateComplaintComponent } from './complaint/update-complaint/update-complaint.component';
@@ -173,6 +175,8 @@ import { ProfileChangepasswordComponent } from './profile/profile-changepassword
 
     CreatePaymentComponent,
     PaymentListComponent,
+
+    VacateComponent,
 
     AddComplaintComponent,
     ComplaintListComponent,
