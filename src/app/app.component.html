@@ -1,31 +1,43 @@
-<div class="app-haeader">
-        <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-                <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIODS  </span>  </a>
 
-
-                <span *ngIf="userInfo" class="align-right">
-                        <div class="header-card" (click)="showNotifications()" title="Notifications"> 
-                                <span class="glyphicon glyphicon-bullhorn">
-                                        <sup><span class="badge">{{notifications.length}}</span></sup>
-                                </span> 
-                        </div>               
+<div class="header-1">
+<!--<div class="dropdown">
+         <button style="margin-top: 7px;padding-left: 30px" class="dropbtn" onclick="myFunction()">Hyderabad
+        <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        </div>  -->
+        
+    <span *ngIf="userInfo" class="align-right">
+          <span >    <img class="user-pic" src="images/joey-degrandis-hsam-memory.jpg" />  <p style="color: white">{{userInfo.name}}</p></span>  
+        <i class="fa fa-user header-card" aria-hidden="true" (click)="profile()" title="profile" ></i>
+        <i class="fa fa-bell-o header-card" aria-hidden="true" (click)="showNotifications()" title="Notifications"></i>
+        <i class="fa fa-power-off header-card " aria-hidden="true"  (click)="logout()" title="logout"></i>
+    </span>
  
+</div> 
 
-                        <div class="header-card" (click)="profile()" title="profile"> <span class="glyphicon glyphicon-user"></span> </div>
-                        <div class="header-card" (click)="logout()" title="logout">  <span class="glyphicon glyphicon-off"></span></div>
-                </span>
-        </nav> 
-</div>
-<div  class="app-view">
+<div class="container">
 
-<div class="side-bar"> 
+<div class="side-nav">
+        <!-- <div class="admin" *ngIf="userInfo">
+                <img src="images/joey-degrandis-hsam-memory.jpg" width="50" height="50">
+                <p style="color: white">{{userInfo.name}}</p>
+        </div>  -->
+       
         <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin>  
         <app-dashboard-admin *ngIf="isAdmin"></app-dashboard-admin> 
         <app-dashboard-user *ngIf="isTenant || isUser"></app-dashboard-user>
-                
-</div>  
-<div class="app-body">
-        <router-outlet></router-outlet>
-</div> 
+        
+        
 </div>
+<div class="main-content">
 
+        <!-- <div class="app-body"> -->
+         <router-outlet></router-outlet>
+        <!-- </div>   -->
+
+</div>
+</div>
