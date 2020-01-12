@@ -90,7 +90,7 @@ const routes: Routes = [
   { path: 'edetails/:id', component: ExpenseDetailsComponent },
 
   { path: 'hostels', component: ListHostelComponent, canActivate: [AuthGuard] },
-  { path: 'hostels/viewtabs', component: AddHostelComponent},
+  { path: 'hostels/viewtabs', component: AddHostelComponent ,  canActivate: [AuthGuard]},
   { path: 'hostels/addFloor/rooms', component: AddRoomComponent},
   { path: 'update/:id', component: EditHostelComponent },
   { path: 'details/:id', component: ViewComponent },
