@@ -12,7 +12,7 @@ import { RegistrationService } from '.././_services/registration.service';
 export class UserService { 
 
   private baseUrl = environment.appUrl+'/api/v1/users'; 
-   
+  private userUrl = environment.appUrl + '/';
 
   constructor(private http: HttpClient,
     private userpicStorageService: UserpicstorageService,
@@ -22,6 +22,10 @@ export class UserService {
   getUser(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`,  this.authenticationService.getHttpHeaders());
   }
+
+  // getHostelInfo(id: number): Observable<any>{
+  //   return this.http.get(`${this.baseUrl}/${id}`, this.authenticationService.getHttpHeaders());
+  // }
 
   getUserDetails(name: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/byname/${name}`, this.authenticationService.getHttpHeaders());

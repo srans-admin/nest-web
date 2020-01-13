@@ -99,6 +99,8 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
 import { ProfileComponent } from './profile/profile.component';
 import { ChartComponent } from './chart/chart.component';
 import { ProfileChangepasswordComponent } from './profile/profile-changepassword/profile-changepassword.component';
+import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+import { VacateComponent } from './vacate/vacate.component';
 
 @NgModule({
   declarations: [
@@ -182,7 +184,8 @@ import { ProfileChangepasswordComponent } from './profile/profile-changepassword
     HostelSubscriptionComponent,
     ChartComponent,
     ProfileChangepasswordComponent,
-
+    UserPaymentComponent,
+    VacateComponent,
     
   ],
   imports: [

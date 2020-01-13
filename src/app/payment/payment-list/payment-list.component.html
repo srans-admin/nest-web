@@ -14,26 +14,30 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Name</th>
+            <!-- <th>Id</th>
+            <th>Name</th> -->
             <th>Room Name</th>
             <th>Room Type</th>
-            <th>Payment Through</th>
+            <!-- <th>Payment Through</th>
             <th>Transaction_Id</th>
             <th>Bank Name</th>
-            <th>Room Rent</th>
+            <th>Room Rent</th> -->
+            <th>Amount</th>
+
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let payment of payments |  async">
-            <td>{{ payment.id }}</td>
-            <td>{{ payment.name }}</td>
+            <!-- <td>{{ payment.id }}</td>
+            <td>{{ payment.name }}</td> -->
             <td>{{ payment.roomName }}</td>
             <td>{{ payment.roomType }}</td>
-            <td>{{ payment.paymentThrough }}</td>
+            <!-- <td>{{ payment.paymentThrough }}</td>
             <td>{{ payment.transactionId }}</td>
             <td>{{ payment.bankName }}</td>
-            <td>{{ payment.roomRent }}</td>
+            <td>{{ payment.roomRent }}</td> -->
+            <td>{{ payment.ammount }}</td>
+
             <td>
               <!-- <button  (click)="deleteInvoice(invoice.id)" class="btn btn-danger"> Delete</button> -->
               <!-- <button  (click)="updateInvoice(invoice.id)" class="btn btn-primary" style="margin-left: 10px"> Update</button>

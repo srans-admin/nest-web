@@ -8,7 +8,7 @@
 }
 .search-button{
     margin-right: 10px;
-    /* margin-left: -5px; */    
+    margin-left: 8px;    
 }
 .s-b-height{
     height:35px;
@@ -16,6 +16,16 @@
 
 .custom-select{
     height: calc(1.0em + 0.75rem + 12px);
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 280px;
+}
+
+.custom-label{
+    /* height: calc(1.0em + 0.75rem + 12px); */
     font-size: 18px;
     width: 180px;
 }
+ .content-position{
+    text-align: center;
+ }

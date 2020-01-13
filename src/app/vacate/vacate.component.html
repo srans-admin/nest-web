@@ -1,0 +1,63 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div><h3>Vacate Application Form</h3></div><br/>
+        <div><button type="submit" class="form-control custom-select btn btn-success">Get My Info</button></div><br/>
+        <div class="row">
+            <div class="col col-md-4">
+                <label>
+                    <span class="glyphicon glyphicon-calendar"></span> Joining Date 
+                </label>
+                <span class="date-picker">
+                    <input type="text" required [matDatepicker]="picker" class="form-control custom-select" required [(ngModel)]="vacate.date" name="date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+                    <mat-datepicker #picker></mat-datepicker> 
+                </span><br/>       
+                    
+                <div>
+                    <label><span class="glyphicon glyphicon-stop"></span> Floor </label>
+                    <input type="text" class="form-control custom-select" readonly [value]="">
+                </div><br/>
+
+                <div>
+                    <label><span class="glyphicon glyphicon-stop"></span> Bed </label>
+                    <input type="text" class="form-control custom-select" readonly [value]="">
+                </div><br/>
+            </div>
+            <div class="col col-md-4">
+                <label>
+                    <span class="glyphicon glyphicon-calendar"></span> Vacating Date 
+                </label>
+                <span class="date-picker">
+                    <input type="text" required [matDatepicker]="picker" class="form-control custom-select" required [(ngModel)]="vacate.date" name="date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+                    <mat-datepicker #picker></mat-datepicker> 
+                </span><br/>
+
+                <div>
+                    <label><span class="glyphicon glyphicon-stop"></span> Room </label>
+                    <input type="text" class="form-control custom-select" readonly [value]="">
+                </div><br/>
+
+                <div>
+                    <label><span class="glyphicon glyphicon-stop"></span> Rent </label>
+                    <input type="text" class="form-control custom-select" readonly [value]="">
+                </div><br/>
+            </div>
+        </div><br/>
+        <button type="submit" class="form-control custom-select btn btn-success generateInvoice">Generate Invoice</button>
+    </form><br/>
+    <div class="form-group">
+
+            <div>
+                <label><span class="glyphicon glyphicon-bitcoin"></span> Refund Amount </label>
+                <input type="text" class="form-control custom-select" readonly [value]="">
+            </div><br/>
+
+            <div>
+                <label><span class="glyphicon glyphicon-list-alt"></span> Comments </label>
+                <textarea class="form-control" style="width: 300px;"></textarea>
+            </div><br/>
+            <input type="checkbox" class="tc" name="TC"> I have read and agree the Terms and Conditions
+    </div>
+    <div><button type="submit" class="form-control custom-select btn btn-success vacate">Vacate</button></div><br/>
+</div>

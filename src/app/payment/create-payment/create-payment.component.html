@@ -1,8 +1,8 @@
-<h3>Payment </h3>
-<!-- <div [hidden]="submitted" style="width: 400px;"> -->
+<h3><b>Payment </b></h3>
+<div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <!-- <label for="name">Date</label>      
+       <label for="name">Date</label>      
       <span class="date-picker">
         <input type="text" required [matDatepicker]="picker" class="form-control" id="date" required [(ngModel)]="payment.date" name="date">
          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
@@ -21,8 +21,6 @@
         <option>Single</option>
         <option>Double</option>
         <option>Triple</option>
-        <option>Four</option>
-        <option>Five</option>
       </select>    
 
       <label for="name">payment Through</label>
@@ -40,7 +38,7 @@
     <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">
     
       <label for="name">Room Rent</label>
-      <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent"> -->
+      <input type="text" class="form-control" id="ammount" required [(ngModel)]="payment.ammount" name="ammount"> 
 
       <!-- <div *ngFor="let user of users" value="user.userId" name="userId"></div> -->
       <!-- <div class="search-buttons">
@@ -51,22 +49,20 @@
       <!-- <p>{{user.name}}</p> -->
 
 
-      <select class="form-control custom-select chosen" name="sel2">
-          <option value="">--select--</option>
-          <option *ngFor="let user of users" [value]="user.userId" name="userId">
-            {{user.name}} - {{ user.contactNumber}}
-          </option>
-      </select>       
+      
 
+      <!-- <div [user]="selectedUser" (onSelectedUserInfoEmitor)="onSelectedUserInfoEmited($event)"></div> -->
     </div> 
 
 
     <button type="submit" class="btn btn-success">Make Payment</button>
   </form>
-<!-- </div> -->
+</div>
 
 <!-- <div [hidden]="!submitted">
   <h4>You submitted successfully!</h4>
   
-</div> -->
+</div> 
+
+-->
 

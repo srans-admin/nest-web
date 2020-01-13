@@ -63,12 +63,14 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
 //import { ProfileComponent } from './profile/profile.component';
 
 import { ProfileComponent } from './profile/profile.component';
+import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+import { VacateComponent } from './vacate/vacate.component';
 
 
  
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: '', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'profile', component: ProfileComponent },
@@ -112,6 +114,7 @@ const routes: Routes = [
   { path: 'invoice/add', component: CreateInvoiceComponent},
 
   { path: 'payment', component: PaymentListComponent, canActivate: [AuthGuard] },
+  { path: 'paymentHistory', component: UserPaymentComponent, canActivate: [AuthGuard] },
   { path: 'payment/add', component: CreatePaymentComponent},
   { path: 'hpayment', component: HostelPaymentComponent, canActivate: [AuthGuard] },
   { path: 'hsubscription', component: HostelSubscriptionComponent, canActivate: [AuthGuard] },
@@ -127,6 +130,7 @@ const routes: Routes = [
   { path: 'cupdate/:id', component: UpdateCategoryComponent },
   { path: 'cdetails/:id', component: CategoryDetailsComponent },
  
+  {path: 'vacateMe', component: VacateComponent},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
