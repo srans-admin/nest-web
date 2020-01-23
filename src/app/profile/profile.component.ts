@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '.././_auth/auth.service';
 import { AlertMessage } from '.././_alerts/alert.message';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ProfileChangepasswordComponent } from './profile-changepassword/profile-changepassword.component';
+
+
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +16,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
   
   private users:  any;
   private acknoldgmentMsg : string = null;
@@ -22,10 +27,10 @@ export class ProfileComponent implements OnInit {
   name = 'Angular 4';
   url  ;
  
-
   constructor(
     private alertMessage: AlertMessage,
     private router: Router,
+    public dialog: MatDialog,
     private userService: UserService,
     private authenticationService: AuthenticationService 
   ) {  
@@ -102,5 +107,17 @@ export class ProfileComponent implements OnInit {
     }
   }
   
+  changePassword(){
+    const dialogRef = this.dialog.open(ProfileChangepasswordComponent, {
+      width: '40%',
+      height: '40%',
+      data: {
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
   
 }

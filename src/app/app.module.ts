@@ -98,7 +98,11 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
 
 import { ProfileComponent } from './profile/profile.component';
 import { ChartComponent } from './chart/chart.component';
+
 import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+
+import { ProfileChangepasswordComponent } from './profile/profile-changepassword/profile-changepassword.component';
+
 
 @NgModule({
   declarations: [
@@ -181,7 +185,12 @@ import { UserPaymentComponent } from './payment/user-payment/user-payment.compon
     HostelPaymentComponent,
     HostelSubscriptionComponent,
     ChartComponent,
+
     UserPaymentComponent,
+
+    ProfileChangepasswordComponent,
+
+
     
   ],
   imports: [
@@ -204,7 +213,7 @@ import { UserPaymentComponent } from './payment/user-payment/user-payment.compon
   providers: [CookieService],  
   // UploadFileService
   bootstrap: [AppComponent],
-entryComponents:[CreateExpenseComponent]
+entryComponents:[CreateExpenseComponent,ProfileChangepasswordComponent]
 
 })
 export class AppModule { }

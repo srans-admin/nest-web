@@ -44,4 +44,11 @@ sup {
     vertical-align: super;
     font-size: smaller;
 }
+
+.badgePosition{
+    position: relative;
+  left: 10px;
+  bottom:22px;
+  background-color: red;
+}
  

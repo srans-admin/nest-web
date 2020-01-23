@@ -1,3 +1,23 @@
+
 .c-wrapper{
 color: green;
 }
+
+
+.size{
+    width:400px;
+    height:60px;
+    margin-top:70px;
+    margin-left:30px;
+}
+.brder{
+    border:1px solid black;
+
+}
+ .size_brder{
+    width:700px;
+    height:500px;
+    border:1px solid black;
+
+ }
+

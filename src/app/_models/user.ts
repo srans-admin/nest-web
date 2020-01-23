@@ -22,6 +22,10 @@ export class User {
   permanentAddress: string;
   idProofpic: string; 
   role: string = 'TENANT'; 
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+  
 
   tenantBooking: TenantBooking = new TenantBooking();
   payment: Payment = new Payment();
