@@ -1,30 +1,60 @@
-
 <h3>Create Complaint</h3>
 <div class="container">
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
+     <!--<div class="form-group">-->
+      <!--<label for="name">Name</label>-->
+      <!--<input type="text" class="form-control" id="name" required [(ngModel)]="complaint.name" name="name">-->
+     <!--</div>-->
+     <!--<div class="form-group">-->
+        <!--<label for="name"> <span class="glyphicon glyphicon-calendar"></span>Date</label>-->
+      <!--<span class="date-picker">-->
+        <!--<input type="text" required [matDatepicker]="picker" class="form-control" id="date" required [(ngModel)]="complaint.date" name="date">-->
+         <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+         <!--<mat-datepicker #picker></mat-datepicker>-->
+      <!--</span>-->
+     <!--</div>-->
+
     <div class="form-group">
       <label for="name">Type</label>
-      <select id="type" class="form-control" [(ngModel)]="complaint.type" name=" type">
-          <option >water problem</option>
-          <option >wifi</option>
-          <option >food</option>
+      <select id="type" class="form-control" [(ngModel)]="complaint.type" name="type">
+          <option value="" selected disabled hidden>Choose here</option>
+          <option value="water">water problem</option>
+          <option value="wifi">wifi</option>
+          <option value="food" selected>food</option>
+          <option value="cleaning" >Cleaning</option>
+          <option value="tv">Tv</option>
+          <option value="parking">Parking</option>
       </select>
     </div>
+<!--<div class="form-group">-->
+  <!--<label for="name">Type</label>-->
+   <!--&lt;!&ndash;<form [formGroup]="typeForm">&ndash;&gt;-->
+ <!--<select  formControlName="issueControl">-->
+   <!--<option [value]="issue" *ngFor="let issue of issues">{{issue}}</option>-->
+ <!--</select>-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--</div>-->
+
+     <div class="form-group">
+      <label for="name">Subject</label>
+      <input type="text" class="form-control" id="subject" required [(ngModel)]="complaint.subject" name="subject">
+     </div>
 
       <div class="form-group" >
-        <label for="name">Complaint Description</label>
+        <label for="name">Description</label>
         <!-- <input type="text-area" class="form-control" id="description" required  name="description"> -->
-        <textarea class="form-control" [(ngModel)]="complaint.description"></textarea>
+        <textarea class="form-control" [(ngModel)]="complaint.description" name="description"></textarea>
       </div>
-
 
     <button type="submit" class="btn btn-success">Raise Complaint</button>
   </form>
 </div>
 </div>
 
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-</div>
+<!--<div [hidden]="!submitted">-->
+  <!--<h4>You submitted successfully!</h4>-->
+  <!--&lt;!&ndash; <button class="btn btn-success" (click)="newHostel()">Add</button> &ndash;&gt;-->
+<!--</div>-->
+
 
