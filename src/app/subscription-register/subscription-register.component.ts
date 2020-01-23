@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AlertMessage } from '../_alerts/alert.message';
 import { NIDOSMessages } from '../_messages/message_eng';
+import { UserService } from ".././_services/user.service";
+import { User } from ".././_models/user";
 
 @Component({
   selector: 'app-subscription-register',
@@ -12,6 +14,8 @@ import { NIDOSMessages } from '../_messages/message_eng';
   styleUrls: ['./subscription-register.component.css']
 })
 export class SubscriptionRegisterComponent implements OnInit {
+      users:  any;
+
 
   constructor(private subscriptionService: SubscriptionService,
               private router: Router,
