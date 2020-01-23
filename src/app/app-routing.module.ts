@@ -61,17 +61,22 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
 import { HostelPaymentComponent } from './hostel-payment/hostel-payment.component';
 import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscription.component';
 //import { ProfileComponent } from './profile/profile.component';
-
+import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+import { VacateComponent } from './vacate/vacate.component';
 
 
  
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: '', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
+  { path: 'reservation', component: BedReservationComponent},
   { path: 'profile', component: ProfileComponent },
+  { path: 'editProfile', component: EditProfileComponent, canActivate: [AuthGuard] },
   { path: 'subscription', component: SubscriptionRegisterComponent },
   //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'roles', component: RoleListComponent, canActivate: [AuthGuard] },
@@ -112,6 +117,7 @@ const routes: Routes = [
   { path: 'invoice/add', component: CreateInvoiceComponent},
 
   { path: 'payment', component: PaymentListComponent, canActivate: [AuthGuard] },
+  { path: 'paymentHistory', component: UserPaymentComponent, canActivate: [AuthGuard] },
   { path: 'payment/add', component: CreatePaymentComponent},
   { path: 'hpayment', component: HostelPaymentComponent, canActivate: [AuthGuard] },
   { path: 'hsubscription', component: HostelSubscriptionComponent, canActivate: [AuthGuard] },
@@ -127,6 +133,7 @@ const routes: Routes = [
   { path: 'cupdate/:id', component: UpdateCategoryComponent },
   { path: 'cdetails/:id', component: CategoryDetailsComponent },
  
+  {path: 'vacateMe', component: VacateComponent},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

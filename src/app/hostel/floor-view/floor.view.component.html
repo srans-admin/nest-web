@@ -14,7 +14,7 @@
         </div>
 
         <div class="room-box">
-            <div class="room-box-header"> <span class="glyphicon glyphicon-tags"></span> Single Rooms </div>
+            <div class="room-box-header"> <span class="glyphicon glyphicon-stop"></span> Single Rooms </div>
             <span *ngFor="let room of getRoomsWithType(floor,'Single')">
                 <span class="sub-room-box">
                     <div class="room-header">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="room-box">
-            <div class="room-box-header"> <span class="glyphicon glyphicon-book"></span> Double Rooms </div>
+            <div class="room-box-header"> <span class="glyphicon glyphicon-th-large"></span> Double Rooms </div>
             <span *ngFor="let room of getRoomsWithType(floor,'Double')">
                 <span class="sub-room-box">
                         <div class="room-header">
@@ -54,7 +54,7 @@
         </div>
 
         <div class="room-box">
-            <div class="room-box-header"><span class="glyphicon glyphicon-center"></span> Triple Rooms </div>
+            <div class="room-box-header"><span class="glyphicon glyphicon-th"></span> Triple Rooms </div>
             <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
                 <span class="sub-room-box">
                         <div class="room-header">
@@ -73,7 +73,7 @@
             </span>
         </div>
 
-        <div class="room-box">
+        <!-- <div class="room-box">
             <div class="room-box-header"><span class="glyphicon glyphicon-home"></span> Misc </div>
             <span *ngFor="let room of getRoomsWithType(floor,'Misc')">
                 <span class="sub-room-box">
@@ -91,6 +91,6 @@
 
                 </span>
             </span>
-        </div>   
+        </div>    -->
     </div>
 </div>

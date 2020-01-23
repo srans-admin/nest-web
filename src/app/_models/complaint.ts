@@ -1,6 +1,6 @@
-
 export class Complaint{
-    type: string;    
-    description: string;
-
+   name:string;
+   date:string;
+   type: string;
+   description: string;
 }

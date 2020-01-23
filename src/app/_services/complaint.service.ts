@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class ComplaintService {
 
-   private baseUrl = environment.appUrl+'/api/v1/complaints';
+   private baseUrl = environment.appUrl+'/api/v1/complaints/complainthistory';
 
   constructor(private http: HttpClient) { }
 

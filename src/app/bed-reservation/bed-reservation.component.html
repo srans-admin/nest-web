@@ -1,0 +1,193 @@
+<h3><span class="glyphicon glyphicon-user"></span> 
+    Guest Only Reservation 
+</h3>
+    
+    <form (ngSubmit)="onSubmit()">
+      <mat-tab-group>
+        <mat-tab label="Info">
+  
+  
+        
+        <div class="tenant-form-1" style="width: 300px;"  >  
+  
+        <div class="form-group">
+            <!-- <label for="name">userpic</label>
+            <input type="file" required [(ngModel)]=user.userpic name="userpic" > -->
+  
+            <label><span class="glyphicon glyphicon-camera"></span> TenantPic </label>
+              <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
+              
+            <label><span class="glyphicon glyphicon-user"></span> Name:</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+               
+            <label for="name"><span class="glyphicon glyphicon-mobile"></span> ContactNumber:</label>
+            <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber">
+        
+            <label for="name"><span class="glyphicon glyphicon-user"></span> FatherName:</label>
+            <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName">
+          
+            <label for="name"><span class="glyphicon glyphicon-tasks"></span> Father PhoneNumber:</label>
+            <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber">
+          
+            <label for="name"><span class="glyphicon glyphicon-female"></span> MotherName:</label>
+            <input type="text" class="form-control" id="motherName" required [(ngModel)]="user.motherName" name="motherName">
+          
+            <label for="name"><span class="glyphicon glyphicon-tasks"></span> Mother PhoneNumber:</label>
+            <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
+          
+            <label for="name"><span class="glyphicon glyphicon-calendar"></span> DOB:</label>          
+            <span class="date-picker">
+              <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.dob">
+               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+               <mat-datepicker #picker></mat-datepicker> 
+              </span>
+          
+            <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
+            <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">
+          
+            <label for="name"><span class="glyphicon glyphicon-mobile"></span> Emergency Contact Number:</label>
+            <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
+          
+            <label for="name"><span class="glyphicon glyphicon-user"></span> Name Of The Employer:</label>
+            <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
+          
+            <label for="name"><span class="glyphicon glyphicon-user"></span> Office Address:</label>
+            <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
+          
+            <label for="name"><span class="glyphicon glyphicon-tasks"></span> Telephone Number:</label>
+            <input type="text" class="form-control" id="telephoneNumber" required [(ngModel)]="user.telephoneNumber" name="telephoneNumber">
+          
+        <label for="name"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
+        <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
+      
+        <label for="name"><span class="glyphicon glyphicon-user"></span> Permanent Address:</label>
+        <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
+      
+          <label for="name"><span class="glyphicon glyphicon-user"></span> ID </label>
+            <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" />
+        </div>    
+    
+  </div>
+  </mat-tab>
+      
+    <mat-tab label="Bed-Reservation" *ngIf="isHostelPaymentReq">  
+  
+    <div class="hostel-tenant-info tenant-form-1">
+    
+      <label><span class="glyphicon glyphicon-home"></span> Choose Hostel </label>
+      <select class="browser-default custom-select" [ngModel]="selectedDevice" (ngModelChange)="populateHostel($event)"
+        name="sel2">
+        <option value="">--select--</option>
+        <option *ngFor="let hostel of hostels | async" [value]="hostel.id" name="id"
+          (ngModelChange)="populateHostel(hostel.id)"> {{hostel.hostelName}} </option>
+      </select>
+    
+      <floor-view [hostel]="selectedHostel" (onSelectedBedInfoEmitor)="onSelectedBedInfoEmited($event)"></floor-view>
+    
+    
+    </div>
+  
+  
+      </mat-tab>
+  
+  
+      <mat-tab label="Payment" *ngIf="isHostelPaymentReq">
+  
+  
+          <div class="selected-bed-info " *ngIf="isBedSelected">
+              <div class="row selected-bed-info-header">
+                <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Hosel</label>
+                  <div class="name"> {{selectedBedInfo.hostelName}} </div>
+                </div>
+                <div class="col-md-6">
+                  <label>Floor</label>
+                  <div class="name">{{selectedBedInfo.bed.floorId}}</div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <label>Room</label>
+                    <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label>Bed</label>
+                    <div class="name">{{selectedBedInfo.bed.id}}</div>
+                  </div>
+                </div> 
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Bed Position</label>
+                        <div class="name">{{selectedBedInfo.bed.position}} </div>
+                      </div>
+                    <div class="col-md-6">
+                      <label>Room Rent</label>
+                      <div class="name">{{selectedBedInfo.roomRent}} </div>
+                    </div>
+                     
+                  </div>
+      
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label>Room Sharing </label>
+                          <div class="name">{{selectedBedInfo.roomType}} </div>
+                        </div> 
+                       
+                    </div>
+            </div>
+  
+  
+          <div class="tenant-form-1" style="width: 300px;">
+  
+            <div class="form-group">
+              <label for="name">
+                <span class="glyphicon glyphicon-calendar"></span> Date:</label>
+              
+              <span class="date-picker">
+              <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.payment.date">
+               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+               <mat-datepicker #picker></mat-datepicker> 
+              </span>
+          </div>
+
+          <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
+          <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="user.payment.depositAmount" name="depositAmount">
+
+          <!-- <label for="name"><span class="glyphicon glyphicon-building"></span> Advance </label>
+          <input type="text" class="form-control" id="amount" required [(ngModel)]="user.payment.amount" name="amount">     -->
+     
+          <label><span class="glyphicon glyphicon-user"></span> Payment Through:</label>
+          <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="user.payment.paymentThrough" name=" paymentThrough">
+            
+            <option selected>Cash</option>
+            <option ><a class="btn btn-info " (click)="addTransfer()"> <span class="glyphicon glyphicon-plus"></span>Bank Transfer </a></option>
+          </select>
+    
+          <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
+              <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
+    
+          <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
+          <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
+    
+              
+          
+               
+        </div>
+        <button type="submit" class="btn btn-success">Join Guest</button>
+        
+      </mat-tab>        
+  </mat-tab-group>
+  
+                 
+    
+  </form>
+  
+  
+  
+  
+  
+    
+  

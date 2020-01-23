@@ -96,9 +96,14 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
 import { HostelPaymentComponent } from './hostel-payment/hostel-payment.component';
 import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscription.component';
 
+import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
+
 import { ProfileComponent } from './profile/profile.component';
 import { ChartComponent } from './chart/chart.component';
 import { ProfileChangepasswordComponent } from './profile/profile-changepassword/profile-changepassword.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+import { VacateComponent } from './vacate/vacate.component';
 
 @NgModule({
   declarations: [
@@ -134,6 +139,7 @@ import { ProfileChangepasswordComponent } from './profile/profile-changepassword
     EditHostelComponent,
     DeleteHostelComponent,
     FloorViewComponent,
+    BedReservationComponent,
 
     AddFloorComponent,
     ListFloorComponent,
@@ -182,7 +188,9 @@ import { ProfileChangepasswordComponent } from './profile/profile-changepassword
     HostelSubscriptionComponent,
     ChartComponent,
     ProfileChangepasswordComponent,
-
+    EditProfileComponent,
+    UserPaymentComponent,
+    VacateComponent,
     
   ],
   imports: [

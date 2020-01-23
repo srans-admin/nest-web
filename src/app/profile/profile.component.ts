@@ -107,6 +107,10 @@ export class ProfileComponent implements OnInit {
     }
   }
   
+  editProfile(id: number){
+    this.router.navigate(['editprofile', id]);
+  }
+
   changePassword(){
     const dialogRef = this.dialog.open(ProfileChangepasswordComponent, {
       width: '40%',
