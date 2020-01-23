@@ -1,44 +1,152 @@
-<div class="container">
-    <div class="row">
-      <h3><span class="glyphicon glyphicon-envelope"></span> View All My Complaints</h3>
+<!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<h3><span class="glyphicon glyphicon-envelope"></span> View All My Complaints</h3>-->
+      <!--<div>-->
+        <!--<a routerLink="add"  class="btn btn-info pull-right" routerLinkActive="active"><span class="glyphicon glyphicon-plus">AddComplaint</span></a>-->
+        <!--<h4></h4>-->
+      <!--</div>-->
+          <!--&lt;!&ndash;<div class="form-group pull-right">&ndash;&gt;-->
+                                  <!--&lt;!&ndash;<input type="text" [(ngModel)]="searchText" placeholder="search">&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+    <!--<br>-->
+    <!--<div class="panel-body">-->
+          <!--<div class="row">-->
+            <!--<legend>-->
+            <!--<div class="col col-md-6">-->
+              <!--<h6> {{ complaintType }} </h6>            -->
+              <!--<progress value="150" max="300" class="pull-right"></progress>-->
+              <!---->
+            <!--</div>-->
+          <!--</legend>-->
+          <!--</div>-->
+          <!--<div class="row">-->
+            <!--<textarea rows="4" cols="50">{{ description }}</textarea>            -->
+          <!--</div>-->
+          <!--<button class="btn btn-primary pull-right">Reply</button><hr/>-->
+          <!--<div class="row">-->
+            <!--<div class="col col-md-2">-->
+              <!--<img src="" alt="NA" />-->
+            <!--</div>-->
+            <!--<div class="col col-md-6">-->
+              <!--<input type="text" class="form-control" [(ngModel)]="reply">-->
+            <!--</div>-->
+          <!--</div><br/>-->
+          <!--<div class="row">-->
+            <!--<div class="col col-md-2">-->
+              <!--<img src="" alt="NA" />-->
+            <!--</div>-->
+            <!--<div class="col col-md-6">-->
+              <!--<input type="text" class="form-control" [(ngModel)]="response">-->
+            <!--</div>-->
+          <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+
+<div class="panel ">
+  <div class="row">
+      <div class="col-sm-10"><h2>Complaint List</h2></div>
       <div>
-        <a routerLink="add"  class="btn btn-info pull-right" routerLinkActive="active"><span class="glyphicon glyphicon-plus">AddComplaint</span></a>
-        <h4></h4>
+        <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><span class="glyphicon glyphicon-plus"></span>Add Complaint</a>
       </div>
-          <!--<div class="form-group pull-right">-->
-                                  <!--<input type="text" [(ngModel)]="searchText" placeholder="search">-->
-        <!--</div>-->
+          <!-- <div class="form-group pull-right">
+            <input type="text" [(ngModel)]="searchText" placeholder="search">
+        </div> -->
     </div>
     <br>
-    <div class="panel-body">
-          <div class="row">
-            <legend>
-            <div class="col col-md-6">
-              <h6> {{ complaintType }} </h6>            
-              <progress value="150" max="300" class="pull-right"></progress>
-              
-            </div>
-          </legend>
+  <div class="panel-body">
+    <!--<table class="table table-striped">-->
+      <!--<thead>-->
+        <!--<tr>-->
+          <!--<th>created_at</th>-->
+          <!--&lt;!&ndash;<th>Type of Complaint</th>&ndash;&gt;-->
+          <!--<th>Description</th>-->
+          <!--&lt;!&ndash;<th>Actions</th>&ndash;&gt;-->
+        <!--</tr>-->
+      <!--</thead>-->
+      <!--<tbody>-->
+        <!--<tr *ngFor="let complaint of complaints |  async">-->
+          <!--&lt;!&ndash;<td class="hidden"></td>&ndash;&gt;-->
+          <!--<td>{{ complaint.created_at }}</td>-->
+          <!--<td>{{ complaint.description }}</td>-->
+          <!--&lt;!&ndash;<td>&ndash;&gt;-->
+             <!--&lt;!&ndash;<div class="user-options">&ndash;&gt;-->
+            <!--&lt;!&ndash;<a (click)="deleteComplaint(complaint.id)" title="delete" ><span class="glyphicon glyphicon-trash"></span></a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a  (click)="updateComplaint(complaint.id)" title="update"><span class="glyphicon glyphicon-edit"></span></a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a (click)="complaintDetails(complaint.id)" title="view"><span class="glyphicon glyphicon-eye"></span></a>&ndash;&gt;-->
+             <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+          <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--</tr>-->
+      <!--</tbody>-->
+    <!--</table>-->
+
+
+    <div *ngFor="let complaintWrapper of complaintWrappers | async">
+
+      <div class="c-wrapper">
+
+        <div class="c-header">
+          <div class="u-pic"> {{ complaintWrapper.complaint.userId }} </div>
+          <div class="c-subj"> {{ complaintWrapper.complaint.subject }} </div>
+          <div class="c-type"> {{ complaintWrapper.complaint.type }} </div>
+          <div class="c-date"> {{ complaintWrapper.complaint.date }} </div>
+          <div class="c-status"> {{ complaintWrapper.complaint.status }} </div>
+        </div>
+        <div class="c-body">
+          <div class="c-body-desc">
+            {{ complaintWrapper.complaint.description }}
           </div>
-          <div class="row">
-            <textarea rows="4" cols="50">{{ description }}</textarea>            
+          <div class="c-body-comments">
+           <div *ngFor="let comment of complaintWrapper.complaintComments ">
+             <div class="c-comment">
+              <div class="c-comment-u-pic">{{ comment.updatedByUserId }}</div>
+                <div class="c-comment-u-pic">{{ comment.comments }}</div>
+                <div class="c-comment-u-pic">{{ comment.resolutionDate }}</div>
+                <div class="c-comment-u-pic">{{ comment.resolutionStatus }}</div>
+
+
+             </div>
+           </div>
           </div>
-          <button class="btn btn-primary pull-right">Reply</button><hr/>
-          <div class="row">
-            <div class="col col-md-2">
-              <img src="" alt="NA" />
-            </div>
-            <div class="col col-md-6">
-              <input type="text" class="form-control" [(ngModel)]="reply">
-            </div>
-          </div><br/>
-          <div class="row">
-            <div class="col col-md-2">
-              <img src="" alt="NA" />
-            </div>
-            <div class="col col-md-6">
-              <input type="text" class="form-control" [(ngModel)]="response">
-            </div>
-          </div>
+
+        </div>
+        <div class="c-reply">
+          <a (click)="comment()"> reply</a>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+
+
+     <div class="navbar navbar-light bg-light">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <tr *ngFor="let complaintWrapper of complaintWrappers | async">
+            <td>{{ complaintWrapper.subject }}</td>
+            <td>{{ complaintWrapper.type }}</td>
+            <td>{{ complaintWrapper.status }}</td>
+        </tr>
+      </a>
     </div>
   </div>
+
+  <footer class="footer">
+    <div class="container content has-text-centered">
+      <p>
+        <tr *ngFor="let complaint of complaints |  async">
+            <td>{{ complaintWrapper.description }}</td>
+        </tr>
+      </p>
+    </div>
+  </footer>
+  </div>
+</div>
+
+

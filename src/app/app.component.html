@@ -3,7 +3,8 @@
                 <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIODS  </span>  </a>
 
 
-                <span *ngIf="userInfo" class="align-right">
+                <span
+                  *ngIf="userInfo" class="align-right">
                         <div class="header-card" (click)="showNotifications()" title="Notifications"> 
                                 <span class="glyphicon glyphicon-bullhorn">
                                         <sup><span class="badge">{{notifications.length}}</span></sup>

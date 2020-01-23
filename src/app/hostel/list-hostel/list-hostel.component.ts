@@ -74,11 +74,12 @@ export class ListHostelComponent implements OnInit {
 
     addNewHostel(){
 
+alert();
       let currentUser : any = this.authenticationService.currentUser;
       if(currentUser )
       {
-        if(this.hostels.length <= currentUser.subscriptions){
-          this.router.navigate(['/viewtabs']);  
+        if(this.hostels.length < currentUser.subscriptions){
+          this.router.navigate(['hostels/viewtabs']);
         }else{
           this.alertMessage.showSuccessMsg("Unable to add more than given subscription");
         }
@@ -88,4 +89,3 @@ export class ListHostelComponent implements OnInit {
   }
   
 
-  

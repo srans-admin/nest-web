@@ -98,6 +98,7 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
 
 import { ProfileComponent } from './profile/profile.component';
 import { ChartComponent } from './chart/chart.component';
+import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
 
 @NgModule({
   declarations: [
@@ -180,7 +181,7 @@ import { ChartComponent } from './chart/chart.component';
     HostelPaymentComponent,
     HostelSubscriptionComponent,
     ChartComponent,
-
+    UserPaymentComponent,
     
   ],
   imports: [
