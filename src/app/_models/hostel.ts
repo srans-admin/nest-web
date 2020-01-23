@@ -20,6 +20,7 @@ export class Hostel {
   room: Room = new Room();
   selectedBedInfo:any;
   pic:any;
+  adminId:number;
 
 
   addRoom(floorName, room: Room){
