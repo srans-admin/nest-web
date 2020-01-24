@@ -8,7 +8,6 @@ import { UserService } from '../../_services/user.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-create-payment',
   templateUrl: './create-payment.component.html',
@@ -22,8 +21,8 @@ export class CreatePaymentComponent implements OnInit {
 
   constructor(private paymentService: PaymentService,
     private router: Router,
-    private userService: UserService,
     private route: ActivatedRoute, 
+    private userService: UserService,
     private httpClient: HttpClient) { }
 
     payment: Payment = new Payment();

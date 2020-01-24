@@ -9,9 +9,7 @@ import { MatCheckboxModule, MatDatepickerModule, MatNativeDateModule} from '@ang
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { CUSTOM_ELEMENTS_SCHEMA} from '@angular-devkit/build-angular';
-import { MatTabsModule, MatBadgeModule } from '@angular/material';
-import { MatIconModule } from "@angular/material/icon";
-import {MatCardModule} from '@angular/material/card';
+import { MatTabsModule } from '@angular/material';
 // import { MatFormField } from '@angular/material';
 
 import { CreateRoleComponent } from './role/create-role/create-role.component';
@@ -100,13 +98,9 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
 
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
 import { ChartComponent } from './chart/chart.component';
-
-import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
-
 import { ProfileChangepasswordComponent } from './profile/profile-changepassword/profile-changepassword.component';
-import { VacateComponent } from './vacate/vacate.component';
-
 
 @NgModule({
   declarations: [
@@ -189,13 +183,10 @@ import { VacateComponent } from './vacate/vacate.component';
     HostelPaymentComponent,
     HostelSubscriptionComponent,
     ChartComponent,
-
-    UserPaymentComponent,
-
     ProfileChangepasswordComponent,
     EditProfileComponent,
+    BedReservationComponent,
 
-    VacateComponent,
     
   ],
   imports: [
@@ -211,10 +202,7 @@ import { VacateComponent } from './vacate/vacate.component';
     ChartsModule,
     NgbModule,
     MatDatepickerModule,
-    MatNativeDateModule,
-    MatBadgeModule,
-    MatIconModule,
-    MatCardModule, 
+    MatNativeDateModule, 
     ToastrModule.forRoot()
     // MatFormField
   ],

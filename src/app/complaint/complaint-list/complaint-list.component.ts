@@ -3,9 +3,6 @@ import { Observable } from "rxjs";
 import { ComplaintService } from '../../_services/complaint.service';
 import { Complaint } from "../../_models/complaint";
 import { Router } from '@angular/router';
-import { User } from '../../_models/user';
-import { AuthenticationService } from '../../_auth/auth.service';
-import { ComplaintWrapper } from "../../_models/complaint-wrapper";
 
 @Component({
   selector: 'app-complaint-list',
@@ -13,22 +10,20 @@ import { ComplaintWrapper } from "../../_models/complaint-wrapper";
   styleUrls: ['./complaint-list.component.css']
 })
 export class ComplaintListComponent implements OnInit {
-  complaintWrappers: Observable<ComplaintWrapper[]>;
-  private currentUser: User;
-
+  complaints: Observable<Complaint[]>;
+  complaintType : string = "Water Supply Issue";
+  description : string = "water problem occuring repeatedly,please solve these issue as soon as possible";
+  reply : string = "Sorry man..!, I am Consider";
+  response : string = "Its Noted...!";
   constructor(private complaintService: ComplaintService,
-    private authenticationService: AuthenticationService,
-    private router: Router) {
-     this.currentUser = this.authenticationService.currentUser;
-     this.reloadData();
-     }
+    private router: Router) { }
 
   ngOnInit() {
-
+    this.reloadData();
   }
 
   reloadData() {
-    this.complaintWrappers = this.complaintService.getAllComplaintsForUser(this.currentUser.userId, this.currentUser.role);
+    this.complaints = this.complaintService.getComplaintList();
   }
 
   deleteComplaint(id: number) {
@@ -42,17 +37,11 @@ export class ComplaintListComponent implements OnInit {
   }
 
   complaintDetails(id: number){
-    this.router.navigate(['complaintdetails', id]);
+    this.router.navigate(['compaintdetails', id]);
   }
 
   updateComplaint(id: number){
     this.router.navigate(['complaintupdate', id]);
   }
 
-  comment(){
-    alert('Need to do');
-  }
 }
-
-
-

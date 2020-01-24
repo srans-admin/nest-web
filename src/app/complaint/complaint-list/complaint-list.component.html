@@ -1,76 +1,51 @@
-<div class="panel ">
-  <div class="row">
-      <div class="col-sm-10"><h2>Complaint List</h2></div>
+<!-- <div class="container">
+    <div class="row">
+      <h3><span class="glyphicon glyphicon-envelope"></span> View All My Complaints</h3>
       <div>
-        <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><span class="glyphicon glyphicon-plus"></span>Add Complaint</a>
+        <a routerLink="add"  class="btn btn-info pull-right" routerLinkActive="active"><span class="glyphicon glyphicon-plus">AddComplaint</span></a>
+        <h4></h4>
       </div>
     </div>
     <br>
-  <div class="panel-body">
-       <div *ngFor="let complaintWrapper of complaintWrappers | async">
-
-      <div class="c-wrapper">
-
-        <div class="c-header">
-          <div class="u-pic"> {{ complaintWrapper.complaint.userId }} </div>
-          <div class="c-subj"> {{ complaintWrapper.complaint.subject }} </div>
-          <div class="c-type"> {{ complaintWrapper.complaint.type }} </div>
-          <div class="c-date"> {{ complaintWrapper.complaint.date }} </div>
-          <div class="c-status"> {{ complaintWrapper.complaint.status }} </div>
-        </div>
-        <div class="c-body">
-          <div class="c-body-desc">
-            {{ complaintWrapper.complaint.description }}
+    <div class="panel-body">
+          <div class="row">
+            <legend>
+            <div class="col col-md-6">
+              <h6> {{ complaintType }} </h6>            
+              <progress value="150" max="300" class="pull-right"></progress>
+              
+            </div>
+          </legend>
           </div>
-          <div class="c-body-comments">
-           <div *ngFor="let comment of complaintWrapper.complaintComments ">
-             <div class="c-comment">
-              <div class="c-comment-u-pic">{{ comment.updatedByUserId }}</div>
-                <div class="c-comment-u-pic">{{ comment.comments }}</div>
-                <div class="c-comment-u-pic">{{ comment.resolutionDate }}</div>
-                <div class="c-comment-u-pic">{{ comment.resolutionStatus }}</div>
-
-
-             </div>
-           </div>
+          <div class="row">
+            <textarea rows="4" cols="50">{{ description }}</textarea>            
           </div>
-
-        </div>
-        <div class="c-reply">
-          <a (click)="comment()"> reply</a>
-        </div>
-
-
-      </div>
-
+          <button class="btn btn-primary pull-right">Reply</button><hr/>
+          <div class="row">
+            <div class="col col-md-2">
+              <img src="" alt="NA" />
+            </div>
+            <div class="col col-md-6">
+              <input type="text" class="form-control" [(ngModel)]="reply">
+            </div>
+          </div><br/>
+          <div class="row">
+            <div class="col col-md-2">
+              <img src="" alt="NA" />
+            </div>
+            <div class="col col-md-6">
+              <input type="text" class="form-control" [(ngModel)]="response">
+            </div>
+          </div>
     </div>
+  </div> -->
 
 
-
-
-
-     <div class="navbar navbar-light bg-light">
-    <div class="navbar-brand">
-      <a class="navbar-item">
-        <tr *ngFor="let complaintWrapper of complaintWrappers | async">
-            <td>{{ complaintWrapper.subject }}</td>
-            <td>{{ complaintWrapper.type }}</td>
-            <td>{{ complaintWrapper.status }}</td>
-        </tr>
-      </a>
+<div class="container">
+  <h3><span class="glyphicon glyphicon-envelope"></span>  View All My Compalaints</h3>
+  <div class="size_brder">
+    <div class="size brder">iujhih</div><br/>
+    <div class="size brder">jhnihb</div><br/>
+    <div class="size brder">bhib</div>
     </div>
-  </div>
-
-  <footer class="footer">
-    <div class="container content has-text-centered">
-      <p>
-        <tr *ngFor="let complaint of complaints |  async">
-            <td>{{ complaintWrapper.description }}</td>
-        </tr>
-      </p>
-    </div>
-  </footer>
-  </div>
 </div>
-
-

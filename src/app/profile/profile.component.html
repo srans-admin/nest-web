@@ -1,27 +1,20 @@
-<div class="container emp-profile">
+<div class="container emp-profile"> 
+            
+      
 
-  <form method="post">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="profile-img">
 
-            <img [src]="url" height="200" alt=""> <br/>
-            <input type='file' (change)="previewMyImage($event)">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
 
-<!-- <img src="{{userpic}}" /> -->
-<!-- <div class="file btn btn-lg btn-primary">
-Change Photo
-</div> -->
+                    <img [src]="url" height="200" alt=""> <br/>
+                    <input type='file' (change)="previewMyImage($event)">
 
-        <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Change Photo </button>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="profile-head">
-          <h3>
-            {{currentUser.name}}
-          </h3>
-
+                    <!-- <img src="{{userpic}}" /> -->
+                    <!-- <div class="file btn btn-lg btn-primary">
+                        Change Photo 
+                    </div> -->
 
                     <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Change Photo </button>
                 </div>
@@ -41,189 +34,185 @@ Change Photo
                 <a class="btn btn-info header-button" routerLink="editprofile" style="height:30px" > Edit Profile </a>
                 <button class="btn btn-info header-button" (click)="changePassword()" style="height:30px"> Change Password </button>
             </div>
-
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-      </div>
-    <div class="col-md-8">
-    <mat-tab-group>
-      <mat-tab label="Personal" class="test">
-        <div class="row" *ngIf="currentUser.userId">
-          <div class="col-md-6">
-            <label>User Id</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.userId}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.name">
-          <div class="col-md-6">
-            <label>Name</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.name}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.contactNumber" >
-          <div class="col-md-6">
-            <label>Phone Number</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.contactNumber}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.fatherName">
-          <div class="col-md-6">
-            <label>Father Name</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.fatherName}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.fatherphoneNumber">
-          <div class="col-md-6">
-            <label>Father PhoneNumber</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.fatherphoneNumber}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.motherName">
-          <div class="col-md-6">
-            <label>Mother Name</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.motherName}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.motherphoneNumber">
-          <div class="col-md-6">
-            <label>Mother PhoneNumber</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.motherphoneNumber}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.dob">
-          <div class="col-md-6">
-            <label>Date of Birth</label>
-          </div>
-          <div class="col-md-6">
-           <p>{{currentUser.dob}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.bloodGroup">
-          <div class="col-md-6">
-           <label>Blood Group</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.bloodGroup}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.emergencyContactNumber">
-          <div class="col-md-6">
-            <label>Emergency ContactNumber</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.emergencyContactNumber}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.nameOfTheEmployer">
-          <div class="col-md-6">
-           <label>Name Of The Employer</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.nameOfTheEmployer}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.officeAddress">
-          <div class="col-md-6">
-            <label>Office Address</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.officeAddress}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.emailId">
-          <div class="col-md-6">
-            <label>Email</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.emailId}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.permanentAddress">
-          <div class="col-md-6">
-           <label>Permanent Address</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.permanentAddress}}</p>
-          </div>
-        </div>
-        <div class="row" *ngIf="currentUser.idProof">
-          <div class="col-md-6">
-            <label>Id Proof</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.idProof}}</p>
-          </div>
-        </div>
-      </mat-tab>
-
-      <mat-tab label="Additional " class="test">
-        <div class="row">
-          <div class="col-md-6">
-            <label>Experience</label>
-          </div>
-          <div class="col-md-6">
-            <p>{{currentUser.name}}</p>
-          </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <label>Hourly Rate</label>
-          </div>
-          <div class="col-md-6">
-            <p>10$/hr</p>
-          </div>
-
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8">
+                    <mat-tab-group>
+                            <mat-tab label="Personal" class="test">
+                                <div class="row" *ngIf="currentUser.userId">
+                                    <div class="col-md-6">
+                                        <label>User Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.userId}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.name">
+                                    <div class="col-md-6">
+                                        <label>Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.contactNumber" >
+                                    <div class="col-md-6">
+                                        <label>Phone Number</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.contactNumber}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.fatherName">
+                                    <div class="col-md-6">
+                                        <label>Father Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.fatherName}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.fatherphoneNumber">
+                                    <div class="col-md-6">
+                                        <label>Father PhoneNumber</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.fatherphoneNumber}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.motherName">
+                                    <div class="col-md-6">
+                                        <label>Mother Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.motherName}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.motherphoneNumber">
+                                    <div class="col-md-6">
+                                        <label>Mother PhoneNumber</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.motherphoneNumber}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.dob">
+                                    <div class="col-md-6">
+                                        <label>Date of Birth</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.dob}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.bloodGroup">
+                                    <div class="col-md-6">
+                                        <label>Blood Group</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.bloodGroup}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.emergencyContactNumber">
+                                    <div class="col-md-6">
+                                        <label>Emergency ContactNumber</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.emergencyContactNumber}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.nameOfTheEmployer">
+                                    <div class="col-md-6">
+                                        <label>Name Of The Employer</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.nameOfTheEmployer}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.officeAddress">
+                                    <div class="col-md-6">
+                                        <label>Office Address</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.officeAddress}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.emailId">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.emailId}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.permanentAddress">
+                                    <div class="col-md-6">
+                                        <label>Permanent Address</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.permanentAddress}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="currentUser.idProof">
+                                    <div class="col-md-6">
+                                        <label>Id Proof</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.idProof}}</p>
+                                    </div>
+                                </div>
+                    </mat-tab> 
+                    
+                    <mat-tab label="Additional " class="test">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Experience</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUser.name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hourly Rate</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>10$/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total Projects</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>230</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>English Level</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Availability</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>6 months</p>
+                                    </div>
+                                </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Your Bio</label><br/>
+                                <p>Your detail description</p>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Total Projects</label>
-          </div>
-          <div class="col-md-6">
-            <p>230</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>English Level</label>
-          </div>
-          <div class="col-md-6">
-            <p>Expert</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Availability</label>
-          </div>
-          <div class="col-md-6">
-            <p>6 months</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <label>Your Bio</label><br/>
-            <p>Your detail description</p>
-          </div>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
-</div>
-</form>
+    </form>           
 </div>

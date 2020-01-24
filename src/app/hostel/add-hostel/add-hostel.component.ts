@@ -12,8 +12,6 @@ import { FormBuilder, FormGroup, FormArray, FormControl, NgForm} from '@angular/
 import { of } from 'rxjs';
 import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
-import { AuthenticationService } from '../../_auth/auth.service';
-import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-add-hostel',
@@ -28,8 +26,7 @@ export class AddHostelComponent implements OnInit {
               private alertMessage: AlertMessage,
               private nIDOSMessages: NIDOSMessages,
               private router: Router,
-              public dialog: MatDialog,
-              private authenticationService: AuthenticationService ) {
+              public dialog: MatDialog) {
 
                 this.form = this.formBuilder.group({
                   amenities: new FormArray([])
@@ -37,7 +34,6 @@ export class AddHostelComponent implements OnInit {
 
               }
   
-  currentUser : User;              
   hostel: Hostel = new Hostel();
   acknoldgmentMsg: string = "";
   submitted = false;
@@ -74,7 +70,6 @@ export class AddHostelComponent implements OnInit {
   }
 
   save() {
-    this.hostel.adminId = this.currentUser.userId;
     this.hostelService.createHostel(this.hostel) 
       .subscribe(res => { 
             var obj : any =  res; 
