@@ -63,6 +63,7 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
 //import { ProfileComponent } from './profile/profile.component';
 
 import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 
  
@@ -72,6 +73,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
+
   { path: 'subscription', component: SubscriptionRegisterComponent },
   //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },
   { path: 'roles', component: RoleListComponent, canActivate: [AuthGuard] },

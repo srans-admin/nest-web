@@ -1,0 +1,73 @@
+<h3>Update Profile</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+<div class="form-group" *ngIf="currentUser.name" >
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" required [(ngModel)]="currentUser.name" name="name" readonly>
+  </div>
+
+  <div class="form-group" *ngIf="currentUser.contactNumber" >
+      <label for="name">Phone Number</label>
+      <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="currentUser.contactNumber" name="contactNumber">
+    </div>
+
+  <div class="form-group" *ngIf="currentUser.fatherName">
+      <label for="name">Father Name</label>
+      <input type="text" class="form-control" id="fatherName" required [(ngModel)]="currentUser.fatherName" name="fatherName">
+    </div>  
+
+  <div class="form-group" *ngIf="currentUser.fatherphoneNumber">
+      <label for="name">Father phoneNumber</label>
+      <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="currentUser.fatherphoneNumber" name="fatherphoneNumber">
+    </div>
+
+  <div class="form-group" *ngIf="currentUser.motherName">
+      <label for="name">Mother Name</label>
+      <input type="text" class="form-control" id="motherName" required [(ngModel)]="currentUser.motherName" name="motherName">
+    </div>
+
+  <div class="form-group" *ngIf="currentUser.motherphoneNumber">
+      <label for="name">Mother phoneNumber</label>
+      <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="currentUser.motherphoneNumber" name="motherphoneNumber">
+    </div>
+
+  <div class="form-group" *ngIf="currentUser.dob">
+      <label for="name">Date of Birth</label>
+      <input type="text" class="form-control" id="dob" required [(ngModel)]="currentUser.dob" name="dob">
+    </div>
+
+  <div class="form-group" *ngIf="currentUser.bloodGroup">
+      <label for="name">Blood Group</label>
+      <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="currentUser.bloodGroup" name="bloodGroup">
+    </div>
+
+  <div class="form-group" *ngIf="currentUser.emergencyContactNumber">
+      <label for="name">Emergency ContactNumber</label>
+      <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="currentUser.emergencyContactNumber" name="emergencyContactNumber">
+    </div>
+
+  <div class="form-group" *ngIf="currentUser.nameOfTheEmployer">
+      <label for="name">Name Of The Employer</label>
+      <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="currentUser.nameOfTheEmployer" name="nameOfTheEmployer">
+    </div>
+
+  <div class="form-group" *ngIf="currentUser.officeAddress">
+    <label for="name">Office Address</label>
+    <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="currentUser.officeAddress" name="officeAddress">
+  </div>
+
+  <div class="form-group" *ngIf="currentUser.emailId">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="currentUser.emailId" name="emailId">
+    </div>
+
+   <div class="form-group" *ngIf="currentUser.permanentAddress">
+    <label for="name">Permanent Address</label>
+    <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="currentUser.permanentAddress" name="permanentAddress">
+  </div>
+  
+    <button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+</div>    
