@@ -63,6 +63,9 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
 //import { ProfileComponent } from './profile/profile.component';
 
 import { ProfileComponent } from './profile/profile.component';
+
+import { VacateComponent } from './vacate/vacate.component';
+
 import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
 
 
@@ -129,7 +132,8 @@ const routes: Routes = [
   { path: 'cupdate/:id', component: UpdateCategoryComponent },
   { path: 'cdetails/:id', component: CategoryDetailsComponent },
  
-
+  { path: 'vacateMe', component: VacateComponent, canActivate: [AuthGuard]},
+  
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 
