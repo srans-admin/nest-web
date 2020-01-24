@@ -11,3 +11,4 @@ export class Payment{
     depositAmount:number;
     
 }
+
