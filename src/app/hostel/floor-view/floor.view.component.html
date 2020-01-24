@@ -10,7 +10,7 @@
                 </button>
             </div> -->
             <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
-            <span class="total-rooms"> Available Beds : <strong>{{availablebeds}}</strong></span>
+            <span class="available-beds"> Available Beds : <strong>{{availablebeds}}</strong></span>
         </div>
 
         <div class="room-box">
@@ -41,7 +41,7 @@
                                 <span class="room-name"> Room-{{room.roomName}} </span> 
                             </div>
                             <span *ngFor="let bed of room.beds">
-                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" aria-readonly="true">
                                         <span class="bed bed-alloted" [ngClass]="{
                                             'bed-alloted-yes':bed.alloted === 'Y',
                                             'bed-alloted-no':bed.alloted === 'N'
