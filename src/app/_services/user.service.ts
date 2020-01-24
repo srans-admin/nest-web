@@ -35,8 +35,8 @@ export class UserService {
     return this.http.put(`${this.baseUrl}/${id}`, value, this.authenticationService.getHttpHeaders());
   }
 
-  editProfile(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value, this.authenticationService.getHttpHeaders());
+  editProfile(currentUser: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${currentUser.userId}`, currentUser, this.authenticationService.getHttpHeaders());
   }
 
   deleteUser(id: number): Observable<any> {

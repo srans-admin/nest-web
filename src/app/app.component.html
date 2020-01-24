@@ -1,6 +1,6 @@
 <div class="app-haeader">
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-                <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIODS  </span>  </a>
+                <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIDOS  </span>  </a>
 
 
                 <span
@@ -22,7 +22,8 @@
 <div class="side-bar"> 
         <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin>  
         <app-dashboard-admin *ngIf="isAdmin"></app-dashboard-admin> 
-        <app-dashboard-user *ngIf="isTenant || isUser"></app-dashboard-user>
+        <app-dashboard-user *ngIf="isTenant"></app-dashboard-user>
+        <app-dashboard-guest *ngIf="isGuest"></app-dashboard-guest>
                 
 </div>  
 <div class="app-body">

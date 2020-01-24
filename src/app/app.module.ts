@@ -101,6 +101,12 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
 import { ChartComponent } from './chart/chart.component';
 import { ProfileChangepasswordComponent } from './profile/profile-changepassword/profile-changepassword.component';
+ 
+import { VacateComponent } from './vacate/vacate.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.component';
+
+ 
 
 @NgModule({
   declarations: [
@@ -115,6 +121,7 @@ import { ProfileChangepasswordComponent } from './profile/profile-changepassword
     DashboardAdminComponent,
     DashboardHomeComponent,
     DashboardUserComponent,
+    DashboardGuestComponent,
 
     CreateRoleComponent,
     RoleDetailsComponent,
@@ -186,7 +193,9 @@ import { ProfileChangepasswordComponent } from './profile/profile-changepassword
     ProfileChangepasswordComponent,
     EditProfileComponent,
     BedReservationComponent,
-
+    VacateComponent,
+    ContactsComponent
+ 
     
   ],
   imports: [

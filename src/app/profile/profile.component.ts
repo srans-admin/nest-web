@@ -43,13 +43,19 @@ export class ProfileComponent implements OnInit {
             },
             err => {  
               this.acknoldgmentMsg = "Unable to load image from server."+err;
-              this.alertMessage.showFailedMsg(this.acknoldgmentMsg );  
+              //this.alertMessage.showFailedMsg(this.acknoldgmentMsg );  
+              console.log('Unable to get UserPic: '+this.acknoldgmentMsg);
             }); 
   } 
   
   ngOnInit() {  
    
   } 
+
+
+  editProfile(userId: number){ 
+    this.router.navigate(['/editprofile/'+userId]);
+  }
 
   createImageFromBlob(image: Blob) {
     let reader = new FileReader();
@@ -110,7 +116,7 @@ export class ProfileComponent implements OnInit {
   changePassword(){
     const dialogRef = this.dialog.open(ProfileChangepasswordComponent, {
       width: '40%',
-      height: '40%',
+      height: '50%',
       data: {
       }
     });

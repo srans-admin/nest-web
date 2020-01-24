@@ -1,5 +1,5 @@
 
-<h2>User/Guest Registration</h2>
+<h2>Guest Registration</h2>
 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div class="form-group" style="width:300px"> 
         <!-- <label for="id">Id Number</label>
@@ -12,7 +12,7 @@
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
             <div *ngIf="f.username.errors.required">Username is required</div>
         </div>
-        <label for="emailId">Email Id</label>
+        <label for="emailId">*Email Id</label>
         <input type="text" formControlName="emailId" [(ngModel)]="registration.emailId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }" />
         <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
             <div *ngIf="f.emailId.errors.required">emailId is required</div>

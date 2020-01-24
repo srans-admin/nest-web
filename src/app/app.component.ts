@@ -25,7 +25,7 @@ export class AppComponent {
   
   private isSuperAdmin: boolean = false;
   private isAdmin: boolean = false;
-  private isUser: boolean = false;
+  private isGuest: boolean = false;
   private isTenant: boolean = false;  
 
   currentUser: User; 
@@ -87,7 +87,7 @@ export class AppComponent {
   defineRole() {
     this.isSuperAdmin = (this.userInfo) ? this.userInfo.role == 'SUPERADMIN' : false;
     this.isAdmin = (this.userInfo) ? this.userInfo.role == 'ADMIN' : false;
-    this.isUser = (this.userInfo) ? this.userInfo.role == 'USER' : false;
+    this.isGuest = (this.userInfo) ? this.userInfo.role == 'GUEST' : false;
     this.isTenant = (this.userInfo) ? this.userInfo.role == 'TENANT' : false; 
   }
 

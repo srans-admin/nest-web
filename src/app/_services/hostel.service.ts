@@ -33,8 +33,8 @@ export class HostelService {
     return this.http.delete(`${this.baseUrl}/${id}`,  this.authenticationService.getHttpHeaders());
   }
 
-  getHostelsList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
+  getHostelsList(userId): Observable<any> {
+    return this.http.get(`${this.baseUrl}?id=${userId}`, this.authenticationService.getHttpHeaders());
   } 
   
   uploadFile( file: File , cat: String,  id : number ) : Observable<any>  
