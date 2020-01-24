@@ -22,11 +22,27 @@ Change Photo
             {{currentUser.name}}
           </h3>
 
+
+                    <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Change Photo </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                            <h3>
+                               {{currentUser.name}}
+                            </h3>
+                            <h6>
+                                    {{currentUser.name}}
+                            </h6>
+                            
+                </div>
+            </div>
+            <div class="col-md-2 header-buttons" >
+                <a class="btn btn-info header-button" routerLink="editprofile" style="height:30px" > Edit Profile </a>
+                <button class="btn btn-info header-button" (click)="changePassword()" style="height:30px"> Change Password </button>
+            </div>
+
         </div>
-      </div>
-      <div class="col-md-2 header-buttons" >
-        <a class="btn btn-info header-button" routerLink="editProfile" routerLinkActive="active" style="height:30px" > Edit Profile </a>
-          <button class="btn btn-info header-button" (click)="changePassword()" style="height:30px"> Change Password </button>
       </div>
     </div>
     <div class="row">
@@ -173,6 +189,7 @@ Change Photo
           <div class="col-md-6">
             <p>10$/hr</p>
           </div>
+
         </div>
         <div class="row">
           <div class="col-md-6">

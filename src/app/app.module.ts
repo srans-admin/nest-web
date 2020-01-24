@@ -99,6 +99,7 @@ import { HostelPaymentComponent } from './hostel-payment/hostel-payment.componen
 import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscription.component';
 
 import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { ChartComponent } from './chart/chart.component';
 
 import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
@@ -192,6 +193,7 @@ import { VacateComponent } from './vacate/vacate.component';
     UserPaymentComponent,
 
     ProfileChangepasswordComponent,
+    EditProfileComponent,
 
     VacateComponent,
     
