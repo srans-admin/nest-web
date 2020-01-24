@@ -106,6 +106,7 @@ import { UserPaymentComponent } from './payment/user-payment/user-payment.compon
 
 import { ProfileChangepasswordComponent } from './profile/profile-changepassword/profile-changepassword.component';
 import { VacateComponent } from './vacate/vacate.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 
 @NgModule({
@@ -196,6 +197,8 @@ import { VacateComponent } from './vacate/vacate.component';
     EditProfileComponent,
 
     VacateComponent,
+
+    ContactsComponent
     
   ],
   imports: [

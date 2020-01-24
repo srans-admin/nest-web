@@ -68,6 +68,7 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 import { VacateComponent } from './vacate/vacate.component';
 
 import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 
 
@@ -136,6 +137,8 @@ const routes: Routes = [
   { path: 'cdetails/:id', component: CategoryDetailsComponent },
  
   { path: 'vacateMe', component: VacateComponent, canActivate: [AuthGuard]},
+
+  { path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard]}, 
   
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
