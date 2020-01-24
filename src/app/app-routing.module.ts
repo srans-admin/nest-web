@@ -78,7 +78,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: 'editprofile/:id', component: EditProfileComponent, canActivate: [AuthGuard] },
 
   { path: 'subscription', component: SubscriptionRegisterComponent },
   //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },

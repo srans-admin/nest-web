@@ -22,7 +22,8 @@
 <div class="side-bar"> 
         <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin>  
         <app-dashboard-admin *ngIf="isAdmin"></app-dashboard-admin> 
-        <app-dashboard-user *ngIf="isTenant || isUser"></app-dashboard-user>
+        <app-dashboard-user *ngIf="isTenant"></app-dashboard-user>
+        <app-dashboard-guest *ngIf="isGuest"></app-dashboard-guest>
                 
 </div>  
 <div class="app-body">

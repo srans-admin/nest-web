@@ -12,9 +12,9 @@ import { AuthenticationService } from '../../_auth/auth.service';
 })
 export class EditProfileComponent implements OnInit {
 
-  id: number;
-  user: User;
-  currentUser: User;
+  //private id: number;
+  //private user: User;
+  private currentUser: User;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -26,22 +26,22 @@ export class EditProfileComponent implements OnInit {
   }
 
   reloadData(){
-    this.user = new User();
+    //this.user = new User();
     this.currentUser = this.authenticationService.currentUser;
 
-    this.id = this.route.snapshot.params['id'];
+    //this.id = this.route.snapshot.params['id'];
+    // this.userService.getUser(this.id)
+    //   .subscribe(data => {
+    //     console.log(data)
+    //     this.user = data;
+    //   }, error => console.log(error));
 
-    this.userService.getUser(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.user = data;
-      }, error => console.log(error));
   }
 
   editProfile() {
-    this.userService.editProfile(this.id, this.user)
+    this.userService.editProfile(this.currentUser)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.user = new User();
+    
     this.gotoList();
   }
 

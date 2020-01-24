@@ -4,6 +4,8 @@ import { Hostel } from '../../_models/hostel';
 import { HostelService } from '../../_services/hostel.service';
 import { Room } from 'src/app/_models/room';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/_auth/auth.service';
+import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-view',
@@ -11,18 +13,19 @@ import { Observable } from 'rxjs';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  hostels: Observable<Hostel[]>;
+  private hostels: Observable<Hostel[]>;
 
   // variables declaration
-  id : number;
-  hostel : Hostel;
-  room : Room = new Room(); 
-  receptionImage: any;
-  facadeImage: any;
-  b1Image: any;
-  b2Image: any;
-  b3Image: any;
-  miscImage: any;
+  private id : number;
+  private hostel : Hostel;
+  private room : Room = new Room(); 
+  private receptionImage: any;
+  private facadeImage: any;
+  private b1Image: any;
+  private b2Image: any;
+  private b3Image: any;
+  private miscImage: any;
+  private currentUser: User;
 
   donutInfo = {
 
@@ -52,7 +55,10 @@ export class ViewComponent implements OnInit {
 
   constructor(private hostelService:HostelService, 
               private route: ActivatedRoute, 
-              private router: Router) { }
+              private authenticationService: AuthenticationService,
+              private router: Router) { 
+                this.currentUser = this.authenticationService.currentUser;
+              }
 
   ngOnInit() {
     this.hostel = new Hostel(); 
@@ -212,7 +218,7 @@ createImageFromBlobMisc(image: Blob) {
   }
 
   reloadData() {
-    this.hostels = this.hostelService.getHostelsList();      
+    this.hostels = this.hostelService.getHostelsList(this.currentUser.userId);      
   }
 
   changeLanguage(language) {

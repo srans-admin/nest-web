@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCategoryComponent} from "../../category/create-category/create-category.component";
+import { AuthenticationService } from 'src/app/_auth/auth.service';
+import { User } from 'src/app/_models/user';
 
 
 @Component({
@@ -19,11 +21,12 @@ import { CreateCategoryComponent} from "../../category/create-category/create-ca
   styleUrls: ['./create-expense.component.css']
 })
 export class CreateExpenseComponent implements OnInit {
-  categories: Observable<Category[]>;
-  hostels: Observable<Hostel[]>;
-  expense: Expense = new Expense();
-  submitted = false;
-  addedCategoryType: Category = null;
+  private categories: Observable<Category[]>;
+  private  hostels: Observable<Hostel[]>;
+  private expense: Expense = new Expense();
+  private submitted = false;
+  private addedCategoryType: Category = null;
+  private currentUser: User;
 
 
   constructor(private expenseService: ExpenseService,
@@ -32,7 +35,10 @@ export class CreateExpenseComponent implements OnInit {
               public dialog: MatDialog,
               private hostelService: HostelService,
               private httpClient: HttpClient,
-              private route: ActivatedRoute) { }
+              private authenticationService: AuthenticationService,
+              private route: ActivatedRoute) { 
+                this.currentUser = this.authenticationService.currentUser;
+              }
 
 
   ngOnInit() {
@@ -62,9 +68,8 @@ export class CreateExpenseComponent implements OnInit {
   }
 
 
-   filterForeCasts()
-  {
-    this.hostels = this.hostelService.getHostelsList();
+   filterForeCasts(){
+    this.hostels = this.hostelService.getHostelsList(this.currentUser.userId);
   }
 
    reloadData() {

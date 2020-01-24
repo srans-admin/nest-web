@@ -22,7 +22,22 @@ import { User } from 'src/app/_models/user';
 })
 export class AddHostelComponent implements OnInit {  
   
-  form: FormGroup;
+ private form: FormGroup;
+ private  currentUser : User;              
+ private  hostel: Hostel = new Hostel();
+ private  acknoldgmentMsg: string = "";
+ private  submitted = false;
+ private  tempFloors: Array<any>;
+ private  totalRooms: Number=1;
+ private enableSubmit: Boolean =  false;
+ private  receptionUploadFiles: Array<File>;
+ private  facadeUploadFiles: Array<File>;
+ private  b1UploadFiles: Array<File>;
+ private  b2UploadFiles: Array<File>;
+ private b3UploadFiles: Array<File>;
+ private  miscUploadFiles: Array<File>;
+ private  amenityData = []; 
+
   constructor(private formBuilder: FormBuilder, 
               private hostelService: HostelService, 
               private alertMessage: AlertMessage,
@@ -30,28 +45,14 @@ export class AddHostelComponent implements OnInit {
               private router: Router,
               public dialog: MatDialog,
               private authenticationService: AuthenticationService ) {
-
+                this.currentUser = this.authenticationService.currentUser;
                 this.form = this.formBuilder.group({
                   amenities: new FormArray([])
                 });                
 
               }
   
-  currentUser : User;              
-  hostel: Hostel = new Hostel();
-  acknoldgmentMsg: string = "";
-  submitted = false;
-  tempFloors: Array<any>;
-  totalRooms: Number=1;
-  enableSubmit: Boolean =  false;
-  receptionUploadFiles: Array<File>;
-  facadeUploadFiles: Array<File>;
-  b1UploadFiles: Array<File>;
-  b2UploadFiles: Array<File>;
-  b3UploadFiles: Array<File>;
-  miscUploadFiles: Array<File>;
-  amenityData = [];
-
+ 
   ngOnInit() {
     this.tempFloors = [1];
     this.populateFloors();

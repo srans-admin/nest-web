@@ -107,6 +107,7 @@ import { UserPaymentComponent } from './payment/user-payment/user-payment.compon
 import { ProfileChangepasswordComponent } from './profile/profile-changepassword/profile-changepassword.component';
 import { VacateComponent } from './vacate/vacate.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.component';
 
 
 @NgModule({
@@ -122,6 +123,7 @@ import { ContactsComponent } from './contacts/contacts.component';
     DashboardAdminComponent,
     DashboardHomeComponent,
     DashboardUserComponent,
+    DashboardGuestComponent,
 
     CreateRoleComponent,
     RoleDetailsComponent,

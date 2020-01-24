@@ -9,6 +9,7 @@ import { environment } from '../../../environments/environment';
 import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
 import { AuthenticationService } from 'src/app/_auth/auth.service';
+import { User } from 'src/app/_models/user';
  
 
 @Component({
@@ -17,12 +18,13 @@ import { AuthenticationService } from 'src/app/_auth/auth.service';
   styleUrls: ['./list-hostel.component.css']
 })
 export class ListHostelComponent implements OnInit {
-  hostels;
-  hostelImages: Array<Hostel> = [];
-  room: Room = new Room();
-  extendingviews: Observable<Hostel[]>;
-  searchTerm: string;
-  acknoldgmentMsg : string = null; 
+  private currentUser: User; 
+  private hostels;
+  private hostelImages: Array<Hostel> = [];
+  private room: Room = new Room();
+  private extendingviews: Observable<Hostel[]>;
+  private searchTerm: string;
+  private acknoldgmentMsg : string = null; 
    
   private extendedViewUrl = environment.appUrl+ '/api/v1/hostels/{id}/extendingviews';
   
@@ -32,7 +34,9 @@ export class ListHostelComponent implements OnInit {
     private route: ActivatedRoute,
     private alertMessage: AlertMessage,
     private nIDOSMessages: NIDOSMessages,
-    private http: HttpClient) { }
+    private http: HttpClient) {
+      this.currentUser = this.authenticationService.currentUser;
+     }
 
     ngOnInit() {
       this.reloadData();
@@ -40,7 +44,7 @@ export class ListHostelComponent implements OnInit {
   
     reloadData() {
 
-     this.hostelService.getHostelsList().subscribe(res => { 
+     this.hostelService.getHostelsList(this.currentUser.userId).subscribe(res => { 
         this.hostels = res;
       },err =>{ 
         this.alertMessage.showHttpMessage(err);
@@ -74,7 +78,7 @@ export class ListHostelComponent implements OnInit {
 
     addNewHostel(){
 
-alert();
+ 
       let currentUser : any = this.authenticationService.currentUser;
       if(currentUser )
       {

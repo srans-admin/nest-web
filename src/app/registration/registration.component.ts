@@ -47,7 +47,7 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
 
     this.submitted = true;  
-    this.registration.role = 'USER';
+    this.registration.role = 'GUEST';
     
     this.loading = true;
     this.registrationService.registration(this.registration)
