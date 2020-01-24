@@ -65,8 +65,12 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
+import { VacateComponent } from './vacate/vacate.component';
 
- 
+import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+
+
+
 
 const routes: Routes = [
   {path: '', component: ProfileComponent, canActivate: [AuthGuard]},
@@ -115,22 +119,24 @@ const routes: Routes = [
   { path: 'invoice/add', component: CreateInvoiceComponent},
 
   { path: 'payment', component: PaymentListComponent, canActivate: [AuthGuard] },
+  { path: 'paymentHistory', component: UserPaymentComponent, canActivate: [AuthGuard] },
   { path: 'payment/add', component: CreatePaymentComponent},
   { path: 'hpayment', component: HostelPaymentComponent, canActivate: [AuthGuard] },
   { path: 'hsubscription', component: HostelSubscriptionComponent, canActivate: [AuthGuard] },
 
   { path: 'complaint', component: ComplaintListComponent, canActivate: [AuthGuard]},
-  { path: 'complaint/add', component: AddComplaintComponent},
+  { path: 'complaint/add', component: AddComplaintComponent,canActivate: [AuthGuard]},
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
-  { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
+  { path: 'complaintdetails/:id', component: ComplaintDetailsComponent},
  
- { path: 'categories', component: CategoryListComponent },
+  { path: 'categories', component: CategoryListComponent },
   { path: 'categories/add', component: CreateCategoryComponent },
  
   { path: 'cupdate/:id', component: UpdateCategoryComponent },
   { path: 'cdetails/:id', component: CategoryDetailsComponent },
  
-
+  { path: 'vacateMe', component: VacateComponent, canActivate: [AuthGuard]},
+  
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 

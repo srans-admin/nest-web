@@ -3,6 +3,9 @@ import { Observable } from "rxjs";
 import { ComplaintService } from '../../_services/complaint.service';
 import { Complaint } from "../../_models/complaint";
 import { Router } from '@angular/router';
+import { User } from '../../_models/user';
+import { AuthenticationService } from '../../_auth/auth.service';
+import { ComplaintWrapper } from "../../_models/complaint-wrapper";
 
 @Component({
   selector: 'app-complaint-list',
@@ -10,20 +13,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./complaint-list.component.css']
 })
 export class ComplaintListComponent implements OnInit {
-  complaints: Observable<Complaint[]>;
-  complaintType : string = "Water Supply Issue";
-  description : string = "water problem occuring repeatedly,please solve these issue as soon as possible";
-  reply : string = "Sorry man..!, I am Consider";
-  response : string = "Its Noted...!";
+  complaintWrappers: Observable<ComplaintWrapper[]>;
+  private currentUser: User;
+
   constructor(private complaintService: ComplaintService,
-    private router: Router) { }
+    private authenticationService: AuthenticationService,
+    private router: Router) {
+     this.currentUser = this.authenticationService.currentUser;
+     this.reloadData();
+     }
 
   ngOnInit() {
-    this.reloadData();
+
   }
 
   reloadData() {
-    this.complaints = this.complaintService.getComplaintList();
+    this.complaintWrappers = this.complaintService.getAllComplaintsForUser(this.currentUser.userId, this.currentUser.role);
   }
 
   deleteComplaint(id: number) {
@@ -37,11 +42,17 @@ export class ComplaintListComponent implements OnInit {
   }
 
   complaintDetails(id: number){
-    this.router.navigate(['compaintdetails', id]);
+    this.router.navigate(['complaintdetails', id]);
   }
 
   updateComplaint(id: number){
     this.router.navigate(['complaintupdate', id]);
   }
 
+  comment(){
+    alert('Need to do');
+  }
 }
+
+
+

@@ -3,10 +3,11 @@
                 <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIODS  </span>  </a>
 
 
-                <span *ngIf="userInfo" class="align-right">
+                <span
+                  *ngIf="userInfo" class="align-right">
                         <div class="header-card" (click)="showNotifications()" title="Notifications"> 
                                 <span class="glyphicon glyphicon-bell">
-                                        <sup><span class="badge badgePosition">{{notifications.length}}</span></sup>
+                                        <sup><span class="badge badgePosition" matBadgeHidden="true">{{notifications.length}}</span></sup>
                                 </span> 
                         </div>               
  

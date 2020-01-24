@@ -44,7 +44,7 @@ export class BarChartComponent {
    ]
 
     ngOnInit () {
-        this.httpService.get('./assets/sales.json', {responseType: 'json'}).subscribe(
+        this.httpService.get('', {responseType: 'json'}).subscribe(
         data => {
             this.chartData = data as any [];	 // FILL THE CHART ARRAY WITH DATA.
         },

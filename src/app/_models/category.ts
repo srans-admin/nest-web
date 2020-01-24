@@ -1,5 +1,5 @@
 export class Category{
    typeId: number;
-   name: string;
+   expenseType: string;
    description: string;
 }
