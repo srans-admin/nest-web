@@ -78,11 +78,7 @@ export class ProfileComponent implements OnInit {
     case "userImage":  
       this.uploadChangedUserPic(this.userpic, 'userpic', this.currentUser.userId )
       break; 
-    
-  //  case "idproofImage":  
-  //     this.uploadChangedUserPic( this.userpic, 'userpic', this.currentUser.userId )
-  //     break;
- 
+
     default: { 
       console.log("Invalid File uploading "); 
       break;              
@@ -104,7 +100,7 @@ export class ProfileComponent implements OnInit {
 
   
   previewMyImage(event) {
-    
+
     this.userpic = event.target.files[0];
 
     if (event.target.files && event.target.files[0]) {
@@ -112,8 +108,11 @@ export class ProfileComponent implements OnInit {
 
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        let url = event.target;
+
+      reader.onload = (e) => { // called once readAsDataURL is completed
+        this.url = e.target.result;
+
+     
       }
     }
   }
