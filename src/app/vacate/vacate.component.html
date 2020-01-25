@@ -12,9 +12,10 @@
                     <span class="glyphicon glyphicon-calendar"></span> Informing Date 
                 </label>
                 <span class="date-picker">
-                    <input type="text" required [matDatepicker]="picker" class="form-control custom-select" required [(ngModel)]="informingDate" name="informingDate">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
-                    <mat-datepicker #picker></mat-datepicker> 
+                    <input type="text" required [matDatepicker]="picker1" class="form-control custom-select" 
+                    required [(ngModel)]="informingDate" name="informingDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>      
+                    <mat-datepicker #picker1></mat-datepicker> 
                 </span>
                 <br/>       
                     
@@ -38,9 +39,10 @@
                     <span class="glyphicon glyphicon-calendar"></span> Vacating Date 
                 </label>
                 <span class="date-picker">
-                    <input type="text" required [matDatepicker]="picker" class="form-control custom-select" required [(ngModel)]="vacate.date" name="date">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
-                    <mat-datepicker #picker></mat-datepicker> 
+                    <input type="text" required [matDatepicker]="picker2" class="form-control custom-select" 
+                    required [(ngModel)]="vacatingDate" name="vacatingDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>      
+                    <mat-datepicker #picker2></mat-datepicker> 
                 </span>
                 <br/>     
 
@@ -55,7 +57,7 @@
         </button>
     <br/><br/>
     <div class="form-group">
-            <div *ngIf="currentUser.role">
+            <div *ngIf="currentUser.role === 'ADMIN'">
                 <div>
                     <label><span class="glyphicon glyphicon-home"></span> Amount to be Paid </label>
                     <input type="text" class="form-control custom-select"  [value]="">

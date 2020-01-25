@@ -114,6 +114,7 @@ export class AppComponent {
      }, err =>{ 
         this.alertMessage.showFailedMsg(err.message); 
      });  
+     this.notifications.length = null;
   }
 
   profile(){  

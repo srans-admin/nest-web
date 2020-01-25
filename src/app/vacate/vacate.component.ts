@@ -21,27 +21,27 @@ export class VacateComponent implements OnInit {
   private tenant : TenantBooking;
   private room : Room;
   
-  paymentStatus : boolean = false;
-  informingDate = new Date();
-  vacatingDate= new Date();
-  presentDate = new Date();
-  depositAmount : number = 12000;
-  perDayAmount : number ;
-  refundAmount : number;
-  maintainanceCharges : number = 1000;
-  daysInMonth : number = 30;
-  daysStayed : number = 13;
-  diffDays : number;
-  diffTime : any;
-  amountToDeduct : number;
-  informDays : number = 15;
-  countDays : number;
-  description : string;
+  private paymentStatus : boolean = false;
+  private informingDate = new Date();
+  private vacatingDate= new Date();
+  private presentDate = new Date();
+  private depositAmount : number = 12000;
+  private perDayAmount : number ;
+  private refundAmount : number;
+  private maintainanceCharges : number = 1000;
+  private daysInMonth : number = 30;
+  private daysStayed : number = 13;
+  private diffDays : number;
+  private diffTime : any;
+  private amountToDeduct : number;
+  private informDays : number = 15;
+  private countDays : number;
+  private description : string;
 
-  tenantId: number;
-  floorId: number;
-  roomId: number;
-  roomBedId: number;
+  private tenantId: number;
+  private floorId: number;
+  private roomId: number;
+  private roomBedId: number;
 
 
   constructor(private router: Router,
@@ -94,11 +94,11 @@ export class VacateComponent implements OnInit {
     this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));
     this.perDayAmount = this.depositAmount / 30;
 
-      if((this.diffDays == this.informDays) && (this.vacatingDate > this.informingDate)){
+      if((this.diffDays >= this.informDays) && (this.vacatingDate > this.informingDate)){
 
         this.refundAmount = this.depositAmount - this.maintainanceCharges;
       }
-      else if((this.diffDays != this.informDays) && (this.vacatingDate < this.informingDate)){
+      else if((this.diffDays <= this.informDays) || (this.vacatingDate < this.informingDate)){
 
         this.diffTime = Math.abs(this.informingDate.getTime() - this.vacatingDate.getTime());
         this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));

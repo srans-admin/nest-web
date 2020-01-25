@@ -17,7 +17,8 @@ import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
 import { MatDialog } from '@angular/material/dialog';
 import { BanktransferComponent } from 'src/app/payment/banktransfer/banktransfer.component';
-import { AuthenticationService } from 'src/app/_auth/auth.service';
+import { AuthenticationService } from '../_auth/auth.service';
+
 
 @Component({
   selector: 'app-bed-reservation',
@@ -25,6 +26,7 @@ import { AuthenticationService } from 'src/app/_auth/auth.service';
   styleUrls: ['./bed-reservation.component.css']
 })
 export class BedReservationComponent implements OnInit {
+
   private hostels: Observable<Hostel[]>;
   private imageUrl: string = "/assets/img/showimage.jpg";
   private userImage: File = null;
@@ -46,6 +48,7 @@ export class BedReservationComponent implements OnInit {
   private tenantBooking : TenantBooking = new TenantBooking();
   private currentUser: User;
 
+
   
   constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router,
@@ -53,10 +56,12 @@ export class BedReservationComponent implements OnInit {
       private httpClient: HttpClient,
       public dialog: MatDialog,
       private alertMessage: AlertMessage,
+
       private authenticationService: AuthenticationService,
       private nIDOSMessages: NIDOSMessages) { 
         this.currentUser = this.authenticationService.currentUser;
       }
+
 
   ngOnInit() {
     this.filterForeCasts();
