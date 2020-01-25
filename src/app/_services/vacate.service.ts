@@ -10,7 +10,7 @@ import { AuthenticationService } from '../_auth/auth.service';
 
   export class VacateService{
 
-    private baseUrl = environment.appUrl +'/api/v1/vacate';
+    private baseUrl = environment.appUrl +'/api/v1/users/vacate';
     private userUrl = environment.appUrl + '/api/v1/users';
 
     constructor(private http: HttpClient, 

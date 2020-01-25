@@ -17,6 +17,7 @@ import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
 import { MatDialog } from '@angular/material/dialog';
 import { BanktransferComponent } from 'src/app/payment/banktransfer/banktransfer.component';
+import { AuthenticationService } from '../_auth/auth.service';
 
 @Component({
   selector: 'app-bed-reservation',
@@ -43,7 +44,7 @@ export class BedReservationComponent implements OnInit {
   selectedBedInfo : any = null;
   isHostelPaymentReq:boolean = true;
   tenantBooking : TenantBooking = new TenantBooking();
-
+  private currentUser : User;
   
   constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router,
@@ -51,7 +52,10 @@ export class BedReservationComponent implements OnInit {
       private httpClient: HttpClient,
       public dialog: MatDialog,
       private alertMessage: AlertMessage,
-      private nIDOSMessages: NIDOSMessages) { }
+      private nIDOSMessages: NIDOSMessages,
+      private authenticationService: AuthenticationService) {
+        this.currentUser = this.authenticationService.currentUser;
+       }
 
   ngOnInit() {
     this.filterForeCasts();
@@ -88,7 +92,7 @@ export class BedReservationComponent implements OnInit {
 
    filterForeCasts()
   {
-    this.hostels = this.hostelService.getHostelsList();
+    this.hostels = this.hostelService.getHostelsList(this.currentUser.userId);
   }
 
   onSubmit() { 
