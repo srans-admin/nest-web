@@ -116,7 +116,7 @@ const routes: Routes = [
   { path: 'roms', component: ListRoomComponent},
 
   { path: 'user/:type', component: UserListComponent, canActivate: [AuthGuard] },
-  { path: 'user/add', component: CreateUserComponent },
+  { path: 'user/TENANT/add', component: CreateUserComponent },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
 

@@ -26,7 +26,8 @@ export class ProfileComponent implements OnInit {
   private userImages: Array<TmpUsr> = [];
   private currentUser: User; 
   private userpic: any;
-  
+  private url: any;
+  private loading = false;
   
  
   constructor(
@@ -72,10 +73,12 @@ export class ProfileComponent implements OnInit {
     }
  } 
  
- prepareUpload(typeOfUpload: string) { 
+ prepareUpload(typeOfUpload: string, file : any) { 
+
   switch(typeOfUpload) { 
 
     case "userImage":  
+      console.log('My pic:'+this.userpic);
       this.uploadChangedUserPic(this.userpic, 'userpic', this.currentUser.userId )
       break; 
 
@@ -88,12 +91,16 @@ export class ProfileComponent implements OnInit {
 
 
  uploadChangedUserPic(curFile: File, type: string, id : number){
+  this.loading = true;
   this.userService.uploadFile(curFile, type,  id).subscribe(
     res => {   
       console.log('SUCCESS:: Type :'+type+', File: '+curFile+':'+res);
+      this.loading = false;
     },
     err =>{
       console.log('FAILED:: Type :'+type+', File: '+curFile+': '+err);
+      this.alertMessage.showFailedMsg( 'Error while uploading user pic: ' + err.message );
+      this.loading = false;
     });
   }
 
@@ -104,15 +111,10 @@ export class ProfileComponent implements OnInit {
     this.userpic = event.target.files[0];
 
     if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
-
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-
+      var reader = new FileReader(); 
+      reader.readAsDataURL(event.target.files[0]); // read file as data url 
       reader.onload = (e) => { // called once readAsDataURL is completed
-        this.url = e.target.result;
-
-     
+        this.url = e.target.result;  
       }
     }
   }

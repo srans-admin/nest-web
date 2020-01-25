@@ -94,7 +94,7 @@ export class CreateUserComponent implements OnInit {
 
    filterForeCasts()
   {
-    this.hostels = this.hostelService.getHostelsList(this.currentUser.userId);
+    this.hostels = this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role);
   }
 
   onSubmit() { 

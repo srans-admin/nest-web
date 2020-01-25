@@ -44,7 +44,7 @@ export class ListHostelComponent implements OnInit {
   
     reloadData() {
 
-     this.hostelService.getHostelsList(this.currentUser.userId).subscribe(res => { 
+     this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role).subscribe(res => { 
         this.hostels = res;
       },err =>{ 
         this.alertMessage.showHttpMessage(err);

@@ -1,6 +1,6 @@
 <div  > 
       <h3><span class="glyphicon glyphicon-equalizer"></span> Hostels</h3> 
-      <div style="text-align: right;" class="add-hostel-btn"> 
+      <div style="text-align: right;" class="add-hostel-btn" *ngIf="currentUser.role === 'ADMIN'"> 
             <!-- routerLink="viewtabs" -->
             <div (click)="addNewHostel()">
           <a  class="btn btn-info" ><span class="glyphicon glyphicon-plus"></span> Add Hostel</a>
@@ -9,10 +9,11 @@
     
 </div>  
  
-<div class="hostel-search"> 
+<div class="hostel-search" *ngIf="hostels.length != 0"> 
     <input type="text" class="form-control" placeholder="Search here" [(ngModel)]="searchTerm" >
 </div><br/>
 <div class="hostels-list">
+    <div class="empty-hostels-msg" *ngIf="hostels.length === 0"> No hostels found from system </div>
     <div *ngFor="let hostel of hostels  | hostelFilter:searchTerm " >
         <div class="hostel" (click)="hostelDetails(hostel.id)" >
             <div class="hostel-image"> 

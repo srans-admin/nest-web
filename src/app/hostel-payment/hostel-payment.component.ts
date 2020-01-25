@@ -28,7 +28,7 @@ export class HostelPaymentComponent implements OnInit {
   }
 
   reloadData(){
-    this.hostelService.getHostelsList(this.currentUser.userId);
+    this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role);
   }
 
 }

@@ -84,7 +84,7 @@ export class AppComponent {
   }
    
 
-  defineRole() {
+  defineRole() { 
     this.isSuperAdmin = (this.userInfo) ? this.userInfo.role == 'SUPERADMIN' : false;
     this.isAdmin = (this.userInfo) ? this.userInfo.role == 'ADMIN' : false;
     this.isGuest = (this.userInfo) ? this.userInfo.role == 'GUEST' : false;

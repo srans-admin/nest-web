@@ -1,10 +1,10 @@
 <div class="app-haeader">
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
                 <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIDOS  </span>  </a>
+                <span *ngIf="userInfo" class="user-info" > {{userInfo.name}}</span>
 
-
-                <span
-                  *ngIf="userInfo" class="align-right">
+                <span *ngIf="userInfo" class="align-right">
+                        
                         <div class="header-card" (click)="showNotifications()" title="Notifications"> 
                                 <span class="glyphicon glyphicon-bell">
                                         <sup><span class="badge badgePosition" >{{notifications.length}}</span></sup>

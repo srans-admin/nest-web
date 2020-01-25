@@ -21,7 +21,13 @@
           <h3>
             {{currentUser.name}}
           </h3>
-          <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Change Photo </button>
+          <!-- <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Update This </button> -->
+        
+          <button [disabled]="loading" class="btn btn-primary"  *ngIf="url" (click)="prepareUpload('userImage',$event)">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Update This
+          </button>
+        
         </div>
       </div>
             <!--<div class="col-md-6">-->

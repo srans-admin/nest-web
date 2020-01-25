@@ -1,6 +1,9 @@
 
 .c-wrapper{
-color: green;
+    padding: 14px; 
+    border: 1px solid gray; 
+    margin: 0px;
+    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
 }
 
 
@@ -17,7 +20,25 @@ color: green;
  .size_brder{
     width:700px;
     height:500px;
-    border:1px solid black;
-
+    border:1px solid black; 
  }
 
+ .u-pic{
+     width: 30px;
+     height: 30px;
+     border: 1px solid green;
+ }
+
+ .c-subj,c-date,c-status{
+     font-size: 12px;
+ }
+
+
+ .c-header{
+     padding: 10px;
+ }
+
+ .c-body{
+     margin: 10px;
+ }
+ 

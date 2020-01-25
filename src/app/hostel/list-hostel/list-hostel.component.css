@@ -60,4 +60,8 @@ a{
     position: relative;
     top: -32px;
 }
+
+.empty-hostels-msg{
+    padding: 12px;
+}
  

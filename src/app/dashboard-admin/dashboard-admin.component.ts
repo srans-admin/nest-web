@@ -15,7 +15,7 @@ export class DashboardAdminComponent implements OnInit {
 
 
   displayTenants(){
-    this.router.navigate(['/user/tenant']);
+    this.router.navigate(['/user/TENANT']);
   }
 
   displayGuests(){

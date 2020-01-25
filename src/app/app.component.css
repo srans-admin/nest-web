@@ -51,4 +51,11 @@ sup {
   bottom:22px;
   background-color: red;
 }
+.user-info{
+    color: white;
+    position: relative;
+    top: 9px;
+    left: -17px;
+
+}
  

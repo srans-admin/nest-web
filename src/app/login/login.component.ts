@@ -12,10 +12,10 @@ import { AlertMessage } from '../_alerts/alert.message';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
+  private loginForm: FormGroup;
+  private loading = false;
+  private submitted = false;
+  private returnUrl: string;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       this.loginForm = this.formBuilder.group({
-          username: ['abcd', Validators.required],
-          password: ['GR2WVQWY', Validators.required]
+          username: ['ravi234', Validators.required],
+          password: ['194N6TWF', Validators.required]
       });
 
       // get return url from route parameters or default to '/'

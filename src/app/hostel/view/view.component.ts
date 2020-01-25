@@ -218,7 +218,7 @@ createImageFromBlobMisc(image: Blob) {
   }
 
   reloadData() {
-    this.hostels = this.hostelService.getHostelsList(this.currentUser.userId);      
+    this.hostels = this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role);      
   }
 
   changeLanguage(language) {
