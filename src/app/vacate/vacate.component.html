@@ -5,7 +5,7 @@
             <div class="col col-md-4">
                 <div>
                     <label><span class="glyphicon glyphicon-home"></span> Tenant Id </label>
-                    <input type="text" class="form-control custom-select" [(ngModel)]="tenantId" name="tenantId" readonly>
+                    <input type="text" class="form-control custom-select" [(ngModel)]="vacate.tenantId" name="tenantId" readonly>
                 </div><br/>
 
                 <label>
@@ -52,8 +52,8 @@
                 </div><br/>
             </div>
         </div><br/>
-        <button type="submit" class="form-control custom-select btn btn-success generateInvoice" (click)="getAmount()">
-            Generate Invoice
+        <button type="submit" class="form-control custom-select btn btn-success" (click)="getAmount()">
+            Generate Refund Amount
         </button>
     <br/><br/>
     <div class="form-group">
@@ -76,7 +76,7 @@
 
             <div>
                 <label><span class="glyphicon glyphicon-bitcoin"></span> Total Amount </label>
-                <input type="text" class="form-control custom-select" [(ngModel)]="refundAmount" name="refundAmount">
+                <input type="text" class="form-control custom-select" [(ngModel)]="vacate.refundAmount" name="refundAmount">
             </div><br/>
 
             <div>
@@ -85,7 +85,7 @@
             </div><br/>
             <input type="checkbox" class="tc" name="TC"> I have read and agree the Terms and Conditions
     </div>
-    <div><button type="submit" class="form-control btn btn-success vacate">Vacate</button></div>
+    <div><button type="submit" class="form-control custom-select btn btn-success">Vacate Request</button></div>
 </form><br/>
 </div>
 

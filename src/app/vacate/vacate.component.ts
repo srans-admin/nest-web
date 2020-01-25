@@ -42,7 +42,7 @@ export class VacateComponent implements OnInit {
   private floorId: number;
   private roomId: number;
   private roomBedId: number;
-
+  private roomRent: number;
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
@@ -96,7 +96,7 @@ export class VacateComponent implements OnInit {
 
       if((this.diffDays >= this.informDays) && (this.vacatingDate > this.informingDate)){
 
-        this.refundAmount = this.depositAmount - this.maintainanceCharges;
+        this.vacate.refundAmount = this.depositAmount - this.maintainanceCharges;
       }
       else if((this.diffDays <= this.informDays) || (this.vacatingDate < this.informingDate)){
 
@@ -104,11 +104,11 @@ export class VacateComponent implements OnInit {
         this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));
 
         this.amountToDeduct = this.diffDays * this.perDayAmount;
-        this.refundAmount = this.depositAmount - this.maintainanceCharges - this.amountToDeduct;
+        this.vacate.refundAmount = this.depositAmount - this.maintainanceCharges - this.amountToDeduct;
 
       }
       else{
-        this.refundAmount = - (this.maintainanceCharges);
+        this.vacate.refundAmount = - (this.maintainanceCharges);
       }
   }
 
@@ -117,12 +117,14 @@ export class VacateComponent implements OnInit {
   }
 
   getUserData(){
-    this.vacateService.getUserDetails(this.currentUser.userId).subscribe(res => { 
+    this.vacateService.getUserDetails(this.currentUser.userId).subscribe(res => {    
+      console.log(res);
       this.currentUser = res;
-      this.tenantId = this.currentUser.userId;
+      this.vacate.tenantId = this.currentUser.userId;
       this.floorId = this.currentUser.tenantBooking.floorId;
       this.roomId = this.currentUser.tenantBooking.roomId;
       this.roomBedId = this.currentUser.tenantBooking.roomBedId;
+      this.roomRent = this.currentUser.tenantBooking.roomRent;
     },err =>{ 
       this.alertMessage.showHttpMessage(err);
     });
