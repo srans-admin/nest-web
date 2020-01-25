@@ -7,7 +7,7 @@ import { BehaviorSubject, Subject, Observable } from 'rxjs';
 import { Notification } from './_models/notification';
 import { NotificationService } from './_services/notification.service';
 import { NIDOSMessages } from './_messages/message_eng';
-import { MatBadgeModule } from '@angular/material';
+// import { MatBadgeModule } from '@angular/material';
 import { Role } from './_models/role';
  
 
@@ -39,7 +39,7 @@ export class AppComponent {
   constructor(
     private alertMessage: AlertMessage,
     private router: Router,
-    private matBadge: MatBadgeModule,
+    // private matBadge: MatBadgeModule,
     private authenticationService: AuthenticationService,
     private notificationService: NotificationService,
     private nIDOSMessages: NIDOSMessages
@@ -114,6 +114,7 @@ export class AppComponent {
      }, err =>{ 
         this.alertMessage.showFailedMsg(err.message); 
      });  
+     this.notifications.length = null;
   }
 
   profile(){  

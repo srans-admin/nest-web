@@ -28,7 +28,7 @@ export class EditProfileComponent implements OnInit {
   reloadData(){
     //this.user = new User();
     this.currentUser = this.authenticationService.currentUser;
-
+  
     //this.id = this.route.snapshot.params['id'];
     // this.userService.getUser(this.id)
     //   .subscribe(data => {
@@ -43,6 +43,10 @@ export class EditProfileComponent implements OnInit {
       .subscribe(data => console.log(data), error => console.log(error));
     
     this.gotoList();
+  }
+
+  cancelProfile(){
+    this.router.navigate(['/profile']);
   }
 
   onSubmit() {
