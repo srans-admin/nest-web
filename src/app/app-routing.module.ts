@@ -73,6 +73,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 
  
 import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
+import { GuestListComponent } from './user/guest-list/guest-list.component';
  
 
 
@@ -115,10 +116,12 @@ const routes: Routes = [
 
   { path: 'roms', component: ListRoomComponent},
 
-  { path: 'user/:type', component: UserListComponent, canActivate: [AuthGuard] },
-  { path: 'user/TENANT/add', component: CreateUserComponent },
+  { path: 'user', component: UserListComponent, canActivate: [AuthGuard] },
+  { path: 'user/add', component: CreateUserComponent },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
+
+  { path: 'guest', component: GuestListComponent, canActivate: [AuthGuard] },
 
   { path: 'doughnut-chart', component: DoughnutChartComponent },
   { path: 'bar-chart', component: BarChartComponent },

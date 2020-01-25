@@ -14,14 +14,14 @@
                         </a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link link-pointer"  (click)="displayTenants()">
+                        <a class="nav-link link-pointer"  routerLink="user">
                                 <span class="glyphicon glyphicon-user"></span>
                                 <span class="nav-title"> Tenants </span></a>
                 </li>
 
                 <li class="nav-item">
-                                <!-- routerLink="user" -->
-                                <a class="nav-link link-pointer"   (click)="displayGuests()">
+                                <!-- (click)="displayGuests()" -->
+                                <a class="nav-link link-pointer"  routerLink="guest">
                                         <span class="glyphicon glyphicon-user"></span>
                                         <span class="nav-title"> Guests </span></a>
                </li>

@@ -105,6 +105,7 @@ import { ProfileChangepasswordComponent } from './profile/profile-changepassword
 import { VacateComponent } from './vacate/vacate.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.component';
+import { GuestListComponent } from './user/guest-list/guest-list.component';
 
  
 
@@ -168,6 +169,8 @@ import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.compo
     InvoiceListComponent,
     HostelFilterPipe,
     UserFilterPipe,
+
+    GuestListComponent,
 
     CreatePaymentComponent,
     PaymentListComponent,

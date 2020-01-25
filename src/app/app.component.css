@@ -55,7 +55,9 @@ sup {
     color: white;
     position: relative;
     top: 9px;
-    left: -17px;
-
+    left: -17px; 
+}
+.role-info{
+    font-size: x-small;
 }
  

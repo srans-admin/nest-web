@@ -13,18 +13,18 @@ import { AuthenticationService } from 'src/app/_auth/auth.service';
 
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  selector: 'app-guest-list',
+  templateUrl: './guest-list.component.html',
+  styleUrls: ['./guest-list.component.css']
 })
-export class UserListComponent implements OnInit {
+export class GuestListComponent implements OnInit {
   private users:  any;
   //userImages = new Map(); 
   private userImages: Array<TmpUsr> = [];
   private acknoldgmentMsg : string = null;
   private searchTerm: string;
   private currentUser: User;
-  private type: string = 'TENANT';
+  private type: string = 'GUEST';
 
   constructor(private userService: UserService,
     private route: ActivatedRoute,
@@ -44,7 +44,7 @@ export class UserListComponent implements OnInit {
   }
 
   reloadData() {  
-  
+   //this.type = this.route.snapshot.params['type'];
    this.userService.getUsersList(this.type, this.currentUser.userId).subscribe(res => { 
       this.users = res; 
       this.users.forEach(element => { 
@@ -115,7 +115,7 @@ export class UserListComponent implements OnInit {
   }
 
   convertToTenant(id: number){
-    this.router.navigate(['/user/TENANT', id]);
+    this.router.navigate(['../user/add']);
   }
   
 
