@@ -106,6 +106,8 @@ import { VacateComponent } from './vacate/vacate.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.component';
 
+import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+
  
 
 @NgModule({
@@ -194,7 +196,9 @@ import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.compo
     EditProfileComponent,
     BedReservationComponent,
     VacateComponent,
-    ContactsComponent
+    ContactsComponent,
+    UserPaymentComponent,
+
  
     
   ],
