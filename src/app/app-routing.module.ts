@@ -64,7 +64,7 @@ import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscr
 
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
-
+import { ProfileChangepasswordComponent } from './profile/profile-changepassword/profile-changepassword.component';
  
 import { VacateComponent } from './vacate/vacate.component';
 
@@ -85,6 +85,7 @@ const routes: Routes = [
   { path: 'reservation', component: BedReservationComponent},
   { path: 'profile', component: ProfileComponent },
   { path: 'editprofile/:id', component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: 'changepassword', component: ProfileChangepasswordComponent },
 
   { path: 'subscription', component: SubscriptionRegisterComponent },
   //{ path: '', redirectTo: 'hostel', pathMatch: 'full' },

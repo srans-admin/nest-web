@@ -21,20 +21,6 @@ Change Photo
           <h3>
             {{currentUser.name}}
           </h3>
-
-
-                    <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Change Photo </button>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="profile-head">
-                            <h3>
-                               {{currentUser.name}}
-                            </h3>
-                            <h6>
-                                    {{currentUser.name}}
-                            </h6>
-                            
                 </div>
             </div>
             <div class="col-md-2 header-buttons" >
@@ -173,51 +159,45 @@ Change Photo
       </mat-tab>
 
       <mat-tab label="Additional " class="test">
-        <div class="row">
+        <div class="row" >
           <div class="col-md-6">
             <label>Hostel</label>
           </div>
           <div class="col-md-6">
-            <p>{{currentUser.name}}</p>
+            <p>{{currentUser.hostelName}}</p>
           </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="currentUser.floorName">
           <div class="col-md-6">
-            <label>Hourly Rate</label>
+            <label>Floor Name</label>
           </div>
           <div class="col-md-6">
-            <p>10$/hr</p>
+            <p>{{currentUser.floorName}}</p>
           </div>
 
         </div>
-        <div class="row">
+        <div class="row" *ngIf="currentUser.roomName">
           <div class="col-md-6">
-            <label>Total Projects</label>
+            <label>Room Name</label>
           </div>
           <div class="col-md-6">
-            <p>230</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>English Level</label>
-          </div>
-          <div class="col-md-6">
-            <p>Expert</p>
+            <p>{{currentUser.roomName}}</p>
           </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="currentUser.roomType">
           <div class="col-md-6">
-            <label>Availability</label>
+            <label>Room Type</label>
           </div>
           <div class="col-md-6">
-            <p>6 months</p>
+            <p>{{currentUser.roomType}}</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <label>Your Bio</label><br/>
-            <p>Your detail description</p>
+        <div class="row" *ngIf="currentUser.roomRent">
+          <div class="col-md-6">
+            <label>Room Rent</label>
+          </div>
+          <div class="col-md-6">
+            <p>{{currentUser.roomRent}}</p>
           </div>
         </div>
       </mat-tab>

@@ -19,32 +19,36 @@ import { MatDialog } from '@angular/material/dialog';
 import { BanktransferComponent } from 'src/app/payment/banktransfer/banktransfer.component';
 import { AuthenticationService } from '../_auth/auth.service';
 
+
 @Component({
   selector: 'app-bed-reservation',
   templateUrl: './bed-reservation.component.html',
   styleUrls: ['./bed-reservation.component.css']
 })
 export class BedReservationComponent implements OnInit {
-  hostels: Observable<Hostel[]>;
-  imageUrl: string = "/assets/img/showimage.jpg";
-  userImage: File = null;
-  idproofImage: File = null; 
-  idImage: File = null;
-  user: User = new User();    
-  hostel: Hostel = new Hostel();
-  tempfloor: Array<any>;
-  totalRooms: Number=1; 
-  floor: Floor = new Floor();
-  room: Room = new Room();
-  payment: Payment = new Payment();
-  acknoldgmentMsg: string = "";
-  tempFloors: []; 
-  selectedHostel : Hostel; 
-  isBedSelected : boolean = false;
-  selectedBedInfo : any = null;
-  isHostelPaymentReq:boolean = true;
-  tenantBooking : TenantBooking = new TenantBooking();
-  private currentUser : User;
+
+  private hostels: Observable<Hostel[]>;
+  private imageUrl: string = "/assets/img/showimage.jpg";
+  private userImage: File = null;
+  private idproofImage: File = null; 
+  private idImage: File = null;
+  private user: User = new User();    
+  private hostel: Hostel = new Hostel();
+  private tempfloor: Array<any>;
+  private totalRooms: Number=1; 
+  private floor: Floor = new Floor();
+  private room: Room = new Room();
+  private payment: Payment = new Payment();
+  private acknoldgmentMsg: string = "";
+  private tempFloors: []; 
+  private selectedHostel : Hostel; 
+  private isBedSelected : boolean = false;
+  private selectedBedInfo : any = null;
+  private isHostelPaymentReq:boolean = true;
+  private tenantBooking : TenantBooking = new TenantBooking();
+  private currentUser: User;
+
+
   
   constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router,
@@ -52,10 +56,12 @@ export class BedReservationComponent implements OnInit {
       private httpClient: HttpClient,
       public dialog: MatDialog,
       private alertMessage: AlertMessage,
-      private nIDOSMessages: NIDOSMessages,
-      private authenticationService: AuthenticationService) {
+
+      private authenticationService: AuthenticationService,
+      private nIDOSMessages: NIDOSMessages) { 
         this.currentUser = this.authenticationService.currentUser;
-       }
+      }
+
 
   ngOnInit() {
     this.filterForeCasts();
