@@ -43,8 +43,8 @@ export class UserService {
     return this.http.delete(`${this.baseUrl}/${id}`, this.authenticationService.getHttpHeaders());
   }
 
-  getUsersList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
+  getUsersList(type : string, adminId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}?adminId=${adminId}&type=${type}`, this.authenticationService.getHttpHeaders());
   }
 
   uploadFile( file: File , cat: String,  id : number ) : Observable<any>  {  

@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
   private userImages: Array<TmpUsr> = [];
   private currentUser: User; 
   private userpic: any;
-
+  
   
  
   constructor(
@@ -113,7 +113,7 @@ export class ProfileComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
       reader.onload = (event) => { // called once readAsDataURL is completed
-        this.url = event.target;
+        let url = event.target;
       }
     }
   }

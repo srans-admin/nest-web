@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { UserService } from '../../_services/user.service';
 import { User, TmpUsr } from "../../_models/user";
 import { Component, OnInit, HostListener } from "@angular/core";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
@@ -18,27 +18,33 @@ import { AuthenticationService } from 'src/app/_auth/auth.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users:  any;
+  private users:  any;
   //userImages = new Map(); 
-  userImages: Array<TmpUsr> = [];
-  acknoldgmentMsg : string = null;
-  searchTerm: string;
+  private userImages: Array<TmpUsr> = [];
+  private acknoldgmentMsg : string = null;
+  private searchTerm: string;
+  private currentUser: User;
 
   constructor(private userService: UserService,
+    private route: ActivatedRoute,
     private router: Router,private matcheckbox: MatCheckboxModule, 
     private alertMessage: AlertMessage,
     private nIDOSMessages: NIDOSMessages,
+    private authenticationService: AuthenticationService
     // private formfield: MatFormField,
     // private snackBar:MatSnackBar
-    ) { }
+    ) { 
+      this.currentUser = this.authenticationService.currentUser;
+    }
 
   ngOnInit() {
+    
     this.reloadData();
   }
 
-  reloadData() { 
-
-    this.userService.getUsersList().subscribe(res => { 
+  reloadData() {  
+    let type = this.route.snapshot.params['type'];
+    this.userService.getUsersList(type, this.currentUser.userId).subscribe(res => { 
       this.users = res; 
       this.users.forEach(element => { 
         //for( let element of elements){

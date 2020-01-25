@@ -34,3 +34,6 @@ div.cdk-overlay-pane{
     padding-left: 4px;
     color: aliceblue;
 }
+.link-pointer{
+    cursor: pointer;
+}
