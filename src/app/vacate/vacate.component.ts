@@ -64,31 +64,19 @@ export class VacateComponent implements OnInit {
   }
 
   vacateTenant(){
+    
     this.vacateService.createVacate(this.vacate).subscribe( res => {
-      console.log(res);
-    },  
+        console.log(res);
+        this.alertMessage.showSuccessMsg(  'Vacation request sent to administrator, please check your email for more information. Keep look at Vaction Status.');
+        this.goToHome();
+      },  
       err => {  
         this.alertMessage.showFailedMsg( this.nIDOSMessages.HostelCreationFailed + err.message );
       });
-      this.goToVacate();
-  }
+     
+  } 
 
-  // getRefundAmount(){
-  //   this.diffTime = Math.abs(this.vacatingDate.getTime() - this.informingDate.getTime());
-  //   this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));
-
-  //   if((this.diffDays == this.informDays) && (this.vacatingDate < this.presentDate)){
-  //     // this.countDays = this.daysInMonth -  this.daysStayed;
-  //     this.perDayAmount = this.depositAmount / this.daysInMonth;
-  //     this.amountToDeduct = this.daysStayed * this.perDayAmount;
-  //     // this.refundAmount = this.depositAmount - this.maintainanceCharges - this.amountToDeduct;
-  //     this.refundAmount = this.refundAmount;
-  //     this.vacatingDate = this.vacatingDate;
-  //     this.description = this.description;
-  //   }
-  // }
-
-  getAmount(){
+  getRefundAmount(){
 
     this.diffTime = Math.abs(this.vacatingDate.getTime() - this.informingDate.getTime());
     this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));
@@ -112,8 +100,8 @@ export class VacateComponent implements OnInit {
       }
   }
 
-  goToVacate(){
-    this.router.navigate(['/vacateMe']);
+  goToHome(){
+    this.router.navigate(['/profile']);
   }
 
   getUserData(){
@@ -126,7 +114,7 @@ export class VacateComponent implements OnInit {
       this.roomBedId = this.currentUser.tenantBooking.roomBedId;
       this.roomRent = this.currentUser.tenantBooking.roomRent;
     },err =>{ 
-      this.alertMessage.showHttpMessage(err);
+      console.log('Unable to get Userdetails from server: '+err); 
     });
   }
 

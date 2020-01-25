@@ -73,9 +73,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 
  
 import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
-import { GuestListComponent } from './user/guest-list/guest-list.component';
- 
-import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+import { GuestListComponent } from './user/guest-list/guest-list.component'; 
 
 
  
