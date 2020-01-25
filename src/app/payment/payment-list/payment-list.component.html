@@ -15,6 +15,7 @@
           <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Amount</th>
             <th>Room Name</th>
             <th>Room Type</th>
             <th>Payment Through</th>
@@ -27,9 +28,10 @@
           <tr *ngFor="let payment of payments |  async">
             <td>{{ payment.id }}</td>
             <td>{{ payment.name }}</td>
+            <td>{{ payment.amount }}</td>
             <td>{{ payment.roomName }}</td>
             <td>{{ payment.roomType }}</td>
-            <td>{{ payment.paymentThrough }}</td>
+            <td>{{ payment.paymentType }}</td>
             <td>{{ payment.transactionId }}</td>
             <td>{{ payment.bankName }}</td>
             <td>{{ payment.roomRent }}</td>
@@ -43,6 +45,5 @@
       </table>
     </div>
   </div>
-  
-  
-  
+
+

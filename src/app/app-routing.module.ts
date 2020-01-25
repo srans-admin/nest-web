@@ -75,6 +75,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
 import { GuestListComponent } from './user/guest-list/guest-list.component';
  
+import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
 
 
  
@@ -133,6 +134,7 @@ const routes: Routes = [
   { path: 'payment/add', component: CreatePaymentComponent},
   { path: 'hpayment', component: HostelPaymentComponent, canActivate: [AuthGuard] },
   { path: 'hsubscription', component: HostelSubscriptionComponent, canActivate: [AuthGuard] },
+  { path: 'paymentHistory', component: UserPaymentComponent, canActivate: [AuthGuard] },
 
   { path: 'complaint', component: ComplaintListComponent, canActivate: [AuthGuard]},
   { path: 'complaint/add', component: AddComplaintComponent},

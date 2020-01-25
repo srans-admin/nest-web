@@ -1,4 +1,3 @@
-
 export class Payment{
     date:Date = new Date();
      name:string;
@@ -9,6 +8,6 @@ export class Payment{
     bankName:string;
      roomRent:number;
     depositAmount:number;
-    
+    amount:number;
 }
 

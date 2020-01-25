@@ -107,6 +107,8 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.component';
 import { GuestListComponent } from './user/guest-list/guest-list.component';
 
+import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+
  
 
 @NgModule({
@@ -197,7 +199,9 @@ import { GuestListComponent } from './user/guest-list/guest-list.component';
     EditProfileComponent,
     BedReservationComponent,
     VacateComponent,
-    ContactsComponent
+    ContactsComponent,
+    UserPaymentComponent,
+
  
     
   ],
