@@ -1,19 +1,19 @@
-<div class="container emp-profile">
+      <div class="container emp-profile">
 
   <form method="post">
     <div class="row">
       <div class="col-md-4">
         <div class="profile-img">
 
-            <img [src]="url" height="200" alt=""> <br/>
+            <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""> <br/>
             <input type='file' (change)="previewMyImage($event)">
 
-<!-- <img src="{{userpic}}" /> -->
-<!-- <div class="file btn btn-lg btn-primary">
-Change Photo
-</div> -->
+              <!-- <img src="{{userpic}}" /> -->
+              <!-- <div class="file btn btn-lg btn-primary">
+              Change Photo
+              </div> -->
 
-        <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Change Photo </button>
+        <!--<button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url">  </button>-->
         </div>
       </div>
       <div class="col-md-6">
@@ -21,22 +21,18 @@ Change Photo
           <h3>
             {{currentUser.name}}
           </h3>
-
-
-                    <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Change Photo </button>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="profile-head">
-                            <h3>
-                               {{currentUser.name}}
-                            </h3>
-                            <h6>
-                                    {{currentUser.name}}
-                            </h6>
-                            
-                </div>
-            </div>
+          <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Change Photo </button>
+        </div>
+      </div>
+            <!--<div class="col-md-6">-->
+                <!--<div class="profile-head">-->
+                            <!--<h3>-->
+                               <!--{{currentUser.name}}-->
+                            <!--</h3>-->
+                            <!---->
+                            <!---->
+                <!--</div>-->
+            <!--</div>-->
             <div class="col-md-2 header-buttons" >
                 <a class="btn btn-info header-button" (click)="editProfile(currentUser.userId)"   style="height:30px" > Edit Profile </a>
                 <button class="btn btn-info header-button" (click)="changePassword()" style="height:30px"> Change Password </button>
