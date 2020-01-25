@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User, TmpUsr } from '.././_models/user';
 import { UserService } from '.././_services/user.service';
+import { HostelService } from ".././_services/hostel.service";
+import { Hostel } from ".././_models/hostel";
 import { Router } from '@angular/router';
 import { AuthenticationService } from '.././_auth/auth.service';
 import { AlertMessage } from '.././_alerts/alert.message';
@@ -19,15 +21,16 @@ export class ProfileComponent implements OnInit {
 
   
   private users:  any;
+  private hostels;
   private acknoldgmentMsg : string = null;
   private userImages: Array<TmpUsr> = [];
   private currentUser: User; 
   private userpic: any;
 
-  name = 'Angular 4';
-  url  ;
+  
  
   constructor(
+    private hostelService: HostelService,
     private alertMessage: AlertMessage,
     private router: Router,
     public dialog: MatDialog,
@@ -46,7 +49,9 @@ export class ProfileComponent implements OnInit {
               //this.alertMessage.showFailedMsg(this.acknoldgmentMsg );  
               console.log('Unable to get UserPic: '+this.acknoldgmentMsg);
             }); 
-  } 
+  }
+  
+  
   
   ngOnInit() {  
    
