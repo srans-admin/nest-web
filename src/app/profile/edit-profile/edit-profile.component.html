@@ -39,8 +39,14 @@
 
   <div class="form-group" >
       <label for="name">Date of Birth</label>
-      <input type="text" class="form-control" id="dob" required [(ngModel)]="currentUser.dob" name="dob">
+      <span class="date-picker">
+      <input type="text" required [matDatepicker]="picker" class="form-control" id="dob" required [(ngModel)]="currentUser.dob" name="dob" placeholder="MM/DD/YY">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+             <mat-datepicker #picker></mat-datepicker> 
+            </span>
     </div>
+
+    
 
   <div class="form-group"  >
       <label for="name">Blood Group</label>
@@ -69,7 +75,9 @@
     <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="currentUser.permanentAddress" name="permanentAddress">
   </div>
   
-    <button type="submit" class="btn btn-success"> Update My Profile</button>
+    <button type="submit" class="btn btn-success" > Update My Profile</button>
+    <!-- <button routerLink="/profile" routerLinkActive="active" class="btn btn-link">Cancel</button> -->
+    <button type="button" class="btn btn-success" (click)="cancelProfile()" style="margin-left:20px">Cancel</button>
 
 </form>
 </div>    
