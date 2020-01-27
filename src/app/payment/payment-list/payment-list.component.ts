@@ -30,7 +30,7 @@ export class PaymentListComponent implements OnInit {
   }
   
   reloadData() {
-    this.paymentService.getuserPaymentInfo(this.currentUser.userId).subscribe(res=>{
+    this.paymentService.getAllUsersPaymentInfo(this.currentUser.userId, this.currentUser.role).subscribe(res=>{
       console.log(res);
       this.payments = res;
       this.payment.id = this.payments.id;

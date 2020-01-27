@@ -83,7 +83,7 @@
     <label><span class="glyphicon glyphicon-home"></span> Choose Hostel </label>
     <select class="browser-default custom-select" [ngModel]="selectedDevice" (ngModelChange)="populateHostel($event)"
       name="sel2">
-      <option value="">--select--</option>
+      <option value=""  disabled selected="selected">--select--</option>
       <option *ngFor="let hostel of hostels | async" [value]="hostel.id" name="id"
         (ngModelChange)="populateHostel(hostel.id)"> {{hostel.hostelName}} </option>
     </select>
@@ -162,28 +162,34 @@
    
         <label><span class="glyphicon glyphicon-user"></span> Payment Through:</label>
         <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="user.payment.paymentThrough" name=" paymentThrough">
-          
-          <option selected>Cash</option>
-          <option ><a class="btn btn-info " (click)="addTransfer()"> <span class="glyphicon glyphicon-plus"></span>Bank Transfer </a></option>
+          <option value="CASH" selected="selected" >Cash</option>
+          <option value="BT"><a class="btn btn-info " (click)="addTransfer()"> <span class="glyphicon glyphicon-plus"></span>Bank Transfer </a></option>
         </select>
-  
-        <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
-            <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
-  
-        <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
-        <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
-  
-        <!-- <div class="form-group"> -->
-            <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
-            <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="user.payment.depositAmount" name="depositAmount">
-        <!-- </div> -->
-  
-        <!-- <div class="form-group"> -->
-          <!-- <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Room Rent</label>
-          <input type="text" class="form-control" id="roomRent" required [(ngModel)]="user.payment.roomRent" name="roomRent"> -->
-        <!-- </div>       -->
-  
-        <!-- <div class="form-group"> -->
+
+        <span *ngIf="user.payment.paymentThrough === 'BT'">
+          <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
+              <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
+    
+          <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
+          <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
+        </span>
+
+        
+        <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Room Rent:</label>
+        <input type="text" class="form-control"   required [(ngModel)]="user.payment.roomRent" name="roomRent" readonly>
+    
+    
+        <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
+        <input type="text" class="form-control"  required [(ngModel)]="user.payment.depositAmount" name="depositAmount">
+    
+        <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Discount Amount:</label>
+        <input type="text" class="form-control"   required [(ngModel)]="user.payment.discountAmount" name="discountAmount">
+    
+        
+        <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Amount to be paid:</label>
+        <input type="text" class="form-control"   readonly value="{{user.payment.roomRent - user.payment.discountAmount}}" >
+    
+
           <div >
             <br/>
           <button type="loading" class="btn btn-success">

@@ -112,4 +112,7 @@ label{
     width: 100%;
 }
 
+.bed-box:active{
+    color: chartreuse;
+}
 

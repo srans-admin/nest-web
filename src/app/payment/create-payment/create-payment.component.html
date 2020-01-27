@@ -1,7 +1,26 @@
-<h3>Payment </h3>
+<h3>Add Payment  </h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
+     
+
+      <div class="t-header"> Tenant Information</div>
+
+      <div class="tenant-info" *ngIf="user.tenantBooking">
+        
+          <div class="t-label" > Tenant Name</div> <div class="t-value"> {{user.name}}</div>
+        
+          <div class="t-line"><div class="t-label" > Hostel : </div> <div class="t-value"> {{user.tenantBooking.hostelId}}</div></div> 
+          <div class="t-line"><div class="t-label" > Floor :</div> <div class="t-value"> {{user.tenantBooking.floorId}}</div> </div> 
+          <div class="t-line"> <div class="t-label" > Room :</div> <div class="t-value"> {{user.tenantBooking.name}}</div> </div> 
+          <div class="t-line"><div class="t-label" > Bed :</div> <div class="t-value"> {{user.tenantBooking.roomBedId}}</div></div> 
+          <div class="t-line"><div class="t-label" > Type :</div> <div class="t-value"> {{user.tenantBooking.roomType}}</div></div> 
+          <div class="t-line"><div class="t-label" > Last Booked :</div> <div class="t-value"> {{user.tenantBooking.allotedFrom}}</div></div> 
+          <div class="t-line"><div class="t-label" > Rent </div> <div class="t-value"> {{user.tenantBooking.roomRent}}</div></div> 
+
+      </div> 
+
+      <div class="t-header"> Payment Information</div>
       <label for="name">Date</label>      
       <span class="date-picker">
         <input type="text" required [matDatepicker]="picker" class="form-control" id="date" required [(ngModel)]="payment.date" name="date">
@@ -9,63 +28,37 @@
          <mat-datepicker #picker></mat-datepicker> 
       </span>
 
-      <label for="name">Tenant Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="payment.name" name="name">
-      <!--<div class = "form-group">-->
-        <!--<input type="text" class="form-control" placeholder="Name" style="width:300px", [(ngModel)="searchTerm"]-->
-
-        <!--<div *ngFor="let user of users | userFilter:searchTerm">-->
-          <!--<div (click)="onClick(user.userId)" class="pointerCursor">-->
-            <!--<app-user-list [user]="user"></app-user-list>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
- 
-    <!-- <label><span class="glyphicon glyphicon-home"></span> Tenant Name </label>
-    <select class="browser-default custom-select"  (ngModelChange)="populateUser($event)"
-      name="sel2">
-      <option value="">--select--</option>
-      <option *ngFor="let user of users" [value]="user.id" name="id"
-        (ngModelChange)="populateUser(user.id)"> {{user.name}} </option>
-    </select> -->
-  
-    
-  
-  
-  
-
-      <label for="name">Room Number</label>
-      <input type="text" class="form-control" id="roomName" required [(ngModel)]="payment.roomName" name="roomName">
-
-      <label for="name">Room Type</label>
-      <select class="browser-default custom-select" id="roomType" required [(ngModel)]="payment.roomType" name="roomType">
-        <option>--Select--</option>
-        <option>Single</option>
-        <option>Double</option>
-        <option>Triple</option>
-        <option>Four</option>
-        <option>Five</option>
-      </select>
-    
-
-      <label for="name">payment Through</label>
+      <label for="name">Payment Through</label>
       <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="payment.paymentThrough" name=" paymentThrough">
-        <option > </option>
-        <option >Cash</option>
-        <option >Bank Transfer</option>
+        <option value="CASH" selected="selected" >Cash</option>
+        <option value="BT">Bank Transfer</option>
     </select>
     
     
-    <label for="name">Transaction Id</label>
-    <input type="text" class="form-control" id="transactionId" required [(ngModel)]="payment.transactionId" name="transactionId">
-
-    <label for="name">bankName</label>
-    <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">
+    <span *ngIf="payment.paymentThrough === 'BT'">
+      <label for="name">Transaction Id</label>
+      <input type="text" class="form-control" id="transactionId" required [(ngModel)]="payment.transactionId" name="transactionId">
     
-      <label for="name">roomRent</label>
-      <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent">
-    </div>
+      <label for="name">Bank Name</label>
+      <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">
+      
+    </span> 
 
+    <label for="name">Amount </label>
+    <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent" value="{{user.tenantBooking.roomRent}}">
+
+
+    <label for="name">Discount</label>
+    <input type="text" class="form-control"   id="discountAmount" required [(ngModel)]="payment.discountAmount" name="discountAmount">
+
+    <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Amount to be paid:</label>
+    <input type="text" class="form-control"   readonly value="{{payment.roomRent - payment.discountAmount}}" >
+ 
+
+    <label for="name">Comments</label>
+    <textarea   class="form-control"  [(ngModel)]="payment.comments" ></textarea>
+
+    </div> 
 
     <button type="submit" class="btn btn-success">Submit</button>
   </form>

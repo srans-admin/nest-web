@@ -129,7 +129,7 @@ const routes: Routes = [
   { path: 'invoice/add', component: CreateInvoiceComponent},
 
   { path: 'payment', component: PaymentListComponent, canActivate: [AuthGuard] },
-  { path: 'payment/add', component: CreatePaymentComponent},
+  { path: 'payment/add/:user', component: CreatePaymentComponent, data :{ user: {name:'RRRA'}}},
   { path: 'hpayment', component: HostelPaymentComponent, canActivate: [AuthGuard] },
   { path: 'hsubscription', component: HostelSubscriptionComponent, canActivate: [AuthGuard] },
   { path: 'paymentHistory', component: UserPaymentComponent, canActivate: [AuthGuard] },

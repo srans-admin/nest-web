@@ -11,20 +11,23 @@
             <!-- <th>Name</th> -->
             <!-- <th>Payment Through</th>  -->
             <th>Amount</th>
-            <th>Room Type</th>
-            <th>Room Name</th>
+            <th>Payment Throuh</th>
+            <th>Bank Name</th>
             <th>Paid Date</th>
+            <th>Raise a complaint</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody> 
+  
           <tr *ngFor="let payment of payments |  async">
             <!-- <td>{{ payment.id }}</td> -->
             <!-- <td>{{ payment.name }}</td> -->
             <!-- <td>{{ payment.paymentThrough }}</td> -->
-            <td>{{ payment.amount }}</td>
-            <td>{{ payment.roomType }}</td>
-            <td>{{ payment.roomName }}</td>
+            <td>{{ payment.roomRent }}</td>
+            <td>{{ payment.paymentThrough }}</td>
+            <td>{{ payment.bankName }}</td>
             <td>{{payment.createdAt}}</td>
+            <td><a href="#">raise here </a></td>
           </tr>
         </tbody>
       </table>
