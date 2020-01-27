@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../_services/user.service';
 import { UserListComponent } from '../user-list/user-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../../_auth/auth.service';
 
 @Component({
   selector: 'app-user-details',
@@ -15,9 +16,18 @@ export class UserDetailsComponent implements OnInit {
   user: User = new User();
   userpicImage: any;
   idproofImage: any;
+  private currentUser: User;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private userService: UserService) { }
+    private authenticationService: AuthenticationService,
+    private userService: UserService) {
+      this.currentUser = this.authenticationService.currentUser; 
+      this.userService.getTenant(this.currentUser.userId)
+      .subscribe(data => {
+        console.log("hostel data " + data);
+        this.user = data;
+      }, error => console.log(error)); 
+    }
 
   ngOnInit() {
     this.user = new User();
@@ -26,9 +36,11 @@ export class UserDetailsComponent implements OnInit {
 
     this.userService.getUser(this.id)
       .subscribe(data => {
-        console.log(data)
+        console.log("user data "+ data);
         this.user = data;
       }, error => console.log(error));
+
+     
 
       //RetriveFile from Tenantpic	
       this.userService.retriveFile('userpic',this.id)

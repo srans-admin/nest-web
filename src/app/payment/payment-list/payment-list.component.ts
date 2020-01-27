@@ -12,13 +12,17 @@ import { User } from 'src/app/_models/user';
   styleUrls: ['./payment-list.component.css']
 })
 export class PaymentListComponent implements OnInit {
-  private payments: Observable<Payment[]>;
+
+  // private payments: Observable<Payment[]>;
+  private payments: any;
+  private payment = new Payment();
   private currentUser: User;
 
   constructor(private paymentService: PaymentService,
     private authenticationService: AuthenticationService,
     private router: Router) {
       this.currentUser = this.authenticationService.currentUser;
+      
      }
 
   ngOnInit() {
@@ -26,7 +30,11 @@ export class PaymentListComponent implements OnInit {
   }
   
   reloadData() {
-    this.payments = this.paymentService.getuserPaymentInfo(this.currentUser.userId);
+    this.paymentService.getuserPaymentInfo(this.currentUser.userId).subscribe(res=>{
+      console.log(res);
+      this.payments = res;
+      this.payment.id = this.payments.id;
+    })
   }
 
 }

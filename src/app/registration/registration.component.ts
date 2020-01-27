@@ -52,7 +52,7 @@ export class RegistrationComponent implements OnInit {
     this.loading = true;
     this.registrationService.registration(this.registration)
        .subscribe(result => {
-         var obj : any = result; 
+         var obj : any = result;                                                                                                    
          this.alertMessage.showSuccessMsg( this.nIDOSMessages.UserRegistrationSuccess + obj.userId );  
          this.router.navigate(['/login']);  
        },  
