@@ -90,3 +90,10 @@
 .join-tenant-button{
     text-align: right;
 }
+
+.user-init-img{
+    height: 3rem;
+    width: 3rem;
+    /* border: 1px solid; */
+    border-radius: 3rem;
+}

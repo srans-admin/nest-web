@@ -6,17 +6,11 @@
   <div class="row">
     <div class="col-md-4">
       <img src="{{userpicImage}}" alt=" NO IMAGE"  class="user-init-img"/>
-    </div>
-  </div>  
-  <div class="row">
-    <div class="col-md-6">
+  <div>
       <label><b>name: </b></label> {{user.name}}
-    </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
+  <div>
       <label><b>contactNumber : </b></label> {{user.contactNumber}}
-    </div>
 </div>
   <div>
     <label><b>fatherName : </b></label> {{user.fatherName}}
@@ -54,7 +48,8 @@
   <div>
     <label><b>permanentAddress : </b></label> {{user.permanentAddress}}
   </div>
-
+</div>
+<div class="col-md-4">
   <img src="{{idproofImage}}" alt=" NO IMAGE"  class="user-init-img"/>
 
   <div>
@@ -84,9 +79,7 @@
   <div>
       <label><b>Payment Type : </b></label> {{payment.paymentType}}
   </div>
-  
-
+</div>  
 </div>
-
 <br>
 <button (click)="list()" class="btn btn-primary">Back to User List</button><br>

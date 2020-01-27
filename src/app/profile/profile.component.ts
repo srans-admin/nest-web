@@ -8,6 +8,8 @@ import { AuthenticationService } from '.././_auth/auth.service';
 import { AlertMessage } from '.././_alerts/alert.message';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from '.././_models/subscription';
+import { SubscriptionService } from '.././_services/subscription.service';
 import { ProfileChangepasswordComponent } from './profile-changepassword/profile-changepassword.component';
 
 
@@ -28,7 +30,8 @@ export class ProfileComponent implements OnInit {
   private userpic: any;
   private url: any;
   private loading = false;
-  
+  private user : any;
+  private subscription : any;
  
   constructor(
     private hostelService: HostelService,
@@ -36,11 +39,13 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private userService: UserService,
-    private authenticationService: AuthenticationService 
+    private authenticationService: AuthenticationService,
+    private subscriptionService: SubscriptionService 
   ) {  
     this.currentUser = this.authenticationService.currentUser;
-
+    // this.user = this.currentUser.subscription
     //Retrive currestUser Image
+    
     this.userService.retriveFile('userpic',  this.currentUser.userId) 
           .subscribe(data => { 
               this.createImageFromBlob(data); 
@@ -114,7 +119,7 @@ export class ProfileComponent implements OnInit {
       var reader = new FileReader(); 
       reader.readAsDataURL(event.target.files[0]); // read file as data url 
       reader.onload = (e) => { // called once readAsDataURL is completed
-        this.url = e.target.result;  
+        this.url = e.target;  
       }
     }
   }

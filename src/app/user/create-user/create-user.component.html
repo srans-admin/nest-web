@@ -19,7 +19,7 @@
           <input type="file" required [(ngModel)]=user.userpic name="userpic" > -->
 
           <label><span class="glyphicon glyphicon-camera"></span> TenantPic </label>
-            <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
+          <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
             
           <label><span class="glyphicon glyphicon-user"></span> Name:</label>
           <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
@@ -184,7 +184,14 @@
         <!-- </div>       -->
   
         <!-- <div class="form-group"> -->
-          
+          <div >
+            <br/>
+          <button type="loading" class="btn btn-success">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>  
+            Join Tenant
+          </button> 
+          <a routerLink="/user" class="btn btn-link">Cancel</a>
+        </div>           
           
      
       </div>
@@ -192,9 +199,9 @@
     </mat-tab>        
 </mat-tab-group>
 
-  <div *ngIf="!isHostelPaymentReq || selectedBedInfo" class="join-tenant-button">
-    <button type="submit" class="btn btn-success">Join Tenant</button>           
-  </div>
+  
+    
+  
 </form>
 
 
