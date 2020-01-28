@@ -5,6 +5,7 @@ import { Payment } from "../../_models/payment";
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/_auth/auth.service';
 import { User } from 'src/app/_models/user';
+import { UserService } from '../../_services/user.service';
 
 @Component({
   selector: 'app-payment-list',
@@ -16,9 +17,12 @@ export class PaymentListComponent implements OnInit {
   // private payments: Observable<Payment[]>;
   private payments: any;
   private payment = new Payment();
+  private user : User;
   private currentUser: User;
+  private name: string;
 
   constructor(private paymentService: PaymentService,
+    private userService: UserService,
     private authenticationService: AuthenticationService,
     private router: Router) {
       this.currentUser = this.authenticationService.currentUser;
@@ -34,6 +38,8 @@ export class PaymentListComponent implements OnInit {
       console.log(res);
       this.payments = res;
       this.payment.id = this.payments.id;
+      // this.name = this.currentUser.name;
+      // console.log(this.name);
     })
   }
 

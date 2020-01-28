@@ -22,13 +22,13 @@
           <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
             
           <label><span class="glyphicon glyphicon-user"></span> Name:</label>
-          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" value={{currentUser.name}}>
              
           <label for="name"><span class="glyphicon glyphicon-mobile"></span> ContactNumber:</label>
-          <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber">
+          <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" value={{currentUser.contactNumber}}>
       
           <label for="name"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
-          <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
+          <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId" value={{currentUser.emailId}}>
           
           <label for="name"><span class="glyphicon glyphicon-user"></span> FatherName:</label>
           <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName">
@@ -154,8 +154,8 @@
               <span class="glyphicon glyphicon-calendar"></span> Date:</label>
             <!-- </div> -->
             <span class="date-picker">
-            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.payment.date">
-             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+            <input type="text" required [matDatepicker]="picker" class="form-control"  required [(ngModel)]="user.payment.date" >
+             <mat-datepicker-toggle matSuffix [for]="picker" placeholder="MM/DD/YY"></mat-datepicker-toggle>      
              <mat-datepicker #picker></mat-datepicker> 
             </span>
         </div>

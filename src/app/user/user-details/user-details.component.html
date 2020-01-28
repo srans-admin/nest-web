@@ -5,7 +5,7 @@
 <div *ngIf="user">
   <div class="row">
     <div class="col-md-4">
-      <img src="{{userpicImage}}" alt=" NO IMAGE"  class="user-init-img"/>
+      <img src="{{userpicImage}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=" "  class="user-init-img"/>
   <div>
       <label><b>name: </b></label> {{user.name}}
   </div>
@@ -50,7 +50,7 @@
   </div>
 </div>
 <div class="col-md-4">
-  <img src="{{idproofImage}}" alt=" NO IMAGE"  class="user-init-img"/>
+  <img src="{{idproofImage}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""  class="user-init-img"/>
 
   <div>
       <label><b>hostelName : </b></label> {{hostel.hostelName}}

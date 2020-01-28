@@ -38,6 +38,10 @@ export class PaymentService {
     return this.http.post(`${this.baseUrl}`, payment, this.authenticationService.getHttpHeaders());
   }
 
+  getUserDetails(name: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/byname/${name}`, this.authenticationService.getHttpHeaders());
+  }
+
   getPaymentsList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
