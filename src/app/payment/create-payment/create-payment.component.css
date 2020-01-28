@@ -1,3 +1,30 @@
 .date-picker{
     display: flex;
 }
+.tenant-info{
+    font-size: 14px;
+    /* color: #bbb; */
+    margin: 0px;
+    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
+    padding: 16px;
+    /* height: 73px; */
+    /* cursor: pointer; */
+}
+.t-line{
+    width: 100%;
+}
+.t-label{
+    width: 50%;
+    display: inline;
+}
+.t-value{
+    width: 50%;
+    display: inline;
+}
+.t-header{
+    font-weight: bold;
+}
+select{
+    width: 100%;
+    height: 32px;
+}

@@ -114,14 +114,13 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['userupdate', id]);
   }
 
-  convertToTenant(id: number){
-    this.router.navigate(['/user/TENANT', id]);
+  addPaymentToUser(currUser: User){
+    this.router.navigate(['payment/add', currUser.userId]);
   }
   
 
   changeLanguage(language: any) {
-    var element = document.getElementById("url");                    
-    // element.value = language;
+    var element = document.getElementById("url");
     element.innerHTML = language;
 }
 

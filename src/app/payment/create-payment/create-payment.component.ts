@@ -7,6 +7,7 @@ import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from 'src/app/_auth/auth.service';
 
 
 @Component({
@@ -15,48 +16,46 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./create-payment.component.css']
 })
 export class CreatePaymentComponent implements OnInit {
-
-  room: Room = new Room();
-  user: Observable<User[]>;
-  users: User = new User();
+  
+  private userId : any;
+  private user : User;
+  private currentUser: User;
 
   constructor(private paymentService: PaymentService,
     private router: Router,
     private userService: UserService,
+    private authenticationService: AuthenticationService,
     private route: ActivatedRoute, 
-    private httpClient: HttpClient) { }
+    private httpClient: HttpClient) { 
+      this.currentUser = this.authenticationService.currentUser;
+    }
 
-    payment: Payment = new Payment();
-    submitted = false;
+    private payment: Payment = new Payment();
+    private submitted = false; 
 
-
-
-
-
-
-
-  ngOnInit() {
+  ngOnInit() { 
+    this.userId = this.route.snapshot.params['user'];
+    console.log('Adding payment for userId:' + this.userId);
+    this.userService.getUser(this.userId)
+      .subscribe(data => {
+        console.log("hostel data " + data);
+        this.user = data;
+        this.payment.userId = this.user.userId;
+        this.payment.roomRent = this.user.tenantBooking.roomRent;
+      }, error => console.log(error));  
   }
 
-  newPayment(): void {
-    this.submitted = false;
-    this.payment = new Payment();
-  }
-
-  save() {
-    this.paymentService.createPayment(this.payment)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.payment = new Payment();
-    this.gotoList();
-  }
-
-  // populateUser(userId : number){
   
-  //   this.userService.getUser(userId).subscribe(      
-  //     err =>{
-  //       console.log('FAILED:: '+err);
-  //     }); 
-  // }
+  save() {
+    this.payment.adminId = this.currentUser.userId;
+    this.paymentService.createPayment(this.payment)
+      .subscribe(data => {
+        console.log(data) ;
+        this.gotoList();
+      }, error => console.log(error)); 
+    
+  }
+ 
 
   onSubmit() {
     this.submitted = true;

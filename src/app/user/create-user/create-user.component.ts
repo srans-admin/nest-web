@@ -66,6 +66,7 @@ export class CreateUserComponent implements OnInit {
   save() {
     
     this.setTenantBooking();
+    this.user.payment.adminId = this.currentUser.userId;
     this.userService.createUser(this.user)
       .subscribe(res => { 
         var obj : any =  res;  
@@ -153,7 +154,7 @@ onSelectedBedInfoEmited(selectedBedInfo: any){
   this.selectedBedInfo.hostelName = this.selectedHostel.hostelName;
 
   window.confirm('Hostel Name : '+this.selectedBedInfo.hostelName+'\nRoom Num: '+this.selectedBedInfo.bed.roomId + '\nBed Num: '+this.selectedBedInfo.bed.id +' \nRoom Rent : '+this.selectedBedInfo.roomRent+' \nSharing : '+this.selectedBedInfo.roomType+' \nPlease confirm your booking !!');
- 
+  this.user.payment.roomRent =  this.selectedBedInfo.roomRent;
   console.log('selectedBedInfo:'+selectedBedInfo.roomRent);
 
 }
@@ -163,16 +164,16 @@ isHostelPaymentRequired(event){
 }
 
 setTenantBooking(){ 
-  
+   
   this.tenantBooking.tenantId	= -1;
   if(this.selectedBedInfo){
     this.tenantBooking.hostelId  =	this.selectedBedInfo.bed.hostelId;
     this.tenantBooking.floorId		=this.selectedBedInfo.bed.floorId
     this.tenantBooking.roomId		=this.selectedBedInfo.bed.roomId
     this.tenantBooking.roomBedId	=this.selectedBedInfo.bed.id
-    this.tenantBooking.roomRent	 =this.selectedBedInfo.bed.roomRent
+    this.tenantBooking.roomRent	 =this.selectedBedInfo.roomRent
     this.tenantBooking.allotedFrom = new Date();
-    this.tenantBooking.allotedTill = null;
+    this.tenantBooking.allotedTill = null; 
   } 
 
   this.user.tenantBooking = this.tenantBooking;

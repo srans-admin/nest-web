@@ -59,7 +59,7 @@
     font-size: 0px;
     border: none;
     cursor: pointer;
-    right: -60px;
+    /* right: -60px; */
 }
 
 /* .dropbtn:hover, .dropbtn:focus {
