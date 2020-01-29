@@ -11,8 +11,8 @@
             <!-- <th>Name</th> -->
             <!-- <th>Payment Through</th>  -->
             <th>Amount</th>
-            <th>Payment Throuh</th>
-            <th>Bank Name</th>
+            <th>Payment Through</th>
+            <!-- <th>Bank Name</th> -->
             <th>Paid Date</th>
             <th>Raise a complaint</th>
           </tr>
@@ -25,9 +25,10 @@
             <!-- <td>{{ payment.paymentThrough }}</td> -->
             <td>{{ payment.roomRent }}</td>
             <td>{{ payment.paymentThrough }}</td>
-            <td>{{ payment.bankName }}</td>
+            <!-- <td>{{ payment.bankName }}</td> -->
             <td>{{payment.createdAt}}</td>
-            <td><a href="#">raise here </a></td>
+            <td><a href="complaint/add">raise here </a></td>
+            <!-- <a  href="addComplaintsToAdmin(admin)">raise here </a> -->
           </tr>
         </tbody>
       </table>
