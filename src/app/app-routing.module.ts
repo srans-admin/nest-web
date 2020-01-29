@@ -74,6 +74,7 @@ import { ContactsComponent } from './contacts/contacts.component';
  
 import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
 import { GuestListComponent } from './user/guest-list/guest-list.component'; 
+import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.component';
 
 
  
@@ -149,6 +150,7 @@ const routes: Routes = [
 
   { path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard]}, 
   
+  { path: 'vacateRequest', component: VacateRequestComponent, canActivate: [AuthGuard]},
  
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

@@ -108,6 +108,7 @@ import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.compo
 import { GuestListComponent } from './user/guest-list/guest-list.component';
 
 import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.component';
 
  
 
@@ -201,7 +202,7 @@ import { UserPaymentComponent } from './payment/user-payment/user-payment.compon
     VacateComponent,
     ContactsComponent,
     UserPaymentComponent,
-
+    VacateRequestComponent,
  
     
   ],

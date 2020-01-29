@@ -1,5 +1,5 @@
 <div class="container">
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <div><h3>Vacate Application Form</h3></div><br/><br/>
         <div class="row">
             <div class="col col-md-4">
@@ -40,7 +40,7 @@
                 </label>
                 <span class="date-picker">
                     <input type="text" required [matDatepicker]="picker2" class="form-control custom-select" 
-                    required [(ngModel)]="vacatingDate" name="vacatingDate">
+                    required [(ngModel)]="vacate.date" name="date">
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>      
                     <mat-datepicker #picker2></mat-datepicker> 
                 </span>
