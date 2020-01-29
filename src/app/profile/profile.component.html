@@ -5,7 +5,7 @@
       <div class="col-md-4">
         <div class="profile-img">
 
-            <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""> <br/>
+            <img  [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""> <br/>
             <input type='file' (change)="prepareUpload('userImage', $event)">
             <button [disabled]="loading" class="btn btn-primary"  *ngIf="url" (click)="prepareUpload('userImage',$event)">
               <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
@@ -45,13 +45,14 @@
                 <button class="btn btn-info header-button" (click)="changePassword()" style="height:30px"> Change Password </button>
             </div>
     </div>
-    <div class="row">
+    
       <div class="col-md-4">
-          <div class="profile-work">
-              
-                <h3>Total No.of Hostels</h3>   
+              <h3>Total Number of Hostels Available</h3>
+              <div class="subscriptions">
+                <h3>{{subscriptions}}</h3>
+              </div>   
              
-          </div>
+          
       </div>
     <div class="row">
       <div class="col-md-4">
@@ -181,13 +182,13 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="Additional">
+      <!-- <mat-tab label="Additional">
         <div class="row">
           <div class="col-md-6">
             <label>Hostel</label>
           </div>
           <div class="col-md-6">
-            <p>{{currentUser.name}}</p>
+            <p>{{currentUser.hostelName}}</p>
           </div>
         </div>
         <div class="row">
@@ -229,10 +230,10 @@
             <p>Your detail description</p>
           </div>
         </div>
-      </mat-tab>
+      </mat-tab> -->
     </mat-tab-group>
     </div>
   </div>
-</div>
+
 </form>
 </div>

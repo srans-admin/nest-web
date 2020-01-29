@@ -17,4 +17,8 @@ export class ProfileService {
     private authenticationService: AuthenticationService,
     private registrationService: RegistrationService) { }
 
+    getUserDetails(id: number): Observable<any>{
+      return this.http.get(`${this.baseUrl}/${id}`, this.authenticationService.getHttpHeaders());
+    }
+
 }
