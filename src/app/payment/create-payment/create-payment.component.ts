@@ -42,6 +42,7 @@ console.log("hostel data " + data);
 this.user = data;
 this.payment.userId = this.user.userId;
 this.payment.roomRent = this.user.tenantBooking.roomRent;
+this.payment.discountAmount = this.user.payment.discountAmount;
 }, error => console.log(error));
 }
 

@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from '.././_models/subscription';
 import { SubscriptionService } from '.././_services/subscription.service';
 import { ProfileChangepasswordComponent } from './profile-changepassword/profile-changepassword.component';
-
+import { ProfileService } from '.././_services/profile.service';
 
 
 @Component({
@@ -31,7 +31,8 @@ export class ProfileComponent implements OnInit {
   private url: any;
   private loading = false;
   private user : any;
-  private subscription : any;
+  private subscription = new Subscription();
+  private subscriptions : number;
  
   constructor(
     private hostelService: HostelService,
@@ -39,13 +40,20 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private userService: UserService,
+    private profileService: ProfileService,
     private authenticationService: AuthenticationService,
     private subscriptionService: SubscriptionService 
   ) {  
     this.currentUser = this.authenticationService.currentUser;
+    // this.userService.getUsersList("", this.currentUser.userId).subscribe(res=>{
+    //   console.log(res);
+    //   this.currentUser = res;
+      // this.subscription.subscriptions = this.currentUser.
+    // })
     // this.user = this.currentUser.subscription
     //Retrive currestUser Image
-    
+    this.getuserData();
+
     this.userService.retriveFile('userpic',  this.currentUser.userId) 
           .subscribe(data => { 
               this.createImageFromBlob(data); 
@@ -57,12 +65,17 @@ export class ProfileComponent implements OnInit {
             }); 
   }
   
-  
-  
   ngOnInit() {  
-   
-  } 
-
+  }
+  
+  getuserData(){
+    this.profileService.getUserDetails(this.currentUser.userId).subscribe(res=> {
+      console.log(res);
+      this.currentUser = res;
+      // this.subscription.subscriptions = res.subscriptions;
+      this.subscriptions = res.subscriptions;
+    })
+  }
 
   editProfile(userId: number){ 
     this.router.navigate(['/editprofile/'+userId]);
@@ -123,6 +136,8 @@ export class ProfileComponent implements OnInit {
       }
     }
   }
+
+
   
   changePassword(){
     const dialogRef = this.dialog.open(ProfileChangepasswordComponent, {

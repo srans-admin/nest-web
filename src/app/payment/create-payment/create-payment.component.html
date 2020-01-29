@@ -12,7 +12,7 @@
         
           <div class="t-line"><div class="t-label" > Hostel : </div> <div class="t-value"> {{user.tenantBooking.hostelId}}</div></div> 
           <div class="t-line"><div class="t-label" > Floor :</div> <div class="t-value"> {{user.tenantBooking.floorId}}</div> </div> 
-          <div class="t-line"> <div class="t-label" > Room :</div> <div class="t-value"> {{user.tenantBooking.name}}</div> </div> 
+          <div class="t-line"> <div class="t-label" > Room :</div> <div class="t-value"> {{user.tenantBooking.roomId}}</div> </div> 
           <div class="t-line"><div class="t-label" > Bed :</div> <div class="t-value"> {{user.tenantBooking.roomBedId}}</div></div> 
           <div class="t-line"><div class="t-label" > Type :</div> <div class="t-value"> {{user.tenantBooking.roomType}}</div></div> 
           <div class="t-line"><div class="t-label" > Last Booked :</div> <div class="t-value"> {{user.tenantBooking.allotedFrom}}</div></div> 
@@ -49,7 +49,7 @@
 
 
     <label for="name">Discount</label>
-    <input type="text" class="form-control"   id="discountAmount" required [(ngModel)]="payment.discountAmount" name="discountAmount">
+    <input type="text" class="form-control"   id="discountAmount" required [(ngModel)]="payment.discountAmount" name="discountAmount" >
 
     <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Amount to be paid:</label>
     <input type="text" class="form-control"   readonly value="{{payment.roomRent - payment.discountAmount}}" >
@@ -61,6 +61,7 @@
     </div> 
 
     <button type="submit" class="btn btn-success">Submit</button>
+    <a routerLink="/user" class="btn btn-link">Cancel</a>
   </form>
 </div>
 
