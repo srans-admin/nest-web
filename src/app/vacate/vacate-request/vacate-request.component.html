@@ -24,7 +24,13 @@
                         </ul>
                     </td>
                     <td></td>
-                    <td><button class="btn btn-info">Approve</button></td>
+                    <!-- <td><button class="btn btn-info">Approve</button></td> 
+                    <button title="Add Room" type="button" class="btn btn-background"
+                            (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
+                        </button>-->
+                    <!-- <td><button type="submit" class="btn btn-link" onclick="if (!confirm('Are you sure?')) { return false }"><span>Approve</span></button></td> -->
+                    <td><button type="button" class="btn btn-link" (click)="approveRequest()"><span>Approve</span></button></td>
+
                 </tr>
             </table>
         </div>
