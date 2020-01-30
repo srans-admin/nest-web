@@ -6,7 +6,7 @@
 
 <h4><span class="glyphicon glyphicon-credit-card"></span> Create Expense</h4>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" id="convertTo">
 
       <div class="form-group">
         <label><span class="glyphicon glyphicon-home"></span> Choose Hostel </label>
@@ -22,7 +22,7 @@
      <div class="form-group">
       <label> <span class="glyphicon glyphicon-envelope"></span>Type of Expense</label>
        <select  class="browser-default custom-select" id="expenseType" [(ngModel)]="expense.expenseType" name="sel">
-         <option *ngFor="let category of categories | async" [value]="category.typeId" name="id" >
+         <option *ngFor="let category of categories | async" [value]="category.expenseType" name="expenseType" >
           {{category.expenseType}}
         </option>
       </select>
@@ -50,7 +50,9 @@
             <!--</span>-->
         <!--</div>-->
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button><br>
+     <button type="button" (click)="printPage()">Print</button>
+
     <!--<button mat-button  type="submit" class="btn btn-danger" (click)="onClose()">close</button>-->
   </form>
 </div>
