@@ -52,7 +52,7 @@
                 </div><br/>
             </div>
         </div><br/>
-        <button class="form-control custom-select btn btn-success" (click)="getRefundAmount()">
+        <button type="button" class="form-control custom-select btn btn-success" (click)="getRefundAmount()">
             Generate Refund Amount
         </button>
     <br/><br/>
@@ -83,10 +83,8 @@
                 <label><span class="glyphicon glyphicon-list-alt"></span> Comments </label>
                 <textarea class="form-control" style="width: 300px;" [(ngModel)]="vacate.comment" name="comment"></textarea>
             </div><br/>
-            <input type="checkbox" class="tc" name="TC"> I have read and agree the Terms and Conditions
+            <input type="checkbox" class="tc" name="TC" [(ngModel)]="checked"> I have read and agree the Terms and Conditions
     </div>
-    <div><button type="submit" class="form-control custom-select btn btn-success">Vacate Request</button></div>
+    <div><button type="submit" class="form-control custom-select btn btn-success" [disabled]="!checked">Vacate Request</button><a routerLink="/profile" class="btn btn-link">Cancel</a></div>
 </form><br/>
 </div>
-
-<!-- <button type="reset" class="form-control vacate btn ">Cancel</button> -->

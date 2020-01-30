@@ -26,7 +26,7 @@ export class VacateComponent implements OnInit {
   private informingDate = new Date();
   private vacatingDate= new Date();
   private presentDate = new Date();
-  private depositAmount : number = 12000;
+  private depositAmount : number;
   private perDayAmount : number ;
   private refundAmount : number;
   private maintainanceCharges : number = 1000;
@@ -44,6 +44,8 @@ export class VacateComponent implements OnInit {
   private roomId: number;
   private roomBedId: number;
   private roomRent: number;
+
+  private checked: boolean = false;
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
@@ -83,13 +85,14 @@ export class VacateComponent implements OnInit {
 
     this.diffTime = Math.abs(this.vacatingDate.getTime() - this.informingDate.getTime());
     this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));
+    this.depositAmount = this.currentUser.tenantBooking.roomRent;
     this.perDayAmount = this.depositAmount / 30;
 
       if((this.diffDays >= this.informDays) && (this.vacatingDate > this.informingDate)){
 
         this.vacate.refundAmount = this.depositAmount - this.maintainanceCharges;
       }
-      else if((this.diffDays <= this.informDays) || (this.vacatingDate < this.informingDate)){
+      else if((this.diffDays <= this.informDays) || (this.vacatingDate < this.informingDate) ){
 
         this.diffTime = Math.abs(this.informingDate.getTime() - this.vacatingDate.getTime());
         this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));
