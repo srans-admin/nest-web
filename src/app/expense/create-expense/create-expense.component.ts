@@ -30,7 +30,7 @@ export class CreateExpenseComponent implements OnInit {
   private currentUser: User;
   public printPage()
   {
-      var data = document.getElementById('convertTo');
+      //var data = document.getElementById('convertTo');
       html2canvas(document.body).then(canvas =>{
       var imgWidth = 208;
       var pageHeight = 295;
