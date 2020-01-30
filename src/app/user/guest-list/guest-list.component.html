@@ -38,7 +38,7 @@
                 <tr *ngFor="let user of users | userFilter:searchTerm">              
                    <td> <mat-checkbox ></mat-checkbox></td>
                    <td>
-                      <img class="user-init-img" src="{{ bringMyImage(user.userId)}}"  alt="NA"/>
+                      <img class="user-init-img" src="{{ bringMyImage(user.userId)}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""/>
                   </td>  
                   <td>{{ user.userId }}</td>                  
                                        

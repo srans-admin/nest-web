@@ -8,6 +8,7 @@ import { Vacate } from '.././_models/vacate';
 import { VacateService } from '.././_services/vacate.service';
 import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
+import { Form, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-vacate',
@@ -53,6 +54,7 @@ export class VacateComponent implements OnInit {
                 this.currentUser = this.authenticationService.currentUser;
                                 
                 this.getUserData();
+                
               }
 
   ngOnInit() {
@@ -60,7 +62,8 @@ export class VacateComponent implements OnInit {
 
   onSubmit(){
     // this.getRefundAmount();
-    this.vacateTenant();
+    this.vacateTenant();  
+     
   }
 
   vacateTenant(){
@@ -73,7 +76,7 @@ export class VacateComponent implements OnInit {
       err => {  
         this.alertMessage.showFailedMsg( this.nIDOSMessages.HostelCreationFailed + err.message );
       });
-     
+    
   } 
 
   getRefundAmount(){

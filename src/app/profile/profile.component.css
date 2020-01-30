@@ -94,7 +94,11 @@
     font-weight: 600;
     color: #0062cc;
 }
-
+.subscriptions{
+    margin-top: 100px;
+    margin-left: 70px;
+    size: 20px;
+}
 
 
 p {

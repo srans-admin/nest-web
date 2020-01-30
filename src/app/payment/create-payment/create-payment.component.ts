@@ -11,59 +11,60 @@ import { AuthenticationService } from 'src/app/_auth/auth.service';
 
 
 @Component({
-  selector: 'app-create-payment',
-  templateUrl: './create-payment.component.html',
-  styleUrls: ['./create-payment.component.css']
+selector: 'app-create-payment',
+templateUrl: './create-payment.component.html',
+styleUrls: ['./create-payment.component.css']
 })
 export class CreatePaymentComponent implements OnInit {
-  
-  private userId : any;
-  private user : User;
-  private currentUser: User;
 
-  constructor(private paymentService: PaymentService,
-    private router: Router,
-    private userService: UserService,
-    private authenticationService: AuthenticationService,
-    private route: ActivatedRoute, 
-    private httpClient: HttpClient) { 
-      this.currentUser = this.authenticationService.currentUser;
-    }
+private userId : any;
+private user : User;
+private currentUser: User;
 
-    private payment: Payment = new Payment();
-    private submitted = false; 
+constructor(private paymentService: PaymentService,
+private router: Router,
+private userService: UserService,
+private authenticationService: AuthenticationService,
+private route: ActivatedRoute,
+private httpClient: HttpClient) {
+this.currentUser = this.authenticationService.currentUser;
+}
 
-  ngOnInit() { 
-    this.userId = this.route.snapshot.params['user'];
-    console.log('Adding payment for userId:' + this.userId);
-    this.userService.getUser(this.userId)
-      .subscribe(data => {
-        console.log("hostel data " + data);
-        this.user = data;
-        this.payment.userId = this.user.userId;
-        this.payment.roomRent = this.user.tenantBooking.roomRent;
-      }, error => console.log(error));  
-  }
+private payment: Payment = new Payment();
+private submitted = false;
 
-  
-  save() {
-    this.payment.adminId = this.currentUser.userId;
-    this.paymentService.createPayment(this.payment)
-      .subscribe(data => {
-        console.log(data) ;
-        this.gotoList();
-      }, error => console.log(error)); 
-    
-  }
- 
+ngOnInit() {
+this.userId = this.route.snapshot.params['user'];
+console.log('Adding payment for userId:' + this.userId);
+this.userService.getUser(this.userId)
+.subscribe(data => {
+console.log("hostel data " + data);
+this.user = data;
+this.payment.userId = this.user.userId;
+this.payment.roomRent = this.user.tenantBooking.roomRent;
+this.payment.discountAmount = this.user.payment.discountAmount;
+}, error => console.log(error));
+}
 
-  onSubmit() {
-    this.submitted = true;
-    this.save();
-  }
 
-  gotoList() {
-    this.router.navigate(['/payment']);
-  }
+save() {
+this.payment.adminId = this.currentUser.userId;
+this.paymentService.createPayment(this.payment)
+.subscribe(data => {
+console.log(data) ;
+this.gotoList();
+}, error => console.log(error));
+
+}
+
+
+onSubmit() {
+this.submitted = true;
+this.save();
+}
+
+gotoList() {
+this.router.navigate(['/payment']);
+}
 
 }

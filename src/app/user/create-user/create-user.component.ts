@@ -168,10 +168,11 @@ setTenantBooking(){
   this.tenantBooking.tenantId	= -1;
   if(this.selectedBedInfo){
     this.tenantBooking.hostelId  =	this.selectedBedInfo.bed.hostelId;
-    this.tenantBooking.floorId		=this.selectedBedInfo.bed.floorId
-    this.tenantBooking.roomId		=this.selectedBedInfo.bed.roomId
-    this.tenantBooking.roomBedId	=this.selectedBedInfo.bed.id
-    this.tenantBooking.roomRent	 =this.selectedBedInfo.roomRent
+    this.tenantBooking.floorId		=this.selectedBedInfo.bed.floorId;
+    this.tenantBooking.roomId		=this.selectedBedInfo.bed.roomId;
+    this.tenantBooking.roomBedId	=this.selectedBedInfo.bed.id;
+    this.tenantBooking.roomRent	 =this.selectedBedInfo.roomRent;
+    this.tenantBooking.roomType  =this.selectedBedInfo.bed.roomType;
     this.tenantBooking.allotedFrom = new Date();
     this.tenantBooking.allotedTill = null; 
   } 

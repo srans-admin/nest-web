@@ -25,7 +25,7 @@
           <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
              
           <label for="name"><span class="glyphicon glyphicon-mobile"></span> ContactNumber:</label>
-          <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber">
+          <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" >
       
           <label for="name"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
           <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
@@ -50,7 +50,16 @@
             </span>
         
           <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
-          <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">
+          <select type="text" class="browser-default custom-select" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup" >
+          <option>A+</option>
+          <option>A-</option>
+          <option>B+</option>
+          <option>B-</option>
+          <option>AB+</option>
+          <option>AB-</option>
+          <option>O+</option>
+          <option>O-</option>
+          </select>
         
           <label for="name"><span class="glyphicon glyphicon-mobile"></span> Emergency Contact Number:</label>
           <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
@@ -117,7 +126,7 @@
             <div class="row">
                 <div class="col-md-6">
                   <label>Room</label>
-                  <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
+                  <div class="name">{{selectedBedInfo.roomId}} </div>
                 </div>
                 <div class="col-md-6">
                   <label>Bed</label>
@@ -154,8 +163,8 @@
               <span class="glyphicon glyphicon-calendar"></span> Date:</label>
             <!-- </div> -->
             <span class="date-picker">
-            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.payment.date">
-             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+            <input type="text" required [matDatepicker]="picker" class="form-control"  required [(ngModel)]="user.payment.date" >
+             <mat-datepicker-toggle matSuffix [for]="picker" placeholder="MM/DD/YY"></mat-datepicker-toggle>      
              <mat-datepicker #picker></mat-datepicker> 
             </span>
         </div>
@@ -180,14 +189,17 @@
     
     
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
-        <input type="text" class="form-control"  required [(ngModel)]="user.payment.depositAmount" name="depositAmount">
+        <input type="text" class="form-control"  required [(ngModel)]="user.payment.depositAmount" name="depositAmount" value="{{user.payment.roomRent}}" readonly>
     
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Discount Amount:</label>
         <input type="text" class="form-control"   required [(ngModel)]="user.payment.discountAmount" name="discountAmount">
     
         
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Amount to be paid:</label>
-        <input type="text" class="form-control"   readonly value="{{user.payment.roomRent - user.payment.discountAmount}}" >
+        <input type="text" class="form-control"   readonly required [(ngModel)]="user.payment.amountpaid" value="{{user.payment.roomRent - user.payment.discountAmount}}" >
+
+        <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Total Amount to be paid:</label>
+        <input type="text" class="form-control"   readonly value="{{ user.payment.amountpaid + user.payment.depositAmount }}" >
     
 
           <div >

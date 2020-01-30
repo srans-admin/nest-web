@@ -5,79 +5,83 @@
 <div *ngIf="user">
   <div class="row">
     <div class="col-md-4">
-      <img src="{{userpicImage}}" alt=" NO IMAGE"  class="user-init-img"/>
+      <label><b>Tenant Pic:</b></label>
+      <img src="{{userpicImage}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=" "  class="user-init-img"/>
   <div>
-      <label><b>name: </b></label> {{user.name}}
+      <label><b>Name : </b></label> {{user.name}}
   </div>
   <div>
-      <label><b>contactNumber : </b></label> {{user.contactNumber}}
+      <label><b>ContactNumber : </b></label> {{user.contactNumber}}
 </div>
   <div>
-    <label><b>fatherName : </b></label> {{user.fatherName}}
+    <label><b>FatherName : </b></label> {{user.fatherName}}
   </div>
   <div>
-    <label><b>fatherphoneNumber : </b></label> {{user.fatherphoneNumber}}
+    <label><b>FatherphoneNumber : </b></label> {{user.fatherphoneNumber}}
   </div>
   <div>
-    <label><b>motherName : </b></label> {{user.motherName}}
+    <label><b>MotherName : </b></label> {{user.motherName}}
   </div>
   <div>
-    <label><b>motherphoneNumber : </b></label> {{user.motherphoneNumber}}
+    <label><b>MotherphoneNumber : </b></label> {{user.motherphoneNumber}}
   </div>
   <div>
-    <label><b>dob : </b></label> {{user.dob}}
+    <label><b>Date of Birth : </b></label> {{user.dob}}
   </div>
   <div>
-    <label><b>bloodGroup : </b></label> {{user.bloodGroup}}
+    <label><b>Blood Group : </b></label> {{user.bloodGroup}}
   </div>
   <div>
-    <label><b>emergencyContactNumber : </b></label> {{user.emergencyContactNumber}}
+    <label><b>EmergencyContactNumber : </b></label> {{user.emergencyContactNumber}}
   </div>
   <div>
-    <label><b>nameOfTheEmployer : </b></label> {{user.nameOfTheEmployer}}
+    <label><b>NameOfTheEmployer : </b></label> {{user.nameOfTheEmployer}}
   </div>   
   <div>
-    <label><b>officeAddress : </b></label> {{user.officeAddress}}
+    <label><b>OfficeAddress : </b></label> {{user.officeAddress}}
   </div>
   <div>
-    <label><b>telephoneNumber : </b></label> {{user.telephoneNumber}}
+    <label><b>EmailId : </b></label> {{user.emailId}}
   </div>
   <div>
-    <label><b>emailId : </b></label> {{user.emailId}}
-  </div>
-  <div>
-    <label><b>permanentAddress : </b></label> {{user.permanentAddress}}
+    <label><b>PermanentAddress : </b></label> {{user.permanentAddress}}
   </div>
 </div>
 <div class="col-md-4">
-  <img src="{{idproofImage}}" alt=" NO IMAGE"  class="user-init-img"/>
+  <img src="{{idproofImage}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""  class="user-init-img"/>
 
   <div>
-      <label><b>hostelName : </b></label> {{hostel.hostelName}}
+      <label><b>Hostel Id : </b></label> {{user.tenantBooking.hostelId}}
     </div>
   <div>
-      <label><b>floor : </b></label> {{floor.floorName}}
+      <label><b>Floor : </b></label> {{user.tenantBooking.floorId}}
   </div>
   <div>
-      <label><b>RoomName : </b></label> {{room.roomName}}
+      <label><b>Room : </b></label> {{user.tenantBooking.roomId}}
   </div>
   <div>
-      <label><b>Sharing : </b></label> {{room.roomType}}
+    <label><b>Bed : </b></label>{{user.tenantBooking.roomBedId}}
   </div>
   <div>
-      <label><b>Date : </b></label> {{payment.date}}
-  </div>
-  <!-- <div>
-      <label><b>Name : </b></label> {{invoice.name}}
-  </div> -->
-  <div>
-      <label><b>Deposit Amount : </b></label> {{payment.depositAmount}}
+      <label><b>Sharing : </b></label>{{user.tenantBooking.roomType}}
   </div>
   <div>
-      <label><b>Amount : </b></label> {{payment.amount}}
+    <label><b>Room Rent : </b></label>{{user.tenantBooking.roomRent}}
   </div>
   <div>
-      <label><b>Payment Type : </b></label> {{payment.paymentType}}
+      <label><b>Date : </b></label>{{payment.date}}
+  </div>
+  <div>
+      <label><b>Deposit Amount : </b></label>{{user.payment.depositAmount}}
+  </div>
+  <div>
+    <label><b>Discount Amount : </b></label>{{ user.payment.discountAmount }}
+  </div>
+  <div>
+      <label><b>Amount to be Paid : </b></label> {{ payment.roomRent - payment.discountAmount}}
+  </div>
+  <div>
+      <label><b>Payment Type : </b></label> {{ payment.paymentThrough }}
   </div>
 </div>  
 </div>

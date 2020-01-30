@@ -5,8 +5,12 @@
       <div class="col-md-4">
         <div class="profile-img">
 
-            <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""> <br/>
-            <input type='file' (change)="previewMyImage($event)">
+            <img  [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""> <br/>
+            <input type='file' (change)="prepareUpload('userImage', $event)">
+            <button [disabled]="loading" class="btn btn-primary"  *ngIf="url" (click)="prepareUpload('userImage',$event)">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Update This
+          </button>
 
               <!-- <img src="{{userpic}}" /> -->
               <!-- <div class="file btn btn-lg btn-primary">
@@ -23,10 +27,7 @@
           </h3>
           <!-- <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Update This </button> -->
         
-          <button [disabled]="loading" class="btn btn-primary"  *ngIf="url" (click)="prepareUpload('userImage',$event)">
-              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-              Update This
-          </button>
+         
         
         </div>
       </div>
@@ -44,28 +45,21 @@
                 <button class="btn btn-info header-button" (click)="changePassword()" style="height:30px"> Change Password </button>
             </div>
     </div>
-    <div class="row">
+    
       <div class="col-md-4">
-          <div class="profile-work">
-              
-                <h3>Total No.of Hostels</h3>              
-              <a href="">Website Link</a><br/>
-              <a href="">Bootsnipp Profile</a><br/>
-              <a href="">Bootply Profile</a>
-              <p>SKILLS</p>
-              <a href="">Web Designer</a><br/>
-              <a href="">Web Developer</a><br/>
-              <a href="">WordPress</a><br/>
-              <a href="">WooCommerce</a><br/>
-              <a href="">PHP, .Net</a><br/>
-          </div>
+              <h3>Total Number of Hostels Available</h3>
+              <div class="subscriptions">
+                <h3>{{subscriptions}}</h3>
+              </div>   
+             
+          
       </div>
     <div class="row">
       <div class="col-md-4">
       </div>
     <div class="col-md-8">
     <mat-tab-group>
-      <mat-tab label="Personal" class="test">
+      <mat-tab label="Personal">
         <div class="row" *ngIf="currentUser.userId">
           <div class="col-md-6">
             <label>User Id</label>
@@ -188,13 +182,13 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="Additional " class="test">
+      <!-- <mat-tab label="Additional">
         <div class="row">
           <div class="col-md-6">
             <label>Hostel</label>
           </div>
           <div class="col-md-6">
-            <p>{{currentUser.name}}</p>
+            <p>{{currentUser.hostelName}}</p>
           </div>
         </div>
         <div class="row">
@@ -236,10 +230,10 @@
             <p>Your detail description</p>
           </div>
         </div>
-      </mat-tab>
+      </mat-tab> -->
     </mat-tab-group>
     </div>
   </div>
-</div>
+
 </form>
 </div>

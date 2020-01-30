@@ -34,6 +34,10 @@ export class UserPaymentComponent implements OnInit {
     this.payments = this.paymentService.getuserPaymentInfo(this.id);
   }
 
+  addComplaintsToAdmin(currUser: User){
+    this.router.navigate(['complaint/add', currUser.userId]);
+  }
+
 }
 
 
