@@ -15,7 +15,7 @@ export class UserDetailsComponent implements OnInit {
   id: number;
   user: User = new User();
   userpicImage: any;
-  idproofImage: any;
+  idProofpicImage: any;
   private currentUser: User;
 
   constructor(private route: ActivatedRoute,private router: Router,
@@ -55,11 +55,11 @@ export class UserDetailsComponent implements OnInit {
   
 
       //RetriveFile from IdproofImage
-      this.userService.retriveFile('idproofImage',this.id)
+      this.userService.retriveFile('idProofpic',this.id)
         .subscribe(data => { 
           this.createImageFromBlobidproofImage(data);
           //this.isImageLoading = false;
-          this.idproofImage = data;
+          this.idProofpicImage = data;
         }, error => {  
           console.log(error);
         });
@@ -80,7 +80,7 @@ export class UserDetailsComponent implements OnInit {
   createImageFromBlobidproofImage(image: Blob) {
     let reader = new FileReader();
     reader.addEventListener("load", () => {
-       this.idproofImage = reader.result;
+       this.idProofpicImage = reader.result;
     }, false); 
     if (image) {
        reader.readAsDataURL(image);

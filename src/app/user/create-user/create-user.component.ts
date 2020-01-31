@@ -74,7 +74,8 @@ export class CreateUserComponent implements OnInit {
             this.uploadImage(this.userImage, 'userpic', obj.userId ); 
 
             //Upload ID Proof as Image
-            this.uploadImage(this.idproofImage, 'idproofImage', obj.userid );  
+            this.uploadImage(this.idproofImage, 'idProofpic', obj.userid ); 
+
             this.alertMessage.showSuccessMsg( this.nIDOSMessages.TenantCreationSuccess + obj.userId );  
             this.gotoList();
           },  

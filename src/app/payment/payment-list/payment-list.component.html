@@ -13,6 +13,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <th>Date</th>
             <th>Id</th>
             <th>User Id</th>
             <th>Name</th>
@@ -29,6 +30,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let payment of payments ">
+            <td>{{payment.createdAt}}</td>
             <td>{{ payment.id }}</td>
             <td>{{ payment.userId }}</td>
             <td>{{ name }}</td>
@@ -37,7 +39,7 @@
             <td>{{ payment.paymentThrough }}</td>
             <td>{{ payment.transactionId }}</td>
             <td>{{ payment.bankName }}</td>
-            <td>{{ payment.depositAmount }}</td>
+            <td>{{ payment.roomRent }}</td>
             <td>{{ payment.discountAmount }}</td>
             <td>{{ payment.roomRent }}</td>
             <td>{{ payment.roomRent - payment.discountAmount}} </td>
