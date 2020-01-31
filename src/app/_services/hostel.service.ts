@@ -36,6 +36,10 @@ export class HostelService {
   getHostelsList(userId : number, role: string): Observable<any> {
     return this.http.get(`${this.baseUrl}?id=${userId}&role=${role}`, this.authenticationService.getHttpHeaders());
   } 
+
+  getAllHostels(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`, this.authenticationService.getHttpHeaders());
+  } 
   
   uploadFile( file: File , cat: String,  id : number ) : Observable<any>  
   {  

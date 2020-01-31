@@ -7,13 +7,30 @@
                 <tr>
                     <th><span class="glyphicon glypicon-list-alt"></span>Id</th>
                     <th><span class="glyphicon glyphicon-user"></span> Tenant Name</th>
-                    <th><span class="glyphicon glyphicon-bitcoin"></span>Amount</th>
-                    <th><span class="glyphicon glypicon-list-alt"></span>Hostel Id</th>
+                    <th><span class="glyphicon glyphicon-bitcoin"></span>Refund Amount</th>
+                    <th><span class="glyphicon glypicon-list-alt"></span>Hostel Name</th>
                     <th><span class="glyphicon glypicon-list-alt"></span>Bed Id</th>
                     <th><span class="glyphicon glypicon-list-alt"></span>Action</th>
                 </tr>
-                <tr>
-                    
+                <tr *ngFor="let req of requests">
+                    <td>{{req.tenantId}}</td>
+                    <td></td>
+                    <td>{{req.refundAmount}}</td> 
+                    <td colspan="2">
+                        <ul>
+                            <div *ngFor="let hostel of hostels">
+                                <td>{{hostel.hostelName}}</td>
+                            </div>
+                        </ul>
+                    </td>
+                    <td></td>
+                    <!-- <td><button class="btn btn-info">Approve</button></td> 
+                    <button title="Add Room" type="button" class="btn btn-background"
+                            (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
+                        </button>-->
+                    <!-- <td><button type="submit" class="btn btn-link" onclick="if (!confirm('Are you sure?')) { return false }"><span>Approve</span></button></td> -->
+                    <td><button type="button" class="btn btn-link" (click)="approveRequest()"><span>Approve</span></button></td>
+
                 </tr>
             </table>
         </div>
