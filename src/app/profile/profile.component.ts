@@ -132,7 +132,7 @@ export class ProfileComponent implements OnInit {
       var reader = new FileReader(); 
       reader.readAsDataURL(event.target.files[0]); // read file as data url 
       reader.onload = (e) => { // called once readAsDataURL is completed
-        this.url = e.target;  
+        this.url = e.target.result;  
       }
     }
   }

@@ -51,7 +51,7 @@
             </span>
         
           <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
-          <select type="text" class="browser-default custom-select" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup" >
+          <select  class="browser-default custom-select" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup" >
           <option>A+</option>
           <option>A-</option>
           <option>B+</option>
@@ -73,9 +73,20 @@
             
           <label for="name"><span class="glyphicon glyphicon-user"></span> Permanent Address:</label>
           <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
-        
-          <label for="name"><span class="glyphicon glyphicon-user"></span> ID </label>
-          <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" />
+          
+          <label for="name"><span class="glyphicon glyphicon-tint"></span> IdProof:</label>
+          <select  class="browser-default custom-select" id="idProof" required [(ngModel)]="user.idProof" name="idProof" >
+          <option>Addhar Card</option>
+          <option>Pan Card</option>
+          <option>Voter Id</option>
+          <option>Driving License</option>
+          <option>Passport</option>
+          </select>
+
+          <label for="name"><span class="glyphicon glyphicon-user"></span> IdProof Id:</label>
+          <input type="text" class="form-control" id="idProofId" required [(ngModel)]="user.idProofId" name="idProofId">
+          <!-- <label for="name"><span class="glyphicon glyphicon-user"></span> ID </label>
+          <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" /> -->
       </div>    
   
 </div>

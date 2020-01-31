@@ -5,6 +5,8 @@ import { UserpicstorageService } from '././userpicstorage.service';
 import { environment } from '../../environments/environment';
 import { AuthenticationService } from '../_auth/auth.service';
 import { RegistrationService } from '.././_services/registration.service';
+import { PaymentService } from '.././_services/payment.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +15,13 @@ export class UserService {
 
   private baseUrl = environment.appUrl+'/api/v1/users'; 
   private getUrl = environment.appUrl+'/api/v1/users/{id}'; 
+  private payUrl = environment.appUrl+'api/v1/payments';
 
   constructor(private http: HttpClient,
     private userpicStorageService: UserpicstorageService,
     private authenticationService: AuthenticationService,
-    private registrationService: RegistrationService) { }
+    private registrationService: RegistrationService,
+    private paymentService: PaymentService) { }
 
   getUser(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`,  this.authenticationService.getHttpHeaders());
@@ -49,6 +53,10 @@ export class UserService {
 
   getUsersList(type : string, adminId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}?adminId=${adminId}&type=${type}`, this.authenticationService.getHttpHeaders());
+  }
+
+  getPaymentsList(type : string, adminId: number): Observable<any> {
+    return this.http.get(`${this.payUrl}?adminId=${adminId}&type=${type}`, this.authenticationService.getHttpHeaders());
   }
 
   uploadFile( file: File , cat: String,  id : number ) : Observable<any>  {  

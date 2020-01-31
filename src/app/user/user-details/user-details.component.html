@@ -46,11 +46,20 @@
   <div>
     <label><b>PermanentAddress : </b></label> {{user.permanentAddress}}
   </div>
+  <div>
+    <label><b>IdProof : </b></label> {{user.idProof}}
+  </div>
+  <div>
+    <label><b>IdProof Id : </b></label> {{user.idProofId}}
+  </div>
 </div>
 <div class="col-md-4">
 
-  <label><b>Idproof Pic:</b></label>
-  <img src="{{idProofpicImage}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""  class="user-init-img"/>
+  <!-- <label><b>Idproof Pic:</b></label>
+  <img src="{{idProofpicImage}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""  class="user-init-img"/> -->
+
+
+
 
   <div>
       <label><b>Hostel Id : </b></label> {{user.tenantBooking.hostelId}}
@@ -75,13 +84,13 @@
       <label><b>Date : </b></label>{{payment.createdAt}}
   </div>
   <div>
-      <label><b>Deposit Amount : </b></label>{{user.payment.depositAmount}}
+      <label><b>Deposit Amount : </b></label>{{user.payment.roomRent}}
   </div>
   <div>
     <label><b>Discount Amount : </b></label>{{ user.payment.discountAmount }}
   </div>
   <div>
-      <label><b>Amount to be Paid : </b></label> {{ payment.roomRent - payment.discountAmount}}
+      <label><b>Amount to be Paid : </b></label> {{ user.payment.roomRent - payment.discountAmount}}
   </div>
   <div>
       <label><b>Payment Type : </b></label> {{ payment.paymentThrough }}
