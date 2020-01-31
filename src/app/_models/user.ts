@@ -21,6 +21,8 @@ export class User {
   emailId: string;
   permanentAddress: string;
   idProofpic: string; 
+  idProof: string;
+  idProofId: string;
   role: string = 'TENANT'; 
   oldPassword: string;
   newPassword: string;

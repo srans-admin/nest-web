@@ -15,7 +15,7 @@
           <tr>
             <th>Date</th>
             <th>Id</th>
-            <th>User Id</th>
+            <!-- <th>User Id</th> -->
             <th>Name</th>
             <th>Room Name</th>
             <th>Room Type</th>
@@ -30,10 +30,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let payment of payments ">
-            <td>{{payment.createdAt}}</td>
+            <td>{{payment.date}}</td>
             <td>{{ payment.id }}</td>
-            <td>{{ payment.userId }}</td>
-            <td>{{ name }}</td>
+            <!-- <td>{{ payment.userId }}</td> -->
+            <td>{{ payment.name }}</td>
             <td>{{ payment.roomName }}</td>
             <td>{{ payment.roomType }}</td>
             <td>{{ payment.paymentThrough }}</td>

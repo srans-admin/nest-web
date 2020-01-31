@@ -13,6 +13,7 @@ export class PaymentService {
   //private roomType = environment.appUrl+'/api/v1/payment/hostels/{id}/roomdetail';
   //private roomRent = environment.appUrl+'/api/v1/payment/hostels/{id}/roomdetail';
   //private userPayment = environment.appUrl + '/api/v1/payments/history';
+  private userUrl = environment.appUrl+'/api/v1/users';
 
   constructor(private http: HttpClient,
               private authenticationService: AuthenticationService) { }
@@ -39,7 +40,7 @@ export class PaymentService {
   }
 
   getUserDetails(name: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/byname/${name}`, this.authenticationService.getHttpHeaders());
+    return this.http.get(`${this.userUrl}/byname/${name}`, this.authenticationService.getHttpHeaders());
   }
 
   getPaymentsList(): Observable<any> {
