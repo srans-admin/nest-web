@@ -14,7 +14,7 @@ import { PaymentService } from '.././_services/payment.service';
 export class UserService { 
 
   private baseUrl = environment.appUrl+'/api/v1/users'; 
-  private getUrl = environment.appUrl+'/api/v1/users/{id}'; 
+  //private getUrl = environment.appUrl+'/api/v1/users/{id}'; 
   private payUrl = environment.appUrl+'api/v1/payments';
 
   constructor(private http: HttpClient,
@@ -28,7 +28,7 @@ export class UserService {
   }
 
   getTenant(id: number): Observable<any> {
-    return this.http.get(`${this.getUrl}/${id}`,  this.authenticationService.getHttpHeaders());
+    return this.http.get(`${this.baseUrl}/${id}`,  this.authenticationService.getHttpHeaders());
   }
 
   getUserDetails(name: string): Observable<any> {

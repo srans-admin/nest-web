@@ -24,8 +24,7 @@
     padding: 11px;
     border: solid 1px #ddd;
     background: #fff;
-    /* color: #bbb; */
-    color: darkblue;
+    color: #bbb;
     box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025)
     
 }
@@ -56,20 +55,16 @@ label{
     margin-right: 20px; 
 }
 .room-box, .sub-room-box{
-     padding: 2px; 
-    /* border: solid 1px #ddd; */
-    /* background: #fff;
+    /* padding: 12px; */
+    border: solid 1px #ddd;
+    background: #fff;
     color: #bbb;
-    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025); */
+    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
 }
 .sub-room-box{
     display: inline-grid;
     margin-top: 5px;
-    margin-right: 3px;
     background-color: beige;
-    /* border: 1px solid bisque; */
-    /* height: 105px; */
-    margin-bottom: 5px;
 }
 .sub-room-box-edit, .sub-room-box-delete{
     /*width: 33px; */
@@ -111,8 +106,46 @@ label{
     padding: 15px;
     width: 100%;
 }
-
-.bed-box:active{
-    color: chartreuse;
+.room-header{
+    background-color: black;
+    color: white;
+    padding: 1px;
+    font-size: 12px;
+    text-align: center;
 }
-
+.bed-box{
+   /* width: 20px; */
+    /* height: 31px; */
+    padding: 6px;
+    /* width: 12px; */
+    /* background-color: white; */
+    /* top: 14px; */
+    display: flow-root;
+    color: black;
+    cursor: pointer;
+    background-color: lavenderblush;
+}
+.bed-box:focus, .bed-box:active {
+    background-color: green;
+}
+.bed{
+    color: black;
+    background-color: white;
+    padding: 4px;
+    border-radius: 8px;
+}
+.bed-alloted-yes{
+    background-color: orangered;
+    color: white;
+}
+.bed-alloted-no{
+    
+}
+.bed-image{
+    width: 16px;
+    height: 16px;
+}
+.bed-alloted-now{
+    background-color: green;
+    color: whitesmoke;
+}

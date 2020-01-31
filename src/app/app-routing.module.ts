@@ -76,7 +76,6 @@ import { BedReservationComponent } from './bed-reservation/bed-reservation.compo
 import { GuestListComponent } from './user/guest-list/guest-list.component'; 
 import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.component';
 
- import { UserComplaintComponent } from './complaint/user-complaint/user-complaint.component';
 
 
 const routes: Routes = [
@@ -117,11 +116,13 @@ const routes: Routes = [
   { path: 'roms', component: ListRoomComponent},
 
   { path: 'user', component: UserListComponent, canActivate: [AuthGuard] },
-  { path: 'user/add/:userId', component: CreateUserComponent },
+  { path: 'user/add', component: CreateUserComponent },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
 
+  
   { path: 'guest', component: GuestListComponent, canActivate: [AuthGuard] },
+  { path: 'guest/add/:userId', component: CreateUserComponent }, 
 
   { path: 'doughnut-chart', component: DoughnutChartComponent },
   { path: 'bar-chart', component: BarChartComponent },
@@ -139,7 +140,7 @@ const routes: Routes = [
   { path: 'complaint/add', component: AddComplaintComponent},
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
   { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
-  { path: 'complaints', component: UserComplaintComponent, canActivate: [AuthGuard] },
+   
 
  { path: 'categories', component: CategoryListComponent },
   { path: 'categories/add', component: CreateCategoryComponent },

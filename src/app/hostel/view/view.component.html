@@ -82,10 +82,10 @@
         </div>
 
         <!-- Carousel Sliding -->
-        <!-- <div class="row">
+          <div class="row">
             <ngb-carousel>
-                <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
+                <ng-template ngbSlide *ngIf="facadeImage">
+                <div class="picsum-img-wrapper" >
                     <img src="{{facadeImage}}" alt="Random first slide" class="carousel-style">
                 </div>
                 <div class="carousel-caption">
@@ -95,7 +95,7 @@
                     <p></p>
                 </div>
                 </ng-template>
-                <ng-template ngbSlide>
+                <ng-template ngbSlide  *ngIf="receptionImage">
                 <div class="picsum-img-wrapper">
                     <img src="{{receptionImage}}" alt="Random first slide" class="carousel-style">
                 </div>
@@ -106,7 +106,7 @@
                     <p></p>
                 </div>
                 </ng-template>
-                <ng-template ngbSlide>
+                <ng-template ngbSlide  *ngIf="b1Image">
                 <div class="picsum-img-wrapper">
                     <img src="{{b1Image}}" alt="Random second slide" class="carousel-style">
                 </div>
@@ -117,7 +117,7 @@
                     <p></p>
                 </div>
                 </ng-template>
-                <ng-template ngbSlide>
+                <ng-template ngbSlide *ngIf="b2Image">
                 <div class="picsum-img-wrapper">
                     <img src="{{b2Image}}" alt="Random third slide" class="carousel-style">
                 </div>
@@ -128,7 +128,7 @@
                     <p></p>
                 </div>
                 </ng-template>                
-                <ng-template ngbSlide>
+                <ng-template ngbSlide *ngIf="b3Image">
                     <div class="picsum-img-wrapper">
                         <img src="{{b3Image}}" alt="Random third slide" class="carousel-style">
                     </div>
@@ -140,7 +140,7 @@
                     </div>
                 </ng-template>
             </ngb-carousel>
-        </div> -->
+        </div>  
 
     </div>
     <hr>

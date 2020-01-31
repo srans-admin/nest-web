@@ -1,4 +1,5 @@
-<div *ngIf="hostel">
+
+<div *ngIf="hostel" >
 <div class="floor-select "  *ngFor="let floor of hostel.floors">
 
         <div class="floor-header">
@@ -10,7 +11,7 @@
                 </button>
             </div> -->
             <span class="total-rooms"> Total Rooms : <strong>{{totalRooms}}</strong></span>
-            <span class="total-rooms"> Available Beds : <strong>{{rooms.beds}}</strong></span>
+            <!-- <span class="total-rooms"> Available Beds : <strong>{{rooms.beds}}</strong></span> -->
         </div>
 
         <div class="room-box">
@@ -24,8 +25,10 @@
                             <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
                                 <span class="bed bed-alloted" [ngClass]="{
                                     'bed-alloted-yes':bed.alloted === 'Y',
-                                    'bed-alloted-no':bed.alloted === 'N'
-                                  }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} - {{bed.alloted}} </span>
+                                    'bed-alloted-no':bed.alloted === 'N' 
+                                    
+                                  }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} </span>
+                                  <!-- - {{bed.alloted}} -->
                             </span> 
                     </span>
 
@@ -45,7 +48,7 @@
                                         <span class="bed bed-alloted" [ngClass]="{
                                             'bed-alloted-yes':bed.alloted === 'Y',
                                             'bed-alloted-no':bed.alloted === 'N'
-                                          }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} - {{bed.alloted}} </span>
+                                          }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}}  </span>
                                     </span> 
                             </span>
 
@@ -65,7 +68,7 @@
                                         <span class="bed bed-alloted" [ngClass]="{
                                             'bed-alloted-yes':bed.alloted === 'Y',
                                             'bed-alloted-no':bed.alloted === 'N'
-                                          }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} - {{bed.alloted}} </span>
+                                          }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} </span>
                                     </span> 
                             </span>
 
@@ -85,7 +88,7 @@
                                         <span class="bed bed-alloted" [ngClass]="{
                                             'bed-alloted-yes':bed.alloted === 'Y',
                                             'bed-alloted-no':bed.alloted === 'N'
-                                          }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} - {{bed.alloted}} </span>
+                                          }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}}  </span>
                                     </span> 
                             </span>
 

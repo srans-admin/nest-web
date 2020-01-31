@@ -4,7 +4,7 @@ export class Bed{
     position: string = "L";
     allocatedDate: Date = new Date();
     vacatedDate: Date = null;
-    bedNo : number = 1;
+    bedNo : number = 1; 
 
 }
       

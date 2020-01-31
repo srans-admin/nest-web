@@ -123,3 +123,48 @@ label{
     width: 17px; 
     height: 16px;
 } 
+
+
+.room-header{
+    background-color: black;
+    color: white;
+    padding: 1px;
+    font-size: 12px;
+    text-align: center;
+}
+.bed-box{
+   /* width: 20px; */
+    /* height: 31px; */
+    padding: 6px;
+    /* width: 12px; */
+    /* background-color: white; */
+    /* top: 14px; */
+    display: flow-root;
+    color: black;
+    cursor: pointer;
+    background-color: lavenderblush;
+}
+.bed-box:focus, .bed-box:active {
+    background-color: green;
+}
+.bed{
+    color: black;
+    background-color: white;
+    padding: 4px;
+    border-radius: 8px;
+}
+.bed-alloted-yes{
+    background-color: orangered;
+    color: white;
+}
+.bed-alloted-no{
+    
+}
+.bed-image{
+    width: 16px;
+    height: 16px;
+}
+.bed-alloted-now{
+    background-color: green;
+    color: whitesmoke;
+}

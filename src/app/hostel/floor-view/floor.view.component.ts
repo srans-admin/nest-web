@@ -53,14 +53,17 @@ export class FloorViewComponent implements OnInit {
     }
 
     //TODO Need to make sure we need to pass the info to the called : example: CreateUserComponent
-     onSelectedBed(bed : object,  roomType, roomRent : number){
+     onSelectedBed(bed : Bed,  roomType, roomRent : number){
          
        this.selectedBedInfo = { 
         "roomRent": roomRent,
         "roomType": roomType,
         "bed": bed
       }  
+      
       this.onSelectedBedInfoEmitor.emit(this.selectedBedInfo);
+
+      this.hostel = null;
     } 
 
   }

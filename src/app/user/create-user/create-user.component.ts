@@ -49,7 +49,7 @@ export class CreateUserComponent implements OnInit {
   private id: number;
   private type: string = 'GUEST';
   private info:any;
-     loading = false;
+  private loading = false;
 
   constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router,
@@ -71,7 +71,8 @@ export class CreateUserComponent implements OnInit {
 
   reloadData(){
     this.userService.getTenant(this.id).subscribe(res => {
-      console.log(res);
+      this.user = res;
+      this.user.payment = new Payment();
     });
   }
 

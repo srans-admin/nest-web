@@ -22,7 +22,7 @@
           <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
             
           <label><span class="glyphicon glyphicon-user"></span> Name:</label>
-          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" value={{currentUser.name}}>
+          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" >
 
           <label for="name"><span class="glyphicon glyphicon-mobile"></span> ContactNumber:</label>
 
@@ -106,6 +106,51 @@
   
     <floor-view [hostel]="selectedHostel" (onSelectedBedInfoEmitor)="onSelectedBedInfoEmited($event)"></floor-view>
   
+    <div class="selected-bed-info " *ngIf="isBedSelected">
+      <div class="row selected-bed-info-header">
+        <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label>Hosel</label>
+          <div class="name"> {{selectedBedInfo.hostelName}} </div>
+        </div>
+        <div class="col-md-6">
+          <label>Floor</label>
+          <div class="name">{{selectedBedInfo.bed.floorId}}</div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+            <label>Room</label>
+            <div class="name">{{selectedBedInfo.bed.roomId}} </div>
+          </div>
+          <div class="col-md-6">
+            <label>Bed</label>
+            <div class="name">{{selectedBedInfo.bed.id}}</div>
+          </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-6">
+                <label>Bed Position</label>
+                <div class="name">{{selectedBedInfo.bed.position}} </div>
+              </div>
+            <div class="col-md-6">
+              <label>Room Rent</label>
+              <div class="room-rent">INR {{selectedBedInfo.roomRent}} </div>
+            </div>
+             
+          </div>
+
+          <div class="row">
+              <div class="col-md-6">
+                  <label>Room Sharing </label>
+                  <div class="name">{{selectedBedInfo.roomType}} </div>
+                </div> 
+               
+            </div>
+    </div>
+
   
   </div>
 
@@ -116,51 +161,7 @@
     <mat-tab label="Payment" *ngIf="isHostelPaymentReq">
 
 
-        <div class="selected-bed-info " *ngIf="isBedSelected">
-            <div class="row selected-bed-info-header">
-              <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>Hosel</label>
-                <div class="name"> {{selectedBedInfo.hostelName}} </div>
-              </div>
-              <div class="col-md-6">
-                <label>Floor</label>
-                <div class="name">{{selectedBedInfo.bed.floorId}}</div>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                  <label>Room</label>
-                  <div class="name">{{selectedBedInfo.roomId}} </div>
-                </div>
-                <div class="col-md-6">
-                  <label>Bed</label>
-                  <div class="name">{{selectedBedInfo.bed.id}}</div>
-                </div>
-              </div> 
-              <div class="row">
-                  <div class="col-md-6">
-                      <label>Bed Position</label>
-                      <div class="name">{{selectedBedInfo.bed.position}} </div>
-                    </div>
-                  <div class="col-md-6">
-                    <label>Room Rent</label>
-                    <div class="name">{{selectedBedInfo.roomRent}} </div>
-                  </div>
-                   
-                </div>
-    
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Room Sharing </label>
-                        <div class="name">{{selectedBedInfo.roomType}} </div>
-                      </div> 
-                     
-                  </div>
-          </div>
-
+       
 
         <div class="tenant-form-1" style="width: 300px;">
 
@@ -203,11 +204,11 @@
     
         
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Amount to be paid:</label>
-        <input type="text" class="form-control"   readonly required [(ngModel)]="user.payment.amountpaid" value="{{user.payment.roomRent - user.payment.discountAmount}}" >
-
+        <input type="text" class="form-control"   readonly required ([ngModel])="user.payment.amountPaid" value="{{user.payment.roomRent - user.payment.discountAmount}}" >
+<!-- 
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Total Amount to be paid:</label>
-        <input type="text" class="form-control"   readonly value="{{ user.payment.amountpaid + user.payment.depositAmount }}" >
-    
+        <input type="text" class="form-control"   readonly value="{{ user.payment.amountPaid   }}" >
+     -->
 
           <div >
             <br/>
