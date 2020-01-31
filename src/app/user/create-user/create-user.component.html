@@ -12,7 +12,7 @@
           (change)="isHostelPaymentRequired($event)"> I will be set Hostel and Payment Info as per the
            Registation </mat-checkbox>
       </div>
-      <div class="tenant-form-1" style="width: 300px;"  >  
+      <div class="tenant-form-1" style="width: 300px;"  >
 
       <div class="form-group">
           <!-- <label for="name">userpic</label>
@@ -22,9 +22,10 @@
           <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
             
           <label><span class="glyphicon glyphicon-user"></span> Name:</label>
-          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
-             
+          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" value={{currentUser.name}}>
+
           <label for="name"><span class="glyphicon glyphicon-mobile"></span> ContactNumber:</label>
+
           <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" >
       
           <label for="name"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
@@ -210,10 +211,10 @@
 
           <div >
             <br/>
-          <button type="loading" class="btn btn-success">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>  
+        <button [disabled]="loading" class="btn btn-success">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Join Tenant
-          </button> 
+        </button>
           <a routerLink="/user" class="btn btn-link">Cancel</a>
         </div>           
           

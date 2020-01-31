@@ -5,7 +5,6 @@ import { Expense } from "../../_models/expense";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: "app-expense-list",
   templateUrl: "./expense-list.component.html",
@@ -43,4 +42,7 @@ export class ExpenseListComponent implements OnInit {
   updateExpense(id: number){
     this.router.navigate(['eupdate', id]);
   }
+
+
+
 }

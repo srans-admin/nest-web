@@ -6,6 +6,7 @@ import { Room } from 'src/app/_models/room';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/_auth/auth.service';
 import { User } from 'src/app/_models/user';
+import { count } from 'rxjs/operators';
 
 @Component({
   selector: 'app-view',
@@ -26,6 +27,12 @@ export class ViewComponent implements OnInit {
   private b3Image: any;
   private miscImage: any;
   private currentUser: User;
+  private i : number;
+
+  private j : number;
+  private temp : number = 0;
+  private rooms : number;
+  private beds : number;
 
   donutInfo = {
 
@@ -68,6 +75,27 @@ export class ViewComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.hostel = data;
+
+        for(this.i = 0; this.i < this.hostel.floors.length;this.i++){
+          this.rooms = this.hostel.floors[this.i].rooms.length;
+          this.temp = this.temp + this.rooms;
+        }        
+        this.rooms = this.temp;        
+ 
+
+        // for(this.i = 0; this.i < this.hostel.floors.length;this.i++){
+          for(this.j = 0;this.j < this.rooms[this.j].beds.length;this.j++){
+            this.beds = this.rooms[this.j].beds.length;
+            this.temp = this.temp + this.beds;
+          }
+        // }
+
+        // console.log(this.hostel.floors[0].rooms[4].beds.length);
+        // for(this.j = 0;this.j < this.hostel.floors[this.j].rooms[this.i].beds.length;this.j++){
+        //   this.beds = this.hostel.floors[this.j].rooms[this.j].beds.length;
+        //   this.temp = this.temp + this.beds;
+        // }
+        console.log(this.temp);
       }, error => console.log(error));
 
       //Reception

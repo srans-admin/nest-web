@@ -74,9 +74,10 @@ import { ContactsComponent } from './contacts/contacts.component';
  
 import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
 import { GuestListComponent } from './user/guest-list/guest-list.component'; 
+import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.component';
 
+ import { UserComplaintComponent } from './complaint/user-complaint/user-complaint.component';
 
- 
 
 const routes: Routes = [
   {path: '', component: ProfileComponent, canActivate: [AuthGuard]},
@@ -116,7 +117,7 @@ const routes: Routes = [
   { path: 'roms', component: ListRoomComponent},
 
   { path: 'user', component: UserListComponent, canActivate: [AuthGuard] },
-  { path: 'user/add', component: CreateUserComponent },
+  { path: 'user/add/:userId', component: CreateUserComponent },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
 
@@ -138,7 +139,8 @@ const routes: Routes = [
   { path: 'complaint/add', component: AddComplaintComponent},
   { path: 'complaintupdate/:id', component: UpdateComplaintComponent},
   { path: 'compaintdetails/:id', component: ComplaintDetailsComponent},
- 
+  { path: 'complaints', component: UserComplaintComponent, canActivate: [AuthGuard] },
+
  { path: 'categories', component: CategoryListComponent },
   { path: 'categories/add', component: CreateCategoryComponent },
  
@@ -149,6 +151,7 @@ const routes: Routes = [
 
   { path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard]}, 
   
+  { path: 'vacateRequest', component: VacateRequestComponent, canActivate: [AuthGuard]},
  
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

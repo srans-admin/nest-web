@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../_services/user.service';
-import { User } from '../../_models/user';
+import { User, TmpUsr } from '../../_models/user';
 import { TenantBooking } from '../../_models/tenant-booking';
 import { Hostel } from '../../_models/hostel';
 import { Floor } from '../../_models/floor';
@@ -45,8 +45,12 @@ export class CreateUserComponent implements OnInit {
   private isHostelPaymentReq:boolean = true;
   private tenantBooking : TenantBooking = new TenantBooking();
   private currentUser: User;
- 
- 
+  private users;
+  private id: number;
+  private type: string = 'GUEST';
+  private info:any;
+     loading = false;
+
   constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router,
       private hostelService: HostelService,
@@ -61,11 +65,20 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit() { 
        this.filterForeCasts();
+        this.id = this.route.snapshot.params['userId'];
+       this.reloadData();
   }
-  
+
+  reloadData(){
+    this.userService.getTenant(this.id).subscribe(res => {
+      console.log(res);
+    });
+  }
+
   save() {
     
     this.setTenantBooking();
+    this.loading = true;
     this.user.payment.adminId = this.currentUser.userId;
     this.userService.createUser(this.user)
       .subscribe(res => { 
@@ -181,7 +194,10 @@ setTenantBooking(){
   this.user.tenantBooking = this.tenantBooking;
 
 }
- 
+
+
+
+
 addTransfer(){
 
   const dialogRef = this.dialog.open(BanktransferComponent, {

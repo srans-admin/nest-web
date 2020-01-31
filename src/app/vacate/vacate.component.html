@@ -1,5 +1,5 @@
 <div class="container">
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <div><h3>Vacate Application Form</h3></div><br/><br/>
         <div class="row">
             <div class="col col-md-4">
@@ -40,7 +40,7 @@
                 </label>
                 <span class="date-picker">
                     <input type="text" required [matDatepicker]="picker2" class="form-control custom-select" 
-                    required [(ngModel)]="vacatingDate" name="vacatingDate">
+                    required [(ngModel)]="vacate.date" name="date">
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>      
                     <mat-datepicker #picker2></mat-datepicker> 
                 </span>
@@ -52,7 +52,7 @@
                 </div><br/>
             </div>
         </div><br/>
-        <button class="form-control custom-select btn btn-success" (click)="getRefundAmount()">
+        <button type="button" class="form-control custom-select btn btn-success" (click)="getRefundAmount()">
             Generate Refund Amount
         </button>
     <br/><br/>
@@ -83,10 +83,8 @@
                 <label><span class="glyphicon glyphicon-list-alt"></span> Comments </label>
                 <textarea class="form-control" style="width: 300px;" [(ngModel)]="vacate.comment" name="comment"></textarea>
             </div><br/>
-            <input type="checkbox" class="tc" name="TC"> I have read and agree the Terms and Conditions
+            <input type="checkbox" class="tc" name="TC" [(ngModel)]="checked"> I have read and agree the Terms and Conditions
     </div>
-    <div><button type="submit" class="form-control custom-select btn btn-success">Vacate Request</button></div>
+    <div><button type="submit" class="form-control custom-select btn btn-success" [disabled]="!checked">Vacate Request</button><a routerLink="/profile" class="btn btn-link">Cancel</a></div>
 </form><br/>
 </div>
-
-<!-- <button type="reset" class="form-control vacate btn ">Cancel</button> -->

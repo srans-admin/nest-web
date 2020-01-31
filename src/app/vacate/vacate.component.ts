@@ -8,6 +8,7 @@ import { Vacate } from '.././_models/vacate';
 import { VacateService } from '.././_services/vacate.service';
 import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
+import { Form, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-vacate',
@@ -25,7 +26,7 @@ export class VacateComponent implements OnInit {
   private informingDate = new Date();
   private vacatingDate= new Date();
   private presentDate = new Date();
-  private depositAmount : number = 12000;
+  private depositAmount : number;
   private perDayAmount : number ;
   private refundAmount : number;
   private maintainanceCharges : number = 1000;
@@ -44,6 +45,8 @@ export class VacateComponent implements OnInit {
   private roomBedId: number;
   private roomRent: number;
 
+  private checked: boolean = false;
+
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
               private vacateService: VacateService,
@@ -53,6 +56,7 @@ export class VacateComponent implements OnInit {
                 this.currentUser = this.authenticationService.currentUser;
                                 
                 this.getUserData();
+                
               }
 
   ngOnInit() {
@@ -60,7 +64,8 @@ export class VacateComponent implements OnInit {
 
   onSubmit(){
     // this.getRefundAmount();
-    this.vacateTenant();
+    this.vacateTenant();  
+     
   }
 
   vacateTenant(){
@@ -73,20 +78,21 @@ export class VacateComponent implements OnInit {
       err => {  
         this.alertMessage.showFailedMsg( this.nIDOSMessages.HostelCreationFailed + err.message );
       });
-     
+    
   } 
 
   getRefundAmount(){
 
     this.diffTime = Math.abs(this.vacatingDate.getTime() - this.informingDate.getTime());
     this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));
+    this.depositAmount = this.currentUser.tenantBooking.roomRent;
     this.perDayAmount = this.depositAmount / 30;
 
       if((this.diffDays >= this.informDays) && (this.vacatingDate > this.informingDate)){
 
         this.vacate.refundAmount = this.depositAmount - this.maintainanceCharges;
       }
-      else if((this.diffDays <= this.informDays) || (this.vacatingDate < this.informingDate)){
+      else if((this.diffDays <= this.informDays) || (this.vacatingDate < this.informingDate) ){
 
         this.diffTime = Math.abs(this.informingDate.getTime() - this.vacatingDate.getTime());
         this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));

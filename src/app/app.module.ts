@@ -108,7 +108,9 @@ import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.compo
 import { GuestListComponent } from './user/guest-list/guest-list.component';
 
 import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
+import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.component';
 
+import { ApproveRequestComponent } from './vacate/approve-request/approve-request.component';
  
 
 @NgModule({
@@ -201,8 +203,9 @@ import { UserPaymentComponent } from './payment/user-payment/user-payment.compon
     VacateComponent,
     ContactsComponent,
     UserPaymentComponent,
+    VacateRequestComponent,
 
- 
+    ApproveRequestComponent,
     
   ],
   imports: [
