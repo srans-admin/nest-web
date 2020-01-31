@@ -51,7 +51,6 @@ export class CreateUserComponent implements OnInit {
   private info:any;
      loading = false;
 
- 
   constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router,
       private hostelService: HostelService,

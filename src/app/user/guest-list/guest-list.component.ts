@@ -115,7 +115,7 @@ export class GuestListComponent implements OnInit {
   }
 
   convertToTenant(userId: number){
-    this.router.navigate(['../user/add', userId]);
+    this.router.navigate(['../user/add',userId]);
   }
   
 
