@@ -14,6 +14,7 @@
       <thead>
         <tr>
           <th> ID </th>
+          <!--<th> Hostel </th>-->
            <th> Type of Expense</th>
           <th> Cost</th>
           <th> Actions</th>
@@ -22,14 +23,18 @@
       <tbody>
         <tr *ngFor="let expense of expenses |  async">
             <td>{{ expense.id }}</td>
+          <!--<td>{{ expense.hostelId }}</td>-->
           <td>{{ expense.expenseType }}</td>
           <td>{{ expense.amount }}</td>
           <td>
              <div class="user-options">
-            <a (click)="deleteExpense(expense.id)" title="delete" ><span class="glyphicon glyphicon-trash"></span></a>
-            <a  (click)="updateExpense(expense.id)" title="update"><span class="glyphicon glyphicon-edit"></span></a>
-            <a (click)="expenseDetails(expense.id)" title="view"><span class="glyphicon glyphicon-eye"></span></a>
+            <!--<a (click)="deleteExpense(expense.id)" title="delete" ><span class="glyphicon glyphicon-trash"></span></a>-->
+            <!--<a  (click)="updateExpense(expense.id)" title="update"><span class="glyphicon glyphicon-edit"></span></a>-->
+            <!--<a (click)="expenseDetails(expense.id)" alt="view"><span class="glyphicon glyphicon-eye"></span></a>-->
+                      <a (click)="expenseDetails(expense.id)" title="view"><span class="glyphicon glyphicon-eye-open" style="margin-left: 10px"></span></a>
+
              </div>
+
           </td>
         </tr>
       </tbody>
