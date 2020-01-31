@@ -53,6 +53,7 @@ export class VacateRequestComponent implements OnInit {
   ngOnInit() {
   }
 
+
   getNotificationData(){
 
     this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role).subscribe(results =>{

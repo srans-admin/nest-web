@@ -28,6 +28,7 @@ export class ViewComponent implements OnInit {
   private miscImage: any;
   private currentUser: User;
   private i : number;
+
   private j : number;
   private temp : number = 0;
   private rooms : number;
@@ -74,12 +75,13 @@ export class ViewComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.hostel = data;
-        
+
         for(this.i = 0; this.i < this.hostel.floors.length;this.i++){
           this.rooms = this.hostel.floors[this.i].rooms.length;
           this.temp = this.temp + this.rooms;
         }        
-        this.rooms = this.temp; 
+        this.rooms = this.temp;        
+ 
 
         // for(this.i = 0; this.i < this.hostel.floors.length;this.i++){
           for(this.j = 0;this.j < this.rooms[this.j].beds.length;this.j++){

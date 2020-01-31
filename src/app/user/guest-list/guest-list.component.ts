@@ -114,8 +114,8 @@ export class GuestListComponent implements OnInit {
     this.router.navigate(['userupdate', id]);
   }
 
-  convertToTenant(id: number){
-    this.router.navigate(['../user/add']);
+  convertToTenant(userId: number){
+    this.router.navigate(['../user/add',userId]);
   }
   
 
