@@ -8,6 +8,7 @@
 .header-button{
     margin-right: 10px;
     margin-left: -5px;
+    height: 30px;
 }
 .profile-img{
     text-align: center;
@@ -68,6 +69,7 @@
     border: none;
     border-bottom:2px solid #0062cc;
 }
+
 .profile-work{
     padding: 14%;
     margin-top: -15%;
@@ -94,10 +96,15 @@
     font-weight: 600;
     color: #0062cc;
 }
-.subscriptions{
+
+.subscriptions h3{
     margin-top: 100px;
     margin-left: 70px;
-    size: 20px;
+    font-size: 800%;
+}
+.noofsub h3{
+    margin-top: 50px;
+    margin-left: 10px;
 }
 
 

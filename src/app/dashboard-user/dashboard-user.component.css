@@ -34,3 +34,7 @@ div.cdk-overlay-pane{
     padding-left: 4px;
     color: aliceblue;
 }
+.disable{
+    color: gray;
+    cursor: not-allowed;
+}

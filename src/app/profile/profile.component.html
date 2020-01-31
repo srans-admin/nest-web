@@ -41,13 +41,16 @@
                 <!--</div>-->
             <!--</div>-->
             <div class="col-md-2 header-buttons" >
-                <a class="btn btn-info header-button" (click)="editProfile(currentUser.userId)"   style="height:30px" > Edit Profile </a>
-                <button class="btn btn-info header-button" (click)="changePassword()" style="height:30px"> Change Password </button>
+                <a class="btn btn-info header-button" (click)="editProfile(currentUser.userId)"   style="width: 85px" > Edit Profile </a>
+                <a class="btn btn-info header-button" (click)="changePassword()" style="width:130px"> Change Password </a>
             </div>
     </div>
     
-      <div class="col-md-4">
-              <h3>Total Number of Hostels Available</h3>
+
+      <div class="col-md-4" *ngIf="subscriptions">
+        <div class="noofsub">
+              <h3>Number of subscriptions</h3>
+            </div>
               <div class="subscriptions">
                 <h3>{{subscriptions}}</h3>
               </div>   
@@ -206,7 +209,7 @@
           </div>
           <div class="col-md-6">
             <p>230</p>
-          </div>
+          </div> 
         </div>
         <div class="row">
           <div class="col-md-6">

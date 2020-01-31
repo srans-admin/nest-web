@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HostelService } from '../_services/hostel.service';
+import { AlertMessage } from 'src/app/_alerts/alert.message';
 
 @Component({
   selector: 'app-dashboard-guest',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardGuestComponent implements OnInit {
 
-  constructor() { }
+  private hostels;
+
+  constructor(private hostelService: HostelService,
+              private alertMessage: AlertMessage) { }
 
   ngOnInit() {
+    this.reloadData();
   }
+
+  reloadData() {
+
+    this.hostelService.getAllHostels().subscribe(res => { 
+    console.log(res);
+       this.hostels = res;
+     },err =>{ 
+       this.alertMessage.showHttpMessage(err);
+     });
+
+   }
 
 }

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { User } from '../../_models/user';
 import { AuthenticationService } from '../../_auth/auth.service';
 import { ThemeService } from 'ng2-charts';
+import { Complaint } from '../../_models/complaint';
 
 @Component({
   selector: 'app-user-payment',
@@ -16,6 +17,7 @@ export class UserPaymentComponent implements OnInit {
   payments: Observable<Payment[]>;
   id: number;
   private currentUser: User;
+  private currentComplaint: Complaint;
 
   constructor(private paymentService: PaymentService,
               private router: Router,
@@ -34,8 +36,9 @@ export class UserPaymentComponent implements OnInit {
     this.payments = this.paymentService.getuserPaymentInfo(this.id);
   }
 
-  addComplaintsToAdmin(currUser: User){
-    this.router.navigate(['complaint/add', currUser.userId]);
+
+  addComplaintsToComplaint(currentComplaint: Complaint){
+    this.router.navigate(['complaint/add', currentComplaint.userId]);
   }
 
 }
