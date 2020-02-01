@@ -11,7 +11,7 @@
                 
               <thead>
                 <tr>
-                  <th><span class="glyphicon glyphicon-tag"></span></th>
+                  <!-- <th><span class="glyphicon glyphicon-tag"></span></th> -->
                   <th><span class="glyphicon glyphicon-camera"></span> TenantPic</th> 
                   <th><span class="glyphicon glyphicon-wrench"></span> UserId</th> 
                   <th><span class="glyphicon glyphicon-plus"></span> Name</th>
@@ -36,7 +36,7 @@
                   
                     
                 <tr *ngFor="let user of users | userFilter:searchTerm">              
-                   <td> <mat-checkbox ></mat-checkbox></td>
+                   <!-- <td> <mat-checkbox ></mat-checkbox></td> -->
                    <td>
                       <img class="user-init-img" src="{{ bringMyImage(user.userId)}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""/>
                   </td>  
@@ -73,10 +73,8 @@
                       </div>
                   </div> -->
                   <div class="user-options">
-                      <a (click)="deleteUser(user.userId)" title="delete"><span class="glyphicon glyphicon-trash"  style="margin-left: 10px"></span></a>
-                      <a  (click)="updateUser(user.userId)" title="update"><span class="glyphicon glyphicon-edit" style="margin-left: 10px"></span></a>
-                      <a (click)="userDetails(user.userId)" title="view"><span class="glyphicon glyphicon-eye-open" style="margin-left: 10px"></span></a>
-                      <a href="payment/add"  title="payment"><span class="glyphicon glyphicon-credit-card" style="margin-left: 10px"></span></a>
+                      <a (click)="deleteUser(user.userId)" title="delete"><span class="glyphicon glyphicon-trash"  style="margin-left: 10px"></span></a>                      
+                      <a (click)="userDetails(user.userId)" title="view"><span class="glyphicon glyphicon-eye-open" style="margin-left: 10px"></span></a>                      
                       <a  (click)="convertToTenant(user.userId)"  title="convert to tenant"><span class="glyphicon glyphicon-user" style="margin-left: 10px"></span></a>
                        
                     </div>

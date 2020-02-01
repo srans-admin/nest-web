@@ -3,87 +3,88 @@
   <form (ngSubmit)="onSubmit()">
     
 
-      <div class="form-group">
+      <!-- <div class="form-group">
           <label for="name">User Pic</label>
           <input type="file" required [(ngModel)]="user.userpic" name="userpic" >
-      </div>
+      </div> -->
 
     <div class="form-group">
-      <label for="name">name</label>
+      <label for="name">Name</label>
       <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
     </div>
 
     <div class="form-group">
-        <label for="name">contactNumber</label>
+        <label for="name">Contact Number</label>
         <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber">
       </div>
 
     <div class="form-group">
-        <label for="name">fatherName</label>
+        <label for="name">Father Name</label>
         <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName">
       </div>  
 
     <div class="form-group">
-        <label for="name">fatherphoneNumber</label>
+        <label for="name">Father PhoneNumber</label>
         <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber">
       </div>
 
     <div class="form-group">
-        <label for="name">motherName</label>
+        <label for="name">Mother Name</label>
         <input type="text" class="form-control" id="motherName" required [(ngModel)]="user.motherName" name="motherName">
       </div>
 
     <div class="form-group">
-        <label for="name">motherphoneNumber</label>
+        <label for="name">Mother PhoneNumber</label>
         <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
       </div>
 
     <div class="form-group">
-        <label for="name">dob</label>
+        <label for="name">Date of Birth</label>
         <input type="text" class="form-control" id="dob" required [(ngModel)]="user.dob" name="dob">
       </div>
 
     <div class="form-group">
-        <label for="name">bloodGroup</label>
+        <label for="name">Blood Group</label>
         <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">
       </div>
 
     <div class="form-group">
-        <label for="name">emergencyContactNumber</label>
+        <label for="name">Emergency ContactNumber</label>
         <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
       </div>
 
     <div class="form-group">
-        <label for="name">nameOfTheEmployer</label>
+        <label for="name">Name Of The Employer</label>
         <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
       </div>
 
     <div class="form-group">
-      <label for="name">officeAddress</label>
+      <label for="name">Office Address</label>
       <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
     </div>
 
     <div class="form-group">
-        <label for="name">telephoneNumber</label>
-        <input type="text" class="form-control" id="telephoneNumber" required [(ngModel)]="user.telephoneNumber" name="telephoneNumber">
-      </div>
-
-    <div class="form-group">
-        <label for="name">emailId</label>
+        <label for="name">EmailId</label>
         <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
       </div>
 
      <div class="form-group">
-      <label for="name">permanentAddress</label>
+      <label for="name">Permanent Address</label>
       <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
     </div>
 
     <div class="form-group">
-        <label for="name">idProof</label>
+        <label for="name">Id Proof</label>
         <input type="text" class="form-control" id="idProof" required [(ngModel)]="user.idProof" name="idProof">
       </div>
 
+    <div class="form-group">
+      <label for="name">IdProof Number</label>
+      <input type="text" class="form-control" id="idProofId" required [(ngModel)]="user.idProofId" name="idProofId">
+      </div>
+
     <button type="submit" class="btn btn-success">Submit</button>
+    <a routerLink="/user" class="btn btn-link">Cancel</a>
   </form>
 </div>
 

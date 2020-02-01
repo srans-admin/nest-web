@@ -95,7 +95,7 @@ export class UserListComponent implements OnInit {
 
   deleteUser(id: number) {
 
-    if(window.confirm('Are you to delete?')){
+    if(window.confirm('Are you Sure you want to delete these particular Tenant?')){
       this.userService.deleteUser(id)
         .subscribe(
           data => {

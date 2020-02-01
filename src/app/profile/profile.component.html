@@ -189,7 +189,7 @@
       </mat-tab>
 
       <mat-tab label="Additional">
-        <div class="row">
+        <div class="row" *ngIf="currentUser.tenantBooking === ADMIN">
           <div class="col-md-6">
             <label>Hostel Name :</label>
           </div>
