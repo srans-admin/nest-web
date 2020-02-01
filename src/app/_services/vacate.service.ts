@@ -13,7 +13,7 @@ import { AuthenticationService } from '../_auth/auth.service';
     private baseUrl = environment.appUrl +'/api/v1/users/vacate';
     private vacateNotificationUrl = environment.appUrl + '/api/v1/users/notifications';
     private userUrl = environment.appUrl + '/api/v1/users';
-    private tenantUrl = environment.appUrl + '/api/v1/users/{id}';
+    //private tenantUrl = environment.appUrl + '/api/v1/users/{id}';
 
     constructor(private http: HttpClient, 
                 private authenticationService: AuthenticationService) { }
@@ -28,7 +28,7 @@ import { AuthenticationService } from '../_auth/auth.service';
     //   return this.http.get(`${this.baseUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
     // }
 
-    getVacateRequest(adminId:number): Observable<any>{
+    getVacateRequests(adminId: number): Observable<any>{
       return this.http.get(`${this.vacateNotificationUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
     }
 
@@ -39,11 +39,9 @@ import { AuthenticationService } from '../_auth/auth.service';
 
 
     // method related to user details like id, roomId etc
-    getUserDetails(id:number): Observable<any>{
-      return this.http.get(`${this.userUrl}/${id}`, this.authenticationService.getHttpHeaders());
-    }
+    //getUserDetails(id:number): Observable<any>{
+    //  return this.http.get(`${this.userUrl}/${id}`, this.authenticationService.getHttpHeaders());
+    //}
 
-    getTenantHostel(id:number): Observable<any>{
-      return this.http.get(`${this.tenantUrl}/${id}`, this.authenticationService.getHttpHeaders());
-    }
+     
   }

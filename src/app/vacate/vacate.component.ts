@@ -9,6 +9,7 @@ import { VacateService } from '.././_services/vacate.service';
 import { AlertMessage } from 'src/app/_alerts/alert.message';
 import { NIDOSMessages } from 'src/app/_messages/message_eng';
 import { Form, NgForm } from '@angular/forms';
+import { ProfileService } from '../_services/profile.service';
 
 @Component({
   selector: 'app-vacate',
@@ -18,7 +19,7 @@ import { Form, NgForm } from '@angular/forms';
 export class VacateComponent implements OnInit {
 
   private currentUser: User;
-  vacate : Vacate = new Vacate();
+  private vacate : Vacate = new Vacate();
   private tenant : TenantBooking;
   private room : Room;
   
@@ -51,6 +52,7 @@ export class VacateComponent implements OnInit {
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
+              private profileService: ProfileService,
               private vacateService: VacateService,
               private alertMessage: AlertMessage,
               private nIDOSMessages: NIDOSMessages) { 
@@ -65,6 +67,14 @@ export class VacateComponent implements OnInit {
 
   onSubmit(){
     this.vacateTenant();
+  }
+
+  dateChanged(){
+     
+    if(this.vacatingDate < this.informingDate){
+      alert(' Sorry');
+    }
+
   }
 
   vacateTenant(){
@@ -111,17 +121,26 @@ export class VacateComponent implements OnInit {
   }
 
   getUserData(){
-    this.vacateService.getUserDetails(this.currentUser.userId).subscribe(res => {    
-      console.log(res);
-      this.currentUser = res;
+
+    this.profileService.getUserDetails(this.currentUser.userId).subscribe(res=> { 
+      this.currentUser = res; 
       this.vacate.tenantId = this.currentUser.userId;
-      this.floorId = this.currentUser.tenantBooking.floorId;
-      this.roomId = this.currentUser.tenantBooking.roomId;
-      this.roomBedId = this.currentUser.tenantBooking.roomBedId;
-      this.roomRent = this.currentUser.tenantBooking.roomRent;
-    },err =>{ 
-      console.log('Unable to get Userdetails from server: '+err); 
-    });
+    }, err=>{
+      console.log('Unable to get muser info : '+this.currentUser.userId);
+    })
+
+
+    // this.vacateService.getUserDetails(this.currentUser.userId).subscribe(res => {    
+    //   console.log(res);
+    //   this.currentUser = res;
+    //   this.vacate.tenantId = this.currentUser.userId;
+    //   this.floorId = this.currentUser.tenantBooking.floorId;
+    //   this.roomId = this.currentUser.tenantBooking.roomId;
+    //   this.roomBedId = this.currentUser.tenantBooking.roomBedId;
+    //   this.roomRent = this.currentUser.tenantBooking.roomRent;
+    // },err =>{ 
+    //   console.log('Unable to get Userdetails from server: '+err); 
+    // });
   }
 
 }

@@ -5,7 +5,7 @@
             <div class="col col-md-4">
                 <div>
                     <label><span class="glyphicon glyphicon-home"></span> Tenant Id </label>
-                    <input type="text" class="form-control custom-select" [(ngModel)]="vacate.tenantId" name="tenantId" readonly>
+                    <input type="text" class="form-control custom-select" [(ngModel)]="vacate.tenantId"  readonly>
                 </div><br/>
 
                 <label>
@@ -21,18 +21,18 @@
                     
                 <div>
                     <label><span class="glyphicon glyphicon-align-justify"></span> Floor </label>
-                    <input type="text" class="form-control custom-select"  [(ngModel)]="floorId" name="floorId" readonly>
+                    <input type="text" class="form-control custom-select"  [(ngModel)]="currentUser.tenantBooking.floorName"  readonly>
                 </div><br/>
 
                 <div>
                     <label><span class="glyphicon glyphicon-bed"></span> Bed </label>
-                    <input type="text" class="form-control custom-select"  [(ngModel)]="roomBedId" name="roomBedId" readonly>
+                    <input type="text" class="form-control custom-select"  [(ngModel)]="currentUser.tenantBooking.roomBedId"   readonly>
                 </div><br/>
             </div>
             <div class="col col-md-4">
                 <div>
                     <label><span class="glyphicon glyphicon-home"></span> Room </label>
-                    <input type="text" class="form-control custom-select"  [(ngModel)]="roomId" name="roomId" readonly>
+                    <input type="text" class="form-control custom-select"  [(ngModel)]="currentUser.tenantBooking.roomName"   readonly>
                 </div><br/>
 
                 <label>
@@ -42,7 +42,7 @@
                     <!-- <input type="text" required [matDatepicker]="picker2" class="form-control custom-select" 
                     required [(ngModel)]="vacate.date" name="date" [(ngModel)]="selectDate"> -->
                     <input type="text" required [matDatepicker]="picker2" class="form-control custom-select" 
-                    required [(ngModel)]="vacatingDate" name="vacatingDate" [(ngModel)]="selectDate">
+                    required [(ngModel)]="vacatingDate" name="vacatingDate" [(ngModel)]="selectDate" >
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>      
                     <mat-datepicker #picker2></mat-datepicker> 
                 </span>
