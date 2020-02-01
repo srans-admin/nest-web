@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { AuthenticationService } from '../_auth/auth.service';
+import { ComplaintComment } from '../_models/complaint-comment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { AuthenticationService } from '../_auth/auth.service';
 export class ComplaintService {
 
     private baseUrl = environment.appUrl+'/api/v1/complaints';
+    private baseCommentsUrl = environment.appUrl+'/api/v1/complaint-comments';
 //    private complaintHistory = environment.appUrl+'/api/v1/complaints/complainthistory';
 
   constructor(private http: HttpClient,
@@ -42,4 +44,9 @@ export class ComplaintService {
  //getComplaintHistory(id: number): Observable<any>{
    // return this.http.get(`${this.complaintHistory}/${id}`, this.authenticationService.getHttpHeaders());
   //}
+
+
+  createComplaintComment(complaintComment: ComplaintComment): Observable<Object> {
+    return this.http.post(`${this.baseCommentsUrl}`, complaintComment);
+  }
 }

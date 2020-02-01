@@ -1,9 +1,9 @@
 
 .c-wrapper{
-    padding: 14px; 
-    border: 1px solid gray; 
-    margin: 0px;
-    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
+    padding: 5px;
+    /* box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025); */
+    margin-bottom: 4rem;
+    border: 1px solid beige;
 }
 
 
@@ -13,6 +13,11 @@
     margin-top:70px;
     margin-left:30px;
 }
+.c-header{
+    padding: 10px;
+    display: inline-flex;
+} 
+
 .brder{
     border:1px solid black;
 
@@ -23,22 +28,85 @@
     border:1px solid black; 
  }
 
- .u-pic{
-     width: 30px;
-     height: 30px;
-     border: 1px solid green;
+ .u-pic, .user-init-img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 3rem;
  }
 
- .c-subj,c-date,c-status{
-     font-size: 12px;
+ .c-subj{
+    font-size: 20px;
+    padding-left: 12px;
+    color: brown;
+    /* margin: 8px;*/
  }
-
-
- .c-header{
-     padding: 10px;
+ .c-type{
+    font-size: 20px;
+    padding-left: 12px;
  }
-
+ 
+ .c-status{
+    background-color: darkcyan;
+    color: white;
+    right: 36px;
+    position: absolute;
+    width: 62px;
+    padding: 4px;
+    border-radius: 11px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 8px;
+ } 
  .c-body{
      margin: 10px;
+ }
+ .c-body-desc{
+     margin-left: 15px ; 
+     margin-bottom: 8px; 
+ }
+ .c-body-comments{
+    
+ }
+ .c-comment{
+    padding: 10px;
+    display: inline-flex;
+ }
+ .c-my-comment{
+    width: 50%;
+    /* border: 1px solid green; */
+    /* position: absolute; */
+    left: 50%;
+    margin-left: 2prem;
+    margin-left: 10rem;
+ }
+ .c-comment-comments{
+    padding-left: 9px;
+ }
+ .c-comment-resolutionDate{
+
+ }
+ .c-comment-resolutionStatus{
+    background-color: darkcyan;
+    color: white;
+    right: 94px;
+    position: absolute;
+    width: 62px;
+    padding: 4px;
+    border-radius: 11px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 8px;
+ }
+ .c-reply{ 
+    right: 36px;
+    position: absolute; 
+    cursor: pointer; 
+ }
+ .c-reply:hover{
+     text-decoration: underline;
+ }
+ .c-btn{
+     margin: 5px;
+     padding: 5px;
  }
  

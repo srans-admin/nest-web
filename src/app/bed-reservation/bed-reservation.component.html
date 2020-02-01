@@ -94,6 +94,51 @@
       <floor-view [hostel]="selectedHostel" (onSelectedBedInfoEmitor)="onSelectedBedInfoEmited($event)"></floor-view>
 
 
+      <div class="selected-bed-info " *ngIf="isBedSelected">
+          <div class="row selected-bed-info-header">
+            <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Hosel</label>
+              <div class="name"> {{selectedBedInfo.hostelName}} </div>
+            </div>
+            <div class="col-md-6">
+              <label>Floor</label>
+              <div class="name">{{selectedBedInfo.bed.floorId}}</div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                <label>Room</label>
+                <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
+              </div>
+              <div class="col-md-6">
+                <label>Bed</label>
+                <div class="name">{{selectedBedInfo.bed.id}}</div>
+              </div>
+            </div> 
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Bed Position</label>
+                    <div class="name">{{selectedBedInfo.bed.position}} </div>
+                  </div>
+                <div class="col-md-6">
+                  <label>Room Rent</label>
+                  <div class="name">{{selectedBedInfo.roomRent}} </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                      <label>Room Sharing </label>
+                      <div class="name">{{selectedBedInfo.roomType}} </div>
+                    </div> 
+
+                </div>
+        </div>
+
     </div>
 
 
@@ -103,50 +148,7 @@
       <mat-tab label="Payment" *ngIf="isHostelPaymentReq">
 
 
-          <div class="selected-bed-info " *ngIf="isBedSelected">
-              <div class="row selected-bed-info-header">
-                <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Hosel</label>
-                  <div class="name"> {{selectedBedInfo.hostelName}} </div>
-                </div>
-                <div class="col-md-6">
-                  <label>Floor</label>
-                  <div class="name">{{selectedBedInfo.bed.floorId}}</div>
-                </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                    <label>Room</label>
-                    <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
-                  </div>
-                  <div class="col-md-6">
-                    <label>Bed</label>
-                    <div class="name">{{selectedBedInfo.bed.id}}</div>
-                  </div>
-                </div> 
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Bed Position</label>
-                        <div class="name">{{selectedBedInfo.bed.position}} </div>
-                      </div>
-                    <div class="col-md-6">
-                      <label>Room Rent</label>
-                      <div class="name">{{selectedBedInfo.roomRent}} </div>
-                    </div>
-
-                  </div>
-
-                  <div class="row">
-                      <div class="col-md-6">
-                          <label>Room Sharing </label>
-                          <div class="name">{{selectedBedInfo.roomType}} </div>
-                        </div> 
-
-                    </div>
-            </div>
+         
 
 
           <div class="tenant-form-1" style="width: 300px;">
