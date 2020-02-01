@@ -56,7 +56,8 @@ export class AppComponent {
              console.log("notifications: " + results);
              this.notifications = results; 
           }, err =>{ 
-            this.alertMessage.showFailedMsg(err.message); 
+            // this.alertMessage.showFailedMsg(err.message); 
+            console.log(err.message);
           });  
           
         }
@@ -108,11 +109,13 @@ export class AppComponent {
     }
      
     this.alertMessage.showHTMLMessage('Notifications', list); 
+    // console.log('Notifications', list);
     
     this.notificationService.inActivateNotifications(this.userInfo.userId).subscribe(results => {
       console.log("inactivated notifications: " + results); 
      }, err =>{ 
-        this.alertMessage.showFailedMsg(err.message); 
+        // this.alertMessage.showFailedMsg(err.message); 
+        console.log(err.message);
      });  
      this.notifications.length = null;
   }

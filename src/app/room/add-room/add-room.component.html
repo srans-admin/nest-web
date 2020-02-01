@@ -6,18 +6,17 @@
 
         <div class="room-body">
 
-        <label > <span class="glyphicon glyphicon-tags"></span> Room Type</label>
+        <label > <span class="glyphicon glyphicon-th"></span> Room Type</label>
         <select class="browser-default custom-select form-control"  [(ngModel)]="roomType">
             <option>Single</option>
             <option>Double</option>
             <option>Triple</option>
-            <option>Misc</option>
         </select> 
     
-        <label for="name"><span class="glyphicon glyphicon-tag"></span>  Number of Rooms</label>
+        <label for="name"><span class="glyphicon glyphicon-asterisk"></span>  Number of Rooms</label>
         <input type="number" class="form-control" [(ngModel)]="numOfRooms" >  
 
-        <label for="RoomNumbers"><span class="glyphicon glyphicon-list"></span> Room Numbers  <p class="notes"> Note: Please provide valid room numbers with comma seperated</p></label>    
+        <label for="RoomNumbers"><span class="glyphicon glyphicon-th-list"></span> Room Numbers  <p class="notes"> Note: Please provide valid room numbers with comma seperated</p></label>    
         <textarea class="form-control" [(ngModel)]="roomNumbers" ></textarea>
 
         <label for="name"><span class="glyphicon glyphicon-tag"></span>  Room Rent</label>
