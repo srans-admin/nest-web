@@ -22,7 +22,7 @@
                         <span class="room-name"> Room-{{room.roomName}} </span> 
                     </div>
                     <span *ngFor="let bed of room.beds">
-                            <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                            <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent, floor.floorName, room.roomName)" >
                                 <span class="bed bed-alloted" [ngClass]="{
                                     'bed-alloted-yes':bed.alloted === 'Y',
                                     'bed-alloted-no':bed.alloted === 'N' 
@@ -44,7 +44,7 @@
                                 <span class="room-name"> Room-{{room.roomName}} </span> 
                             </div>
                             <span *ngFor="let bed of room.beds">
-                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent, floor.floorName, room.roomName )" >
                                         <span class="bed bed-alloted" [ngClass]="{
                                             'bed-alloted-yes':bed.alloted === 'Y',
                                             'bed-alloted-no':bed.alloted === 'N'
@@ -64,7 +64,7 @@
                                 <span class="room-name"> Room-{{room.roomName}} </span> 
                             </div>
                             <span *ngFor="let bed of room.beds">
-                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType,room.roomRent)" >
+                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType,room.roomRent, floor.floorName, room.roomName)" >
                                         <span class="bed bed-alloted" [ngClass]="{
                                             'bed-alloted-yes':bed.alloted === 'Y',
                                             'bed-alloted-no':bed.alloted === 'N'
@@ -84,7 +84,7 @@
                                 <span class="room-name"> Room-{{room.roomName}} </span> 
                             </div>
                             <span *ngFor="let bed of room.beds">
-                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                                    <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent, floor.floorName, room.roomName)" >
                                         <span class="bed bed-alloted" [ngClass]="{
                                             'bed-alloted-yes':bed.alloted === 'Y',
                                             'bed-alloted-no':bed.alloted === 'N'
