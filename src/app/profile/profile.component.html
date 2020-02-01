@@ -22,6 +22,9 @@
           <h3>
             {{currentUser.name}}
           </h3>
+          <!-- <h4>
+            {{user.tenantbooking.hostelId}}
+          </h4> -->
           <!-- <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Update This </button> -->
           <button [disabled]="loading" class="btn btn-primary"  *ngIf="url" (click)="prepareUpload('userImage',$event)">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
@@ -65,7 +68,7 @@
       <mat-tab label="Personal">
         <div class="row" *ngIf="currentUser.userId">
           <div class="col-md-6">
-            <label>User Id</label>
+            <label>User Id :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.userId}}</p>
@@ -73,7 +76,7 @@
         </div>
         <div class="row" *ngIf="currentUser.name">
           <div class="col-md-6">
-            <label>Name</label>
+            <label>Name :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.name}}</p>
@@ -81,7 +84,7 @@
         </div>
         <div class="row" *ngIf="currentUser.contactNumber" >
           <div class="col-md-6">
-            <label>Phone Number</label>
+            <label>Phone Number :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.contactNumber}}</p>
@@ -89,7 +92,7 @@
         </div>
         <div class="row" *ngIf="currentUser.fatherName">
           <div class="col-md-6">
-            <label>Father Name</label>
+            <label>Father Name :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.fatherName}}</p>
@@ -97,7 +100,7 @@
         </div>
         <div class="row" *ngIf="currentUser.fatherphoneNumber">
           <div class="col-md-6">
-            <label>Father PhoneNumber</label>
+            <label>Father PhoneNumber :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.fatherphoneNumber}}</p>
@@ -105,7 +108,7 @@
         </div>
         <div class="row" *ngIf="currentUser.motherName">
           <div class="col-md-6">
-            <label>Mother Name</label>
+            <label>Mother Name :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.motherName}}</p>
@@ -113,7 +116,7 @@
         </div>
         <div class="row" *ngIf="currentUser.motherphoneNumber">
           <div class="col-md-6">
-            <label>Mother PhoneNumber</label>
+            <label>Mother PhoneNumber :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.motherphoneNumber}}</p>
@@ -121,7 +124,7 @@
         </div>
         <div class="row" *ngIf="currentUser.dob">
           <div class="col-md-6">
-            <label>Date of Birth</label>
+            <label>Date of Birth :</label>
           </div>
           <div class="col-md-6">
            <p>{{currentUser.dob}}</p>
@@ -129,7 +132,7 @@
         </div>
         <div class="row" *ngIf="currentUser.bloodGroup">
           <div class="col-md-6">
-           <label>Blood Group</label>
+           <label>Blood Group :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.bloodGroup}}</p>
@@ -137,7 +140,7 @@
         </div>
         <div class="row" *ngIf="currentUser.emergencyContactNumber">
           <div class="col-md-6">
-            <label>Emergency ContactNumber</label>
+            <label>Emergency ContactNumber :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.emergencyContactNumber}}</p>
@@ -145,7 +148,7 @@
         </div>
         <div class="row" *ngIf="currentUser.nameOfTheEmployer">
           <div class="col-md-6">
-           <label>Name Of The Employer</label>
+           <label>Name Of The Employer :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.nameOfTheEmployer}}</p>
@@ -153,7 +156,7 @@
         </div>
         <div class="row" *ngIf="currentUser.officeAddress">
           <div class="col-md-6">
-            <label>Office Address</label>
+            <label>Office Address :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.officeAddress}}</p>
@@ -161,7 +164,7 @@
         </div>
         <div class="row" *ngIf="currentUser.emailId">
           <div class="col-md-6">
-            <label>Email</label>
+            <label>Email :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.emailId}}</p>
@@ -169,7 +172,7 @@
         </div>
         <div class="row" *ngIf="currentUser.permanentAddress">
           <div class="col-md-6">
-           <label>Permanent Address</label>
+           <label>Permanent Address :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.permanentAddress}}</p>
@@ -177,7 +180,7 @@
         </div>
         <div class="row" *ngIf="currentUser.idProof">
           <div class="col-md-6">
-            <label>Id Proof</label>
+            <label>Id Proof :</label>
           </div>
           <div class="col-md-6">
             <p>{{currentUser.idProof}}</p>
@@ -185,41 +188,49 @@
         </div>
       </mat-tab>
 
-      <!-- <mat-tab label="Additional">
+      <mat-tab label="Additional">
         <div class="row">
           <div class="col-md-6">
-            <label>Hostel</label>
+            <label>Hostel Name :</label>
           </div>
           <div class="col-md-6">
-            <p>{{currentUser.hostelName}}</p>
+            <p>{{currentUser.tenantBooking.hostelId}}</p>
           </div>
         </div>
-        <div class="row">
+        <div class="row" >
           <div class="col-md-6">
-            <label>Hourly Rate</label>
+            <label>Room Number :</label>
           </div>
           <div class="col-md-6">
-            <p>10$/hr</p>
+            <p>{{currentUser.tenantBooking.roomId}}</p>
           </div>
 
         </div>
         <div class="row">
           <div class="col-md-6">
-            <label>Total Projects</label>
+            <label>Room Type :</label>
           </div>
           <div class="col-md-6">
-            <p>230</p>
+            <p>{{currentUser.tenantBooking.roomType}}</p>
           </div> 
         </div>
-        <div class="row">
+        <div class="row" >
           <div class="col-md-6">
-            <label>English Level</label>
+            <label>Bed Number :</label>
           </div>
           <div class="col-md-6">
-            <p>Expert</p>
+            <p>{{currentUser.tenantBooking.roomBedId}}</p>
           </div>
         </div>
         <div class="row">
+          <div class="col-md-6">
+            <label>Room Rent :</label>
+          </div>
+          <div class="col-md-6">
+            <p>{{currentUser.tenantBooking.roomRent}}</p>
+          </div>
+        </div>
+        <!-- <div class="row">
           <div class="col-md-6">
             <label>Availability</label>
           </div>
@@ -232,8 +243,8 @@
             <label>Your Bio</label><br/>
             <p>Your detail description</p>
           </div>
-        </div>
-      </mat-tab> -->
+        </div> -->
+      </mat-tab>
     </mat-tab-group>
     </div>
   </div>
