@@ -18,7 +18,7 @@
               <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
 
             <label><span class="glyphicon glyphicon-user"></span> Name:</label >
-            <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" value={{currentUser.name}}>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" >
 
             <label for="name"><span class="glyphicon glyphicon-mobile"></span> ContactNumber:</label>
             <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" >
