@@ -42,8 +42,17 @@
                <mat-datepicker #picker></mat-datepicker> 
               </span>
 
-            <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
-            <input type="text" class="form-control" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup">
+              <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
+              <select  class="browser-default custom-select" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup" >
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+              <option>O+</option>
+              <option>O-</option>
+              </select>
 
             <label for="name"><span class="glyphicon glyphicon-mobile"></span> Emergency Contact Number:</label>
             <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
@@ -161,16 +170,17 @@
 
           <label><span class="glyphicon glyphicon-user"></span> Payment Through:</label>
           <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="user.payment.paymentThrough" name=" paymentThrough">
-
-            <option selected>Cash</option>
-            <option ><a class="btn btn-info " (click)="addTransfer()"> <span class="glyphicon glyphicon-plus"></span>Bank Transfer </a></option>
+            <option value="CASH" selected="selected" >Cash</option>
+            <option value="BT"><a class="btn btn-info " (click)="addTransfer()"> <span class="glyphicon glyphicon-plus"></span>Bank Transfer </a></option>
           </select>
-
-          <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
-              <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
-
-          <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
-          <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
+  
+          <span *ngIf="user.payment.paymentThrough === 'BT'">
+            <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
+                <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
+      
+            <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
+            <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
+          </span>
 
         </div>
         <button type="submit" class="btn btn-success">Join Guest</button>
