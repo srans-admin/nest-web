@@ -12,9 +12,8 @@ import { User } from '../../_models/user';
 })
 export class AddComplaintComponent implements OnInit {
   private currentUser: User;
-  complaint: Complaint = new Complaint();
-  submitted = false;
-
+  private complaint: Complaint = new Complaint();
+  private submitted = false; 
 
   constructor(private complaintService: ComplaintService,
     private authenticationService: AuthenticationService,

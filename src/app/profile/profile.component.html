@@ -6,7 +6,7 @@
         <div class="profile-img">
 
             <img  [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""> <br/>
-            <input type='file' (change)="prepareUpload('userImage', $event)">
+            <input type='file' (change)="previewMyImage( $event)">
             
 
               <!-- <img src="{{userpic}}" /> -->
@@ -188,8 +188,12 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="Additional">
-        <div class="row" *ngIf="currentUser.tenantBooking === ADMIN">
+
+      
+
+      <mat-tab label="Hostel Info" *ngIf="currentUser.tenantBooking">
+        <div class="row">
+
           <div class="col-md-6">
             <label>Hostel Name :</label>
           </div>

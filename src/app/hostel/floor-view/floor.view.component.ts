@@ -53,11 +53,13 @@ export class FloorViewComponent implements OnInit {
     }
 
     //TODO Need to make sure we need to pass the info to the called : example: CreateUserComponent
-     onSelectedBed(bed : Bed,  roomType, roomRent : number){
+     onSelectedBed(bed : Bed,  roomType, roomRent : number,  floorName : string,  roomName: string){
          
        this.selectedBedInfo = { 
         "roomRent": roomRent,
         "roomType": roomType,
+        "floorName": floorName ,
+        "roomName": roomName, 
         "bed": bed
       }  
       

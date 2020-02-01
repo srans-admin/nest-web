@@ -168,7 +168,7 @@ onSelectedBedInfoEmited(selectedBedInfo: any){
   this.selectedBedInfo = selectedBedInfo;
   this.selectedBedInfo.hostelName = this.selectedHostel.hostelName;
 
-  window.confirm('Hostel Name : '+this.selectedBedInfo.hostelName+'\nRoom Num: '+this.selectedBedInfo.bed.roomId + '\nBed Num: '+this.selectedBedInfo.bed.id +' \nRoom Rent : '+this.selectedBedInfo.roomRent+' \nSharing : '+this.selectedBedInfo.roomType+' \nPlease confirm your booking !!');
+  window.confirm('Hostel Name : '+this.selectedBedInfo.hostelName+'\nFloor Num:'+this.selectedBedInfo.floorName+'\nRoom Num: '+this.selectedBedInfo.roomName + '\nBed Num: '+this.selectedBedInfo.bed.id +' \nRoom Rent : '+this.selectedBedInfo.roomRent+' \nSharing : '+this.selectedBedInfo.roomType+' \nPlease confirm your booking !!');
   this.user.payment.roomRent =  this.selectedBedInfo.roomRent;
   console.log('selectedBedInfo:'+selectedBedInfo.roomRent);
 
@@ -183,8 +183,11 @@ setTenantBooking(){
   this.tenantBooking.tenantId	= -1;
   if(this.selectedBedInfo){
     this.tenantBooking.hostelId  =	this.selectedBedInfo.bed.hostelId;
+    this.tenantBooking.hostelName  =	this.selectedBedInfo.hostelName;
     this.tenantBooking.floorId		=this.selectedBedInfo.bed.floorId;
+    this.tenantBooking.floorName		=this.selectedBedInfo.floorName;
     this.tenantBooking.roomId		=this.selectedBedInfo.bed.roomId;
+    this.tenantBooking.roomName		=this.selectedBedInfo.roomName;
     this.tenantBooking.roomBedId	=this.selectedBedInfo.bed.id;
     this.tenantBooking.roomRent	 =this.selectedBedInfo.roomRent;
     this.tenantBooking.roomType  =this.selectedBedInfo.bed.roomType;

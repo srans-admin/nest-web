@@ -11,8 +11,9 @@ import { AuthenticationService } from '../_auth/auth.service';
   export class VacateService{
 
     private baseUrl = environment.appUrl +'/api/v1/users/vacate';
+    private vacateNotificationUrl = environment.appUrl + '/api/v1/users/notifications';
     private userUrl = environment.appUrl + '/api/v1/users';
-    private tenantUrl = environment.appUrl + '/api/v1/users/{id}';
+    //private tenantUrl = environment.appUrl + '/api/v1/users/{id}';
 
     constructor(private http: HttpClient, 
                 private authenticationService: AuthenticationService) { }
@@ -23,22 +24,24 @@ import { AuthenticationService } from '../_auth/auth.service';
     }    
 
     // method related to get vacate requests to admin
-    getVacateRequest(adminId:number): Observable<any>{
-      return this.http.get(`${this.baseUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
+    // getVacateRequest(adminId:number): Observable<any>{
+    //   return this.http.get(`${this.baseUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
+    // }
+
+    getVacateRequests(adminId: number): Observable<any>{
+      return this.http.get(`${this.vacateNotificationUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
     }
 
     // method related to update vacate request by admin
     putVacateRequest(adminId:number): Observable<any>{
-      return this.http.get(`${this.baseUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
+      return this.http.get(`${this.baseUrl}/${adminId}`, this.authenticationService.getHttpHeaders());
     }
 
 
     // method related to user details like id, roomId etc
-    getUserDetails(id:number): Observable<any>{
-      return this.http.get(`${this.userUrl}/${id}`, this.authenticationService.getHttpHeaders());
-    }
+    //getUserDetails(id:number): Observable<any>{
+    //  return this.http.get(`${this.userUrl}/${id}`, this.authenticationService.getHttpHeaders());
+    //}
 
-    getTenantHostel(id:number): Observable<any>{
-      return this.http.get(`${this.tenantUrl}/${id}`, this.authenticationService.getHttpHeaders());
-    }
+     
   }

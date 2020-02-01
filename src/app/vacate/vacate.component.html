@@ -5,7 +5,7 @@
             <div class="col col-md-4">
                 <div>
                     <label><span class="glyphicon glyphicon-home"></span> Tenant Id </label>
-                    <input type="text" class="form-control custom-select" [(ngModel)]="vacate.tenantId" name="tenantId" readonly>
+                    <input type="text" class="form-control custom-select" [(ngModel)]="vacate.tenantId"  readonly>
                 </div><br/>
 
                 <label>
@@ -21,26 +21,28 @@
                     
                 <div>
                     <label><span class="glyphicon glyphicon-align-justify"></span> Floor </label>
-                    <input type="text" class="form-control custom-select"  [(ngModel)]="floorId" name="floorId" readonly>
+                    <input type="text" class="form-control custom-select"  [(ngModel)]="currentUser.tenantBooking.floorName"  readonly>
                 </div><br/>
 
                 <div>
                     <label><span class="glyphicon glyphicon-bed"></span> Bed </label>
-                    <input type="text" class="form-control custom-select"  [(ngModel)]="roomBedId" name="roomBedId" readonly>
+                    <input type="text" class="form-control custom-select"  [(ngModel)]="currentUser.tenantBooking.roomBedId"   readonly>
                 </div><br/>
             </div>
             <div class="col col-md-4">
                 <div>
                     <label><span class="glyphicon glyphicon-home"></span> Room </label>
-                    <input type="text" class="form-control custom-select"  [(ngModel)]="roomId" name="roomId" readonly>
+                    <input type="text" class="form-control custom-select"  [(ngModel)]="currentUser.tenantBooking.roomName"   readonly>
                 </div><br/>
 
                 <label>
                     <span class="glyphicon glyphicon-calendar"></span> Vacating Date 
                 </label>
                 <span class="date-picker">
+                    <!-- <input type="text" required [matDatepicker]="picker2" class="form-control custom-select" 
+                    required [(ngModel)]="vacate.date" name="date" [(ngModel)]="selectDate"> -->
                     <input type="text" required [matDatepicker]="picker2" class="form-control custom-select" 
-                    required [(ngModel)]="vacate.date" name="date">
+                    required [(ngModel)]="vacatingDate" name="vacatingDate" [(ngModel)]="selectDate" >
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>      
                     <mat-datepicker #picker2></mat-datepicker> 
                 </span>
@@ -51,11 +53,17 @@
                     <input type="text" class="form-control custom-select"  [(ngModel)]="roomRent" name="roomRent" readonly>
                 </div><br/>
             </div>
+            <div class="col col-md-4">
+                <div></div><br/>
+                <div></div><br/>
+                <div></div><br/>
+                <div></div><br/>
+                <div></div><br/>            
+                <button type="button" class="form-control custom-select btn btn-success ga" (click)="getRefundAmount()" [disabled]="!selectDate">
+                    Get Refund Amount
+                </button><br/>
+            </div>
         </div><br/>
-        <button type="button" class="form-control custom-select btn btn-success" (click)="getRefundAmount()">
-            Generate Refund Amount
-        </button>
-    <br/><br/>
     <div class="form-group">
             <div *ngIf="currentUser.role === 'ADMIN'">
                 <div>
@@ -76,7 +84,7 @@
 
             <div>
                 <label><span class="glyphicon glyphicon-bitcoin"></span> Total Amount </label>
-                <input type="text" class="form-control custom-select" [(ngModel)]="vacate.refundAmount" name="refundAmount">
+                <input type="text" class="form-control custom-select ta" [(ngModel)]="vacate.refundAmount" name="refundAmount">
             </div><br/>
 
             <div>
@@ -85,6 +93,6 @@
             </div><br/>
             <input type="checkbox" class="tc" name="TC" [(ngModel)]="checked"> I have read and agree the Terms and Conditions
     </div>
-    <div><button type="submit" class="form-control custom-select btn btn-success" [disabled]="!checked">Vacate Request</button><a routerLink="/profile" class="btn btn-link">Cancel</a></div>
+    <div><button [disabled]="loading" type="submit" class="form-control custom-select btn btn-success ga" [disabled]="!checked">Vacate Request</button><a routerLink="/profile" class="btn btn-link">Cancel</a></div>
 </form><br/>
 </div>

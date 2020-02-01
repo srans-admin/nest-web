@@ -6,16 +6,21 @@
       </div>
     </div>
     <br>
+    <!-- <div> <a> Recent complaints</a> <a> Open Complaints</a> <a> Closed Complaints</a></div> -->
   <div class="panel-body">
-       <div *ngFor="let complaintWrapper of complaintWrappers | async">
+
+       
+    <div *ngFor="let complaintWrapper of complaintWrappers">
 
       <div class="c-wrapper">
 
         <div class="c-header">
-          <div class="u-pic"> {{ complaintWrapper.complaint.userId }} </div>
-          <div class="c-subj"> {{ complaintWrapper.complaint.subject }} </div>
+          <div class="u-pic"> 
+              <img class="user-init-img" src="{{ complaintWrapper.complaint.userpic}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""/>  
+          </div>
+          <div class="c-subj"> {{ complaintWrapper.complaint.id}} - {{ complaintWrapper.complaint.subject }} </div>
           <div class="c-type"> {{ complaintWrapper.complaint.type }} </div>
-          <div class="c-date"> {{ complaintWrapper.complaint.date }} </div>
+          <div class="c-date"> {{ complaintWrapper.complaint.createdAt | date }} </div>
           <div class="c-status"> {{ complaintWrapper.complaint.status }} </div>
         </div>
         <div class="c-body">
@@ -25,10 +30,12 @@
           <div class="c-body-comments">
            <div *ngFor="let comment of complaintWrapper.complaintComments ">
              <div class="c-comment">
-              <div class="c-comment-u-pic">{{ comment.updatedByUserId }}</div>
-                <div class="c-comment-u-pic">{{ comment.comments }}</div>
-                <div class="c-comment-u-pic">{{ comment.resolutionDate }}</div>
-                <div class="c-comment-u-pic">{{ comment.resolutionStatus }}</div>
+              <div >
+                  <img class="user-init-img" src="{{ comment.userpic}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""/>  
+               </div>
+                <div class="c-comment-comments">{{ comment.comments }}</div>
+                <div class="c-comment-resolutionDate">{{ comment.resolutionDate | date }}</div>
+                <div class="c-comment-resolutionStatus">{{ comment.resolutionStatus }}</div>
 
 
              </div>
@@ -37,8 +44,25 @@
 
         </div>
         <div class="c-reply">
-          <a (click)="comment()"> reply</a>
+          <a (click)="comment(complaintWrapper.myComplaintComment)"> reply</a>
         </div>
+
+       
+        <div class="c-my-comment" *ngIf="complaintWrapper.myComplaintComment.enableMyReply">
+            <label>Your Comment: </label>
+          <textarea class="md-textarea form-control" [(ngModel)]="complaintWrapper.myComplaintComment.comments"></textarea>
+          <label>Status: </label>
+          <select  class="browser-default custom-select"   [(ngModel)]="complaintWrapper.myComplaintComment.resolutionStatus" >
+              <option *ngIf="currentUser.role === 'ADMIN'">INPROGRESS</option>
+              <option *ngIf="currentUser.role === 'ADMIN' || currentUser.role === 'TENANT'">RESOLVED</option>
+              <option *ngIf="currentUser.role === 'ADMIN'">CLOSED</option> 
+              <option *ngIf="currentUser.role === 'TENANT'">REOPEN</option> 
+              </select>
+          <button type="button" class="btn btn-info c-btn"  (click)="submitComment(complaintWrapper.myComplaintComment)"> Submit</button> 
+          <button type="button" class="btn btn-info c-btn"  (click)="cancelComment(complaintWrapper.myComplaintComment)"> Cancel</button> 
+
+        </div>
+
 
 
       </div>
@@ -46,30 +70,7 @@
     </div>
 
 
-
-
-
-     <div class="navbar navbar-light bg-light">
-    <div class="navbar-brand">
-      <a class="navbar-item">
-        <tr *ngFor="let complaintWrapper of complaintWrappers | async">
-            <td>{{ complaintWrapper.subject }}</td>
-            <td>{{ complaintWrapper.type }}</td>
-            <td>{{ complaintWrapper.status }}</td>
-        </tr>
-      </a>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <div class="container content has-text-centered">
-      <p>
-        <tr *ngFor="let complaint of complaints |  async">
-            <td>{{ complaintWrapper.description }}</td>
-        </tr>
-      </p>
-    </div>
-  </footer>
+ 
   </div>
 </div>
 
