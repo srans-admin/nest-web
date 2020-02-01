@@ -116,13 +116,13 @@ const routes: Routes = [
   { path: 'roms', component: ListRoomComponent},
 
   { path: 'user', component: UserListComponent, canActivate: [AuthGuard] },
-  { path: 'user/add', component: CreateUserComponent },
+  { path: 'user/add', component: CreateUserComponent  },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
 
   
   { path: 'guest', component: GuestListComponent, canActivate: [AuthGuard] },
-  { path: 'guest/add/:userId', component: CreateUserComponent }, 
+  { path: 'guest/add/:userId', component: CreateUserComponent  }, 
 
   { path: 'doughnut-chart', component: DoughnutChartComponent },
   { path: 'bar-chart', component: BarChartComponent },

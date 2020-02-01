@@ -27,6 +27,7 @@ export class User {
   oldPassword: string;
   newPassword: string;
   confirmPassword: string;
+  guestToTenant: string = 'N';
   
 
   tenantBooking: TenantBooking = new TenantBooking();

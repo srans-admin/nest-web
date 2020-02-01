@@ -138,7 +138,7 @@
             </div>
 
 
-
+ 
       <div class="selected-bed-info " *ngIf="isBedSelected">
           <div class="row selected-bed-info-header">
             <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
@@ -150,13 +150,13 @@
             </div>
             <div class="col-md-6">
               <label>Floor</label>
-              <div class="name">{{selectedBedInfo.bed.floorId}}</div>
+              <div class="name">{{selectedBedInfo.floorName}}</div>
             </div>
           </div>
           <div class="row">
               <div class="col-md-6">
                 <label>Room</label>
-                <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
+                <div class="name">{{selectedBedInfo.roomName}} </div>
               </div>
               <div class="col-md-6">
                 <label>Bed</label>
@@ -170,17 +170,17 @@
                   </div>
                 <div class="col-md-6">
                   <label>Room Rent</label>
-                  <div class="name">{{selectedBedInfo.roomRent}} </div>
+                  <div class="room-rent">INR {{selectedBedInfo.roomRent}} </div>
                 </div>
-
+                 
               </div>
-
+    
               <div class="row">
                   <div class="col-md-6">
                       <label>Room Sharing </label>
                       <div class="name">{{selectedBedInfo.roomType}} </div>
                     </div> 
-
+                   
                 </div>
         </div>
 

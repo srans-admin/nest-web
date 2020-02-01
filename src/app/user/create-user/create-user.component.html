@@ -214,7 +214,8 @@
             <br/>
         <button [disabled]="loading" class="btn btn-success">
               <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Join Tenant
+           <span *ngIf="id">Convert Guest to Tenant</span> 
+           <span *ngIf="!id">Join Tenant </span> 
         </button>
           <a routerLink="/user" class="btn btn-link">Cancel</a>
         </div>           

@@ -70,17 +70,21 @@ export class CreateUserComponent implements OnInit {
   }
 
   reloadData(){
-    this.userService.getTenant(this.id).subscribe(res => {
-      this.user = res;
-      this.user.payment = new Payment();
-    });
+    if(this.id){
+      this.userService.getTenant(this.id).subscribe(res => {
+        this.user = res;
+        this.user.payment = new Payment();
+      });
+    }
   }
 
-  save() {
-    
+  save() { 
     this.setTenantBooking();
     this.loading = true;
     this.user.payment.adminId = this.currentUser.userId;
+
+    this.user.guestToTenant = (this.id)? 'Y' : 'N';
+    this.user.role = "TENANT";
     this.userService.createUser(this.user)
       .subscribe(res => { 
         var obj : any =  res;  
