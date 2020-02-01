@@ -5,7 +5,7 @@
       <div class="col-md-4">
         <div class="profile-img">
 
-            <img  [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""> <br/>
+            <img  src="{{ userpic }}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""> <br/>
             <input type='file' (change)="previewMyImage( $event)">
             
 
