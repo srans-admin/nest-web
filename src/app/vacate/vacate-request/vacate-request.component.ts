@@ -64,7 +64,7 @@ export class VacateRequestComponent implements OnInit {
 
     // this.vacateService.getTenantHostel()
 
-    this.vacateService.getUserDetails(this.currentUser.userId).subscribe(result =>{
+    this.vacateService.getUserDetails(this.currentUser.tenantBooking.tenantId).subscribe(result =>{
       // console.log(result);
       this.res = result;
     })

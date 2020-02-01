@@ -18,6 +18,9 @@ export class NIDOSMessages {
   public UserRegistrationSuccess = "Registration successfull, an email and SMS will be sent with initial login credentials. If not please approach complaints@srans.in";
   public UserRegistrationFailed = "User Registration failed ";
 
+  public VacateRequestSuccess = "Your request sent successfully";
+  public VacateRequestFailure = "Your request sent Failure, Please send request again..! Thank You.";
+
   public NotificationMessage = " Notifications";
   
 }

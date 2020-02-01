@@ -12,6 +12,15 @@
     width: 17px; 
     height: 16px;
 }
+
+.ga{
+    width: 145px;    
+}
+
+.ta{
+    width:350px;
+}
+
  .generateInvoice{
     /* margin:auto;
     display:block; */

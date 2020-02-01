@@ -11,6 +11,7 @@ import { AuthenticationService } from '../_auth/auth.service';
   export class VacateService{
 
     private baseUrl = environment.appUrl +'/api/v1/users/vacate';
+    private vacateNotificationUrl = environment.appUrl + '/api/v1/users/notifications';
     private userUrl = environment.appUrl + '/api/v1/users';
     private tenantUrl = environment.appUrl + '/api/v1/users/{id}';
 
@@ -23,13 +24,17 @@ import { AuthenticationService } from '../_auth/auth.service';
     }    
 
     // method related to get vacate requests to admin
+    // getVacateRequest(adminId:number): Observable<any>{
+    //   return this.http.get(`${this.baseUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
+    // }
+
     getVacateRequest(adminId:number): Observable<any>{
-      return this.http.get(`${this.baseUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
+      return this.http.get(`${this.vacateNotificationUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
     }
 
     // method related to update vacate request by admin
     putVacateRequest(adminId:number): Observable<any>{
-      return this.http.get(`${this.baseUrl}?adminId=${adminId}`, this.authenticationService.getHttpHeaders());
+      return this.http.get(`${this.baseUrl}/${adminId}`, this.authenticationService.getHttpHeaders());
     }
 
 
