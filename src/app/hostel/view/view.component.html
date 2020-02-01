@@ -21,12 +21,25 @@
         <!-- Extended view headerpart -->
         <div class="hex-view-title">
             <img src="{{facadeImage}}" alt="" class="hostel-init-img" />
-            <div class="hex-view-basic-details">
+            <div class="hex-view-basic-details row">
                 <div class="hex-view-heading"><span class="glyphicon glyphicon-home"></span> {{hostel.hostelName}}</div>
-                <div class="hex-view-heading-sub"> {{hostel.hostelType}}</div>
-                <div class="hex-view-heading-sub"> {{hostel.hostelAddress}}</div>
-                <div class="hex-view-heading-sub"> {{hostel.numOfFloors}}</div>
-                <div class="hex-view-heading-sub"> {{rooms}}</div>
+                <div class="col-md-6">
+                    <div class="hex-view-heading-sub"> <h4> Type </h4></div>
+                    <div class="hex-view-heading-sub"> <h4> Address </h4></div>
+                    <div class="hex-view-heading-sub"> <h4> Floors </h4></div>
+                    <div class="hex-view-heading-sub"> <h4> Rooms </h4></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="hex-view-heading-sub"> <h4> :{{hostel.hostelType}} </h4></div>
+                    <div class="hex-view-heading-sub"> <h4> :{{hostel.hostelAddress}} </h4></div>
+                    <div class="hex-view-heading-sub"> <h4> :{{hostel.numOfFloors}} </h4></div>
+                    <div class="hex-view-heading-sub"> <h4> :{{rooms}} </h4></div>
+                </div>
+                <!-- <div class="hex-view-heading"><span class="glyphicon glyphicon-home"></span> {{hostel.hostelName}}</div>
+                <div class="hex-view-heading-sub"> <h4> {{hostel.hostelType}}</h4></div>
+                <div class="hex-view-heading-sub"> <h4> Address: {{hostel.hostelAddress}}</h4></div>
+                <div class="hex-view-heading-sub"> <h4> No. Of Floors: {{hostel.numOfFloors}}</h4></div>
+                <div class="hex-view-heading-sub"> <h4> No. Of Rooms: {{rooms}}</h4></div> -->
                 <!-- <div class="hex-view-heading-sub"> Floors : {{hostel.numOfFloors}}</div> -->
                 <!-- <div class="hex-view-heading-sub"> Rooms: {{hostel.roomNumbers}}</div> -->
             </div>

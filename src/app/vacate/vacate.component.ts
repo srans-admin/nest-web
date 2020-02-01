@@ -46,6 +46,8 @@ export class VacateComponent implements OnInit {
   private roomRent: number;
 
   private checked: boolean = false;
+  private selectDate: boolean = false;
+  private loading: boolean = false;
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
@@ -53,8 +55,7 @@ export class VacateComponent implements OnInit {
               private alertMessage: AlertMessage,
               private nIDOSMessages: NIDOSMessages) { 
 
-                this.currentUser = this.authenticationService.currentUser;
-                                
+                this.currentUser = this.authenticationService.currentUser;                                
                 this.getUserData();
                 
               }
@@ -63,20 +64,18 @@ export class VacateComponent implements OnInit {
   }
 
   onSubmit(){
-    // this.getRefundAmount();
-    this.vacateTenant();  
-     
+    this.vacateTenant();
   }
 
   vacateTenant(){
-    
+    this.loading = true;
     this.vacateService.createVacate(this.vacate).subscribe( res => {
         console.log(res);
-        this.alertMessage.showSuccessMsg(  'Vacation request sent to administrator, please check your email for more information. Keep look at Vaction Status.');
+        this.alertMessage.showSuccessMsg(this.nIDOSMessages.VacateRequestSuccess);
         this.goToHome();
       },  
       err => {  
-        this.alertMessage.showFailedMsg( this.nIDOSMessages.HostelCreationFailed + err.message );
+        this.alertMessage.showFailedMsg(this.nIDOSMessages.VacateRequestFailure + err.message );
       });
     
   } 
@@ -86,19 +85,20 @@ export class VacateComponent implements OnInit {
     this.diffTime = Math.abs(this.vacatingDate.getTime() - this.informingDate.getTime());
     this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));
     this.depositAmount = this.currentUser.tenantBooking.roomRent;
-    this.perDayAmount = this.depositAmount / 30;
+    this.perDayAmount = Math.ceil(this.depositAmount / 30);
 
       if((this.diffDays >= this.informDays) && (this.vacatingDate > this.informingDate)){
 
-        this.vacate.refundAmount = this.depositAmount - this.maintainanceCharges;
+        this.vacate.refundAmount = Math.ceil(this.depositAmount - this.maintainanceCharges);
+        
       }
-      else if((this.diffDays <= this.informDays) || (this.vacatingDate < this.informingDate) ){
+      else if((this.diffDays < this.informDays) || (this.vacatingDate < this.informingDate) ){
 
         this.diffTime = Math.abs(this.informingDate.getTime() - this.vacatingDate.getTime());
         this.diffDays = Math.ceil(this.diffTime/(1000 * 3600 * 24));
 
         this.amountToDeduct = this.diffDays * this.perDayAmount;
-        this.vacate.refundAmount = this.depositAmount - this.maintainanceCharges - this.amountToDeduct;
+        this.vacate.refundAmount = Math.ceil(this.depositAmount - this.maintainanceCharges - this.amountToDeduct);
 
       }
       else{
