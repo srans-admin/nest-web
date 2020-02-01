@@ -21,4 +21,8 @@ export class ProfileService {
       return this.http.get(`${this.baseUrl}/${id}`, this.authenticationService.getHttpHeaders());
     }
 
+    // getUserDetails(adminId: number, type:string): Observable<any>{
+    //   return this.http.get(`${this.baseUrl}?id=${adminId}&type=${type}`, this.authenticationService.getHttpHeaders());
+    // }
+    
 }

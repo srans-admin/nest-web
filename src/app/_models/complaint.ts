@@ -7,5 +7,6 @@ export class Complaint{
     description: string;
     adminId: number
     date: string;
+    userpic: any;
 
 }

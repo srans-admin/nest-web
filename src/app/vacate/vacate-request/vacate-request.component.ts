@@ -47,29 +47,16 @@ export class VacateRequestComponent implements OnInit {
 
       this.currentUser = this.authenticationService.currentUser;
                                 
-      this.getNotificationData();
+      this.loadVacationRequests();
     }
 
   ngOnInit() {
   }
 
 
-  getNotificationData(){
+  loadVacationRequests(){
 
-    this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role).subscribe(results =>{
-      // console.log(results);
-      this.hostels = results;      
-      this.hostelName = this.hostels.hostelName;
-    })
-
-    // this.vacateService.getTenantHostel()
-
-    this.vacateService.getUserDetails(this.currentUser.tenantBooking.tenantId).subscribe(result =>{
-      // console.log(result);
-      this.res = result;
-    })
-
-    this.vacateService.getVacateRequest(this.currentUser.userId).subscribe(res => {
+    this.vacateService.getVacateRequests(this.currentUser.userId).subscribe(res => {
       // console.log(res);
       this.a = res;
       this.requests = res;
@@ -77,13 +64,28 @@ export class VacateRequestComponent implements OnInit {
         this.tenantId = this.requests[j].tenantId;
         this.id = this.tenantId;
       }
+
+    // this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role).subscribe(results =>{
+    //   
+    //   this.hostels = results;      
+    //   this.hostelName = this.hostels.hostelName;
+    // })
+
+    // this.vacateService.getTenantHostel()
+
+    // this.vacateService.getUserDetails(this.currentUser.tenantBooking.tenantId).subscribe(result =>{
+    //   // console.log(result);
+    //   this.res = result;
+    // })
+
+    
       
     });
 
-    this.vacateService.getTenantHostel(this.id).subscribe(result => {
-      console.log(result);
-      this.info = result;
-    });
+    // this.vacateService.getTenantHostel(this.id).subscribe(result => {
+    //   console.log(result);
+    //   this.info = result;
+    // });
 
   }
 

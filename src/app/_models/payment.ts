@@ -1,3 +1,4 @@
+// import { User } from './user';
 export class Payment{
     id: number;
     userId: number;
@@ -12,4 +13,6 @@ export class Payment{
     discountAmount:number = 0;
     amountPaid : number;
     adminId: number;
+
+    // user: User = new User();
 }
