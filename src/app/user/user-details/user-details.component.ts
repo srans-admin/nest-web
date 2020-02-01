@@ -4,6 +4,7 @@ import { UserService } from '../../_services/user.service';
 import { UserListComponent } from '../user-list/user-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../_auth/auth.service';
+import { HostelService } from '../../_services/hostel.service';
 
 @Component({
   selector: 'app-user-details',

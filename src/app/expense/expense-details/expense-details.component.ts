@@ -11,8 +11,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ExpenseDetailsComponent implements OnInit {
 
-  id: number;
-  expense: Expense;
+  private id: number;
+  private expense: Expense;
+  private info: any;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private expenseService: ExpenseService) { }
@@ -26,6 +27,7 @@ export class ExpenseDetailsComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.expense = data;
+        // this.info = this.expense.
       }, error => console.log(error));
   }
 
