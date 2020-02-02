@@ -52,12 +52,12 @@ sup {
   background-color: red;
 }
 .user-info{
-    color: white;
-    position: relative;
-    top: 9px;
+    /* color: white; */
+    position: relative; 
     left: -17px; 
 }
 .role-info{
     font-size: x-small;
 }
+ 
  

@@ -1,48 +1,15 @@
- <!-- Sidebar -->
- 
- <ul class="sidebar navbar-nav">
- 
+<div class="menu_part"> 
 
-    <li class="nav-item">
-        <a class="nav-link" routerLink="hostels">
-                <span class="glyphicon glyphicon-user"></span>
-                <span class="nav-title"> Our Hostels </span>
-        </a>
-   </li>  
-
-    <li class="nav-item">
-        <a class="nav-link" routerLink="profile">
-                <span class="glyphicon glyphicon-envelope"></span>
-                <span class="nav-title"> Profile</span></a>
-    </li>
-
-
-    <li class="nav-item">
-            <a class="nav-link" routerLink="paymentHistory">
-                    <span class="glyphicon glyphicon-folder-close"></span>
-                    <span class="nav-title"> Payments </span></a>
-    </li>
-
-    <!-- <li class="nav-item">
-                <a class="nav-link" routerLink="vacateMe">
-                        <span class="glyphicon glyphicon-user"></span>
-                        <span class="nav-title"> Vacate Me </span></a>
-        </li> -->
-
-
-
-    <li class="nav-item">
-            <a class="nav-link" routerLink="complaint">
-                    <span class="glyphicon glyphicon-envelope"></span>
-                    <span class="nav-title"> Complaints</span></a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" routerLink="contacts">
-                <span class="glyphicon glyphicon-phone"></span>
-                <span class="nav-title"> Important Contacts </span>
-        </a>
-    </li>
-
-
-</ul>
+<div class="toplogo">
+        <img src="assets/imges/logo.svg" class="logo_img" />
+</div>
+<div class="main_menu" (click)='selectMe($event)' >
+        
+<div  class="menu_item f14 p-0 m-0 " routerLink="profile" [ngClass]="{'active': selectedItemId === 'PR'}" id="PR"  > Profile </div> 
+<div  class="menu_item f14 p-0 m-0 " routerLink="hostels" [ngClass]="{'active': selectedItemId === 'HS'}" id="HS"  >  Our Hostels </div>
+<div  class="menu_item f14 p-0 m-0 " routerLink="paymentHistory" [ngClass]="{'active': selectedItemId === 'PH'}" id="PH" >  Payments </div>
+<div  class="menu_item f14 p-0 m-0 " routerLink="complaint" [ngClass]="{'active': selectedItemId === 'CM'}" id="CM" >  Complaints </div>
+<div  class="menu_item f14 p-0 m-0 " routerLink="contacts" [ngClass]="{'active': selectedItemId === 'IC'}" id="IC" >  Important Contacts  </div>
+      
+</div>
+</div>

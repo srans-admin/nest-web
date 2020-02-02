@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="339" height="217.676" viewBox="0 0 339 217.676">
+  <g id="Group_405" data-name="Group 405" transform="translate(-3701 440.735)">
+    <rect id="Rectangle_1690" data-name="Rectangle 1690" width="339" height="175" transform="translate(3701 -419)" fill="rgba(255,255,255,0)"/>
+    <g id="Group_404" data-name="Group 404" transform="translate(2697 -595.332)">
+      <path id="Path_3770" data-name="Path 3770" d="M1557.041,55.645v.006a73.248,73.248,0,0,0,73.25,73.244v4.071a77.319,77.319,0,0,1-77.321-77.315v-.006a77.319,77.319,0,0,1,77.321-77.315V-17.6A73.248,73.248,0,0,0,1557.041,55.645Z" transform="translate(-460.97 207.784)" fill="#59b2e3" opacity="0.616"/>
+      <path id="Path_3765" data-name="Path 3765" d="M1767.933,53.871a80.1,80.1,0,0,1-80.1,80.1V122.155a68.286,68.286,0,0,0,0-136.572V-26.235A80.1,80.1,0,0,1,1767.933,53.871Z" transform="translate(-513.64 209.567)" fill="#00c496"/>
+      <g id="Group_401" data-name="Group 401">
+        <g id="Group_400" data-name="Group 400">
+          <path id="Path_3766" data-name="Path 3766" d="M1557.041,55.645v.006a73.248,73.248,0,0,0,73.25,73.244v4.071a77.319,77.319,0,0,1-77.321-77.315v-.006a77.319,77.319,0,0,1,77.321-77.315V-17.6A73.248,73.248,0,0,0,1557.041,55.645Z" transform="translate(-460.97 207.784)" fill="#59b2e3"/>
+          <path id="Path_3767" data-name="Path 3767" d="M1630.291-21.67V-17.6a73.248,73.248,0,0,0-73.25,73.244v.006h-4.071v-.006A77.319,77.319,0,0,1,1630.291-21.67Z" transform="translate(-460.97 207.784)" fill="#f99d3c"/>
+          <path id="Path_3768" data-name="Path 3768" d="M1767.933,53.871a80.1,80.1,0,0,1-80.1,80.1V122.155a68.286,68.286,0,0,0,0-136.572V-26.235A80.1,80.1,0,0,1,1767.933,53.871Z" transform="translate(-513.64 209.567)" fill="#00c496" opacity="0.403"/>
+        </g>
+        <g id="Group_366" data-name="Group 366" transform="translate(0 6)">
+          <text id="Occupied" transform="translate(1144 256)" fill="#1c1c1c" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Occupied</tspan></text>
+          <text id="_81_" data-name="81%" transform="translate(1158 274)" fill="#1c1c1c" font-size="12" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">81%</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

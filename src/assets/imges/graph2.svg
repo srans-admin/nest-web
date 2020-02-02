@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="524.343" height="226" viewBox="0 0 524.343 226">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#59b2e3"/>
+      <stop offset="1" stop-color="#59e38e"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-9" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#434343"/>
+      <stop offset="1" stop-color="#969696"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_406" data-name="Group 406" transform="translate(-463 -585)">
+    <rect id="Rectangle_1571" data-name="Rectangle 1571" width="182" height="26" transform="translate(476 785)" fill="#efefef" opacity="0.394"/>
+    <rect id="Rectangle_1552" data-name="Rectangle 1552" width="4" height="101" rx="2" transform="translate(479 632)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_1555" data-name="Rectangle 1555" width="5" height="140" rx="2.5" transform="translate(540 593)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_1557" data-name="Rectangle 1557" width="6" height="104" rx="3" transform="translate(602 629)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_1558" data-name="Rectangle 1558" width="6" height="57" rx="3" transform="translate(674 676)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_1561" data-name="Rectangle 1561" width="5" height="104" rx="2.5" transform="translate(737 629)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_1563" data-name="Rectangle 1563" width="6" height="148" rx="3" transform="translate(795 585)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_1565" data-name="Rectangle 1565" width="6" height="122" rx="3" transform="translate(855 611)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_1566" data-name="Rectangle 1566" width="5" height="80" rx="2.5" transform="translate(917 653)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_1553" data-name="Rectangle 1553" width="5" height="60" rx="2.5" transform="translate(491 673)" fill="url(#linear-gradient-9)"/>
+    <rect id="Rectangle_1554" data-name="Rectangle 1554" width="5" height="99" rx="2.5" transform="translate(552 634)" fill="url(#linear-gradient-9)"/>
+    <rect id="Rectangle_1556" data-name="Rectangle 1556" width="5" height="81" rx="2.5" transform="translate(614 652)" fill="url(#linear-gradient-9)"/>
+    <rect id="Rectangle_1559" data-name="Rectangle 1559" width="6" height="45" rx="3" transform="translate(686 688)" fill="url(#linear-gradient-9)"/>
+    <rect id="Rectangle_1560" data-name="Rectangle 1560" width="5" height="81" rx="2.5" transform="translate(749 652)" fill="url(#linear-gradient-9)"/>
+    <rect id="Rectangle_1562" data-name="Rectangle 1562" width="6" height="116" rx="3" transform="translate(807 617)" fill="url(#linear-gradient-9)"/>
+    <rect id="Rectangle_1564" data-name="Rectangle 1564" width="4" height="57" rx="2" transform="translate(867 676)" fill="url(#linear-gradient-9)"/>
+    <rect id="Rectangle_1567" data-name="Rectangle 1567" width="5" height="70" rx="2.5" transform="translate(929 663)" fill="url(#linear-gradient-9)"/>
+    <line id="Line_42" data-name="Line 42" x2="523.04" transform="translate(463 619.852)" fill="none" stroke="#707070" stroke-width="1" stroke-dasharray="2"/>
+    <line id="Line_43" data-name="Line 43" x2="523.04" transform="translate(464.303 665.464)" fill="none" stroke="#707070" stroke-width="1" stroke-dasharray="2"/>
+    <line id="Line_44" data-name="Line 44" x2="523.04" transform="translate(463 711.076)" fill="none" stroke="#707070" stroke-width="1" stroke-dasharray="2"/>
+    <text id="Mon" transform="translate(476 759)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Mon</tspan></text>
+    <text id="Expences" transform="translate(504 802)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Expences</tspan></text>
+    <text id="Income" transform="translate(575 802)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Income</tspan></text>
+    <text id="Tue" transform="translate(539 759)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Tue</tspan></text>
+    <text id="Wed" transform="translate(599 759)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Wed</tspan></text>
+    <text id="Thu" transform="translate(672 759)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Thu</tspan></text>
+    <text id="Fri" transform="translate(739 759)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Fri</tspan></text>
+    <text id="Sat" transform="translate(794 759)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Sat</tspan></text>
+    <text id="Sun" transform="translate(852 759)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Sun</tspan></text>
+    <text id="Mon-2" data-name="Mon" transform="translate(914 759)" fill="#4d4f5c" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Mon</tspan></text>
+    <rect id="Rectangle_1569" data-name="Rectangle 1569" width="11" height="11" transform="translate(489 793)" fill="#59b2e3"/>
+    <rect id="Rectangle_1570" data-name="Rectangle 1570" width="11" height="11" transform="translate(560 793)" fill="#59e091"/>
+  </g>
+</svg>

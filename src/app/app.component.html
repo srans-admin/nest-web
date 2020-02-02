@@ -1,33 +1,44 @@
-<div class="app-haeader">
-        <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-                <a class="navbar-brand " href="index.html"> <span class="logo">  <img src="favicon.ico" /> NIDOS  </span>  </a>
-                <span *ngIf="userInfo" class="user-info" > {{userInfo.name}} <span class="role-info">({{userInfo.role}})</span></span>
+<div class="page">
+        <div class="leftmenu" *ngIf="userInfo">
+                <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin>
+                <app-dashboard-admin *ngIf="isAdmin"></app-dashboard-admin>
+                <app-dashboard-user *ngIf="isTenant"></app-dashboard-user>
+                <app-dashboard-guest *ngIf="isGuest"></app-dashboard-guest>
 
-                <span *ngIf="userInfo" class="align-right">
-                        
-                        <div class="header-card" (click)="showNotifications()" title="Notifications" *ngIf="!isGuest"> 
-                                <span class="glyphicon glyphicon-bell">
-                                        <sup><span class="badge badgePosition" >{{notifications.length}}</span></sup>
-                                </span> 
-                        </div>               
- 
+        </div>
+        <div class="right_section">
+                <div class="header_part">
+                        <div *ngIf="userInfo" class="top_nav" > 
+                                <span class="user-info"> Welcome {{userInfo.name}} <span
+                                                class="role-info">({{userInfo.role}})</span></span> 
 
-                        <div class="header-card" (click)="profile()" title="profile"> <span class="glyphicon glyphicon-user"></span> </div>
-                        <div class="header-card" (click)="logout()" title="logout">  <span class="glyphicon glyphicon-off"></span></div>
-                </span>
-        </nav> 
+                                <div title="Notifications"
+                                        class="icon_box align-items-center justify-content-center d-flex"
+                                        (click)="showNotifications()">
+                                        <div class="icon_box align-items-center justify-content-center d-flex">
+                                                <div class="notify_number">
+                                                        <p class="mt-0-mb-0 f12 font-weight-bold"
+                                                                style="color: #ffffff;">{{notifications.length}}</p>
+                                                </div>
+                                                <span class="glyphicon glyphicon-bell"></span>
+                                                <!-- <img src="assets/imges/notification.svg" width="20px" /> -->
+                                        </div>
+                                </div>
+                                <div title="profile" class="icon_box align-items-center justify-content-center d-flex"
+                                        (click)="profile()">
+                                        
+                                        <span class="glyphicon glyphicon-user"></span>
+                                        <!-- <img width="20px" src="assets/imges/comments.svg " /> -->
+                                </div>
+                                <div title="logout" class="icon_box align-items-center justify-content-center d-flex"
+                                        (click)="logout()">
+                                        <span class="glyphicon glyphicon-off"></span>
+                                        <!-- <img src="assets/imges/settings1.svg" width="20px" /> -->
+                                </div> 
+                        </div>
+
+                </div>
+
+                <router-outlet></router-outlet>
+        </div>
 </div>
-<div  class="app-view">
-
-<div class="side-bar"> 
-        <app-dashboard-superadmin *ngIf="isSuperAdmin"> </app-dashboard-superadmin>  
-        <app-dashboard-admin *ngIf="isAdmin"></app-dashboard-admin> 
-        <app-dashboard-user *ngIf="isTenant"></app-dashboard-user>
-        <app-dashboard-guest *ngIf="isGuest"></app-dashboard-guest>
-                
-</div>  
-<div class="app-body">
-        <router-outlet></router-outlet>
-</div> 
-</div>
-

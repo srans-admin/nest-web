@@ -1,32 +1,16 @@
+<div class="menu_part"> 
 
- <ul class="sidebar navbar-nav">  
-         
-        <li class="nav-item">
-                <a class="nav-link" routerLink="hostels">
-                        <span class="glyphicon glyphicon-user"></span>
-                        <span class="nav-title"> Our Hostels </span>
-                </a>
-        </li>  
+<div class="toplogo">
+        <img src="assets/imges/logo.svg" class="logo_img" />
+</div>
+<div class="main_menu" (click)='selectMe($event)' >
+        
+<div  class="menu_item f14 p-0 m-0 " routerLink="profile" [ngClass]="{'active': selectedItemId === 'PR'}" id="PR"  > Profile </div> 
+<div  class="menu_item f14 p-0 m-0 " routerLink="hostels" [ngClass]="{'active': selectedItemId === 'HS'}" id="HS"  >  Our Hostels </div>
+<div  class="menu_item f14 p-0 m-0 " routerLink="reservation" [ngClass]="{'active': selectedItemId === 'RN'}" id="RN" >  Reservation </div>
+<div  class="menu_item f14 p-0 m-0 " routerLink="contacts" [ngClass]="{'active': selectedItemId === 'IC'}" id="IC" >  Important Contacts  </div>
+        
+</div>
+</div>
+
  
-        <li class="nav-item">
-            <a class="nav-link" routerLink="profile">
-                    <span class="glyphicon glyphicon-user"></span>
-                    <span class="nav-title"> Profile </span>
-            </a>
-        </li>
-         
-        <li class="nav-item">
-            <a class="nav-link" routerLink="reservation">
-                    <span class="glyphicon glyphicon-inbox"></span>
-                    <span class="nav-title" > Reservation </span>
-            </a>
-       </li>
-    
-        <li class="nav-item">
-            <a class="nav-link" routerLink="contacts">
-                    <span class="glyphicon glyphicon-phone"></span>
-                    <span class="nav-title"> Important Contacts </span>
-            </a>
-         </li>
-    </ul>
-    
