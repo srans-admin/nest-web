@@ -1,7 +1,7 @@
 .barchart-display{
-    box-shadow: inset 0px 2px 1px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
+    /* box-shadow: inset 0px 2px 1px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025); */
     padding: 10px;
-    border: solid 1px #ddd;
+    /* border: solid 1px #ddd; */
     height: 100%;
     padding: 20px;
     color: #ddd;

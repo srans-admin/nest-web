@@ -20,13 +20,11 @@
     margin-top: -26px;
 }
 .floor-select{
-    /* width: 50%; */
-    padding: 11px;
+    padding-bottom: 11px; 
+    padding-top: -1px;
     border: solid 1px #ddd;
-    background: #fff;
-    color: #bbb;
-    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025)
-    
+    background: #fff; 
+    margin-bottom: 10px;
 }
 .room-select{
     width: 103px;
@@ -45,21 +43,17 @@ label{
 }
 .floor-header{
     width: 100%;
-    background-color: #001f3f;
+    background-color: #59B2E3;
     display: inline-block;
     color: white;
     padding: 6px 7px 7px 14px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 .floor-name{  
     margin-right: 20px; 
 }
 .room-box, .sub-room-box{
-    /* padding: 12px; */
-    border: solid 1px #ddd;
-    background: #fff;
-    color: #bbb;
-    box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
+    padding: 6px;
 }
 .sub-room-box{
     display: inline-grid;
@@ -148,4 +142,9 @@ label{
 .bed-alloted-now{
     background-color: green;
     color: whitesmoke;
+}
+.no-msg{
+    padding-left: 5px;
+    color: whitesmoke;
+    background-color: #59B2E3;
 }

@@ -71,9 +71,9 @@
 
 .header_part {
     width: 100%;
-    height: 100px;
+    height: 55px;
     background-color: #ffffff;
-    min-height: 100px;
+    /* min-height: 100px; */
 }
 
 .content_part {
@@ -205,6 +205,7 @@
     height: 100%;
     background-color: #ffffff;
     padding: 20px;
+    border-radius: 3px;
 }
 
 .element {
@@ -584,10 +585,10 @@
     background-color: #59B2E3;
     border: none;
     color: white;
-    padding: 12px 16px;
+    padding: 6px 15px;
     font-size: 16px;
     cursor: pointer;
-    height: 35px;
+    height: 35px; 
 }
 
 .menu_part {
@@ -632,6 +633,8 @@
 .hostel_card {
     height: 260px;
     padding: 0px;
+    cursor: pointer;
+    margin-bottom: 15px;
 }
 
 .card_image {
@@ -766,3 +769,7 @@ h-line1 {
     right: 0px;
     background-color: #dcdcdc;
 }
+.hostel-info{
+    padding-left: 28px !important;
+    margin-top: -13px;
+ }
