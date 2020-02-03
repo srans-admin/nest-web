@@ -63,7 +63,7 @@
     <div class="row">
       <div class="col-md-4">
       </div>
-    <div class="col-md-8">
+    <!-- <div class="col-md-8"> -->
     <mat-tab-group>
       <mat-tab label="Personal">
         <div class="row" *ngIf="currentUser.userId">
@@ -198,7 +198,7 @@
             <label>Hostel Name :</label>
           </div>
           <div class="col-md-6">
-            <p>{{currentUser.tenantBooking.hostelId}}</p>
+            <p>{{currentUser.tenantBooking.hostelName}}</p>
           </div>
         </div>
         <div class="row" >
@@ -206,7 +206,7 @@
             <label>Room Number :</label>
           </div>
           <div class="col-md-6">
-            <p>{{currentUser.tenantBooking.roomId}}</p>
+            <p>{{currentUser.tenantBooking.roomName}}</p>
           </div>
 
         </div>
@@ -215,7 +215,7 @@
             <label>Room Type :</label>
           </div>
           <div class="col-md-6">
-            <p>{{currentUser.tenantBooking.roomType}}</p>
+            <p>{{currentUser.tenantBooking.sharing}}</p>
           </div> 
         </div>
         <div class="row" >
@@ -231,7 +231,7 @@
             <label>Room Rent :</label>
           </div>
           <div class="col-md-6">
-            <p>{{currentUser.tenantBooking.roomRent}}</p>
+            <p>INR {{currentUser.tenantBooking.roomRent}}</p>
           </div>
         </div>
         <!-- <div class="row">
@@ -250,7 +250,7 @@
         </div> -->
       </mat-tab>
     </mat-tab-group>
-    </div>
+    <!-- </div> -->
   </div>
 
 </form>
