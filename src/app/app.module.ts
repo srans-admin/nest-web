@@ -112,6 +112,7 @@ import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.c
 
 import { ApproveRequestComponent } from './vacate/approve-request/approve-request.component';
  
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -206,7 +207,8 @@ import { ApproveRequestComponent } from './vacate/approve-request/approve-reques
     VacateRequestComponent,
 
     ApproveRequestComponent,
-    
+
+
   ],
   imports: [
    BrowserModule,
@@ -221,7 +223,8 @@ import { ApproveRequestComponent } from './vacate/approve-request/approve-reques
     ChartsModule,
     NgbModule,
     MatDatepickerModule,
-    MatNativeDateModule, 
+    MatNativeDateModule,
+    NgxPaginationModule,
     ToastrModule.forRoot()
     // MatFormField
   ],
