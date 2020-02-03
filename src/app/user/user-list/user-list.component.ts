@@ -26,6 +26,9 @@ export class UserListComponent implements OnInit {
   private currentUser: User;
   private type: string = 'TENANT';
 
+   p: Number = 1;
+  count: Number = 10;
+
   constructor(private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,private matcheckbox: MatCheckboxModule, 

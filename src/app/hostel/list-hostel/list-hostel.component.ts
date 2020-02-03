@@ -25,9 +25,12 @@ export class ListHostelComponent implements OnInit {
   private extendingviews: Observable<Hostel[]>;
   private searchTerm: string;
   private acknoldgmentMsg : string = null; 
-   
+
   private extendedViewUrl = environment.appUrl+ '/api/v1/hostels/{id}/extendingviews';
-  
+
+   p: Number = 1;
+  count: Number = 5;
+
   constructor(private hostelService: HostelService,
     private router: Router,
     private authenticationService: AuthenticationService,

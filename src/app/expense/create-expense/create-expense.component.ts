@@ -90,6 +90,8 @@ export class CreateExpenseComponent implements OnInit {
           console.log('The dialog was closed');
         });
         }
-
+refreshPage(){
+    window.location.reload();
+}
 }
 
