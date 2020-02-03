@@ -62,38 +62,38 @@
 
 
   <div>
-      <label><b>Hostel Id : </b></label> {{user.tenantBooking.hostelId}}
+      <label><b>Hostel Id : </b></label> {{user.tenantBooking.hostelName}}
     </div>
   <div>
-      <label><b>Floor : </b></label> {{user.tenantBooking.floorId}}
+      <label><b>Floor : </b></label> {{user.tenantBooking.floorName}}
   </div>
   <div>
-      <label><b>Room : </b></label> {{user.tenantBooking.roomId}}
+      <label><b>Room : </b></label> {{user.tenantBooking.roomName}}
   </div>
   <div>
     <label><b>Bed : </b></label>{{user.tenantBooking.roomBedId}}
   </div>
   <div>
-      <label><b>Sharing : </b></label>{{user.tenantBooking.roomType}}
+      <label><b>Sharing : </b></label>{{user.tenantBooking.sharing}}
   </div>
   <div>
-    <label><b>Room Rent : </b></label>{{user.tenantBooking.roomRent}}
+    <label><b>Room Rent : </b></label>INR {{user.tenantBooking.roomRent}}
   </div>
   <div>
 
-      <label><b>Date : </b></label>{{payment.createdAt}}
+      <label><b>Date : </b></label>{{user.tenantBooking.createdAt}}
   </div>
   <div>
-      <label><b>Deposit Amount : </b></label>{{user.payment.roomRent}}
+      <label><b>Deposit Amount : </b></label>INR {{user.tenantBooking.roomRent}}
   </div>
   <div>
     <label><b>Discount Amount : </b></label>{{ user.payment.discountAmount }}
   </div>
   <div>
-      <label><b>Amount to be Paid : </b></label> {{ user.payment.roomRent - payment.discountAmount}}
+      <label><b>Amount to be Paid : </b></label> {{ user.tenantBooking.roomRent - user.payment.discountAmount}}
   </div>
   <div>
-      <label><b>Payment Type : </b></label> {{ payment.paymentThrough }}
+      <label><b>Payment Type : </b></label> {{ user.payment.paymentThrough }}
   </div>
 </div>  
 </div>

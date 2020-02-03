@@ -20,6 +20,7 @@ export class CreatePaymentComponent implements OnInit {
 private userId : any;
 private user : User;
 private currentUser: User;
+private tenantBooking: any;
 
 constructor(private paymentService: PaymentService,
 private router: Router,

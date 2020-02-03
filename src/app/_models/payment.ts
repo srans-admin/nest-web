@@ -11,7 +11,8 @@ export class Payment{
     roomRent: number;
     depositAmount: number;
     discountAmount:number = 0;
-    amountPaid : number;
+    amountToBePaid : number;
+    sharing: string;
     adminId: number;
 
     // user: User = new User();
