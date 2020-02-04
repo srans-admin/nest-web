@@ -19,12 +19,13 @@
       </div>
       <div class="col-md-6">
         <div class="profile-head">
-          <h3>
+          <h2>
             {{currentUser.name}}
-          </h3>
-          <!-- <h4>
-            {{user.tenantbooking.hostelId}}
-          </h4> -->
+          </h2>
+          <div class="col-md-6" *ngIf="currentUser.role === 'TENANT'">
+            <span>({{currentUser.tenantBooking.hostelName}})</span>
+          </div>
+         
           <!-- <button (click)="prepareUpload('userImage',$event)" class="file btn btn-lg btn-primary" *ngIf="url"> Update This </button> -->
           <button [disabled]="loading" class="btn btn-primary"  *ngIf="url" (click)="prepareUpload('userImage',$event)">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
@@ -183,7 +184,7 @@
             <label>Id Proof :</label>
           </div>
           <div class="col-md-6">
-            <p>{{currentUser.idProof}}</p>
+            <p>{{currentUser.idProof}} - {{currentUser.idProofId}}</p>
           </div>
         </div>
       </mat-tab>
