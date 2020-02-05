@@ -1,9 +1,3 @@
-<!--<div style = "position:right; left:30px; top:20px; background-color:white;">-->
-<!--<button mat-button (click)="close()">-->
-        <!--<i class="fa fa-window-close" aria-hidden="true"></i>-->
-<!--</button>-->
-<!--</div>-->
-
 <h4><span class="glyphicon glyphicon-credit-card"></span> Create Expense</h4>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()" id="convertTo">
@@ -30,11 +24,37 @@
     </div>
 
     <div class="form-group">
+      <label ><span class="glyphicon glyphicon-credit-card"></span>Paid By</label>
+      <input type="text" class="form-control" id="paidBy" required [(ngModel)]="expense.paidBy" name="paidBy">
+    </div>
+    <div class="form-group">
+      <label ><span class="glyphicon glyphicon-credit-card"></span>Paid To</label>
+      <input type="text" class="form-control" id="paidTo" required [(ngModel)]="expense.paidTo" name="paidTo">
+    </div>
+
+     <div class="form-group">
+     <label>Payment Through</label>
+      <select id="modeOfPayment" class="browser-default custom-select" [(ngModel)]="expense.modeOfPayment" name="modeOfPayment">
+        <option value="CASH" selected="selected" >Cash</option>
+        <option value="CARD">Card</option>
+    </select>
+     </div>
+
+   <div class="form-group">
+      <span *ngIf="expense.modeOfPayment === 'CARD'">
+        <label>Transaction Id</label>
+        <input type="text" class="form-control" id="transactionId" required [(ngModel)]="expense.transactionId" name="transactionId">
+      </span>
+   </div>
+    <div class="form-group">
       <label ><span class="glyphicon glyphicon-credit-card"></span>Amount</label>
       <input type="text" class="form-control" id="amount" required [(ngModel)]="expense.amount" name="amount">
     </div>
 
-
+    <div class="form-group">
+      <label><span class="glyphicon glyphicon-file"></span> Description</label>
+      <textarea class="form-control" [(ngModel)]="expense.comments" name="comments"></textarea>
+    </div>
 
 
      <!--<div class="form-group">-->
@@ -49,7 +69,8 @@
             <!--</span>-->
         <!--</div>-->
 
-    <button type="submit" class="btn btn-success" >Submit</button><br>
+    <button type="submit" class="btn btn-success">Submit</button><br>
+
 
     <!--<button mat-button  type="submit" class="btn btn-danger" (click)="onClose()">close</button>-->
   </form>
