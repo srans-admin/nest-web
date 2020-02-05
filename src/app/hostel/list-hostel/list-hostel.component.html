@@ -28,7 +28,8 @@
                 <div *ngFor="let hostel of hostels  | hostelFilter:searchTerm "  class="col-md-4 col-lg-4 col-xl-4 col-sm-12 col-12 p-l-0">
                     <div class="basic_card hostel_card" (click)="hostelDetails(hostel.id)">
                         <div class="card_image">
-                            <img src="assets/imges/shutterstock_700243114.png" width="100%"/>
+                            <!-- <img src="assets/imges/shutterstock_700243114.png" width="100%"/> -->
+                            <img src="{{facadeImage}}" alt="" class="hostelIdenticalPic" />
                         </div>
                         <div class="card_info">
                             <div class=" h-100">

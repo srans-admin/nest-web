@@ -79,7 +79,7 @@ import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.c
 
 
 const routes: Routes = [
-  {path: '', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: '', component: ListHostelComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'reservation', component: BedReservationComponent},

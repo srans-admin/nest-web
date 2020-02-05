@@ -25,7 +25,9 @@ export class ListHostelComponent implements OnInit {
   private extendingviews: Observable<Hostel[]>;
   private searchTerm: string;
   private acknoldgmentMsg : string = null; 
-
+  private id: number;
+  private hostelId: number;
+  private facadeImage: any;
   private extendedViewUrl = environment.appUrl+ '/api/v1/hostels/{id}/extendingviews';
 
    p: Number = 1;
@@ -42,13 +44,38 @@ export class ListHostelComponent implements OnInit {
      }
 
     ngOnInit() {
-      this.reloadData();
+      this.reloadData();       
     }
+
+    //Facade
+ createImageFromBlobFacade(image: Blob) {
+  let reader = new FileReader();
+  reader.addEventListener("load", () => {
+     this.facadeImage = reader.result;
+  }, false); 
+  if (image) {
+     reader.readAsDataURL(image);
+  }
+}
   
     reloadData() {
 
      this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role).subscribe(res => { 
         this.hostels = res;
+        for(let k = 0; k < this.hostels.length; k++){
+          this.hostelId = this.hostels[k].id;        
+
+            //Facade  
+            this.hostelService.retriveFile('facade', this.hostelId)
+            .subscribe(data => {
+              this.createImageFromBlobFacade(data);
+              this.facadeImage = data;
+              }, error => {
+                console.log(error);
+            })
+
+      }
+
       },err =>{ 
         this.alertMessage.showHttpMessage(err);
       });

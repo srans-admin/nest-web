@@ -140,7 +140,7 @@ export class ViewComponent implements OnInit {
       this.hostelService.retriveFile('b3', this.id)
         .subscribe(data => {
         this.createImageFromBlobB3(data);
-        this.facadeImage = data;
+        this.b3Image = data;
         }, error => {
           console.log(error);
       })

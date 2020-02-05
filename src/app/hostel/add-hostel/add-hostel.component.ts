@@ -22,7 +22,7 @@ import { User } from 'src/app/_models/user';
 })
 export class AddHostelComponent implements OnInit {  
   
- private form: FormGroup;
+ private hostelForm: FormGroup;
  private  currentUser : User;              
  private  hostel: Hostel = new Hostel();
  private  acknoldgmentMsg: string = "";
@@ -46,7 +46,7 @@ export class AddHostelComponent implements OnInit {
               public dialog: MatDialog,
               private authenticationService: AuthenticationService ) {
                 this.currentUser = this.authenticationService.currentUser;
-                this.form = this.formBuilder.group({
+                this.hostelForm = this.formBuilder.group({
                   amenities: new FormArray([])
                 });                
 
