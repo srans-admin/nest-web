@@ -97,7 +97,7 @@ export class GuestListComponent implements OnInit {
 
   deleteUser(id: number) {
 
-    if(window.confirm('Are you to delete?')){
+    if(window.confirm('Are you sure to delete the particular Guest?')){
       this.userService.deleteUser(id)
         .subscribe(
           data => {
@@ -155,6 +155,14 @@ payment(users : object){
 //   },
 //   error => console.log(error));
 }
+
+addNewGuest(){
+
+ 
+ 
+      this.router.navigate(['createguest/viewtabs']);
+    }
+  
 
 }
 

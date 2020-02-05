@@ -73,7 +73,8 @@ import { ContactsComponent } from './contacts/contacts.component';
 
  
 import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
-import { GuestListComponent } from './user/guest-list/guest-list.component'; 
+import { GuestListComponent } from './user/guest-list/guest-list.component';
+import { CreateGuestComponent } from './user/create-guest/create-guest.component'; 
 import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.component';
 
 
@@ -119,6 +120,7 @@ const routes: Routes = [
   { path: 'user/add', component: CreateUserComponent  },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
+  { path: 'createguest/viewtabs', component: CreateGuestComponent},
 
   
   { path: 'guest', component: GuestListComponent, canActivate: [AuthGuard] },
