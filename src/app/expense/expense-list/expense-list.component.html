@@ -11,12 +11,17 @@
   <br>
   <div class="panel-body">
     <table class="table table-striped">
-      <thead>
+     <thead>
         <tr>
-          <th> ID </th>
+          <th> S.No </th>
           <!--<th> Hostel </th>-->
            <th> Type of Expense</th>
-          <th> Cost</th>
+          <th> Paid By</th>
+          <th>Paid To</th>
+          <th>Transaction</th>
+          <th>Transaction Id</th>
+          <th> Amount</th>
+          <th>Comments</th>
           <!--<th> Actions</th>-->
         </tr>
       </thead>
@@ -25,7 +30,12 @@
             <td>{{ expense.id }}</td>
           <!--<td>{{ expense.hostelId }}</td>-->
           <td>{{ expense.expenseType }}</td>
+          <td>{{ expense.paidBy }}</td>
+          <td>{{ expense.paidTo }}</td>
+          <td>{{ expense.modeOfPayment }}</td>
+          <td>{{ expense.transactionId }}</td>
           <td>{{ expense.amount }}</td>
+          <td>{{ expense.comments }}</td>
           <td>
              <div class="user-options">
             <!--<a (click)="deleteExpense(expense.id)" title="delete" ><span class="glyphicon glyphicon-trash"></span></a>-->
