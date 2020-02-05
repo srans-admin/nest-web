@@ -106,6 +106,7 @@ import { VacateComponent } from './vacate/vacate.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { DashboardGuestComponent } from './dashboard-guest/dashboard-guest.component';
 import { GuestListComponent } from './user/guest-list/guest-list.component';
+import { CreateGuestComponent } from './user/create-guest/create-guest.component';
 
 import { UserPaymentComponent } from './payment/user-payment/user-payment.component';
 import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.component';
@@ -176,6 +177,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     UserFilterPipe,
 
     GuestListComponent,
+    CreateGuestComponent,
 
     CreatePaymentComponent,
     PaymentListComponent,

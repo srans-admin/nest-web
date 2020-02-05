@@ -47,11 +47,8 @@
     <label><b>PermanentAddress : </b></label> {{user.permanentAddress}}
   </div>
   <div>
-    <label><b>IdProof : </b></label> {{user.idProof}}
-  </div>
-  <div>
-    <label><b>IdProof Id : </b></label> {{user.idProofId}}
-  </div>
+    <label><b>IdProof : </b></label> {{user.idProof}} -  {{user.idProofId}}
+  </div>  
 </div>
 <div class="col-md-4">
 
@@ -62,16 +59,16 @@
 
 
   <div>
-      <label><b>Hostel Id : </b></label> {{user.tenantBooking.hostelName}}
+      <label><b>Hostel Name : </b></label> {{user.tenantBooking.hostelName}}
     </div>
   <div>
-      <label><b>Floor : </b></label> {{user.tenantBooking.floorName}}
+      <label><b>Floor Number : </b></label> {{user.tenantBooking.floorName}}
   </div>
   <div>
-      <label><b>Room : </b></label> {{user.tenantBooking.roomName}}
+      <label><b>Room Number : </b></label> {{user.tenantBooking.roomName}}
   </div>
   <div>
-    <label><b>Bed : </b></label>{{user.tenantBooking.roomBedId}}
+    <label><b>Bed Number : </b></label>{{user.tenantBooking.roomBedId}}
   </div>
   <div>
       <label><b>Sharing : </b></label>{{user.tenantBooking.sharing}}
