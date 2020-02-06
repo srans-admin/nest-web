@@ -14,7 +14,8 @@
 
   <div class="form-group"   >
       <label for="name">Phone Number</label>
-      <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="currentUser.contactNumber" name="contactNumber">
+      <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+      class="form-control" id="contactNumber" required [(ngModel)]="currentUser.contactNumber" name="contactNumber"/>
     </div>
 
   <div class="form-group"  >
@@ -24,7 +25,8 @@
 
   <div class="form-group"  >
       <label for="name">Father phoneNumber</label>
-      <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="currentUser.fatherphoneNumber" name="fatherphoneNumber">
+      <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+      class="form-control" id="fatherphoneNumber" required [(ngModel)]="currentUser.fatherphoneNumber" name="fatherphoneNumber"/>
     </div>
 
   <div class="form-group"  >
@@ -33,8 +35,9 @@
     </div>
 
   <div class="form-group" >
-      <label for="name">Mother phoneNumber</label>
-      <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="currentUser.motherphoneNumber" name="motherphoneNumber">
+      <label for="name">Mother phoneNumber</label>      
+      <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+      class="form-control" id="motherphoneNumber" required [(ngModel)]="currentUser.motherphoneNumber" name="motherphoneNumber"/>
     </div>
 
   <div class="form-group" >
@@ -64,7 +67,8 @@
 
   <div class="form-group"  >
       <label for="name">Emergency ContactNumber</label>
-      <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="currentUser.emergencyContactNumber" name="emergencyContactNumber">
+      <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+      class="form-control" id="emergencyContactNumber" required [(ngModel)]="currentUser.emergencyContactNumber" name="emergencyContactNumber"/>
     </div>
 
   <div class="form-group"  >
@@ -86,7 +90,7 @@
   
     <button type="submit" class="btn btn-success" > Update My Profile</button>
     <!-- <button routerLink="/profile" routerLinkActive="active" class="btn btn-link">Cancel</button> -->
-    <button type="button" class="btn btn-success" (click)="cancelProfile()" style="margin-left:20px">Cancel</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelProfile()" style="margin-left:20px">Cancel</button>
 
 </form>
 </div>    

@@ -15,19 +15,21 @@
     <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
         <div *ngIf="f.id.errors.required">id is required</div>
     </div>       -->
-    <label for="username">User Name</label>
+    <label for="username">Name</label>
     <input type="text" formControlName="username" [(ngModel)]="registration.name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-        <div *ngIf="f.username.errors.required">Username is required</div>
+        <div *ngIf="f.username.errors.required"  class="alert alert-danger">Name is required</div>
     </div>
-    <label for="emailId">*Email Id</label>
+    <label for="emailId">Email Id</label>
     <input type="text" formControlName="emailId" [(ngModel)]="registration.emailId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }" />
     <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
-        <div *ngIf="f.emailId.errors.required">emailId is required</div>
+        <div *ngIf="f.emailId.errors.required" class="alert alert-danger">emailId is required</div>
     </div>
     <label for="contactNumber">Phone Number</label>
-    <input type="text" formControlName="contactNumber"  [(ngModel)]="registration.contactNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }" />
-    <div *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback">
+    <!-- <input type="number" formControlName="contactNumber"  [(ngModel)]="registration.contactNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }" /> -->
+    <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+    formControlName="contactNumber"  [(ngModel)]="registration.contactNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }"/>
+    <div *ngIf="submitted && f.contactNumber.errors" class="alert alert-danger">
         <div *ngIf="f.contactNumber.errors.required">contactNumber is required</div>
     </div>
     <!--         
@@ -40,7 +42,7 @@
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>  
         Submit
     </button>
-    <a routerLink="/guest" class="btn btn-link">Cancel</a>
+    <a routerLink="/guest" class="btn btn-secondary" style="margin-left:20px">Cancel</a>
 </div>
 </div>
 </form>

@@ -15,7 +15,9 @@
 
     <div class="form-group">
         <label for="name">Contact Number</label>
-        <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber">
+        <!-- <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber"> -->
+        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+        class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber"/>
       </div>
 
     <div class="form-group">
@@ -25,7 +27,9 @@
 
     <div class="form-group">
         <label for="name">Father PhoneNumber</label>
-        <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber">
+        <!-- <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber"> -->
+        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+        class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber"/>
       </div>
 
     <div class="form-group">
@@ -35,12 +39,17 @@
 
     <div class="form-group">
         <label for="name">Mother PhoneNumber</label>
-        <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
+        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+        class="form-control"  id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber"/>
       </div>
 
     <div class="form-group">
         <label for="name">Date of Birth</label>
-        <input type="text" class="form-control" id="dob" required [(ngModel)]="user.dob" name="dob">
+        <span class="date-picker">
+        <input type="text" required [matDatepicker]="picker" class="form-control" id="dob" required [(ngModel)]="user.dob" name="date" placeholder="MM/DD/YY">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+        <mat-datepicker #picker></mat-datepicker>
+      </span>
       </div>
 
     <div class="form-group">
@@ -50,12 +59,13 @@
 
     <div class="form-group">
         <label for="name">Emergency ContactNumber</label>
-        <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
+        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+        class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber"/>
       </div>
 
     <div class="form-group">
         <label for="name">Name Of The Employer</label>
-        <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
+        <input type="text" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
       </div>
 
     <div class="form-group">
@@ -64,7 +74,7 @@
     </div>
 
     <div class="form-group">
-        <label for="name">EmailId</label>
+        <label for="name">Email Id</label>
         <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
       </div>
 
@@ -84,7 +94,7 @@
       </div>
 
     <button type="submit" class="btn btn-success">Submit</button>
-    <a routerLink="/user" class="btn btn-link">Cancel</a>
+    <a routerLink="/user" class="btn btn-seconday" style="margin-left:20px">Cancel</a>
   </form>
 </div>
 
