@@ -106,7 +106,7 @@ export class BedReservationComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/user']); 
+    this.router.navigate(['/guest']); 
   }
 
 

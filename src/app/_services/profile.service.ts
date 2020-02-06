@@ -21,6 +21,10 @@ export class ProfileService {
       return this.http.get(`${this.baseUrl}/${id}`, this.authenticationService.getHttpHeaders());
     }
 
+    editProfile(currentUser: any): Observable<Object> {
+      return this.http.put(`${this.baseUrl}/${currentUser.userId}`, currentUser, this.authenticationService.getHttpHeaders());
+    }
+
     // getUserDetails(adminId: number, type:string): Observable<any>{
     //   return this.http.get(`${this.baseUrl}?id=${adminId}&type=${type}`, this.authenticationService.getHttpHeaders());
     // }

@@ -49,6 +49,11 @@ export class CreateGuestComponent implements OnInit {
 
     this.submitted = true;  
     this.registration.role = 'GUEST';
+
+    //stop here if form is Invalid
+    if(this.registrationForm.invalid) {
+      return;
+    }
     
     this.loading = true;
     this.registrationService.registration(this.registration)

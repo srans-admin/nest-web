@@ -21,21 +21,28 @@
             <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" >
 
             <label for="name"><span class="glyphicon glyphicon-mobile"></span> ContactNumber:</label>
-            <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" >
+            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+            class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" />
+
+            <label for="name"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
+            <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId" >
 
             <label for="name"><span class="glyphicon glyphicon-user"></span> FatherName:</label>
             <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName">
 
             <label for="name"><span class="glyphicon glyphicon-tasks"></span> Father PhoneNumber:</label>
-            <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber">
+            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+            class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber"/>
 
             <label for="name"><span class="glyphicon glyphicon-female"></span> MotherName:</label>
             <input type="text" class="form-control" id="motherName" required [(ngModel)]="user.motherName" name="motherName">
 
             <label for="name"><span class="glyphicon glyphicon-tasks"></span> Mother PhoneNumber:</label>
-            <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
+            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+            class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber"/>
 
-            <label for="name"><span class="glyphicon glyphicon-calendar"></span> DOB:</label>          
+
+            <label for="name"><span class="glyphicon glyphicon-calendar"></span> Date Of Birth:</label>          
             <span class="date-picker">
               <input type="text" required [matDatepicker]="picker" class="form-control"   required [(ngModel)]="user.dob">
                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
@@ -55,37 +62,32 @@
               </select>
 
             <label for="name"><span class="glyphicon glyphicon-mobile"></span> Emergency Contact Number:</label>
-            <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
+            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+            class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber"/>
 
             <label for="name"><span class="glyphicon glyphicon-user"></span> Name Of The Employer:</label>
-            <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
+            <input type="text" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
 
             <label for="name"><span class="glyphicon glyphicon-user"></span> Office Address:</label>
             <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
 
-            <label for="name"><span class="glyphicon glyphicon-tasks"></span> Telephone Number:</label>
-            <input type="text" class="form-control" id="telephoneNumber" required [(ngModel)]="user.telephoneNumber" name="telephoneNumber">
+            <label for="name"><span class="glyphicon glyphicon-user"></span> Permanent Address:</label>
+            <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
 
-        <label for="name"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
-        <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId" value={{currentUser.emailId}}>
-
-        <label for="name"><span class="glyphicon glyphicon-user"></span> Permanent Address:</label>
-        <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
-
-        <label for="name"><span class="glyphicon glyphicon-credit-card"></span> IdProof:</label>
-        <select  class="browser-default custom-select" id="idProof" required [(ngModel)]="user.idProof" name="idProof"><br/>
-          <option>Aadhaar Card</option>
-          <option>Pan Card</option>
-          <option>Voter Id</option>
-          <option>Driving License</option>
-          <option>Passport</option>
-          </select>
-        
-        <label for="name"><span class="glyphicon glyphicon-tasks"></span> IdProof Number:</label>
-        <input type="text" class="form-control" id="idProofId" required [(ngModel)]="user.idProofId" name="idProofId">
-          <!-- <label for="name"><span class="glyphicon glyphicon-user"></span> ID </label>
-            <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" /> -->
-        </div>    
+            <label for="name"><span class="glyphicon glyphicon-credit-card"></span> IdProof:</label>
+            <select  class="browser-default custom-select" id="idProof" required [(ngModel)]="user.idProof" name="idProof"><br/>
+              <option>Aadhaar Card</option>
+              <option>Pan Card</option>
+              <option>Voter Id</option>
+              <option>Driving License</option>
+              <option>Passport</option>
+              </select>
+            
+            <label for="name"><span class="glyphicon glyphicon-tasks"></span> IdProof Number:</label>
+            <input type="text" class="form-control" id="idProofId" required [(ngModel)]="user.idProofId" name="idProofId">
+              <!-- <label for="name"><span class="glyphicon glyphicon-user"></span> ID </label>
+                <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" /> -->
+            </div>    
 
   </div>
   </mat-tab>
@@ -103,53 +105,6 @@
       </select>
 
       <floor-view [hostel]="selectedHostel" (onSelectedBedInfoEmitor)="onSelectedBedInfoEmited($event)"></floor-view>
-           <div class="selected-bed-info " *ngIf="isBedSelected">
-              <div class="row selected-bed-info-header">
-                <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Hosel</label>
-                  <div class="name"> {{selectedBedInfo.hostelName}} </div>
-                </div>
-                <div class="col-md-6">
-                  <label>Floor</label>
-                  <div class="name">{{selectedBedInfo.bed.floorId}}</div>
-                </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                    <label>Room</label>
-                    <div class="name">{{selectedBedInfo.bed.roomNo}} </div>
-                  </div>
-                  <div class="col-md-6">
-                    <label>Bed</label>
-                    <div class="name">{{selectedBedInfo.bed.id}}</div>
-                  </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Bed Position</label>
-                        <div class="name">{{selectedBedInfo.bed.position}} </div>
-                      </div>
-                    <div class="col-md-6">
-                      <label>Room Rent</label>
-                      <div class="name">{{selectedBedInfo.roomRent}} </div>
-                    </div>
-
-                  </div>
-
-                  <div class="row">
-                      <div class="col-md-6">
-                          <label>Room Sharing </label>
-                          <div class="name">{{selectedBedInfo.roomType}} </div>
-                        </div>
-
-                    </div>
-            </div>
-
-
- 
       <div class="selected-bed-info " *ngIf="isBedSelected">
           <div class="row selected-bed-info-header">
             <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
@@ -221,7 +176,8 @@
           </div>
 
           <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
-          <input type="text" class="form-control" id="depositAmount" required [(ngModel)]="user.payment.depositAmount" name="depositAmount">
+          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+          class="form-control" id="depositAmount" required [(ngModel)]="user.payment.depositAmount" name="depositAmount"/>
 
           <!-- <label for="name"><span class="glyphicon glyphicon-building"></span> Advance </label>
           <input type="text" class="form-control" id="amount" required [(ngModel)]="user.payment.amount" name="amount">     -->
@@ -237,11 +193,12 @@
                 <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
       
             <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
-            <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
+            <input type="text" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
           </span>
 
         </div>
         <button type="submit" class="btn btn-success">Join Guest</button>
+        <a routerLink="/hostels" class="btn btn-secondary" style="margin-left:20px">Cancel</a>
 
       </mat-tab>        
   </mat-tab-group>
