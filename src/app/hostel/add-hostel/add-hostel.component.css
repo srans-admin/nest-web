@@ -169,3 +169,7 @@ label{
     background-color: green;
     color: whitesmoke;
 }
+
+.fileSize{
+    color:red;
+}

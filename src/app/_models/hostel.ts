@@ -4,9 +4,9 @@ import { Room } from './room';
 export class Hostel {
    
   id: number ;
-  hostelName: string = "Nidos";
-  hostelAddress: string = "Hyderabad";
-  hostelType: string = "Women";
+  hostelName: string;
+  hostelAddress: string;
+  hostelType: string;
   tv : boolean;
   fridge : boolean;
   ac : boolean;
