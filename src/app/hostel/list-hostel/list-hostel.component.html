@@ -16,50 +16,50 @@
                 </div>
                 <div class="pl-xl-0 pl-lg-0 pl-md-0 pl-sm-0 pl-0 pr-sm-0 pr-0 pr-md-0 pr-lg-0 pr-xl-0 float-right col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4" style="display: flex; align-items: center; justify-content: flex-end;">
                     <img src="assets/imges/icon_search.svg" height="20px" style="position: absolute; right: 21px; top: 8px;"/>
-                    <input type="text" [(ngModel)]="searchTerm" class="form-control" placeholder="Search for hostel" style="border-color: #59b2e3;"> 
+                    <input type="text" [(ngModel)]="searchTerm" class="form-control" placeholder="Search for Hostel" style="border-color: #59b2e3;"> 
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row m-t-20">
+            <div class="row m-t-20">                
                     
                 <div class="empty-hostels-msg" *ngIf="hostels.length === 0"> No hostels found from system </div>
+                
+                    <div *ngFor="let hostel of hostels  | hostelFilter:searchTerm "  class="col-md-4 col-lg-4 col-xl-4 col-sm-12 col-12 p-l-0">
+                        <div class="basic_card hostel_card" (click)="hostelDetails(hostel.id)">
+                            <div class="card_image">
+                                <!-- <img src="assets/imges/shutterstock_700243114.png" width="100%"/> -->
+                                <img src="{{facadeImage}}" alt="" class="hostelIdenticalPic" />
+                            </div>
+                            <div class="card_info">
+                                <div class="h-100">
+                                    <div class="row m-t-10 h-100">
+                                        <div class="hostel-info col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
 
-                <div *ngFor="let hostel of hostels  | hostelFilter:searchTerm "  class="col-md-4 col-lg-4 col-xl-4 col-sm-12 col-12 p-l-0">
-                    <div class="basic_card hostel_card" (click)="hostelDetails(hostel.id)">
-                        <div class="card_image">
-                            <!-- <img src="assets/imges/shutterstock_700243114.png" width="100%"/> -->
-                            <img src="{{facadeImage}}" alt="" class="hostelIdenticalPic" />
-                        </div>
-                        <div class="card_info">
-                            <div class=" h-100">
-                                <div class="row m-t-10 h-100">
-                                    <div class="hostel-info col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-                                        <h3 class=" f16">{{hostel.hostelName}}</h3>
-                                        <div class="h-line" style="margin-top: 0px; margin-bottom: 10px;"></div>
-                                        <div class="left-content">
-                                            <div>
-                                                <img src="assets/imges/tag.svg" class="m-r-10" height="16px"/>
-                                            </div>
-                                            <p class="pale-gray mt-0-mb-0 f12 ">{{hostel.hostelType}}, {{hostel.hostelAddress}}</p>
-                                        </div>                                                     
-                                    </div>
-                                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 p-l-0 p-r-0" style="display: flex; align-items: flex-start;">
-                                        <!-- <div class="w-50 border-right">
-                                            <img src="assets/imges/beds.svg" height="20px" width="20px"/>
-                                            <p class="f20 font-weight-bold">{{rooms}}<br><span class="f12">Rooms</span></p>
-                                        </div> -->
-                                        <div class="w-50 p-l-10">
-                                            <img src="assets/imges/floors.svg" height="20px"/>
-                                            <p class="f20 font-weight-bold">{{hostel.numOfFloors}} <br><span class="f12">Floors</span></p>
-                                        </div>                                                     
+                                            <h3 class=" f16">{{hostel.hostelName}}</h3>
+                                            <div class="h-line" style="margin-top: 0px; margin-bottom: 10px;"></div>
+                                            <div class="left-content">
+                                                <div>
+                                                    <img src="assets/imges/tag.svg" class="m-r-10" height="16px"/>
+                                                </div>
+                                                <p class="pale-gray mt-0-mb-0 f12 ">{{hostel.hostelType}}, {{hostel.hostelAddress}}</p>
+                                            </div>                                                     
+                                        </div>
+                                        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 p-l-0 p-r-0" style="display: flex; align-items: flex-start;">
+                                            <!-- <div class="w-50 border-right">
+                                                <img src="assets/imges/beds.svg" height="20px" width="20px"/>
+                                                <p class="f20 font-weight-bold">{{rooms}}<br><span class="f12">Rooms</span></p>
+                                            </div> -->
+                                            <div class="w-50 p-l-10">
+                                                <img src="assets/imges/floors.svg" height="20px"/>
+                                                <p class="f20 font-weight-bold">{{hostel.numOfFloors}} <br><span class="f12">Floors</span></p>
+                                            </div>                                                     
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>                                 
-                </div> 
-                
+                        </div>                                 
+                    </div> 
             </div>
         </div>
          <div class="text-right">

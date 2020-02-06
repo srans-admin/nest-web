@@ -112,8 +112,8 @@ import { UserPaymentComponent } from './payment/user-payment/user-payment.compon
 import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.component';
 
 import { ApproveRequestComponent } from './vacate/approve-request/approve-request.component';
- 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ExpenseFilterPipe } from './expense/expense-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -209,7 +209,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     VacateRequestComponent,
 
     ApproveRequestComponent,
-
+    ExpenseFilterPipe,
 
   ],
   imports: [

@@ -60,7 +60,6 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
 
 import { HostelPaymentComponent } from './hostel-payment/hostel-payment.component';
 import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscription.component';
-//import { ProfileComponent } from './profile/profile.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
@@ -80,7 +79,7 @@ import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.c
 
 
 const routes: Routes = [
-  {path: '', component: ListHostelComponent, canActivate: [AuthGuard]},
+  { path: '', component: ListHostelComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'reservation', component: BedReservationComponent},

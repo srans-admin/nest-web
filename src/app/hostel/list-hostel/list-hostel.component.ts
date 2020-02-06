@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Observable } from "rxjs";
 import { HostelService } from "../../_services/hostel.service";
 import { Hostel } from "../../_models/hostel";
@@ -107,8 +107,6 @@ export class ListHostelComponent implements OnInit {
     }
 
     addNewHostel(){
-
- 
       let currentUser : any = this.authenticationService.currentUser;
       if(currentUser )
       {
@@ -119,6 +117,21 @@ export class ListHostelComponent implements OnInit {
         }
       }
     }
+
+    //  Close the dropdown if the user clicks outside of it
+      @HostListener('document:click', ['$event'])
+      click = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+      }
+    } 
 
   }
   

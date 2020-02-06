@@ -11,7 +11,7 @@
 
                 <label for="name"> <span class="glyphicon glyphicon-envelope"></span> Hostel Name</label>
                 <input type="text" class="form-control" id="hostelName" [(ngModel)]="hostel.hostelName"
-                    name="hostelName" required minlength="4" maxlength="20" #hostelName="ngModel" pattern="[a-zA-Z ]*"><br/>
+                    name="hostelName" required minlength="4" maxlength="40" #hostelName="ngModel"><br/>
 
                 <div *ngIf="hostelName.invalid && (hostelName.dirty || hostelName.touched)"
                     class="alert alert-danger">
@@ -23,7 +23,7 @@
                     Hostel Name must be at least 4 characters long.
                   </div>
                   <div *ngIf="hostelName.errors.maxlength">
-                    Hostel Name must 20 characters long.
+                    Hostel Name must 40 characters long.
                   </div>
                 
                 </div>
@@ -107,7 +107,7 @@
                                             <span class="room-name"> Room-{{room.roomName}} </span> 
                                     </div>
                                     <span *ngFor="let bed of room.beds">
-                                            <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                                            <span class="bed-box">
                                                 <span class="bed bed-alloted" [ngClass]="{
                                                     'bed-alloted-yes':bed.alloted === 'Y',
                                                     'bed-alloted-no':bed.alloted === 'N'
@@ -287,7 +287,7 @@
 
 
     <div class="add-hostel-submit">
-        <button type="submit" *ngIf="enableSubmit" class="add-hostel-button"> ADD HOSTEL </button>
+        <button type="submit" *ngIf="enableSubmit" class="add-hostel-button" [disabled]="!hostelForm.form.valid"> ADD HOSTEL </button>
     </div>
 </form>
 </div>

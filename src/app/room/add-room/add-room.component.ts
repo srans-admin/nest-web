@@ -70,7 +70,7 @@ export class AddRoomComponent implements OnInit {
   addRoomToHostel() {
     let currRoomNumbers = this.roomNumbers.split(",");
     if (this.numOfRooms != currRoomNumbers.length) {
-      this.errorMsg = "Room Numbers count not mached";
+      this.errorMsg = "Room Numbers count not matched";
       return;
     }  
 
