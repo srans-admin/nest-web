@@ -13,20 +13,20 @@ import { Bed } from 'src/app/_models/bed';
 })
 export class AddRoomComponent implements OnInit {
 
-  tmpRoom: Room = new Room();
-  hostel: Hostel;
-  room: Room = new Room();
-  floorName: string;
-  submitted = false;
-  rooms: Array<Room> = [];
-  numOfRooms: number = 1; 
-  roomRent: number = 2000;
-  roomNumbers : string = "";
-  roomType: string = "Single";
-  bedNo: string;
-  position: string = "Left";
-  bedAlloted: string = "Alloted";
-  bed : Array<Room> = [];
+  private tmpRoom: Room = new Room();
+  private hostel: Hostel;
+  private room: Room = new Room();
+  private floorName: string;
+  private submitted = false;
+  private rooms: Array<Room> = [];
+  private numOfRooms: number = 1; 
+  private roomRent: number;
+  private roomNumbers : string = "";
+  private roomType: string = "Single";
+  private bedNo: string;
+  private position: string = "Left";
+  private bedAlloted: string = "Alloted";
+  private bed : Array<Room> = [];
   
   //Errors
   errorMsg:String="";
@@ -70,7 +70,7 @@ export class AddRoomComponent implements OnInit {
   addRoomToHostel() {
     let currRoomNumbers = this.roomNumbers.split(",");
     if (this.numOfRooms != currRoomNumbers.length) {
-      this.errorMsg = "Room Numbers count not mached";
+      this.errorMsg = "Room Numbers count not matched";
       return;
     }  
 

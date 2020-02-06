@@ -2,13 +2,23 @@
      
       <h3><span class="glyphicon glyphicon-user"></span> Guests </h3>  
           
-      <div class="user-search" style="width:200px">        
+      <!-- <div class="user-search" style="width:200px">        
         <input type="text" class="form-control"  placeholder="Search here" [(ngModel)]="searchTerm" >
     </div>
-  <br/>
-          <div class="tenants-display  table-responsive-sm  ">
-            <table class="table table-striped table-sm">
-                
+  <br/> -->
+  <div class="row m-t-20">
+    <div class="pl-0 pl-sm-0 pl-md-0 pl-lg-0 pl-xl-0 col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+        <button class="btn_full f14 p-0 p-l-10 p-r-10" (click)="addNewGuest()">
+            <img src="assets/imges/plus.svg" class="m-r-10">&nbsp;Guest Enquiry
+        </button>                                 
+    </div>
+    <div class="pl-xl-0 pl-lg-0 pl-md-0 pl-sm-0 pl-0 pr-sm-0 pr-0 pr-md-0 pr-lg-0 pr-xl-0 float-right col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4" style="display: flex; align-items: center; justify-content: flex-end;">
+        <img src="assets/imges/icon_search.svg" height="20px" style="position: absolute; right: 21px; top: 8px;"/>
+        <input type="text" [(ngModel)]="searchTerm" class="form-control" placeholder="Search for Guest Here" style="border-color: #59b2e3;"> 
+    </div>
+</div>
+            <div class="tenants-display  table-responsive-sm  ">
+              <table class="table table-striped table-sm">
               <thead>
                 <tr>
                   <!-- <th><span class="glyphicon glyphicon-tag"></span></th> -->
@@ -74,7 +84,7 @@
                   </div> -->
                   <div class="user-options">
                       <a (click)="deleteUser(user.userId)" title="delete"><span class="glyphicon glyphicon-trash"  style="margin-left: 10px"></span></a>                      
-                      <a (click)="userDetails(user.userId)" title="view"><span class="glyphicon glyphicon-eye-open" style="margin-left: 10px"></span></a>                      
+                      <!-- <a (click)="userDetails(user.userId)" title="view"><span class="glyphicon glyphicon-eye-open" style="margin-left: 10px"></span></a>                       -->
                       <a  (click)="convertToTenant(user.userId)"  title="convert to tenant"><span class="glyphicon glyphicon-user" style="margin-left: 10px"></span></a>
                        
                     </div>

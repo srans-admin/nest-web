@@ -4,10 +4,10 @@
     <div class="form-group">
      
 
-      <div class="t-header"> Tenant Information</div>
+      <div class="t-header"><span class="glyphicon glyphicon-th-list"></span> Tenant Information:</div>
 
       <div class="tenant-info" *ngIf="user.tenantBooking">
-        
+       
           <div class="t-label" > Tenant Name</div> <div class="t-value"> {{user.name}}</div>
         
           <div class="t-line"><div class="t-label" > Hostel : </div> <div class="t-value"> {{user.tenantBooking.hostelName}}</div></div> 
@@ -20,15 +20,17 @@
 
       </div> 
 
-      <div class="t-header"> Payment Information</div>
-      <label for="name">Date</label>      
+      <div class="t-header"><span class="glyphicon glyphicon- list-alt"></span> Payment Information:</div>
+      <label for="name"><span class="glyphicon glyphicon-calendar"></span> Date</label>      
       <span class="date-picker">
-        <input type="text" required [matDatepicker]="picker" class="form-control" id="date" required [(ngModel)]="payment.date" name="date">
-         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
-         <mat-datepicker #picker></mat-datepicker> 
+        <input type="text"  class="form-control" id="date" required [(ngModel)]="payment.date" name="date">
+         <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+         <mat-datepicker #picker></mat-datepicker required [matDatepicker]="picker">  -->
+          <!-- <p-calendar  [maxDate]="dateTime" showTime="true" hourFormat="12" showButtonBar="true" [(ngModel)]="payment.date" name="timeOfUse" required #date="ngModel">
+          </p-calendar> -->
       </span>
 
-      <label for="name">Payment Through</label>
+      <label for="name"><span class="glyphicon glyphicon-chevron-down"></span> Payment Through:</label>
       <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="payment.paymentThrough" name=" paymentThrough">
         <option value="CASH" selected="selected" >Cash</option>
         <option value="BT">Bank Transfer</option>
@@ -36,32 +38,32 @@
     
     
     <span *ngIf="payment.paymentThrough === 'BT'">
-      <label for="name">Transaction Id</label>
+      <label for="name"><span class="glyphicon glyphicon-random"></span>Transaction Id:</label>
       <input type="text" class="form-control" id="transactionId" required [(ngModel)]="payment.transactionId" name="transactionId">
     
-      <label for="name">Bank Name</label>
+      <label for="name"><span class="glyphicon glyphicon-piggy-bank"></span>Bank Name:</label>
       <input type="text" class="form-control" id="bankName" required [(ngModel)]="payment.bankName" name="bankName">
       
     </span> 
 
-    <label for="name">Amount </label>
-    <input type="text" class="form-control" id="roomRent" required [(ngModel)]="payment.roomRent" name="roomRent" value="{{user.tenantBooking.roomRent}}">
 
+    <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Discount Given:</label>
+    <input type="text" class="form-control"   id="discountAmount" required [(ngModel)]="payment.discountAmount" name="discountAmount" readonly>
 
-    <label for="name">Discount</label>
-    <input type="text" class="form-control"   id="discountAmount" required [(ngModel)]="payment.discountAmount" name="discountAmount" >
-
-    <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Amount to be paid:</label>
+    <label for="name"><span class="glyphicon glyphicon-usd"></span> Amount to be paid:</label>
     <input type="text" class="form-control"   readonly value="{{payment.roomRent - payment.discountAmount}}" >
+
+    <label for="name"><span class="glyphicon glyphicon-menu-left"></span> Amount Paying: </label>
+    <input type="text" class="form-control" value="{{payment.roomRent - payment.discountAmount}}">
  
 
-    <label for="name">Comments</label>
+    <label for="name"><span class="glyphicon glyphicon-align-left"></span>Comments</label>
     <textarea   class="form-control"  [(ngModel)]="payment.comments" ></textarea>
 
     </div> 
 
     <button type="submit" class="btn btn-success">Submit</button>
-    <a routerLink="/user" class="btn btn-link">Cancel</a>
+    <a routerLink="/user" class="btn btn-secondary">Cancel</a>
   </form>
 </div>
 

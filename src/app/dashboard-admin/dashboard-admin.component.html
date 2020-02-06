@@ -4,9 +4,9 @@
         <img src="assets/imges/logo.svg" class="logo_img" />
 </div>
 <div class="main_menu" (click)='selectMe($event)' >
-        
-<div  class="menu_item f14 p-0 m-0 " routerLink="profile" [ngClass]="{'active': selectedItemId === 'PR'}" id="PR"  > Profile </div> 
+
 <div  class="menu_item f14 p-0 m-0 " routerLink="hostels" [ngClass]="{'active': selectedItemId === 'HS'}" id="HS"  >  Hostels </div>
+<div  class="menu_item f14 p-0 m-0 " routerLink="profile" [ngClass]="{'active': selectedItemId === 'PR'}" id="PR"  > Profile </div> 
 <div  class="menu_item f14 p-0 m-0 " routerLink="user" [ngClass]="{'active': selectedItemId === 'TN'}" id="TN" >  Tenants </div>
 <div  class="menu_item f14 p-0 m-0 " routerLink="guest" [ngClass]="{'active': selectedItemId === 'GU'}" id="GU" >  Guests </div>
 <div  class="menu_item f14 p-0 m-0 " routerLink="payment" [ngClass]="{'active': selectedItemId === 'PT'}" id="PT" >  Payments </div>

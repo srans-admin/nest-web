@@ -7,11 +7,11 @@
       <mat-tab label="Tenant">
 
 
-      <div class="is-hostel-info-req">
+      <!-- <div class="is-hostel-info-req">
           <mat-checkbox [(checked)]="isHostelPaymentReq" 
           (change)="isHostelPaymentRequired($event)"> I will be set Hostel and Payment Info as per the
            Registation </mat-checkbox>
-      </div>
+      </div> -->
       <div class="tenant-form-1" style="width: 300px;"  >
 
       <div class="form-group">
@@ -21,31 +21,84 @@
           <label><span class="glyphicon glyphicon-camera"></span> TenantPic </label>
           <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
             
-          <label><span class="glyphicon glyphicon-user"></span> Name:</label>
-          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" >
+          <label><span class="glyphicon glyphicon-user" ></span> Name:</label>
+          <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" 
+           required minlength="4" maxlength="20" #name="ngModel"><br/>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="name.errors.required">
+                     Name is required.
+                  </div>
+                  <div *ngIf="name.errors.minlength">
+                     Name must be at least 4 characters long.
+                  </div>
+                  <div *ngIf="name.errors.maxlength">
+                     Name must 20 characters long.
+                  </div>
+                
+                </div>
 
-          <label for="name"><span class="glyphicon glyphicon-mobile"></span> ContactNumber:</label>
-
-          <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" >
+          <label for="name"><span class="glyphicon glyphicon-earphone"></span> Contact Number:</label>
+          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+          class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" 
+          required minlength="10" maxlength="10" #contactNumber="ngModel" width="10" pattern="[0-9]+"/><br/>
+          <div *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="contactNumber.errors.required">
+                    contactNumber is required.
+                  </div>
+                  <div *ngIf="contactNumber.errors.minlength">
+                    contactNumber must be  10 Digits.
+                  </div>
+                  <div *ngIf="contactNumber.errors.maxlength">
+                    contactNumber must 10 Digits.
+                 </div>
+                </div>
       
           <label for="name"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
-          <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId">
+          <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId"
+          required   #emailId="ngModel" pattern><br/>
+          <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="emailId.errors.required">
+                     Email is required.
+                  </div>                                                 
+                </div>
           
-          <label for="name"><span class="glyphicon glyphicon-user"></span> FatherName:</label>
-          <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName">
+          <label for="name"><span class="glyphicon glyphicon-user"></span> Father Name:</label>
+          <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName" 
+          required minlength="4" maxlength="20" #fatherName="ngModel"><br/>
+          <div *ngIf="fatherName.invalid && (fatherName.dirty || fatherName.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="fatherName.errors.required">
+                     Father Name is required.
+                  </div>
+                  <div *ngIf="fatherName.errors.minlength">
+                    Father Name must be at least 4 characters long.
+                  </div>
+                  <div *ngIf="fatherName.errors.maxlength">
+                    Father Name must 20 characters long.
+                  </div>
+                </div>
         
-          <label for="name"><span class="glyphicon glyphicon-tasks"></span> Father PhoneNumber:</label>
-          <input type="text" class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber">
+          <label for="name"><span class="glyphicon glyphicon-tasks"></span> Father Phone Number:</label>
+          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+          class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber"/>
         
-          <label for="name"><span class="glyphicon glyphicon-female"></span> MotherName:</label>
+          <label for="name"><span class="glyphicon glyphicon-user"></span> Mother Name:</label>
           <input type="text" class="form-control" id="motherName" required [(ngModel)]="user.motherName" name="motherName">
         
-          <label for="name"><span class="glyphicon glyphicon-tasks"></span> Mother PhoneNumber:</label>
-          <input type="text" class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber">
+          <label for="name"><span class="glyphicon glyphicon-tasks"></span> Mother Phone Number:</label>
+          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+          class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber"/>
         
-          <label for="name"><span class="glyphicon glyphicon-calendar"></span> DOB:</label>          
+          <label for="name"><span class="glyphicon glyphicon-calendar"></span> Date Of Birth:</label>          
           <span class="date-picker">
-            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.dob">
+            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.dob" placeholder="MM/DD/YY">
              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
              <mat-datepicker #picker></mat-datepicker> 
             </span>
@@ -62,29 +115,81 @@
           <option>O-</option>
           </select>
         
-          <label for="name"><span class="glyphicon glyphicon-mobile"></span> Emergency Contact Number:</label>
-          <input type="text" class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber">
+          <label for="name"><span class="glyphicon glyphicon-mobile"></span> Emergency Contact Number:</label>          
+          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+          class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber"
+          required minlength="10" maxlength="10"  #emergencyContactNumber="ngModel"/><br/>
+          <div *ngIf="emergencyContactNumber.invalid && (emergencyContactNumber.dirty || emergencyContactNumber.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="emergencyContactNumber.errors.required">
+                    Emergency ContactNumber is required.
+                  </div>
+                  <div *ngIf="emergencyContactNumber.errors.minlength">
+                    Emergency ContactNumber must be  10 Digits.
+                  </div>
+                  <div *ngIf="emergencyContactNumber.errors.maxlength">
+                    Emergency contactNumber must 10 Digits.
+                 </div>
+                </div>
         
           <label for="name"><span class="glyphicon glyphicon-user"></span> Name Of The Employer:</label>
-          <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
+          <input type="text" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
         
           <label for="name"><span class="glyphicon glyphicon-user"></span> Office Address:</label>
           <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
             
           <label for="name"><span class="glyphicon glyphicon-user"></span> Permanent Address:</label>
-          <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress">
+          <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress"
+          required minlength="15" maxlength="150" #permanentAddress="ngModel"><br/>
+          <div *ngIf="permanentAddress.invalid && (permanentAddress.dirty || permanentAddress.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="permanentAddress.errors.required">
+                    permanentAddress is required.
+                  </div>
+                  <div *ngIf="permanentAddress.errors.minlength">
+                    permanentAddress must be at least 25 characters long.
+                  </div>
+                  <div *ngIf="permanentAddress.errors.maxlength">
+                    permanentAddress must 20 characters long.
+                  </div>
+                </div>
           
-          <label for="name"><span class="glyphicon glyphicon-tint"></span> IdProof:</label>
-          <select  class="browser-default custom-select" id="idProof" required [(ngModel)]="user.idProof" name="idProof" >
+          <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Id Proof:</label>
+          <select  class="browser-default custom-select" id="idProof" required [(ngModel)]="user.idProof" name="idProof"
+          required  #idProof="ngModel"><br/>
           <option>Aadhaar Card</option>
           <option>Pan Card</option>
           <option>Voter Id</option>
           <option>Driving License</option>
           <option>Passport</option>
-          </select>
+          
+                 <div *ngIf="idProof.invalid && (idProof.dirty || idProof.touched)"
+                    class="alert alert-danger">
+                
+                    <div *ngIf="idProofId.errors.required">
+                    Select the IdProof
+                    </div>
+                </div> 
+           </select>
 
-          <label for="name"><span class="glyphicon glyphicon-user"></span> IdProof Number:</label>
-          <input type="text" class="form-control" id="idProofId" required [(ngModel)]="user.idProofId" name="idProofId">
+          <label for="name"><span class="glyphicon glyphicon-tasks"></span> Id Proof Number:</label>
+          <input type="text" class="form-control" id="idProofId" required [(ngModel)]="user.idProofId" name="idProofId"
+          required minlength="10" maxlength="17"  #idProofId="ngModel"><br/>
+          <div *ngIf="idProofId.invalid && (idProofId.dirty || idProofId.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="idProofId.errors.required">
+                    IdProof Number is required.
+                  </div>
+                  <div *ngIf="idProofId.errors.minlength">
+                    IdProof Number must be  10 Digits.
+                  </div>
+                  <div *ngIf="idProofId.errors.maxlength">
+                    IdProof Number must be  17 Digits.
+                  </div>
+                </div>
           <!-- <label for="name"><span class="glyphicon glyphicon-user"></span> ID </label>
           <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" /> -->
       </div>    
@@ -188,36 +293,43 @@
               <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
     
           <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
-          <input type="text" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
+          <input type="text" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
         </span>
 
         
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Room Rent:</label>
-        <input type="text" class="form-control"   required [(ngModel)]="user.payment.roomRent" name="roomRent" readonly>
+        <input type="text" class="form-control"   required [(ngModel)]="user.payment.roomRent" name="roomRent" value="{{user.payment.roomRent - user.payment.discountAmount}}" readonly>
     
     
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
-        <input type="text" class="form-control"  required [(ngModel)]="user.payment.depositAmount" name="depositAmount" value="{{user.payment.roomRent}}" readonly>
+        <input type="text" class="form-control"  required [(ngModel)]="user.payment.depositAmount" name="depositAmount" value="{{user.payment.roomRent - user.payment.discountAmount}}" readonly>
+        
     
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Discount Amount:</label>
-        <input type="text" class="form-control"   required [(ngModel)]="user.payment.discountAmount" name="discountAmount">
+        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+        class="form-control"   required [(ngModel)]="user.payment.discountAmount" name="discountAmount"/>
+
+        <!-- <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount Discount:</label>
+        <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+        class="form-control"   required [(ngModel)]="user.payment.discountAmount" name="discountAmount"/> -->
     
         
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Amount to be paid:</label>
-        <input type="text" class="form-control"   readonly required ([ngModel])="user.payment.amountPaid" value="{{user.payment.roomRent - user.payment.discountAmount}}" >
+        <input type="text" class="form-control"   readonly required ([ngModel])="user.payment.amountPaid" value="{{(user.payment.roomRent + user.payment.roomRent) - user.payment.discountAmount}}" >
 <!-- 
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Total Amount to be paid:</label>
         <input type="text" class="form-control"   readonly value="{{ user.payment.amountPaid   }}" >
      -->
-
+     <label for="name">Comments</label>
+     <textarea   class="form-control"  [(ngModel)]="payment.comments" ></textarea>
           <div >
             <br/>
         <button [disabled]="loading" class="btn btn-success">
               <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-           <span *ngIf="id">Convert Guest to Tenant</span> 
+           <span *ngIf="id" >Convert Guest to Tenant </span> 
            <span *ngIf="!id">Join Tenant </span> 
         </button>
-          <a routerLink="/user" class="btn btn-link">Cancel</a>
+          <a routerLink="/user" class="btn btn-secondary" style="margin-left:20px">Cancel</a>
         </div>           
           
      

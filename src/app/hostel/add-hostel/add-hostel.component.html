@@ -1,29 +1,80 @@
 <div class="add-hostel">
 <h4><span class="glyphicon glyphicon-equalizer"></span> Add Hostel</h4>
 <p> {{acknoldgmentMsg}}</p>
-<form (ngSubmit)="onSubmit(hostelForm)" name="hostel-form" #hostelForm = "ngForm">
+<form (ngSubmit)="onSubmit(hostelForm)" name="hostel-form" #hostelForm = "ngForm" >
     <mat-tab-group>
 
         <!-- Hostel Info Tab -->
-        <mat-tab label="Info" class="test">
+        <mat-tab label="Hostel Info" class="test">
 
             <div class="add-hostel-details" [hidden]="submitted" style="width: 400px;">
 
                 <label for="name"> <span class="glyphicon glyphicon-envelope"></span> Hostel Name</label>
-                <input type="text" class="form-control " id="hostelName" [(ngModel)]="hostel.hostelName"
-                    name="hostelName">
+                <input type="text" class="form-control" id="hostelName" [(ngModel)]="hostel.hostelName"
+                    name="hostelName" required minlength="4" maxlength="40" #hostelName="ngModel"><br/>
+
+                <div *ngIf="hostelName.invalid && (hostelName.dirty || hostelName.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="hostelName.errors.required">
+                    Hostel Name is required.
+                  </div>
+                  <div *ngIf="hostelName.errors.minlength">
+                    Hostel Name must be at least 4 characters long.
+                  </div>
+                  <div *ngIf="hostelName.errors.maxlength">
+                    Hostel Name must 40 characters long.
+                  </div>
+                
+                </div>
+                    
 
                 <label><span class="glyphicon glyphicon-map-marker"></span> Hostel Address</label>
                 <input type="text" class="form-control " id="hostelAddress" [(ngModel)]="hostel.hostelAddress"
-                    name="hostelAddress">
+                    name="hostelAddress" required #hostelAddress="ngModel" maxlength="80"><br/>
+
+                <div *ngIf="hostelAddress.invalid && (hostelAddress.dirty || hostelAddress.touched)"
+                 class="alert alert-danger">
+                
+                  <div *ngIf="hostelAddress.errors.required">
+                    Hostel Address is required.
+                  </div>
+                  <div *ngIf="hostelAddress.errors.maxlength">
+                    Hostel Address must 80 characters long.
+                  </div>
+                
+                </div>
 
                 <label><span class="glyphicon glyphicon-ok"></span> Hostel Type</label>
-                <input type="text" class="form-control " id="hostelType" [(ngModel)]="hostel.hostelType"
-                    name="hostelType">
+                <!-- <input type="text" class="form-control " id="hostelType" [(ngModel)]="hostel.hostelType"
+                    name="hostelType" required> -->
+
+                <select class="form-control" id="hostelType" [(ngModel)]="hostel.hostelType" name="hostelType" 
+                required #hostelType="ngModel">                    
+                    <option>Men</option>
+                    <option>Women</option>
+                </select><br/>
+
+                <div *ngIf="hostelType.invalid && (hostelType.dirty || hostelType.touched)"
+                 class="alert alert-danger">
+                
+                  <div *ngIf="hostelType.errors.required">
+                    Hostel Type is required.
+                  </div>                
+                </div>
 
                 <label><span class="glyphicon glyphicon-th-large"></span> Number of Floors</label>
                 <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
-                    (ngModelChange)="populateFloors($event)" name="numOfFloors" >
+                    (ngModelChange)="populateFloors($event)" name="numOfFloors" required #numOfFloors="ngModel"><br/>
+
+                <div *ngIf="numOfFloors.invalid && (numOfFloors.dirty || numOfFloors.touched)"
+                 class="alert alert-danger">
+                
+                  <div *ngIf="numOfFloors.errors.required">
+                    Number of Floors is required.
+                  </div>
+                
+                </div>
 
                 <label><span class="glyphicon glyphicon-file"></span> Description</label>
                 <textarea class="form-control" [(ngModel)]="hostel.misc" name="misc"></textarea>
@@ -56,7 +107,7 @@
                                             <span class="room-name"> Room-{{room.roomName}} </span> 
                                     </div>
                                     <span *ngFor="let bed of room.beds">
-                                            <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                                            <span class="bed-box">
                                                 <span class="bed bed-alloted" [ngClass]="{
                                                     'bed-alloted-yes':bed.alloted === 'Y',
                                                     'bed-alloted-no':bed.alloted === 'N'
@@ -209,21 +260,22 @@
 
 
         <mat-tab label="Pics">
+            <label class="fileSize"> * All Files Size should be below 110KB</label><br/>
 
-            <label><span class="glyphicon glyphicon-download"></span> Facade Uploads</label>
-            <input type="file" class="form-control " (change)="prepareUpload('facade',$event)" multiple  />
+            <label><span class="glyphicon glyphicon-download"></span> Hostel Image</label>
+            <input type="file" class="form-control " (change)="prepareUpload('facade',$event)" multiple  />            
 
             <!-- [(ngModel)]="hostel.receptionUIImage" -->
-            <label><span class="glyphicon glyphicon-repeat"></span> Reception Uploads</label>
+            <label><span class="glyphicon glyphicon-repeat"></span> Reception </label>
             <input type="file" class="form-control "  (change)="prepareUpload('reception',$event)" multiple  />
 
-            <label><span class="glyphicon glyphicon-lock"></span> 1 Bed Room Uploads</label>
+            <label><span class="glyphicon glyphicon-lock"></span> 1 Bed Room </label>
             <input type="file" class="form-control " (change)="prepareUpload('b1',$event)" multiple />
 
-            <label><span class="glyphicon glyphicon-headphones"></span> 2 Bed Room Uploads</label>
+            <label><span class="glyphicon glyphicon-headphones"></span> 2 Bed Room </label>
             <input type="file" class="form-control " (change)="prepareUpload('b2',$event)" multiple />
 
-            <label><span class="glyphicon glyphicon-qrcode"></span> 3 Bed Room Uploads</label>
+            <label><span class="glyphicon glyphicon-qrcode"></span> 3 Bed Room </label>
             <input type="file" class="form-control "(change)="prepareUpload('b3',$event)" multiple />
 
             <!-- <label><span class="glyphicon glyphicon-envelope"></span> Misc Uploads</label>
@@ -235,7 +287,7 @@
 
 
     <div class="add-hostel-submit">
-        <button type="submit" *ngIf="enableSubmit" class="add-hostel-button"> ADD HOSTEL </button>
+        <button type="submit" *ngIf="enableSubmit" class="add-hostel-button" [disabled]="!hostelForm.form.valid"> ADD HOSTEL </button>
     </div>
 </form>
 </div>

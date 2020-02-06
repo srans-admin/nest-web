@@ -1,0 +1,52 @@
+<div class="container-fluid vw-100 vh-100" style="overflow: hidden;" class="login-page"> 
+   
+    <div class="row vw-100 vh-100">
+        
+        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 p-l-0 p-r-0">
+            <div class="bg_div form_div">
+                <!-- <div class="intro-logo">
+                    <img src="assets/imges/Logo_2.svg"/>
+                </div> -->
+<h2>Guest Enquiry</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+<div class="form-group" style="width:300px"> 
+    <!-- <label for="id">Id Number</label>
+    <input type="text" formControlName="id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.id.errors }" />
+    <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+        <div *ngIf="f.id.errors.required">id is required</div>
+    </div>       -->
+    <label for="username">Name</label>
+    <input type="text" formControlName="username" [(ngModel)]="registration.name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required"  class="alert alert-danger">Name is required</div>
+    </div>
+    <label for="emailId">Email Id</label>
+    <input type="text" formControlName="emailId" [(ngModel)]="registration.emailId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }" />
+    <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+        <div *ngIf="f.emailId.errors.required" class="alert alert-danger">emailId is required</div>
+    </div>
+    <label for="contactNumber">Phone Number</label>
+    <!-- <input type="number" formControlName="contactNumber"  [(ngModel)]="registration.contactNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }" /> -->
+    <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+    formControlName="contactNumber"  [(ngModel)]="registration.contactNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }"/>
+    <div *ngIf="submitted && f.contactNumber.errors" class="alert alert-danger">
+        <div *ngIf="f.contactNumber.errors.required">contactNumber is required</div>
+    </div>
+    <!--         
+    <label for="role"><span class="glyphicon glyphicon-mobile"></span> Role:</label> 
+    <input  class="form-control" id="role" required [(ngModel)]="registration.role" [ngModelOptions]="{standalone: true}" name="role">
+     -->
+<div >
+    <br/>
+    <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>  
+        Submit
+    </button>
+    <a routerLink="/guest" class="btn btn-secondary" style="margin-left:20px">Cancel</a>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>

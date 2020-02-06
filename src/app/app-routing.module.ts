@@ -60,7 +60,6 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
 
 import { HostelPaymentComponent } from './hostel-payment/hostel-payment.component';
 import { HostelSubscriptionComponent } from './hostel-subscription/hostel-subscription.component';
-//import { ProfileComponent } from './profile/profile.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
@@ -73,13 +72,14 @@ import { ContactsComponent } from './contacts/contacts.component';
 
  
 import { BedReservationComponent } from './bed-reservation/bed-reservation.component';
-import { GuestListComponent } from './user/guest-list/guest-list.component'; 
+import { GuestListComponent } from './user/guest-list/guest-list.component';
+import { CreateGuestComponent } from './user/create-guest/create-guest.component'; 
 import { VacateRequestComponent } from './vacate/vacate-request/vacate-request.component';
 
 
 
 const routes: Routes = [
-  {path: '', component: ProfileComponent, canActivate: [AuthGuard]},
+  { path: '', component: ListHostelComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'reservation', component: BedReservationComponent},
@@ -119,6 +119,7 @@ const routes: Routes = [
   { path: 'user/add', component: CreateUserComponent  },
   { path: 'userupdate/:id', component: UpdateUserComponent },
   { path: 'userdetails/:id', component: UserDetailsComponent },
+  { path: 'createguest/viewtabs', component: CreateGuestComponent},
 
   
   { path: 'guest', component: GuestListComponent, canActivate: [AuthGuard] },
