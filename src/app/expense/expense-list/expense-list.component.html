@@ -4,9 +4,9 @@
       <div>
         <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><span class="glyphicon glyphicon-plus"> </span> Add Expense</a>
       </div>
-         <div class="search" style="width:200px">
-        <input type="text" class="form-control"  placeholder="Search here" [(ngModel)]="searchTerm" >
-    </div>
+          <!-- <div class="form-group pull-right">
+            <input type="text" [(ngModel)]="searchText" placeholder="search">
+        </div> -->
     </div>
   <br>
   <div class="panel-body">
@@ -26,7 +26,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let expense of expenses |  expenseFilter:searchTerm">
+        <tr *ngFor="let expense of expenses |  async">
             <td>{{ expense.id }}</td>
           <!--<td>{{ expense.hostelId }}</td>-->
           <td>{{ expense.expenseType }}</td>

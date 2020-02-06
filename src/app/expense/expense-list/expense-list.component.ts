@@ -20,8 +20,8 @@ export class ExpenseListComponent implements OnInit {
   {
       var data = document.getElementById('contentToConvert');
       html2canvas(data).then(canvas =>{
-      var imgWidth = 208;
-      var pageHeight = 295;
+      var imgWidth = 225;
+      var pageHeight = 300;
       var imgHeight = canvas.height * imgWidth / canvas.width;
       var heightLeft = imgHeight;
 
