@@ -154,9 +154,8 @@ label{
     padding: 4px;
     border-radius: 8px;
 }
-.bed-alloted-yes{
-    background-color: orangered;
-    color: white;
+.bed-alloted-yes:hover{
+    cursor: default;
 }
 .bed-alloted-no{
     

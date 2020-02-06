@@ -14,6 +14,8 @@ import html2canvas from 'html2canvas';
 })
 export class ExpenseListComponent implements OnInit {
   expenses: Observable<Expense[]>;
+  private searchTerm: string;
+  
  public printPage()
   {
       //var data = document.getElementById('convertTo');
@@ -40,7 +42,9 @@ export class ExpenseListComponent implements OnInit {
   }
 
   reloadData() {
-    this.expenses = this.expenseService.getExpensesList();
+    this.expenseService.getExpensesList().subscribe(res => {
+        this.expenses = res;
+      });
   }
 
   deleteExpense(id: number) {

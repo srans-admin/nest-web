@@ -3,11 +3,8 @@ import { Observable } from "rxjs";
 import { HostelService } from "../../_services/hostel.service";
 import { Hostel } from "../../_models/hostel";
 import { Router, ActivatedRoute } from '@angular/router';
-import { ServerConfig } from '../../config/server.config';
 import { HttpClient } from '@angular/common/http';
 import { Room } from '../../_models/room';
-
-import { CreateUserComponent } from 'src/app/user/create-user/create-user.component';
 import { Bed } from 'src/app/_models/bed'; 
 import { Floor } from '../../_models/floor';
 
@@ -19,7 +16,8 @@ import { Floor } from '../../_models/floor';
 export class FloorViewComponent implements OnInit {
     
   @Input()
-  hostel : Hostel;
+  private hostel : Hostel;
+  private disableBed: boolean = false;
 
   @Output() onSelectedBedInfoEmitor = new EventEmitter<any>(); 
   selectedBedInfo: object = {};
@@ -54,20 +52,27 @@ export class FloorViewComponent implements OnInit {
 
     //TODO Need to make sure we need to pass the info to the called : example: CreateUserComponent
      onSelectedBed(bed : Bed,  roomType, roomRent : number,  floorName : string,  roomName: string){
-         
-       this.selectedBedInfo = { 
-        "roomRent": roomRent,
-        "roomType": roomType,
-        "floorName": floorName ,
-        "roomName": roomName, 
-        "bed": bed
-      }  
-      
-      this.onSelectedBedInfoEmitor.emit(this.selectedBedInfo);
 
-      this.hostel = null;
-    } 
-
+      if (bed.alloted != "Y")
+      {
+        this.selectedBedInfo = { 
+          "roomRent": roomRent,
+          "roomType": roomType,
+          "floorName": floorName ,
+          "roomName": roomName, 
+          "bed": bed
+        }
+             
+        this.onSelectedBedInfoEmitor.emit(this.selectedBedInfo);
+  
+        this.hostel = null;
+      }
+      else
+      {
+        console.log("Bed is not alloted")
+      }
+       
+     }      
   }
   
 

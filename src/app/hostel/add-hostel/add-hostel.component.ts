@@ -222,8 +222,6 @@ export class AddHostelComponent implements OnInit {
         break;              
      } 
     }
-    //this.selectedFile = <File>fileInput.target.files[0];
-     
 }
 
   isSubmitEnable(){
