@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Observable } from "rxjs";
 import { HostelService } from "../../_services/hostel.service";
 import { Hostel } from "../../_models/hostel";
@@ -25,9 +25,14 @@ export class ListHostelComponent implements OnInit {
   private extendingviews: Observable<Hostel[]>;
   private searchTerm: string;
   private acknoldgmentMsg : string = null; 
-   
+  private id: number;
+  private hostelId: number;
+  private facadeImage: any;
   private extendedViewUrl = environment.appUrl+ '/api/v1/hostels/{id}/extendingviews';
-  
+
+   p: Number = 1;
+  count: Number = 5;
+
   constructor(private hostelService: HostelService,
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -39,13 +44,38 @@ export class ListHostelComponent implements OnInit {
      }
 
     ngOnInit() {
-      this.reloadData();
+      this.reloadData();       
     }
+
+    //Facade
+ createImageFromBlobFacade(image: Blob) {
+  let reader = new FileReader();
+  reader.addEventListener("load", () => {
+     this.facadeImage = reader.result;
+  }, false); 
+  if (image) {
+     reader.readAsDataURL(image);
+  }
+}
   
     reloadData() {
 
      this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role).subscribe(res => { 
         this.hostels = res;
+        for(let k = 0; k < this.hostels.length; k++){
+          this.hostelId = this.hostels[k].id;        
+
+            //Facade  
+            this.hostelService.retriveFile('facade', this.hostelId)
+            .subscribe(data => {
+              this.createImageFromBlobFacade(data);
+              this.facadeImage = data;
+              }, error => {
+                console.log(error);
+            })
+
+      }
+
       },err =>{ 
         this.alertMessage.showHttpMessage(err);
       });
@@ -77,8 +107,6 @@ export class ListHostelComponent implements OnInit {
     }
 
     addNewHostel(){
-
- 
       let currentUser : any = this.authenticationService.currentUser;
       if(currentUser )
       {
@@ -89,6 +117,21 @@ export class ListHostelComponent implements OnInit {
         }
       }
     }
+
+    //  Close the dropdown if the user clicks outside of it
+      @HostListener('document:click', ['$event'])
+      click = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+      }
+    } 
 
   }
   

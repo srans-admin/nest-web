@@ -4,28 +4,38 @@
       <div>
         <a routerLink="add"  class="btn btn-info " routerLinkActive="active"><span class="glyphicon glyphicon-plus"> </span> Add Expense</a>
       </div>
-          <!-- <div class="form-group pull-right">
-            <input type="text" [(ngModel)]="searchText" placeholder="search">
-        </div> -->
+      <div class="search" style="width:200px">
+        <input type="text" class="form-control"  placeholder="Search here" [(ngModel)]="searchTerm" >
+      </div>
     </div>
   <br>
   <div class="panel-body">
     <table class="table table-striped">
-      <thead>
+     <thead>
         <tr>
-          <th> ID </th>
+          <th> S.No </th>
           <!--<th> Hostel </th>-->
            <th> Type of Expense</th>
-          <th> Cost</th>
+          <th> Paid By</th>
+          <th>Paid To</th>
+          <th>Mode Of Payment</th>
+          <th>Transaction Id</th>
+          <th> Amount</th>
+          <th>Comments</th>
           <!--<th> Actions</th>-->
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let expense of expenses |  async">
+        <tr *ngFor="let expense of expenses |expenseFilter:searchTerm">
             <td>{{ expense.id }}</td>
           <!--<td>{{ expense.hostelId }}</td>-->
           <td>{{ expense.expenseType }}</td>
+          <td>{{ expense.paidBy }}</td>
+          <td>{{ expense.paidTo }}</td>
+          <td>{{ expense.modeOfPayment }}</td>
+          <td>{{ expense.transactionId }}</td>
           <td>{{ expense.amount }}</td>
+          <td>{{ expense.comments }}</td>
           <td>
              <div class="user-options">
             <!--<a (click)="deleteExpense(expense.id)" title="delete" ><span class="glyphicon glyphicon-trash"></span></a>-->
@@ -40,7 +50,7 @@
       </tbody>
     </table>
   </div>
-           <button type="button" (click)="printPage()">Print</button>
+           <button type="button" (click)="printPage()">PRINT</button>
 
 </div>
 

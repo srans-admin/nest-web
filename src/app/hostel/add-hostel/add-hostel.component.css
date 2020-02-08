@@ -100,6 +100,7 @@ label{
     height: 33px;
     padding: 5px;
     border-radius: 18px;
+    background-color: green;
 }
 .btn-background:hover{
     background-color: green;
@@ -153,9 +154,8 @@ label{
     padding: 4px;
     border-radius: 8px;
 }
-.bed-alloted-yes{
-    background-color: orangered;
-    color: white;
+.bed-alloted-yes:hover{
+    cursor: default;
 }
 .bed-alloted-no{
     
@@ -167,4 +167,8 @@ label{
 .bed-alloted-now{
     background-color: green;
     color: whitesmoke;
+}
+
+.fileSize{
+    color:red;
 }

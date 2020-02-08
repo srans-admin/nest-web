@@ -135,6 +135,9 @@ label{
 .bed-alloted-no{
     
 }
+.bed-alloted-yes:hover{
+    cursor:default;
+}
 .bed-image{
     width: 16px;
     height: 16px;

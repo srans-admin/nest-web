@@ -10,11 +10,8 @@
 
   <div class="form-group"   >
     <label for="name">Name</label>
-<<<<<<< Updated upstream
-    <input type="text" class="form-control" id="name" required [(ngModel)]="currentUser.name" name="name" >
-=======
     <input type="text" class="form-control" id="name" required [(ngModel)]="currentUser.name" name="name" 
-    required minlength="4" maxlength="30" #name="ngModel" ><br/>
+    required minlength="4" maxlength="30" #name="ngModel" readonly><br/>
     <div *ngIf="name.invalid && (name.dirty || name.touched)"
               class="alert alert-danger">
           
@@ -29,16 +26,15 @@
             </div>
           
           </div>
->>>>>>> Stashed changes
   </div>
 
   <div class="form-group"   >
       <label for="name">Phone Number</label>
       <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-<<<<<<< Updated upstream
+
       class="form-control" id="contactNumber" required [(ngModel)]="currentUser.contactNumber" name="contactNumber"/>
-    </div>
-=======
+    
+
       class="form-control" id="contactNumber" required [(ngModel)]="currentUser.contactNumber" name="contactNumber"
       required minlength="10" maxlength="10" #contactNumber="ngModel" width="10" pattern="[0-9]+"/><br/>
           <div *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)"
@@ -55,7 +51,7 @@
                  </div>
           </div>
   </div>
->>>>>>> Stashed changes
+
 
   <div class="form-group"  >
       <label for="name">Father Name</label>
@@ -79,11 +75,8 @@
   <div class="form-group"  >
       <label for="name">Father phoneNumber</label>
       <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-<<<<<<< Updated upstream
-      class="form-control" id="fatherphoneNumber" required [(ngModel)]="currentUser.fatherphoneNumber" name="fatherphoneNumber"/>
-=======
-      class="form-control" id="fatherphoneNumber"  [(ngModel)]="currentUser.fatherphoneNumber" name="fatherphoneNumber" />
->>>>>>> Stashed changes
+     class="form-control" id="fatherphoneNumber"  [(ngModel)]="currentUser.fatherphoneNumber" name="fatherphoneNumber" /> 
+
     </div>
 
   <div class="form-group"  >
@@ -94,11 +87,8 @@
   <div class="form-group" >
       <label for="name">Mother phoneNumber</label>      
       <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-<<<<<<< Updated upstream
-      class="form-control" id="motherphoneNumber" required [(ngModel)]="currentUser.motherphoneNumber" name="motherphoneNumber"/>
-=======
       class="form-control" id="motherphoneNumber"  [(ngModel)]="currentUser.motherphoneNumber" name="motherphoneNumber" minlength="10" maxlength="10"/>
->>>>>>> Stashed changes
+
     </div>
 
   <div class="form-group" >
@@ -129,9 +119,6 @@
   <div class="form-group"  >
       <label for="name">Emergency ContactNumber</label>
       <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-<<<<<<< Updated upstream
-      class="form-control" id="emergencyContactNumber" required [(ngModel)]="currentUser.emergencyContactNumber" name="emergencyContactNumber"/>
-=======
       class="form-control" id="emergencyContactNumber" required [(ngModel)]="currentUser.emergencyContactNumber" name="emergencyContactNumber"
       required minlength="10" maxlength="10" #emergencyContactNumber="ngModel" width="10" pattern="[0-9]+"/><br/>
           <div *ngIf="emergencyContactNumber.invalid && (emergencyContactNumber.dirty || emergencyContactNumber.touched)"
@@ -147,7 +134,7 @@
                     Emergency Contact Number must 10 Digits.
                  </div>
           </div>
->>>>>>> Stashed changes
+>>>
     </div>
 
   <div class="form-group"  >

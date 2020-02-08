@@ -12,16 +12,15 @@
             <option>Double</option>
             <option>Triple</option>
         </select> 
-    
-        <label for="name"><span class="glyphicon glyphicon-asterisk"></span>  Number of Rooms</label>
-        <input type="number" class="form-control" [(ngModel)]="numOfRooms" >  
+        <label for="name"><span class="glyphicon glyphicon-asterisk"></span>Number of Rooms</label>
+        <input type="number" class="form-control" [(ngModel)]="numOfRooms">  
 
         <label for="RoomNumbers"><span class="glyphicon glyphicon-th-list"></span> Room Numbers  <p class="notes"> Note: Please provide valid room numbers with comma seperated</p></label>    
         <textarea class="form-control" [(ngModel)]="roomNumbers" ></textarea>
 
         <label for="name"><span class="glyphicon glyphicon-tag"></span>  Room Rent</label>
-        <input type="text" class="form-control" [(ngModel)]="roomRent">
-
+        <input type="number" id="roomRent" name="roomRent" class="form-control" [(ngModel)]="roomRent" required>
+        
         <label for="Comments"><span class="glyphicon glyphicon-list-alt"></span>Comments</label>
         <input type="text" class="form-control " id="hostelType" [(ngModel)]="comments" >
 

@@ -25,6 +25,8 @@ export class GuestListComponent implements OnInit {
   private searchTerm: string;
   private currentUser: User;
   private type: string = 'GUEST';
+   p: Number = 1;
+  count: Number = 10;
 
   constructor(private userService: UserService,
     private route: ActivatedRoute,

@@ -40,7 +40,7 @@
               <tbody>
                   
                     
-                <tr *ngFor="let user of users | userFilter:searchTerm">              
+                <tr *ngFor="let user of users | userFilter:searchTerm | paginate: { itemsPerPage: count, currentPage: p }">
                    <!-- <td> <mat-checkbox ></mat-checkbox></td> -->
                    <td>
                       <img class="user-init-img" src="{{ bringMyImage(user.userId)}}" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" height="200" alt=""/>
@@ -90,9 +90,12 @@
                 </tr>
               </tbody>
             </table>
-          
+
           </div>
-        
+         <!--Including the pagination control.-->
+        <div class="text-right">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
     <br>
 </div>
   
