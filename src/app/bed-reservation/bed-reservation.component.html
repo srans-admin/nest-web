@@ -66,7 +66,7 @@
             class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber"/>
 
             <label for="name"><span class="glyphicon glyphicon-user"></span> Name Of The Employer:</label>
-            <input type="text" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
+            <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
 
             <label for="name"><span class="glyphicon glyphicon-user"></span> Office Address:</label>
             <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
