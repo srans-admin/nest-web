@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../_models/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../_services/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../_auth/auth.service';
 
 
@@ -14,10 +15,12 @@ export class EditProfileComponent implements OnInit {
 
   //private id: number;
   //private user: User;
+  profileForm: FormGroup; 
   private currentUser: User;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private formBuilder: FormBuilder,
               private userService: UserService,
               private authenticationService: AuthenticationService) { }
 

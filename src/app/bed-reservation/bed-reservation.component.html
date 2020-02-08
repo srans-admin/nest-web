@@ -105,27 +105,41 @@
       </select>
 
       <floor-view [hostel]="selectedHostel" (onSelectedBedInfoEmitor)="onSelectedBedInfoEmited($event)"></floor-view>
+<<<<<<< Updated upstream
       <div class="selected-bed-info " *ngIf="isBedSelected">
+=======
+      
+
+    </div>
+
+
+      </mat-tab>
+
+
+      <mat-tab label="Payment" *ngIf="isHostelPaymentReq">
+
+        <div class="selected-bed-info " *ngIf="isBedSelected">
+>>>>>>> Stashed changes
           <div class="row selected-bed-info-header">
             <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-              <label>Hosel</label>
+              <label>Hostel Name</label>
               <div class="name"> {{selectedBedInfo.hostelName}} </div>
             </div>
             <div class="col-md-6">
-              <label>Floor</label>
+              <label>Floor Number</label>
               <div class="name">{{selectedBedInfo.floorName}}</div>
             </div>
           </div>
           <div class="row">
               <div class="col-md-6">
-                <label>Room</label>
+                <label>Room Number</label>
                 <div class="name">{{selectedBedInfo.roomName}} </div>
               </div>
               <div class="col-md-6">
-                <label>Bed</label>
+                <label>Bed Number</label>
                 <div class="name">{{selectedBedInfo.bed.id}}</div>
               </div>
             </div> 
@@ -149,16 +163,6 @@
                    
                 </div>
         </div>
-
-    </div>
-
-
-      </mat-tab>
-
-
-      <mat-tab label="Payment" *ngIf="isHostelPaymentReq">
-
-
          
 
 
@@ -197,7 +201,14 @@
           </span>
 
         </div>
+<<<<<<< Updated upstream
         <button type="submit" class="btn btn-success">Join Guest</button>
+=======
+        <button type="submit" class="btn btn-success">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Join Guest
+        </button>
+>>>>>>> Stashed changes
         <a routerLink="/hostels" class="btn btn-secondary" style="margin-left:20px">Cancel</a>
 
       </mat-tab>        
