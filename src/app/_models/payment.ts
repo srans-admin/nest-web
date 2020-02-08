@@ -2,7 +2,7 @@
 export class Payment{
     id: number;
     userId: number;
-    createdAt: Date = new Date();
+    paidDate: Date = new Date();
     roomName: string;
     roomType: string;
     paymentThrough: string;

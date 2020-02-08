@@ -28,7 +28,7 @@ export class User {
   newPassword: string;
   confirmPassword: string;
   guestToTenant: string = 'N';
-  
+  gender: string;
 
   tenantBooking: TenantBooking = new TenantBooking();
   payment: Payment = new Payment();
@@ -70,4 +70,3 @@ export class User {
  
 // }
 
- 

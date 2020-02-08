@@ -61,6 +61,12 @@
               <option>O-</option>
               </select>
 
+             <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
+          <select  class="browser-default custom-select" id="gender" [(ngModel)]="user.gender" name="gender" >
+          <option>MALE+</option>
+          <option>FEMALE</option>
+          </select>
+
             <label for="name"><span class="glyphicon glyphicon-mobile"></span> Emergency Contact Number:</label>
             <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
             class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber"/>

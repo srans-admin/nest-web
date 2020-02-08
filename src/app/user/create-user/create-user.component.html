@@ -1,29 +1,21 @@
 <h3><span class="glyphicon glyphicon-user"></span> 
   Tenant <span *ngIf="!isHostelPaymentReq">Only</span> Registration {{hostel.selectedBedInfo}} 
-  <span *ngIf="isHostelPaymentReq"> with booking PG</span> </h3>
-  
-  <form (ngSubmit)="onSubmit()">
+  <span *ngIf="isHostelPaymentReq"> </span> </h3>
+
+  <form (ngSubmit)="onSubmit(tenantForm)" name="tenant-form" #tenantForm = "ngForm" >
     <mat-tab-group>
       <mat-tab label="Tenant">
 
-
-      <!-- <div class="is-hostel-info-req">
-          <mat-checkbox [(checked)]="isHostelPaymentReq" 
-          (change)="isHostelPaymentRequired($event)"> I will be set Hostel and Payment Info as per the
-           Registation </mat-checkbox>
-      </div> -->
       <div class="tenant-form-1" style="width: 300px;"  >
 
       <div class="form-group">
-          <!-- <label for="name">userpic</label>
-          <input type="file" required [(ngModel)]=user.userpic name="userpic" > -->
 
           <label><span class="glyphicon glyphicon-camera"></span> TenantPic </label>
           <input type="file" class="form-control " (change)="prepareUpload('userImage',$event)" />
             
           <label><span class="glyphicon glyphicon-user" ></span> Name:</label>
           <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" 
-           required minlength="4" maxlength="20" #name="ngModel"><br/>
+           minlength="4" maxlength="20" #name="ngModel"><br/>
           <div *ngIf="name.invalid && (name.dirty || name.touched)"
                     class="alert alert-danger">
                 
@@ -36,37 +28,35 @@
                   <div *ngIf="name.errors.maxlength">
                      Name must 20 characters long.
                   </div>
-                
-                </div>
+          </div>
 
           <label for="name"><span class="glyphicon glyphicon-earphone"></span> Contact Number:</label>
-          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+          <input type="text" oninput="this.value = this.value.replace(/[^6-9.][^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
           class="form-control" id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" 
-          required minlength="10" maxlength="10" #contactNumber="ngModel" width="10" pattern="[0-9]+"/><br/>
+          minlength="10" maxlength="10" #contactNumber="ngModel" width="10" pattern="[0-9]+"/><br/>
           <div *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)"
                     class="alert alert-danger">
                 
                   <div *ngIf="contactNumber.errors.required">
-                    contactNumber is required.
+                    Contact Number is required.
                   </div>
                   <div *ngIf="contactNumber.errors.minlength">
-                    contactNumber must be  10 Digits.
+                    Contact Number must be  10 Digits.
                   </div>
                   <div *ngIf="contactNumber.errors.maxlength">
-                    contactNumber must 10 Digits.
+                    Contact Number must 10 Digits.
                  </div>
-                </div>
+          </div>
       
-          <label for="name"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
-          <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId"
-          required   #emailId="ngModel" pattern><br/>
-          <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)"
-                    class="alert alert-danger">
-                
-                  <div *ngIf="emailId.errors.required">
-                     Email is required.
-                  </div>                                                 
+         <label for="emailId"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
+            <input type="email" class="form-control" id="emailId" required [(ngModel)]="user.emailId" name="emailId"
+                #emailId="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"><br/>
+            <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)"
+                class="alert alert-danger">
+                <div *ngIf="emailId.errors.required">
+                    Valid Email is required.
                 </div>
+            </div>
           
           <label for="name"><span class="glyphicon glyphicon-user"></span> Father Name:</label>
           <input type="text" class="form-control" id="fatherName" required [(ngModel)]="user.fatherName" name="fatherName" 
@@ -84,27 +74,50 @@
                     Father Name must 20 characters long.
                   </div>
                 </div>
-        
+
           <label for="name"><span class="glyphicon glyphicon-tasks"></span> Father Phone Number:</label>
-          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-          class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber"/>
+          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+          class="form-control" id="fatherphoneNumber" required [(ngModel)]="user.fatherphoneNumber" name="fatherphoneNumber"
+          required minlength="10" maxlength="10" #fatherphoneNumber="ngModel" width="10" pattern="[0-9]+"/><br/>
+          <div *ngIf="fatherphoneNumber.invalid && (fatherphoneNumber.dirty || fatherphoneNumber.touched)"
+                    class="alert alert-danger">
+
+                  <div *ngIf="fatherphoneNumber.errors.required">
+                    Contact Number is required.
+                  </div>
+                  <div *ngIf="fatherphoneNumber.errors.minlength">
+                    Contact Number must be  10 Digits.
+                  </div>
+                  <div *ngIf="fatherphoneNumber.errors.maxlength">
+                    Contact Number must 10 Digits.
+                 </div>
+          </div>
+
         
           <label for="name"><span class="glyphicon glyphicon-user"></span> Mother Name:</label>
-          <input type="text" class="form-control" id="motherName" required [(ngModel)]="user.motherName" name="motherName">
+          <input type="text" minlength="4" maxlength="20" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="motherName" [(ngModel)]="user.motherName" name="motherName">
         
           <label for="name"><span class="glyphicon glyphicon-tasks"></span> Mother Phone Number:</label>
-          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-          class="form-control" id="motherphoneNumber" required [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber"/>
-        
+          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+          class="form-control" minlength="10" maxlength="10" id="motherphoneNumber" [(ngModel)]="user.motherphoneNumber" name="motherphoneNumber"/>
+
+
           <label for="name"><span class="glyphicon glyphicon-calendar"></span> Date Of Birth:</label>          
           <span class="date-picker">
-            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  required [(ngModel)]="user.dob" placeholder="MM/DD/YY">
+            <input type="text" required [matDatepicker]="picker" class="form-control"  name="date"  [(ngModel)]="user.dob" placeholder="MM/DD/YY">
              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
              <mat-datepicker #picker></mat-datepicker> 
             </span>
-        
+
           <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
-          <select  class="browser-default custom-select" id="bloodGroup" required [(ngModel)]="user.bloodGroup" name="bloodGroup" >
+          <select  class="browser-default custom-select" id="gender" [(ngModel)]="user.gender" name="gender" >
+          <option>MALE+</option>
+          <option>FEMALE</option>
+          </select>
+
+
+          <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
+          <select  class="browser-default custom-select" id="bloodGroup" [(ngModel)]="user.bloodGroup" name="bloodGroup" >
           <option>A+</option>
           <option>A-</option>
           <option>B+</option>
@@ -116,7 +129,7 @@
           </select>
         
           <label for="name"><span class="glyphicon glyphicon-mobile"></span> Emergency Contact Number:</label>          
-          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+          <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
           class="form-control" id="emergencyContactNumber" required [(ngModel)]="user.emergencyContactNumber" name="emergencyContactNumber"
           required minlength="10" maxlength="10"  #emergencyContactNumber="ngModel"/><br/>
           <div *ngIf="emergencyContactNumber.invalid && (emergencyContactNumber.dirty || emergencyContactNumber.touched)"
@@ -134,10 +147,10 @@
                 </div>
         
           <label for="name"><span class="glyphicon glyphicon-user"></span> Name Of The Employer:</label>
-          <input type="text" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
+          <input type="text"  class="form-control" id="nameOfTheEmployer" [(ngModel)]="user.nameOfTheEmployer" name="nameOfTheEmployer">
         
           <label for="name"><span class="glyphicon glyphicon-user"></span> Office Address:</label>
-          <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="user.officeAddress" name="officeAddress">
+          <input type="text" class="form-control" id="officeAddress" [(ngModel)]="user.officeAddress" name="officeAddress">
             
           <label for="name"><span class="glyphicon glyphicon-user"></span> Permanent Address:</label>
           <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress"
@@ -176,25 +189,23 @@
 
           <label for="name"><span class="glyphicon glyphicon-tasks"></span> Id Proof Number:</label>
           <input type="text" class="form-control" id="idProofId" required [(ngModel)]="user.idProofId" name="idProofId"
-          required minlength="10" maxlength="17"  #idProofId="ngModel"><br/>
+          required  maxlength="12"  #idProofId="ngModel"><br/>
           <div *ngIf="idProofId.invalid && (idProofId.dirty || idProofId.touched)"
                     class="alert alert-danger">
                 
                   <div *ngIf="idProofId.errors.required">
                     IdProof Number is required.
                   </div>
-                  <div *ngIf="idProofId.errors.minlength">
-                    IdProof Number must be  10 Digits.
-                  </div>
+
                   <div *ngIf="idProofId.errors.maxlength">
-                    IdProof Number must be  17 Digits.
+                    IdProof Number must be  12 Digits.
                   </div>
                 </div>
           <!-- <label for="name"><span class="glyphicon glyphicon-user"></span> ID </label>
           <input type="file" class="form-control " (change)="prepareUpload('idproofImage',$event)" /> -->
       </div>    
   
-</div>
+    </div>
 </mat-tab>
     
   <mat-tab label="Hostel" *ngIf="isHostelPaymentReq">  
@@ -270,18 +281,26 @@
 
         <div class="tenant-form-1" style="width: 300px;">
 
-          <div class="form-group">
-            <label for="name">
-              <!-- <div class="input-group-prepend"> -->
-              <span class="glyphicon glyphicon-calendar"></span> Date:</label>
-            <!-- </div> -->
-            <span class="date-picker">
-            <input type="text" required [matDatepicker]="picker" class="form-control"  required [(ngModel)]="user.payment.date" >
-             <mat-datepicker-toggle matSuffix [for]="picker" placeholder="MM/DD/YY"></mat-datepicker-toggle>      
-             <mat-datepicker #picker></mat-datepicker> 
+          <!--<div class="form-group">-->
+            <!--<label for="name">-->
+              <!--&lt;!&ndash; <div class="input-group-prepend"> &ndash;&gt;-->
+              <!--<span class="glyphicon glyphicon-calendar"></span> Date:</label>-->
+            <!--&lt;!&ndash; </div> &ndash;&gt;-->
+            <!--<span class="date-picker">-->
+            <!--<input type="text" required [matDatepicker]="picker" class="form-control"  [(ngModel)]="user.payment.createdAt" >-->
+             <!--<mat-datepicker-toggle matSuffix [for]="picker" placeholder="MM/DD/YY"></mat-datepicker-toggle>      -->
+             <!--<mat-datepicker #picker></mat-datepicker> -->
+            <!--</span>-->
+        <!--</div>-->
+
+            <label for="name"><span class="glyphicon glyphicon-calendar"></span> Date :</label>
+          <span class="date-picker">
+            <input type="text" required [matDatepicker]="picker" class="form-control"  name="createdAt"  [(ngModel)]="user.payment.createdAt" placeholder="MM/DD/YY">
+             <mat-datepicker-toggle matSuffix [for]="picker" placeholder="MM/DD/YY"></mat-datepicker-toggle>
+             <mat-datepicker #picker></mat-datepicker>
             </span>
-        </div>
-   
+
+
         <label><span class="glyphicon glyphicon-user"></span> Payment Through:</label>
         <select id="paymentThrough" class="browser-default custom-select" [(ngModel)]="user.payment.paymentThrough" name=" paymentThrough">
           <option value="CASH" selected="selected" >Cash</option>
@@ -290,24 +309,43 @@
 
         <span *ngIf="user.payment.paymentThrough === 'BT'">
           <label for="name"><span class="glyphicon glyphicon-book"></span> Transaction Id:</label>
-              <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId">
-    
+          <input type="text" class="form-control" id="transactionId" required [(ngModel)]="user.payment.transactionId" name="transactionId"
+          required  minlength="12" maxlength="15"  #idProofId="ngModel"><br/>
+          <div *ngIf="transactionId.invalid && (transactionId.dirty || transactionId.touched)"
+                    class="alert alert-danger">
+
+                  <div *ngIf="transactionId.errors.required">
+                    transaction Id  is required.
+                  </div>
+
+                   <div *ngIf="transactionId.errors.minlength">
+                    transaction Id  must be  12 Digits.
+                  </div>
+
+                  <div *ngIf="transactionId.errors.maxlength">
+                    transaction Id  must be  15 Digits.
+                  </div>
+                </div>
+
+
+
+
           <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
           <input type="text" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
         </span>
 
         
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Room Rent:</label>
-        <input type="text" class="form-control"   required [(ngModel)]="user.payment.roomRent" name="roomRent" value="{{user.payment.roomRent - user.payment.discountAmount}}" readonly>
+        <input type="text" class="form-control"  [(ngModel)]="user.payment.roomRent" name="roomRent" value="{{user.payment.roomRent - user.payment.discountAmount}}" readonly>
     
     
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount:</label>
-        <input type="text" class="form-control"  required [(ngModel)]="user.payment.depositAmount" name="depositAmount" value="{{user.payment.roomRent - user.payment.discountAmount}}" readonly>
+        <input type="text" class="form-control"  [(ngModel)]="user.payment.depositAmount" name="depositAmount" value="{{user.payment.roomRent - user.payment.discountAmount}}" readonly>
         
     
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Discount Amount:</label>
         <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-        class="form-control"   required [(ngModel)]="user.payment.discountAmount" name="discountAmount"/>
+        class="form-control"  [(ngModel)]="user.payment.discountAmount" name="discountAmount"/>
 
         <!-- <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount Discount:</label>
         <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
@@ -315,7 +353,7 @@
     
         
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Amount to be paid:</label>
-        <input type="text" class="form-control"   readonly required ([ngModel])="user.payment.amountPaid" value="{{(user.payment.roomRent + user.payment.roomRent) - user.payment.discountAmount}}" >
+        <input type="text" class="form-control"   readonly ([ngModel])="user.payment.amountPaid" value="{{(user.payment.roomRent - user.payment.discountAmount)+ (user.payment.roomRent - user.payment.discountAmount)}}" >
 <!-- 
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Total Amount to be paid:</label>
         <input type="text" class="form-control"   readonly value="{{ user.payment.amountPaid   }}" >
@@ -324,7 +362,7 @@
      <textarea   class="form-control"  [(ngModel)]="payment.comments" ></textarea>
           <div >
             <br/>
-        <button [disabled]="loading" class="btn btn-success">
+        <button type="submit" [disabled]="!tenantForm.form.valid" class="btn btn-success">
               <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
            <span *ngIf="id" >Convert Guest to Tenant </span> 
            <span *ngIf="!id">Join Tenant </span> 

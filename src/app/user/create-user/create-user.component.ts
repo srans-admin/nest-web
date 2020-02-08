@@ -18,6 +18,7 @@ import { NIDOSMessages } from 'src/app/_messages/message_eng';
 import { MatDialog } from '@angular/material/dialog';
 import { BanktransferComponent } from 'src/app/payment/banktransfer/banktransfer.component';
 import { AuthenticationService } from 'src/app/_auth/auth.service';
+import { FormBuilder, FormGroup, FormArray, FormControl, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-create-user',
@@ -25,6 +26,8 @@ import { AuthenticationService } from 'src/app/_auth/auth.service';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
+
+  private tenantForm: FormGroup;
   private hostels: Observable<Hostel[]>;
   private imageUrl: string = "/assets/img/showimage.jpg";
   private userImage: File = null;
@@ -50,6 +53,7 @@ export class CreateUserComponent implements OnInit {
   private type: string = 'GUEST';
   private info:any;
   private loading = false;
+ private  submitted = false;
 
   constructor(private route: ActivatedRoute,private userService: UserService,
     private router: Router,
@@ -117,7 +121,8 @@ export class CreateUserComponent implements OnInit {
     this.hostels = this.hostelService.getHostelsList(this.currentUser.userId, this.currentUser.role);
   }
 
-  onSubmit() { 
+  onSubmit(form: NgForm) {
+        this.submitted = true;
     this.save();
   }
 
