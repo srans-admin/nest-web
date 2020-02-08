@@ -241,6 +241,10 @@ createImageFromBlobMisc(image: Blob) {
       this.listHostel();
   }
 
+  updateHostel(id: number){
+    this.router.navigate(['update', id]);
+  }
+
   listHostel(){
     this.router.navigate(['/hostels']);
   }
