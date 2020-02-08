@@ -27,9 +27,6 @@ export class ViewComponent implements OnInit {
   private b3Image: any;
   private miscImage: any;
   private currentUser: User;
-  private i : number;
-
-  private j : number;
   private temp : number = 0;
   private rooms : number;
   private beds : number;
@@ -76,16 +73,16 @@ export class ViewComponent implements OnInit {
         console.log(data)
         this.hostel = data;
 
-        for(this.i = 0; this.i < this.hostel.floors.length;this.i++){
-          this.rooms = this.hostel.floors[this.i].rooms.length;
+        for(let i = 0; i < this.hostel.floors.length; i++){
+          this.rooms = this.hostel.floors[i].rooms.length;
           this.temp = this.temp + this.rooms;
         }        
         this.rooms = this.temp;        
  
 
         // for(this.i = 0; this.i < this.hostel.floors.length;this.i++){
-          for(this.j = 0;this.j < this.rooms[this.j].beds.length;this.j++){
-            this.beds = this.rooms[this.j].beds.length;
+          for(let j = 0; j < this.rooms[j].beds.length; j++){
+            this.beds = this.rooms[j].beds.length;
             this.temp = this.temp + this.beds;
           }
         // }
@@ -228,6 +225,7 @@ createImageFromBlobMisc(image: Blob) {
     this.router.navigate(['/hostels']);
   }
 
+  // delete hostel
   deleteHostel(id: number) {
     if(window.confirm("Are you to remove the hostel : "+id)){
     this.hostelService.deleteHostel(id)
@@ -241,10 +239,13 @@ createImageFromBlobMisc(image: Blob) {
       this.listHostel();
   }
 
+  // edit hostel
   updateHostel(id: number){
+    console.log(id);
     this.router.navigate(['update', id]);
   }
 
+  // hostels list
   listHostel(){
     this.router.navigate(['/hostels']);
   }

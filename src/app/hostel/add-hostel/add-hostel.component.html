@@ -64,8 +64,12 @@
                 </div>
 
                 <label><span class="glyphicon glyphicon-th-large"></span> Number of Floors</label>
-                <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
-                    (ngModelChange)="populateFloors($event)" name="numOfFloors" required #numOfFloors="ngModel"><br/>
+                <!-- <input type="number" class="form-control " id="numOfFloors" [(ngModel)]="hostel.numOfFloors"
+                    (ngModelChange)="populateFloors($event)" name="numOfFloors" required #numOfFloors="ngModel"><br/> -->
+
+                <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    id="numOfFloors" name="numOfFloors" class="form-control" [(ngModel)]="hostel.numOfFloors" 
+                    (ngModelChange)="populateFloors($event)" required #numOfFloors="ngModel"><br/>
 
                 <div *ngIf="numOfFloors.invalid && (numOfFloors.dirty || numOfFloors.touched)"
                  class="alert alert-danger">
@@ -182,6 +186,8 @@
             </div>
 
         </mat-tab>
+
+        <!-- Amenities -->
         <mat-tab label="Amenities">
 
             <div class="custom-control custom-switch">
@@ -258,7 +264,7 @@
 
         </mat-tab>
 
-
+        <!-- Pics -->
         <mat-tab label="Pics">
             <label class="fileSize"> * All Files Size should be below 110KB</label><br/>
 
@@ -281,13 +287,15 @@
             <!-- <label><span class="glyphicon glyphicon-envelope"></span> Misc Uploads</label>
             <input type="file" class="form-control " (change)="prepareUpload('misc',$event)" multiple/> -->
 
+            <div class="add-hostel-submit">
+                <button type="submit" *ngIf="enableSubmit" class="add-hostel-button" [disabled]="!hostelForm.form.valid"> <span *ngIf="!id"> ADD HOSTEL</span></button>
+            </div>
+
         </mat-tab>
 
     </mat-tab-group>
 
 
-    <div class="add-hostel-submit">
-        <button type="submit" *ngIf="enableSubmit" class="add-hostel-button" [disabled]="!hostelForm.form.valid"> ADD HOSTEL </button>
-    </div>
+    
 </form>
 </div>

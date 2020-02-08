@@ -1,5 +1,6 @@
-<h4>Update Hostel</h4><hr><br/>
-<div [hidden]="submitted" style="width: 400px;">
+<div class="add-hostel">
+    <h4><span class="glyphicon glyphicon-equalizer"></span> Update Hostel</h4>
+    <!-- <div [hidden]="submitted" style="width: 400px;">
     <form (ngSubmit)="onSubmit()">
         <label for="name">Hostel Name</label>
         <input type="text" class="form-control col col-sm-6" id="hostelName" [(ngModel)]="hostel.hostelName" name="hostelName"><br/>
@@ -9,7 +10,183 @@
         
         <label for="name">Hostel Type</label>
         <input type="text" class="form-control col col-sm-6" id="hostelType" [(ngModel)]="hostel.hostelType" name="hostelType"><br/>                
+
+        <label for="name">Number of Floors</label>
+        <input type="text" class="form-control col col-sm-6" id="numOfFloors" [(ngModel)]="hostel.numOfFloors" name="numOfFloors"><br/>                
+
+        <label for="name">Number of Rooms</label>
+        <input type="text" class="form-control col col-sm-6" id="rooms" [(ngModel)]="hostel.floors.rooms" name="rooms" value="{{rooms}}"><br/>
         
         <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div> -->
+
+    <form (ngSubmit)="onSubmit(hostelForm)" name="hostel-form" #hostelForm = "ngForm" >
+    <mat-tab-group>
+
+    <!-- Hostel Info Tab -->
+    <mat-tab label="Hostel Info" class="test">
+
+
+        <div class="add-hostel-details" [hidden]="submitted" style="width: 400px;">
+
+            <label for="name"> <span class="glyphicon glyphicon-envelope"></span> Hostel Name</label>
+            <input type="text" class="form-control" id="hostelName" [(ngModel)]="hostel.hostelName"
+                name="hostelName" required minlength="4" maxlength="40" #hostelName="ngModel"><br/>
+
+            <div *ngIf="hostelName.invalid && (hostelName.dirty || hostelName.touched)"
+                class="alert alert-danger">
+            
+                <div *ngIf="hostelName.errors.required">
+                Hostel Name is required.
+                </div>
+                <div *ngIf="hostelName.errors.minlength">
+                Hostel Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="hostelName.errors.maxlength">
+                Hostel Name must 40 characters long.
+                </div>
+            
+            </div>
+                
+
+            <label><span class="glyphicon glyphicon-map-marker"></span> Hostel Address</label>
+            <input type="text" class="form-control " id="hostelAddress" [(ngModel)]="hostel.hostelAddress"
+                name="hostelAddress" required #hostelAddress="ngModel" maxlength="80"><br/>
+
+            <div *ngIf="hostelAddress.invalid && (hostelAddress.dirty || hostelAddress.touched)"
+                class="alert alert-danger">
+            
+                <div *ngIf="hostelAddress.errors.required">
+                Hostel Address is required.
+                </div>
+                <div *ngIf="hostelAddress.errors.maxlength">
+                Hostel Address must 80 characters long.
+                </div>
+            
+            </div>
+
+            <label><span class="glyphicon glyphicon-ok"></span> Hostel Type</label>
+
+            <select class="form-control" id="hostelType" [(ngModel)]="hostel.hostelType" name="hostelType" 
+            required #hostelType="ngModel">                    
+                <option>Men</option>
+                <option>Women</option>
+            </select><br/>
+
+            <div *ngIf="hostelType.invalid && (hostelType.dirty || hostelType.touched)"
+                class="alert alert-danger">
+            
+                <div *ngIf="hostelType.errors.required">
+                Hostel Type is required.
+                </div>                
+            </div>
+
+            <label><span class="glyphicon glyphicon-th-large"></span> Number of Floors</label>
+            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                id="numOfFloors" name="numOfFloors" class="form-control" [(ngModel)]="hostel.numOfFloors" 
+                (ngModelChange)="populateFloors($event)" required #numOfFloors="ngModel"><br/>
+
+            <div *ngIf="numOfFloors.invalid && (numOfFloors.dirty || numOfFloors.touched)"
+                class="alert alert-danger">
+            
+                <div *ngIf="numOfFloors.errors.required">
+                Number of Floors is required.
+                </div>
+            
+            </div>
+
+            <label><span class="glyphicon glyphicon-file"></span> Description</label>
+            <textarea class="form-control" [(ngModel)]="hostel.misc" name="misc"></textarea>
+            
+        </div>
+
+        <div class="add-hostel-submit">
+            <button type="submit" *ngIf="enableSubmit" class="add-hostel-button" [disabled]="!hostelForm.form.valid"> <span *ngIf="!id"> ADD HOSTEL</span></button>
+        </div>
+
+    </mat-tab>
+
+    <!-- Rooms Tab -->
+    <mat-tab label="Rooms">
+
+        <div class="floor-select " *ngFor="let floor of hostel.numOfFloors; let i = index">
+            <div class="floor-header">
+                <span class="floor-name"> <span class="glyphicon glyphicon-home"></span> Floor-{{floor[i].floorName}}
+                </span>
+                <div class="add-room-button">
+                    <button title="Add Room" type="button" class="btn btn-background"
+                        (click)="addRoomDailog(floor.floorName)"><span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </div>
+                <span class="total-rooms"> Total Rooms : <strong>{{floor[i].rooms.length}}</strong></span>
+            </div>
+
+            <div class="room-box">
+                <div class="room-box-header"> <span class="glyphicon glyphicon-stop"></span> Single Rooms </div>
+                <span *ngFor="let room of getRoomsWithType(floor,'Single'); let j = index">
+
+                        <span class="sub-room-box">
+                                <div class="room-header">
+                                        <span class="room-name"> Room-{{floor[i].rooms[j].roomName}} </span> 
+                                </div>
+                                <span *ngFor="let bed of room.beds">
+                                        <span class="bed-box">
+                                            <span class="bed bed-alloted" [ngClass]="{
+                                                'bed-alloted-yes':bed.alloted === 'Y',
+                                                'bed-alloted-no':bed.alloted === 'N'
+                                                }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} </span>
+                                        </span> 
+                                </span>
+                        </span>
+                </span>
+            </div>
+
+            <div class="room-box">
+                <div class="room-box-header"> <span class="glyphicon glyphicon-th-large"></span> Double Rooms </div>
+                    
+                <span *ngFor="let room of getRoomsWithType(floor,'Double')">
+
+                        <span class="sub-room-box">
+                                <div class="room-header">
+                                        <span class="room-name"> Room-{{room.roomName}} </span> 
+                                </div>
+                                <span *ngFor="let bed of room.beds">
+                                        <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                                            <span class="bed bed-alloted" [ngClass]="{
+                                                'bed-alloted-yes':bed.alloted === 'Y',
+                                                'bed-alloted-no':bed.alloted === 'N'
+                                                }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} </span>
+                                        </span> 
+                                </span>
+                        </span>
+                    </span>
+                
+            </div>
+
+            <div class="room-box">
+                <div class="room-box-header"><span class="glyphicon glyphicon-th"></span> Triple Rooms </div>
+                <span *ngFor="let room of getRoomsWithType(floor,'Triple')">
+
+                        <span class="sub-room-box">
+                                <div class="room-header">
+                                        <span class="room-name"> Room-{{room.roomName}} </span> 
+                                </div>
+                                <span *ngFor="let bed of room.beds">
+                                        <span class="bed-box " (click)="onSelectedBed( bed, room.roomType, room.roomRent)" >
+                                            <span class="bed bed-alloted" [ngClass]="{
+                                                'bed-alloted-yes':bed.alloted === 'Y',
+                                                'bed-alloted-no':bed.alloted === 'N'
+                                                }"> <img  src="assets/img/bed.svg" class="bed-image"/> {{bed.id}} </span>
+                                        </span> 
+                                </span>
+                        </span>
+                </span>
+            </div>                
+        </div>
+
+    </mat-tab>
+
+    </mat-tab-group>
     </form>
 </div>

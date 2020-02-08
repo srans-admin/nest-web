@@ -9,8 +9,11 @@ import { HostelService } from '../../_services/hostel.service';
   styleUrls: ['./edit-hostel.component.css']
 })
 export class EditHostelComponent implements OnInit {
-  id : number;
-  hostel : Hostel;
+  private id : number;
+  private hostel : Hostel;
+  private temp : number = 0;
+  private rooms : number;
+  private  tempFloors: Array<any>;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private hostelService: HostelService) { }
@@ -24,7 +27,17 @@ export class EditHostelComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.hostel = data;
-      }, error => console.log(error));
+
+        for(let i = 0; i < this.hostel.floors.length;i++){
+          this.rooms = this.hostel.floors[i].rooms.length;
+          this.temp = this.temp + this.rooms;
+        }        
+        this.rooms = this.temp; 
+
+        this.populateFloors();
+
+      }, error => console.log(error));      
+    
   }
 
   putHostel() {
@@ -36,6 +49,15 @@ export class EditHostelComponent implements OnInit {
 
   onSubmit() {
     this.putHostel();    
+  }
+
+  populateFloors(){ 
+    for (let i = 1; i <=  this.hostel.numOfFloors; i++) {
+      this.tempFloors.push(this.hostel.numOfFloors[i]);
+    } 
+
+    this.hostel.addFloors(this.hostel.numOfFloors);
+
   }
 
   gotoList() {

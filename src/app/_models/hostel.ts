@@ -3,17 +3,17 @@ import { Room } from './room';
 
 export class Hostel {
    
-  id: number ;
-  hostelName: string;
-  hostelAddress: string;
-  hostelType: string;
+  private id: number ;
+  private hostelName: string;
+  private hostelAddress: string;
+  private hostelType: string;
   tv : boolean;
   fridge : boolean;
   ac : boolean;
   mineralWater : boolean;
   parking : boolean;
   gym : boolean;
-  numOfFloors: number = 1;
+  numOfFloors: number;
   receptionUIImage: File ;
   floors : Array<Floor> = [];
   array: any;
@@ -22,25 +22,24 @@ export class Hostel {
   pic:any;
   adminId:number;
 
-
-  addRoom(floorName, room: Room){
-    
-    for(let i=0; i<this.floors.length; i++ ){
-
-        if(this.floors[i].floorName == floorName ){
-          this.floors[i].rooms.push(room);
-        }  
-    } 
-  }
-
+  // Adding Floors
   addFloors( numOfFloors: number){
-
     this.floors = [];
     for(let i = 0 ; i < numOfFloors; i++){
       this.floors.push(new Floor(""+(i+1)));
     }
   }
 
+  // Adding Rooms
+  addRoom(floorName, room: Room){
+    
+    for(let i=0; i < this.floors.length; i++ ){
+
+        if(this.floors[i].floorName == floorName ){
+          this.floors[i].rooms.push(room);
+        }  
+    } 
+  }
 
 }
 
