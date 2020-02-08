@@ -65,6 +65,7 @@ export class BedReservationComponent implements OnInit {
 
   ngOnInit() {
     this.filterForeCasts();
+    this.user.role = 'GUEST';
   }
 
   save() {

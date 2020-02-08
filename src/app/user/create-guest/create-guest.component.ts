@@ -51,9 +51,9 @@ export class CreateGuestComponent implements OnInit {
     this.registration.role = 'GUEST';
 
     //stop here if form is Invalid
-    if(this.registrationForm.invalid) {
-      return;
-    }
+    // if(this.registrationForm.invalid) {
+    //   return;
+    // }
     
     this.loading = true;
     this.registrationService.registration(this.registration)
@@ -67,6 +67,13 @@ export class CreateGuestComponent implements OnInit {
          this.alertMessage.showFailedMsg( this.nIDOSMessages.UserRegistrationFailed +":"+ err.message ); 
          this.loading = false; 
        });
+
+    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registrationForm.value, null, 4));
+}
+
+onReset() {
+  this.submitted = false;
+  this.registrationForm.reset();
 }
 
 }

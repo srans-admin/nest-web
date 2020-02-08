@@ -123,13 +123,13 @@
                     class="alert alert-danger">
                 
                   <div *ngIf="emergencyContactNumber.errors.required">
-                    Emergency ContactNumber is required.
+                    Emergency Contact Number is required.
                   </div>
                   <div *ngIf="emergencyContactNumber.errors.minlength">
-                    Emergency ContactNumber must be  10 Digits.
+                    Emergency Contact Number must be  10 Digits.
                   </div>
                   <div *ngIf="emergencyContactNumber.errors.maxlength">
-                    Emergency contactNumber must 10 Digits.
+                    Emergency contact Number must 10 Digits.
                  </div>
                 </div>
         
@@ -141,7 +141,11 @@
             
           <label for="name"><span class="glyphicon glyphicon-user"></span> Permanent Address:</label>
           <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="user.permanentAddress" name="permanentAddress"
+<<<<<<< Updated upstream
           required minlength="15" maxlength="150" #permanentAddress="ngModel"><br/>
+=======
+          required minlength="12" maxlength="250" #permanentAddress="ngModel"><br/>
+>>>>>>> Stashed changes
           <div *ngIf="permanentAddress.invalid && (permanentAddress.dirty || permanentAddress.touched)"
                     class="alert alert-danger">
                 
@@ -149,10 +153,10 @@
                     permanentAddress is required.
                   </div>
                   <div *ngIf="permanentAddress.errors.minlength">
-                    permanentAddress must be at least 25 characters long.
+                    permanentAddress must be at least 12 characters long.
                   </div>
                   <div *ngIf="permanentAddress.errors.maxlength">
-                    permanentAddress must 20 characters long.
+                    permanentAddress must 250 characters long.
                   </div>
                 </div>
           
@@ -215,27 +219,27 @@
       <div class="row selected-bed-info-header">
         <div><span class="glyphicon glyphicon-asterisk"></span> Selected Bed Information </div>
       </div>
-      <div class="row">
+      <div class="row" >
         <div class="col-md-6">
-          <label>Hosel</label>
+          <label>Hostel Name</label>
           <div class="name"> {{selectedBedInfo.hostelName}} </div>
         </div>
         <div class="col-md-6">
-          <label>Floor</label>
+          <label>Floor Number</label>
           <div class="name">{{selectedBedInfo.floorName}}</div>
         </div>
       </div>
       <div class="row">
           <div class="col-md-6">
-            <label>Room</label>
+            <label>Room Number</label>
             <div class="name">{{selectedBedInfo.roomName}} </div>
           </div>
           <div class="col-md-6">
-            <label>Bed</label>
+            <label>Bed Number</label>
             <div class="name">{{selectedBedInfo.bed.id}}</div>
           </div>
         </div> 
-        <div class="row">
+        <div class="row" >
             <div class="col-md-6">
                 <label>Bed Position</label>
                 <div class="name">{{selectedBedInfo.bed.position}} </div>
@@ -247,26 +251,18 @@
              
           </div>
 
-          <div class="row">
+          <div class="row" >
               <div class="col-md-6">
                   <label>Room Sharing </label>
                   <div class="name">{{selectedBedInfo.roomType}} </div>
-                </div> 
-               
+                </div>               
             </div>
-    </div>
-
-  
+    </div> 
   </div>
-
-
     </mat-tab>
 
 
     <mat-tab label="Payment" *ngIf="isHostelPaymentReq">
-
-
-       
 
         <div class="tenant-form-1" style="width: 300px;">
 
@@ -295,7 +291,6 @@
           <label for="name"><span class="glyphicon glyphicon-building"></span> Bank Name</label>
           <input type="text" oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="bankName" required [(ngModel)]="user.payment.bankName" name="bankName">    
         </span>
-
         
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Room Rent:</label>
         <input type="text" class="form-control"   required [(ngModel)]="user.payment.roomRent" name="roomRent" value="{{user.payment.roomRent - user.payment.discountAmount}}" readonly>
@@ -308,6 +303,7 @@
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Discount Amount:</label>
         <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
         class="form-control"   required [(ngModel)]="user.payment.discountAmount" name="discountAmount"/>
+<<<<<<< Updated upstream
 
         <!-- <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Deposit Amount Discount:</label>
         <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
@@ -320,6 +316,12 @@
         <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Total Amount to be paid:</label>
         <input type="text" class="form-control"   readonly value="{{ user.payment.amountPaid   }}" >
      -->
+=======
+        
+        <label for="name"><span class="glyphicon glyphicon-credit-card"></span> Amount to be paid:</label>
+        <input type="text" class="form-control"   readonly required ([ngModel])="user.payment.amountPaid" value="{{(user.payment.roomRent + user.payment.roomRent) - user.payment.discountAmount}}" >
+
+>>>>>>> Stashed changes
      <label for="name">Comments</label>
      <textarea   class="form-control"  [(ngModel)]="payment.comments" ></textarea>
           <div >
