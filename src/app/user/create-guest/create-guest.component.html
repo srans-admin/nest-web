@@ -9,6 +9,7 @@
 <h2>Guest Enquiry</h2>
 <form (ngSubmit)="onSubmit(registrationForm)" name="registration-form" #registrationForm = "ngForm" >
 <div class="form-group" style="width:300px"> 
+<<<<<<< Updated upstream
     <!-- <label for="username">Name</label>
     <input type="text" formControlName="username" [(ngModel)]="registration.name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
@@ -17,6 +18,12 @@
     <label><span class="glyphicon glyphicon-user" ></span> Name:</label>
     <input type="text" class="form-control" id="name" required [(ngModel)]="registration.name" name="name" 
      required minlength="4" maxlength="20" #name="ngModel"><br/>
+=======
+    
+    <label><span class="glyphicon glyphicon-user" ></span> Name:</label>
+    <input  class="form-control" id="name" required [(ngModel)]="registration.name" name="name" 
+     required minlength="4" maxlength="30" #name="ngModel" ><br/>
+>>>>>>> Stashed changes
     <div *ngIf="name.invalid && (name.dirty || name.touched)"
               class="alert alert-danger">
           
@@ -31,6 +38,7 @@
             </div>
           
           </div>
+<<<<<<< Updated upstream
     <!-- <label for="emailId">Email Id</label>
     <input type="text" formControlName="emailId" [(ngModel)]="registration.emailId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }" />
     <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
@@ -39,18 +47,28 @@
     <label for="emailId"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
           <input type="email" class="form-control" id="emailId" required [(ngModel)]="registration.emailId" name="emailId"
             #emailId="ngModel" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"><br/>         
+=======
+    
+    <label for="emailId"><span class="glyphicon glyphicon-envelope"></span> Email Id:</label>
+          <input type="email" class="form-control" id="emailId" required [(ngModel)]="registration.emailId" name="emailId"
+            #emailId="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"><br/>         
+>>>>>>> Stashed changes
           <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)"
                     class="alert alert-danger">
                   <div *ngIf="emailId.errors.required">
                      Valid Email is required.
                   </div>                                                 
                 </div>
+<<<<<<< Updated upstream
     <!-- <label for="contactNumber">Phone Number</label>
     <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
     formControlName="contactNumber"  [(ngModel)]="registration.contactNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }"/>
     <div *ngIf="submitted && f.contactNumber.errors" class="invalid-feedback">
         <div *ngIf="f.contactNumber.errors.required">contactNumber is required</div>
     </div>  -->
+=======
+    
+>>>>>>> Stashed changes
     <label for="contactNumber"><span class="glyphicon glyphicon-earphone"></span> Contact Number:</label>
           <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
           class="form-control" id="contactNumber" required [(ngModel)]="registration.contactNumber" name="contactNumber" 

@@ -1,49 +1,110 @@
 <h3>Update Profile</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit(profileForm)" name="profile-form" #profileForm = "ngForm">
 
       <div class="form-group"  >
           <label for="name">Email</label>
-          <input type="text" class="form-control" id="emailId" required [(ngModel)]="currentUser.emailId" name="emailId" readonly>
+          <input type="email" class="form-control" id="emailId" required [(ngModel)]="currentUser.emailId" name="emailId" 
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" readonly>
         </div>
 
   <div class="form-group"   >
     <label for="name">Name</label>
+<<<<<<< Updated upstream
     <input type="text" class="form-control" id="name" required [(ngModel)]="currentUser.name" name="name" >
+=======
+    <input type="text" class="form-control" id="name" required [(ngModel)]="currentUser.name" name="name" 
+    required minlength="4" maxlength="30" #name="ngModel" ><br/>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+              class="alert alert-danger">
+          
+            <div *ngIf="name.errors.required">
+               Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+               Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="name.errors.maxlength">
+               Name must 30 characters long.
+            </div>
+          
+          </div>
+>>>>>>> Stashed changes
   </div>
 
   <div class="form-group"   >
       <label for="name">Phone Number</label>
       <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+<<<<<<< Updated upstream
       class="form-control" id="contactNumber" required [(ngModel)]="currentUser.contactNumber" name="contactNumber"/>
     </div>
+=======
+      class="form-control" id="contactNumber" required [(ngModel)]="currentUser.contactNumber" name="contactNumber"
+      required minlength="10" maxlength="10" #contactNumber="ngModel" width="10" pattern="[0-9]+"/><br/>
+          <div *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="contactNumber.errors.required">
+                    contactNumber is required.
+                  </div>
+                  <div *ngIf="contactNumber.errors.minlength">
+                    contactNumber must be  10 Digits.
+                  </div>
+                  <div *ngIf="contactNumber.errors.maxlength">
+                    contactNumber must 10 Digits.
+                 </div>
+          </div>
+  </div>
+>>>>>>> Stashed changes
 
   <div class="form-group"  >
       <label for="name">Father Name</label>
-      <input type="text" class="form-control" id="fatherName" required [(ngModel)]="currentUser.fatherName" name="fatherName">
+      <input type="text" class="form-control" id="fatherName" required [(ngModel)]="currentUser.fatherName" name="fatherName"
+      required minlength="4" maxlength="30" #fatherName="ngModel"><br/>
+          <div *ngIf="fatherName.invalid && (fatherName.dirty || fatherName.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="fatherName.errors.required">
+                     Father Name is required.
+                  </div>
+                  <div *ngIf="fatherName.errors.minlength">
+                    Father Name must be at least 4 characters long.
+                  </div>
+                  <div *ngIf="fatherName.errors.maxlength">
+                    Father Name must 30 characters long.
+                  </div>
+                </div> 
     </div>  
 
   <div class="form-group"  >
       <label for="name">Father phoneNumber</label>
       <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+<<<<<<< Updated upstream
       class="form-control" id="fatherphoneNumber" required [(ngModel)]="currentUser.fatherphoneNumber" name="fatherphoneNumber"/>
+=======
+      class="form-control" id="fatherphoneNumber"  [(ngModel)]="currentUser.fatherphoneNumber" name="fatherphoneNumber" />
+>>>>>>> Stashed changes
     </div>
 
   <div class="form-group"  >
       <label for="name">Mother Name</label>
-      <input type="text" class="form-control" id="motherName" required [(ngModel)]="currentUser.motherName" name="motherName">
+      <input type="text" class="form-control" id="motherName"  [(ngModel)]="currentUser.motherName" name="motherName">
     </div>
 
   <div class="form-group" >
       <label for="name">Mother phoneNumber</label>      
       <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+<<<<<<< Updated upstream
       class="form-control" id="motherphoneNumber" required [(ngModel)]="currentUser.motherphoneNumber" name="motherphoneNumber"/>
+=======
+      class="form-control" id="motherphoneNumber"  [(ngModel)]="currentUser.motherphoneNumber" name="motherphoneNumber" minlength="10" maxlength="10"/>
+>>>>>>> Stashed changes
     </div>
 
   <div class="form-group" >
       <label for="name">Date of Birth</label>
       <span class="date-picker">
-      <input type="text" required [matDatepicker]="picker" class="form-control" id="dob" required [(ngModel)]="currentUser.dob" name="dob" placeholder="MM/DD/YY">
+      <input type="text" required [matDatepicker]="picker" class="form-control" id="dob"  [(ngModel)]="currentUser.dob" name="dob" placeholder="MM/DD/YY">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
              <mat-datepicker #picker></mat-datepicker> 
             </span>
@@ -53,7 +114,7 @@
 
   <div class="form-group"  >
       <label for="name"><span class="glyphicon glyphicon-tint"></span> Blood Group:</label>
-          <select  class="browser-default custom-select" id="bloodGroup" required [(ngModel)]="currentUser.bloodGroup" name="bloodGroup" >
+          <select  class="browser-default custom-select" id="bloodGroup"  [(ngModel)]="currentUser.bloodGroup" name="bloodGroup" >
           <option>A+</option>
           <option>A-</option>
           <option>B+</option>
@@ -68,27 +129,59 @@
   <div class="form-group"  >
       <label for="name">Emergency ContactNumber</label>
       <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+<<<<<<< Updated upstream
       class="form-control" id="emergencyContactNumber" required [(ngModel)]="currentUser.emergencyContactNumber" name="emergencyContactNumber"/>
+=======
+      class="form-control" id="emergencyContactNumber" required [(ngModel)]="currentUser.emergencyContactNumber" name="emergencyContactNumber"
+      required minlength="10" maxlength="10" #emergencyContactNumber="ngModel" width="10" pattern="[0-9]+"/><br/>
+          <div *ngIf="emergencyContactNumber.invalid && (emergencyContactNumber.dirty || emergencyContactNumber.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="emergencyContactNumber.errors.required">
+                    Emergency Contact Number is required.
+                  </div>
+                  <div *ngIf="emergencyContactNumber.errors.minlength">
+                    Emergency Contact Number must be  10 Digits.
+                  </div>
+                  <div *ngIf="emergencyContactNumber.errors.maxlength">
+                    Emergency Contact Number must 10 Digits.
+                 </div>
+          </div>
+>>>>>>> Stashed changes
     </div>
 
   <div class="form-group"  >
       <label for="name">Name Of The Employer</label>
-      <input type="text" class="form-control" id="nameOfTheEmployer" required [(ngModel)]="currentUser.nameOfTheEmployer" name="nameOfTheEmployer">
+      <input type="text" class="form-control" id="nameOfTheEmployer"  [(ngModel)]="currentUser.nameOfTheEmployer" name="nameOfTheEmployer">
     </div>
 
   <div class="form-group"  >
     <label for="name">Office Address</label>
-    <input type="text" class="form-control" id="officeAddress" required [(ngModel)]="currentUser.officeAddress" name="officeAddress">
+    <input type="text" class="form-control" id="officeAddress"  [(ngModel)]="currentUser.officeAddress" name="officeAddress">
   </div>
 
  
 
    <div class="form-group"  >
     <label for="name">Permanent Address</label>
-    <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="currentUser.permanentAddress" name="permanentAddress">
+    <input type="text" class="form-control" id="permanentAddress" required [(ngModel)]="currentUser.permanentAddress" name="permanentAddress"
+    required minlength="15" maxlength="150" #permanentAddress="ngModel"><br/>
+          <div *ngIf="permanentAddress.invalid && (permanentAddress.dirty || permanentAddress.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="permanentAddress.errors.required">
+                    permanentAddress is required.
+                  </div>
+                  <div *ngIf="permanentAddress.errors.minlength">
+                    permanentAddress must be at least 25 characters long.
+                  </div>
+                  <div *ngIf="permanentAddress.errors.maxlength">
+                    permanentAddress must 20 characters long.
+                  </div>
+                </div>
   </div>
   
-    <button type="submit" class="btn btn-success" > Update My Profile</button>
+    <button type="submit" [disabled]="!profileForm.form.valid" class="btn btn-success" > Update My Profile</button>
     <!-- <button routerLink="/profile" routerLinkActive="active" class="btn btn-link">Cancel</button> -->
     <button type="button" class="btn btn-secondary" (click)="cancelProfile()" style="margin-left:20px">Cancel</button>
 
