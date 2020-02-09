@@ -71,6 +71,9 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.userInfo = this.authenticationService.currentUser;
+    this.defineRole();
+
       // this.authenticationService.getCurrentUserEmitorEvent().subscribe(user => { 
          
       //    this.userInfo  = user;
